@@ -613,8 +613,8 @@ body {
 
 /* START HOW WE DO IT SECTION */
 
-/* Styles for the "how-we-do-it" section */
-#how-we-do-it {
+/* Styles for the "product_features_offered_section" section */
+#product_features_offered_section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -623,19 +623,19 @@ body {
   
 }
 
-#how-we-do-it .how-we-do-it-title-section {
+#product_features_offered_section .product_features_offered_section-title-section {
   width: 100%;
   padding: 5% 0;
   background-color: lightskyblue;
   text-align: center;
 }
 
-#how-we-do-it .how-we-do-it-title,
-#how-we-do-it .how-we-do-it-title-subsection {
+#product_features_offered_section .product_features_offered_section-title,
+#product_features_offered_section .product_features_offered_section-title-subsection {
   margin: 0;
 }
 
-#how-we-do-it .process-container {
+#product_features_offered_section .process-container {
   width: 80%;
   margin: 0 auto;
   display: flex;
@@ -645,7 +645,7 @@ body {
   height: 100%;
 }
 
-#how-we-do-it .process-container .ai-tool-row {
+#product_features_offered_section .process-container .ai-tool-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -654,7 +654,7 @@ body {
   margin: 30px 0;
 }
 
-#how-we-do-it .process-container .ai-tool-row .tool-box {
+#product_features_offered_section .process-container .ai-tool-row .tool-box {
   display: flex;
   flex-direction: column; /* This ensures the vertical stacking of children (image above text) */
   justify-content: center; /* This vertically centers the content in the flex container */
@@ -674,7 +674,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#how-we-do-it .process-container .ai-tool-row .tool-box:hover {
+#product_features_offered_section .process-container .ai-tool-row .tool-box:hover {
   background-color: #064dbf;
   box-shadow: 0px 30px 40px 0px var(--grayishBlue), 0px 40px 60px -30px var(--grayishBlue);
   cursor: pointer;
@@ -691,8 +691,7 @@ i.material-icons {
 
 
 
-
-#how-we-do-it .process-container .ai-tool-row .tool-box img {
+#product_features_offered_section .process-container .ai-tool-row .tool-box img {
   width: 80%; /* Adjust width to not stretch image */
   margin: 0 auto; /* Center image horizontally */
   display: block; /* Ensures the image behaves as a block element, allowing margin auto to center it */
@@ -700,7 +699,7 @@ i.material-icons {
   height: auto; /* Keep image aspect ratio */
 }
 
-#how-we-do-it .process-container .ai-tool-row .tool-box p {
+#product_features_offered_section .process-container .ai-tool-row .tool-box p {
   margin: 0;
   width: 80%; /* Control text block width */
 }
@@ -888,7 +887,7 @@ i.material-icons {
 }
 
 @media (max-width: 575px) {
-  #how-we-do-it {
+  #product_features_offered_section {
     width: 95%;
     display: flex;
     
@@ -921,6 +920,7 @@ i.material-icons {
 
 
 .feature_in_depth_section {
+  padding: 5%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -940,7 +940,8 @@ i.material-icons {
 
 }
 
-.feature_in_depth_section .feat_subsection_row_div {
+.feature_in_depth_section .feature_subsection_row_div {
+  
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
@@ -995,86 +996,6 @@ i.material-icons {
 
 
 
-.feature_in_depth_section .why-custom-AI-title-section {
-  text-align: center;
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  /* Center the children */
-  justify-content: center;
-}
-
-.feature_in_depth_section .why-custom-AI-title {
-  width: 100%;
-  padding-bottom: 0px;
-  text-align: center;
-}
-
-.feature_in_depth_section .why-custom-AI-title,
-.feature_in_depth_section .why-custom-AI-subtitle {
-  margin: 0;
-  width: 70%;
-  background-color: pink;
-}
-
-
-@media (max-width: 992px) {
-  .feature_in_depth_section .why-custom-AI-content {
-    text-align: left;
-    width: 100%;
-    max-width: 1500px;
-    /* background-color: red; */
-    text-wrap: wrap;
-  
-  }
-}
-
-@media (min-width: 992px) {
-  .feature_in_depth_section .why-custom-AI-content {
-    text-align: left;
-    width: 100%;
-    max-width: 1500px;
-    /* background-color: red; */
-    text-wrap: wrap;
-  
-  }
-  
-}
-
-.why-custom-AI-content {
-  
-  justify-content: center;
-}
-
-.why-custom-ai-p-div {
-  width: 80%;
-  display: flex;
-  justify-content: center;
-}
-
-@media (min-width: 1400px) {
-  .why-custom-ai-p-div {
-    max-width: 1325px;
-  }
-}
-
-@media (max-width: 575px) {
-  .why-custom-ai-p-div {
-    width: 95%;
-  }
-  
-}
-
-@media (max-wi) {
-  
-}
-
-
-.feature_in_depth_section .why-custom-AI-content p {
-  width: 100%;
-
-}
 
 
 

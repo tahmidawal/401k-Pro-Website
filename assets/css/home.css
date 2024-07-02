@@ -814,12 +814,25 @@ section {
   color: #3498db;
 }
 
+@media (min-width: 768px) {
+  #services .custom-width-for-ipad {
+      width: 35% !important;
+      margin-bottom: 2% !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #services .custom-width-for-ipad {
+      width: 25% !important;
+      margin-bottom: 2% !important;
+  }  
+}
+
+
 /*--------------------------------------------------------------
 # More Services
 --------------------------------------------------------------*/
-.more-services {
-  padding-top: 20px;
-}
+
 
 .more-services .card {
   border: 0;

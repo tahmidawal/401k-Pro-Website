@@ -1,0 +1,291 @@
+<style>
+    /* styles.css */
+
+    .bg-blue-500 {
+        background-color: #3b82f6;
+    }
+
+    .hover\:bg-blue-600:hover {
+        background-color: #2563eb;
+    }
+
+    .text-white {
+        color: #ffffff;
+    }
+
+    .font-bold {
+        font-weight: 700;
+    }
+
+    .inline-flex {
+        display: inline-flex;
+    }
+
+    .rounded {
+        border-radius: 0.25rem;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .items-center {
+        align-items: center;
+    }
+
+    .h-2 {
+        height: 0.5rem;
+    }
+
+    .w-2 {
+        width: 0.5rem;
+    }
+
+    .rounded-full {
+        border-radius: 9999px;
+    }
+
+    .ml-2 {
+        margin-left: 0.5rem;
+    }
+
+    .py-2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .mb-6 {
+        margin-bottom: 1.5rem;
+    }
+
+    .mb-2 {
+        margin-bottom: 0.5rem;
+    }
+
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .max-w-lg {
+        max-width: 32rem;
+    }
+
+    .p-6 {
+        padding: 1.5rem;
+    }
+
+    .bg-white {
+        background-color: #ffffff;
+    }
+
+    .rounded-lg {
+        border-radius: 0.5rem;
+    }
+
+    .shadow-lg {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-2xl {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .font-semibold {
+        font-weight: 600;
+    }
+
+    .text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+    }
+
+    .text-sm {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
+
+    .space-y-2> :not([hidden])~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+    }
+
+    .bg-blue-500 {
+        background-color: #3b82f6;
+    }
+</style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="max-w-lg mx-auto p-6 bg-white dark:bg-zinc-800 rounded-lg shadow-lg">
+        <div class="text-center mb-6">
+            <h2 class="text-2xl font-bold mb-2">Starting at</h2>
+            <p class="text-4xl font-semibold">$350/mo</p>
+        </div>
+        <div class="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-lg mb-6">
+            <ul class="text-sm grid grid-cols-1 md:grid-cols-2 gap-4">
+                <li class="flex items-center">
+                    <span class="h-2 w-2 bg-blue-500 dark:bg-blue-300 rounded-full mr-2"></span>
+                    AI-powered bookkeeping
+                </li>
+                <li class="flex items-center">
+                    <span class="h-2 w-2 bg-blue-500 dark:bg-blue-300 rounded-full mr-2"></span>
+                    Intuitive reports
+                </li>
+                <li class="flex items-center">
+                    <span class="h-2 w-2 bg-blue-500 dark:bg-blue-300 rounded-full mr-2"></span>
+                    Live finance dashboards
+                </li>
+                <li class="flex items-center">
+                    <span class="h-2 w-2 bg-blue-500 dark:bg-blue-300 rounded-full mr-2"></span>
+                    24/7 AI Assistant
+                </li>
+                <li class="flex items-center">
+                    <span class="h-2 w-2 bg-blue-500 dark:bg-blue-300 rounded-full mr-2"></span>
+                    Fast monthly close
+                </li>
+                <li class="flex items-center">
+                    <span class="h-2 w-2 bg-blue-500 dark:bg-blue-300 rounded-full mr-2"></span>
+                    Proactive insights
+                </li>
+                <li class="flex items-center">
+                    <span class="h-2 w-2 bg-blue-500 dark:bg-blue-300 rounded-full mr-2"></span>
+                    Secure sharing & collaboration
+                </li>
+                <li class="flex items-center">
+                    <span class="h-2 w-2 bg-blue-500 dark:bg-blue-300 rounded-full mr-2"></span>
+                    Personalized onboarding
+                </li>
+            </ul>
+        </div>
+        <div class="text-center">
+            <button
+                class="bg-blue-500 dark:bg-blue-700 hover:bg-blue-600 dark:hover:bg-blue-800 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                <span>Book a demo</span>
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</body>
+<script>
+    // web-component.js
+    const sharedClasses = {
+        blueBg: 'bg-blue-500',
+        blueHoverBg: 'hover:bg-blue-600',
+        whiteText: 'text-white',
+        boldText: 'font-bold',
+        inlineFlex: 'inline-flex',
+        rounded: 'rounded',
+        flexItemsCenter: 'flex items-center',
+        h2: 'h-2',
+        w2: 'w-2',
+        roundedFull: 'rounded-full',
+        ml2: 'ml-2',
+        py2: 'py-2',
+        px4: 'px-4',
+        textCenter: 'text-center',
+        mb6: 'mb-6',
+        mb2: 'mb-2',
+        mxAuto: 'mx-auto',
+        maxWlg: 'max-w-lg',
+        p6: 'p-6',
+        bgWhite: 'bg-white',
+        roundedLg: 'rounded-lg',
+        shadowLg: 'shadow-lg',
+        text2xl: 'text-2xl',
+        fontBold: 'font-bold',
+        text4xl: 'text-4xl',
+        fontSemiBold: 'font-semibold',
+        textSm: 'text-sm',
+        spaceY2: 'space-y-2',
+        bgBlue500: 'bg-blue-500',
+    };
+
+    // Custom Pricing Card Component
+    class CustomPricingCard extends HTMLElement {
+        connectedCallback() {
+            this.render();
+        }
+
+        render() {
+            this.innerHTML = `
+            <div class="${sharedClasses.maxWlg} ${sharedClasses.mxAuto} ${sharedClasses.p6} ${sharedClasses.bgWhite} ${sharedClasses.roundedLg} ${sharedClasses.shadowLg}">
+                <div class="${sharedClasses.textCenter} ${sharedClasses.mb6}">
+                    <h2 class="${sharedClasses.text2xl} ${sharedClasses.fontBold} ${sharedClasses.mb2}">Starting at</h2>
+                    <p class="${sharedClasses.text4xl} ${sharedClasses.fontSemiBold}">$350/mo</p>
+                </div>
+                <ul class="${sharedClasses.textSm} ${sharedClasses.spaceY2} ${sharedClasses.mb6}">
+                    <li class="${sharedClasses.flexItemsCenter}">
+                        <span class="${sharedClasses.h2} ${sharedClasses.w2} ${sharedClasses.bgBlue500} ${sharedClasses.roundedFull} ${sharedClasses.ml2}"></span>
+                        AI-powered bookkeeping
+                    </li>
+                    <li class="${sharedClasses.flexItemsCenter}">
+                        <span class="${sharedClasses.h2} ${sharedClasses.w2} ${sharedClasses.bgBlue500} ${sharedClasses.roundedFull} ${sharedClasses.ml2}"></span>
+                        Intuitive reports
+                    </li>
+                    <li class="${sharedClasses.flexItemsCenter}">
+                        <span class="${sharedClasses.h2} ${sharedClasses.w2} ${sharedClasses.bgBlue500} ${sharedClasses.roundedFull} ${sharedClasses.ml2}"></span>
+                        Live finance dashboards
+                    </li>
+                    <li class="${sharedClasses.flexItemsCenter}">
+                        <span class="${sharedClasses.h2} ${sharedClasses.w2} ${sharedClasses.bgBlue500} ${sharedClasses.roundedFull} ${sharedClasses.ml2}"></span>
+                        24/7 AI Assistant
+                    </li>
+                    <li class="${sharedClasses.flexItemsCenter}">
+                        <span class="${sharedClasses.h2} ${sharedClasses.w2} ${sharedClasses.bgBlue500} ${sharedClasses.roundedFull} ${sharedClasses.ml2}"></span>
+                        Fast monthly close
+                    </li>
+                    <li class="${sharedClasses.flexItemsCenter}">
+                        <span class="${sharedClasses.h2} ${sharedClasses.w2} ${sharedClasses.bgBlue500} ${sharedClasses.roundedFull} ${sharedClasses.ml2}"></span>
+                        Proactive insights
+                    </li>
+                    <li class="${sharedClasses.flexItemsCenter}">
+                        <span class="${sharedClasses.h2} ${sharedClasses.w2} ${sharedClasses.bgBlue500} ${sharedClasses.roundedFull} ${sharedClasses.ml2}"></span>
+                        Secure sharing & collaboration
+                    </li>
+                    <li class="${sharedClasses.flexItemsCenter}">
+                        <span class="${sharedClasses.h2} ${sharedClasses.w2} ${sharedClasses.bgBlue500} ${sharedClasses.roundedFull} ${sharedClasses.ml2}"></span>
+                        Personalized onboarding
+                    </li>
+                </ul>
+                <div class="${sharedClasses.textCenter}">
+                    <button class="${sharedClasses.blueBg} ${sharedClasses.blueHoverBg} ${sharedClasses.whiteText} ${sharedClasses.boldText} ${sharedClasses.py2} ${sharedClasses.px4} ${sharedClasses.rounded} ${sharedClasses.inlineFlex} ${sharedClasses.flexItemsCenter}">
+                        <span>Book a demo</span>
+                        <svg class="${sharedClasses.ml2} ${sharedClasses.w2} ${sharedClasses.h2}" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        `;
+        }
+    }
+
+    customElements.define('custom-pricing-card', CustomPricingCard);
+</script>
+
+</html>

@@ -1,0 +1,63 @@
+<body class="bg-gradient-to-r from-green-200 to-green-300 min-h-screen flex flex-col">
+  <nav class="bg-gradient-to-r from-green-200 to-green-300 p-4">
+    <ul class="flex space-x-8 text-lg font-medium text-black">
+      <li><a href="#" class="hover:text-zinc-700">Mission</a></li>
+      <li>
+        <a href="#" class="hover:text-zinc-700 relative" id="features-toggle">Features</a>
+        <ul id="features-dropdown" class="absolute hidden bg-white shadow-lg p-4 mt-2 space-y-2 rounded-lg">
+          <li class="flex items-center space-x-2">
+            <img src="https://placehold.co/24x24?text=📊" alt="AI Bookkeeping Icon" />
+            <div>
+              <a href="#" class="text-black hover:text-zinc-700">AI Bookkeeping</a>
+              <p class="text-sm text-zinc-500">24/7 automated bookkeeping</p>
+            </div>
+          </li>
+          <li class="flex items-center space-x-2">
+            <img src="https://placehold.co/24x24?text=💸" alt="AI Bill Pay Icon" />
+            <div>
+              <a href="#" class="text-black hover:text-zinc-700">AI Bill Pay</a>
+              <p class="text-sm text-zinc-500">Drag. Drop. Approve. Pay.</p>
+            </div>
+          </li>
+          <li class="flex items-center space-x-2">
+            <img src="https://placehold.co/24x24?text=📈" alt="AI Advisor Icon" />
+            <div>
+              <a href="#" class="text-black hover:text-zinc-700">AI Advisor</a>
+              <p class="text-sm text-zinc-500">24/7 financial analysis & insights</p>
+            </div>
+          </li>
+          <li class="flex items-center space-x-2">
+            <img src="https://placehold.co/24x24?text=📊" alt="Intuitive Reports Icon" />
+            <div>
+              <a href="#" class="text-black hover:text-zinc-700">Intuitive Reports</a>
+              <p class="text-sm text-zinc-500">No finance degree required</p>
+            </div>
+          </li>
+          <li class="flex items-center space-x-2">
+            <img src="https://placehold.co/24x24?text=📉" alt="Live Insights & KPIs Icon" />
+            <div>
+              <a href="#" class="text-black hover:text-zinc-700">Live Insights & KPIs</a>
+              <p class="text-sm text-zinc-500">Your business at your fingertips</p>
+            </div>
+          </li>
+          <li class="flex items-center space-x-2">
+            <img src="https://placehold.co/24x24?text=🔒" alt="Bank-grade Security Icon" />
+            <div>
+              <a href="#" class="text-black hover:text-zinc-700">Bank-grade Security</a>
+              <p class="text-sm text-zinc-500">Learn how we protect your data</p>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#" class="hover:text-zinc-700">Partners</a></li>
+      <li><a href="#" class="hover:text-zinc-700">Pricing</a></li>
+    </ul>
+  </nav>
+  <script>
+    const featuresToggle = document.getElementById('features-toggle');
+    const featuresDropdown = document.getElementById('features-dropdown');
+    featuresToggle.addEventListener('click', () => {
+      featuresDropdown.classList.toggle('hidden');
+    });
+  </script>
+</body>

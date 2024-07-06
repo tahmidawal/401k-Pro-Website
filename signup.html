@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Demo - 401(k) Pro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .left-section, .right-section {
+            flex: 1;
+            padding: 40px;
+        }
+        .left-section {
+            background-color: white;
+        }
+        .right-section {
+            background-color: #1798dc;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .logo {
+            margin-bottom: 40px;
+        }
+        .logo img {
+            max-width: 200px;
+            height: auto;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        input, select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #1798dc;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+        .testimonial {
+            font-style: italic;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        .popup-content {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+        .popup.show .popup-content {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .popup h3 {
+            color: #1798dc;
+            margin-top: 0;
+        }
+        .popup p {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .close-popup {
+            background-color: #1798dc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .close-popup:hover {
+            background-color: #1576a9;
+        }
+        @keyframes confetti {
+            0% { transform: translateY(0) rotateZ(0); opacity: 1; }
+            100% { transform: translateY(1000px) rotateZ(720deg); opacity: 0; }
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f0f;
+            opacity: 0;
+        }
+
+    </style>
+
+    <script>
+        function showPopup(e) {
+            e.preventDefault();
+            const popup = document.getElementById('popup');
+            popup.style.display = 'block';
+            setTimeout(() => popup.classList.add('show'), 10);
+            createConfetti();
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            popup.classList.remove('show');
+            setTimeout(() => popup.style.display = 'none', 300);
+        }
+
+        function createConfetti() {
+            const colors = ['#1798dc', '#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animation = `confetti ${Math.random() * 3 + 2}s linear forwards`;
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+
+                fetch('https://formspree.io/f/mzbnagdq', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                })
+                .then(response => {
+                    if (response.ok) {
+                        showPopup(e); // Show popup on success
+                        form.reset(); // Optionally reset the form fields
+                    } else {
+                        alert('There was a problem with your submission. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    alert('Oops! There was a problem with your submission. Please try again.');
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="left-section">
+        <div class="logo">
+            <a href="index.html"><img src="assets/img/401(K) Pro Logo.png" alt="Your Logo"></a>
+        </div>
+        <h2>Just a few questions...</h2>
+        <form action="https://formspree.io/f/mzbnagdq" method="POST">
+            <label for="email">Work email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="firstname">First name</label>
+            <input type="text" id="firstname" name="firstname" required>
+            
+            <label for="lastname">Last name</label>
+            <input type="text" id="lastname" name="lastname" required>
+            
+            <label for="company">Company name</label>
+            <input type="text" id="company" name="company" required>
+            
+            <label for="industry">Industry</label>
+            <input type="text" id="industry" name="industry" required>
+            
+            <label for="location">Company location</label>
+            <input type="text" id="location" name="location" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="right-section">
+        <div class="testimonial">
+            <p>"I take great pride in the work I do for my clients. 401k pro helps me to showcase my efforts and be compliant in a clear and engaging way. It helps me save so much time and energy every quarter during our quarterly reports."</p>
+            <p>- Andrew Wilson, 401(k) Associate, Narwhal Capital</p>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h3>Thank You!</h3>
+            <p>We're excited about your interest in 401(k) Pro! Our team will reach out to you within the next 24 hours to discuss how we can help optimize your retirement planning.</p>
+            <button class="close-popup" onclick="closePopup()">Got it!</button>
+        </div>
+    </div>
+
+</body>
+</html>

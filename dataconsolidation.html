@@ -22,8 +22,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/AAI-webpage-header.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/img/401(k) Pro Symbol- No BG.png" rel="icon">
+    <link href="assets/img/401(k) Pro Symbol- No BG.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
@@ -38,6 +38,9 @@
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/home.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Process Links Below -->
 
@@ -106,6 +109,23 @@
             font-size: 0.875rem;
             color: #6c757d;
         }
+
+        #features-dropdown {
+            display: none !important;
+            transition: opacity 0.2s, visibility 0.2s;
+            opacity: 0 !important;
+            visibility: hidden !important;
+          }
+          
+          #features-dropdown.hidden {
+            display: none !important;
+          }
+          
+          #features-dropdown:not(.hidden) {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+          }
 
         /* Container for text and description */
         .dropdown-item-content {
@@ -220,7 +240,7 @@
             flex-direction: column;
             justify-content: top;
             align-items: center;
-            height: 400px; /* Fixed height for all cards */
+            height: 300px; /* Fixed height for all cards */
         }
     
         .card img {
@@ -249,11 +269,15 @@
             background-color: #000;
             color: #fff;
             padding: 12px 24px;
-            border-radius: 12px;
+            border-radius: 40px;
             text-decoration: none;
             font-size: 18px;
             font-weight: 500;
             transition: all 0.3s ease;
+            max-width: 100%; /* Ensure the button doesn't expand beyond its container */
+            width: auto; /* Allow the button to adjust its width automatically */
+            height: auto; /* Allow the button to adjust its height automatically */
+        
         }
           
         .custom-button:hover {
@@ -271,8 +295,86 @@
         border-radius: 50%;
         margin-left: 12px;
         }
-                    
+        .custom-button-container {
+            display: flex;
+            justify-content: center;
+            width: 100%; /* Ensure the container takes the full width of its parent */
+        }
+        .dropdown-open #features-dropdown {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        .navbar ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        }
+        
+        .navbar ul li {
+        margin-left: 5px;
+        }
+    
+        .nav-link.scrollto[href="signup.html"],
+        .getstarted.scrollto {
+        border-radius: 50px;
+        padding: 10px 20px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        display: inline-block;
+        text-align: center;
+        line-height: 1;
+        margin-left: 10px;
+        }
+    
+        .nav-link.scrollto[href="signup.html"] {
+        background-color: transparent;
+        color: #3498db;
+        border: 2px solid #3498db;
+        }
+    
+        .getstarted.scrollto {
+        background-color: #3498db;
+        color: #fff;
+        border: 2px solid #3498db;
+        }
+    
+        .nav-link.scrollto[href="signup.html"]:hover {
+        background-color: #3498db;
+        color: #fff;
+        }
+    
+        .getstarted.scrollto:hover {
+        background-color: #2980b9;
+        border-color: #2980b9;
+        }
+
+        .icon-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #e6f2ff;
+            color: #3b82f6;
+            flex-shrink: 0;
+        }
+        
+        .icon-circle .material-icons {
+            font-size: 18px;
+        }
+
+    
+    
+
+
     </style>
+      
+    
       
     
     
@@ -290,65 +392,86 @@
             </div>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="#">Mission</a></li>
-                    <li class="relative">
-                        <a href="#" class="hover:text-zinc-700" id="features-toggle">Features</a>
-                        <ul id="features-dropdown" class="absolute hidden bg-white shadow-lg mt-2 space-y-2 rounded-lg">
-                            <li class="flex items-center space-x-2">
-                                <img src="https://placehold.co/24x24?text=📊" alt="AI Bookkeeping Icon" />
-                                <div>
-                                    <a href="ai-bookkeeping.html" class="text-black hover:text-zinc-700">AI Bookkeeping</a>
-                                    <p class="text-sm text-zinc-500">24/7 automated bookkeeping</p>
-                                </div>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <img src="https://placehold.co/24x24?text=💸" alt="AI Bill Pay Icon" />
-                                <div>
-                                    <a href="ai-bill-pay.html" class="text-black hover:text-zinc-700">AI Bill Pay</a>
-                                    <p class="text-sm text-zinc-500">Drag. Drop. Approve. Pay.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <img src="https://placehold.co/24x24?text=📈" alt="AI Advisor Icon" />
-                                <div>
-                                    <a href="ai-advisor.html" class="text-black hover:text-zinc-700">AI Advisor</a>
-                                    <p class="text-sm text-zinc-500">24/7 financial analysis & insights</p>
-                                </div>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <img src="https://placehold.co/24x24?text=📊" alt="Intuitive Reports Icon" />
-                                <div>
-                                    <a href="intuitive-reports.html" class="text-black hover:text-zinc-700">Intuitive Reports</a>
-                                    <p class="text-sm text-zinc-500">No finance degree required</p>
-                                </div>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <img src="https://placehold.co/24x24?text=📉" alt="Live Insights & KPIs Icon" />
-                                <div>
-                                    <a href="live-insights.html" class="text-black hover:text-zinc-700">Live Insights & KPIs</a>
-                                    <p class="text-sm text-zinc-500">Your business at your fingertips</p>
-                                </div>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <img src="https://placehold.co/24x24?text=🔒" alt="Bank-grade Security Icon" />
-                                <div>
-                                    <a href="bank-grade-security.html" class="text-black hover:text-zinc-700">Bank-grade Security</a>
-                                    <p class="text-sm text-zinc-500">Learn how we protect your data</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="nav-link scrollto" href="beta-testing.html">Beta Testing</a></li>
-                    <li class="dropdown"><a href="#"><span>About Us</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a class="nav-link" href="team.html">Our Team</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                  <li><a class="nav-link scrollto" href="index.html">Mission</a></li>
+                  <li class="dropdown relative" id="features-container">
+                    <a href="#" class="hover:text-zinc-700" id="features-toggle">
+                      <span>Features</span> <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <ul id="features-dropdown" class="absolute hidden bg-white shadow-lg mt-2 space-y-2 rounded-lg p-4">
+                      <li class="flex items-start space-x-4">
+                        <div class="icon-circle mt-0.5">
+                          <span class="material-icons">account_balance</span>
+                        </div>
+                        <div class="flex-1">
+                          <a href="dataconsolidation.html" class="text-black hover:text-zinc-700 font-semibold">Data Consolidation and Client Tracking</a>
+                        </div>
+                      </li>
+                      <li class="flex items-start space-x-4">
+                        <div class="icon-circle mt-0.5">
+                          <span class="material-icons">bar_chart</span>
+                        </div>
+                        <div class="flex-1">
+                          <a href="automatedreporting.html" class="text-black hover:text-zinc-700 font-semibold">Automated Reporting</a>
+                        </div>
+                      </li>
+                      <li class="flex items-start space-x-4">
+                        <div class="icon-circle mt-0.5">
+                          <span class="material-icons">event</span>
+                        </div>
+                        <div class="flex-1">
+                          <a href="compliancecalendar.html" class="text-black hover:text-zinc-700 font-semibold">Compliance Calendar</a>
+                        </div>
+                      </li>
+                      <li class="flex items-start space-x-4">
+                        <div class="icon-circle mt-0.5">
+                          <span class="material-icons">chat</span>
+                        </div>
+                        <div class="flex-1">
+                          <a href="compliancechatbots.html" class="text-black hover:text-zinc-700 font-semibold">Compliance Chatbots</a>
+                        </div>
+                      </li>
+                      <li class="flex items-start space-x-4">
+                        <div class="icon-circle mt-0.5">
+                          <span class="material-icons">compare</span>
+                        </div>
+                        <div class="flex-1">
+                          <a href="plancomparisons.html" class="text-black hover:text-zinc-700 font-semibold">Plan Comparisons</a>
+                        </div>
+                      </li>
+                      <li class="flex items-start space-x-4">
+                        <div class="icon-circle mt-0.5">
+                          <span class="material-icons">security</span>
+                        </div>
+                        <div class="flex-1">
+                          <a href="securities.html" class="text-black hover:text-zinc-700 font-semibold">Bank-grade Security</a>
+                        </div>
+                      </li>
+                      <li class="flex items-start space-x-4">
+                        <div class="icon-circle mt-0.5">
+                          <span class="material-icons">smart_toy</span>
+                        </div>
+                        <div class="flex-1">
+                          <a href="aiintegrations.html" class="text-black hover:text-zinc-700 font-semibold">Upcoming AI Features</a>
+                        </div>
+                      </li>
+                      <li class="flex items-start space-x-4">
+                        <div class="icon-circle mt-0.5">
+                          <span class="material-icons">summarize</span>
+                        </div>
+                        <div class="flex-1">
+                          <a href="summary.html" class="text-black hover:text-zinc-700 font-semibold">Summary</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="nav-link scrollto" href="team.html">Our Team</a></li>
+                  <li><a class="nav-link scrollto" href="index.html#pricing">Pricing</a></li>
+                  <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                  <li><a class="nav-link scrollto" href="signup.html">Get Started</a></li>
+                  <li><a class="getstarted scrollto" href="https://app.401k-pro.ai" style="font-weight: bold;">Log In</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
+              </nav>
         </div>
     </header><!-- End Header -->
 
@@ -357,18 +480,18 @@
     class="feature_in_depth_section d-flex justify-content-center w-100 bg-light pb-5 pt-5">
     <div class="container d-flex flex-column align-items-center">
         <div class="section-title d-flex justify-content-center w-100" data-aos="fade-in">
-            <h2>AI Features and Integrations</h2>
+            <h2>Data Consolidation and Client Tracking</h2>
         </div>
         <div class="d-flex justify-content-center w-100 pb-2" data-aos="fade-in" data-aos-delay="100">
             <p class="section-title">
-                The 401(k) Pro team is always working to improve our product and add new features to make your life easier
+                Keep all of your client data in one place to make sure that you are always on top of your 401(k) plans
             </p>
         </div>
 
         <section id="book-demo" class="book-demo section-bg">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-6 text-center" data-aos="fade-up">
+                    <div class="col-lg-6 text-center custom-button-container" data-aos="fade-up">
                         <a href="signup.html" class="custom-button">
                             Get started with 401(k) Pro
                             <span class="arrow">→</span>
@@ -377,34 +500,31 @@
                 </div>
             </div>
         </section>
-        
-          
         <section class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl px-8 my-8">
             <!-- Card 1 -->
             <div class="bg-custom-card card" data-aos="fade-in" data-aos-delay="100">
-                <h2>AI Powered Writing Assistant</h2>
-                <p>401(k) Pro is developing an AI powered writing assistant that will automatically transform your rough notes into professionally written content in your master spreadsheet. This will be used to generate your quarterly and annual reports.</p>
+                <h2>All your clients in one place</h2>
+                <p>No more searching through different CRMS, TPA systems, and email chains to find your client information. Every single one of your clients and all of their customized information is at your fingertips.</p>
             </div>
             <div class="bg-blue-card card flex justify-center items-center" data-aos="fade-in" data-aos-delay="50">
-                <span class="material-symbols-outlined" style="font-size: 140px; color: white;">edit_note</span>
+                <span class="material-symbols-outlined" style="font-size: 140px; color: white;">folder_shared</span>
             </div>
             <!-- Card 2 -->
             <div class="bg-blue-card card flex justify-center items-center" data-aos="fade-in" data-aos-delay="150">
-                <span class="material-symbols-outlined" style="font-size: 140px; color: white;">email</span>
+                <span class="material-symbols-outlined" style="font-size: 140px; color: white;">quick_reference_all</span>
             </div>
             <div class="bg-custom-card card" data-aos="fade-in" data-aos-delay="200">
-                <h2>Email Integrations</h2>
-                <p>Have a long conversation chain with a client that contains notes you would like to log in 401(k) Pro but don't the time to do it manually? Our email integrations will allow you to forward the email chain to the AccessibleAI email address and have the notes automatically logged in your master spreadsheet.</p>
+                <h2>Query for Individual Clients</h2>
+                <p>Click 1 button to see just the data for one of your clients. Data querying is easy and fast.</p>
             </div>
             <!-- Card 3 -->
             <div class="bg-custom-card card" data-aos="fade-in" data-aos-delay="300">
-                <h2>Automatic Data Entry for New Clients</h2>
-                <p>When you onboard a new client, 401(k) Pro allows you to upload the plan adoption agreement into the system. It will then automatically populate your master spreadsheet with the agreement’s data, saving you time and ensuring no important details are missed.</p>
+                <h2>Easily track your interactions with each client</h2>
+                <p>401k Pro tracks the amount of touchpoints you have made with each client, so that you can know which clients you have been prioritizing and which you may need to give a little more attention to.</p>
             </div>
             <div class="bg-blue-card card flex justify-center items-center" data-aos="fade-in" data-aos-delay="250">
-                <span class="material-symbols-outlined" style="font-size: 140px; color: white;">document_scanner</span>
+                <span class="material-symbols-outlined" style="font-size: 140px; color: white;">bar_chart</span>
             </div>
-
         </section>
     </div>
 </section>
@@ -517,44 +637,39 @@
   <div class="space-y-8">
     <div class="flex flex-col md:flex-row md:items-start">
       <div class="md:w-1/2 mb-4 md:mb-0 pr-4 custom-border-right">
-        <h3 class="large-title">AI-Powered Writing Assistant</h3>
+        <h3 class="large-title">Deep financial expertise</h3>
       </div>
       <div class="md:w-1/2 text-muted-foreground">
         <p>
-            Uses AI algorithms to transform rough notes into professionally written content in master spreadsheets.
-        </p>
-      </div>
-    </div>
-    <div class="flex flex-col md:flex-row md:i==tems-start">
-      <div class="md:w-1/2 mb-4 md:mb-0 pr-4 custom-border-right">
-        <h3 class="large-title">Email Integration APIs</h3>
-      </div>
-      <div class="md:w-1/2 text-muted-foreground">
-        <p>
-            Provides APIs for integrating email communication, allowing automatic logging of email notes into the system.
+          Pre-trained on general accounting knowledge and on over half a trillion in small-business transaction volume, Digits AI Advisor has an unprecedented understanding of business finance and
+          financial modeling.
         </p>
       </div>
     </div>
     <div class="flex flex-col md:flex-row md:items-start">
-        <div class="md:w-1/2 mb-4 md:mb-0 pr-4 custom-border-right">
-          <h3 class="large-title">Automatic Data Entry</h3>
-        </div>
-        <div class="md:w-1/2 text-muted-foreground">
-          <p>
-            Employs AI to populate master spreadsheets with data from uploaded plan adoption agreements, ensuring accuracy and saving time.
-          </p>
-        </div>
-    </div>
-    <div class="flex flex-col md:flex-row md:i==tems-start">
-        <div class="md:w-1/2 mb-4 md:mb-0 pr-4 custom-border-right">
-          <h3 class="large-title">Machine Learning Models</h3>
-        </div>
-        <div class="md:w-1/2 text-muted-foreground">
-          <p>
-            Continuously learns from user input and improves functionality and accuracy over time.
-          </p>
-        </div>
+      <div class="md:w-1/2 mb-4 md:mb-0 pr-4 custom-border-right">
+        <h3 class="large-title">100% accurate math</h3>
       </div>
+      <div class="md:w-1/2 text-muted-foreground">
+        <p>
+          With proprietary financial modeling and custom-designed query language, Digits AI Advisor can understand intent and request computations without knowing the data’s underlying schema or
+          encryption keys, while delivering 100% accurate responses to every request.
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row md:items-start">
+      <div class="md:w-1/2 mb-4 md:mb-0 pr-4 custom-border-right">
+        <h3 class="large-title">Bank-grade security</h3>
+      </div>
+      <div class="md:w-1/2 text-muted-foreground">
+        <p>Three-tier approach:</p>
+        <ul class="list-disc pl-5">
+          <li>Customer data is encrypted at rest using AES-256.</li>
+          <li>We then leverage custom-trained, proprietary deep-learning models to understand the unique attributes of small-business finance and double-entry accounting.</li>
+          <li>The AI Assistant interacts with public LLM APIs using only anonymized and obfuscated customer identifiers.</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -718,18 +833,48 @@
     <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-        const featuresToggle = document.getElementById('features-toggle');
-        const featuresDropdown = document.getElementById('features-dropdown');
-        featuresToggle.addEventListener('click', (event) => {
-            event.preventDefault();
-            featuresDropdown.classList.toggle('hidden');
-        });
-
-        document.addEventListener('click', (event) => {
-            if (!featuresToggle.contains(event.target) && !featuresDropdown.contains(event.target)) {
-                featuresDropdown.classList.add('hidden');
+        document.addEventListener('DOMContentLoaded', function() {
+            const featuresContainer = document.getElementById('features-container');
+            const featuresToggle = document.getElementById('features-toggle');
+            const featuresDropdown = document.getElementById('features-dropdown');
+            let dropdownTimeout;
+          
+            function showDropdown() {
+              clearTimeout(dropdownTimeout);
+              featuresContainer.classList.add('dropdown-open');
+              featuresDropdown.classList.remove('hidden');
             }
-        });
+          
+            function hideDropdown() {
+              dropdownTimeout = setTimeout(function() {
+                featuresContainer.classList.remove('dropdown-open');
+                featuresDropdown.classList.add('hidden');
+              }, 300);
+            }
+          
+            featuresToggle.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              featuresDropdown.classList.toggle('hidden');
+            });
+          
+            featuresToggle.addEventListener('mouseenter', showDropdown);
+            featuresContainer.addEventListener('mouseleave', hideDropdown);
+          
+            featuresDropdown.addEventListener('mouseenter', showDropdown);
+            featuresDropdown.addEventListener('mouseleave', hideDropdown);
+          
+            document.addEventListener('click', function(e) {
+              if (!featuresContainer.contains(e.target)) {
+                featuresContainer.classList.remove('dropdown-open');
+                featuresDropdown.classList.add('hidden');
+              }
+            });
+          
+            featuresDropdown.addEventListener('click', function(e) {
+              e.stopPropagation();
+            });
+          });        
     </script>
 </body>
 

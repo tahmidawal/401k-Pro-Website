@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FSEY201DEK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FSEY201DEK');
+    </script>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>AccessibleAI - Our Team</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/AAI-webpage-header.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Process Links Below -->
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="assets/css/custom_systems_dev.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+        <style>
+            /* Ensure the dropdown stays open on hover */
+            #features-toggle:hover + #features-dropdown, #features-dropdown:hover {
+              display: block;
+            }
+          
+            /* Style and position the dropdown */
+            #features-dropdown {
+              display: none;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              z-index: 1000;
+              min-width: 12rem;
+              padding: 0.5rem 0;
+              margin: 0.025rem 0 0;
+              font-size: 0.8rem;
+              color: #212529;
+              text-align: left;
+              list-style: none;
+              background-color: #fff;
+              background-clip: padding-box;
+              border: 1px solid rgba(0, 0, 0, 0.15);
+              border-radius: 0.25rem;
+              box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            }
+          
+            /* Dropdown item styles */
+            #features-dropdown li {
+              padding: 0.5rem 1rem;
+              display: flex;
+              align-items: center;
+            }
+          
+            #features-dropdown li a {
+              color: #212529;
+              text-decoration: none;
+              display: block;
+            }
+          
+            #features-dropdown li a:hover {
+              color: #0056b3;
+              background-color: #f8f9fa;
+            }
+          
+            /* Style for the icons */
+            #features-dropdown li img {
+              width: 24px;
+              height: 24px;
+              margin-right: 0.5rem;
+            }
+          
+            /* Description text style */
+            #features-dropdown li p {
+              margin: 0;
+              font-size: 0.875rem;
+              color: #6c757d;
+            }
+          
+            /* Container for text and description */
+            .dropdown-item-content {
+              display: flex;
+              flex-direction: column;
+            }
+            .dropdown:hover .dropdown-menu {
+              display: block;
+            }
+            .icon-circle {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              background-color: #e6f2ff;
+              color: #3b82f6;
+              flex-shrink: 0;
+            }
+            
+            .icon-circle .material-icons {
+              font-size: 18px;
+            }
+        </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const featuresContainer = document.getElementById('features-container');
+              const featuresToggle = document.getElementById('features-toggle');
+              const featuresDropdown = document.getElementById('features-dropdown');
+              let dropdownTimeout;
+            
+              function showDropdown() {
+                clearTimeout(dropdownTimeout);
+                featuresContainer.classList.add('dropdown-open');
+                featuresDropdown.classList.remove('hidden');
+              }
+            
+              function hideDropdown() {
+                dropdownTimeout = setTimeout(function() {
+                  featuresContainer.classList.remove('dropdown-open');
+                  featuresDropdown.classList.add('hidden');
+                }, 300); // 300ms delay, adjust as needed
+              }
+            
+              featuresToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                featuresDropdown.classList.toggle('hidden');
+              });
+            
+              featuresToggle.addEventListener('mouseenter', showDropdown);
+              featuresContainer.addEventListener('mouseleave', hideDropdown);
+            
+              featuresDropdown.addEventListener('mouseenter', showDropdown);
+              featuresDropdown.addEventListener('mouseleave', hideDropdown);
+            
+              // Close dropdown when clicking outside
+              document.addEventListener('click', function(e) {
+                if (!featuresContainer.contains(e.target)) {
+                  featuresContainer.classList.remove('dropdown-open');
+                  featuresDropdown.classList.add('hidden');
+                }
+              });
+            
+              // Prevent dropdown from closing when clicking inside it
+              featuresDropdown.addEventListener('click', function(e) {
+                e.stopPropagation();
+              });
+            });
+        </script>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            var header = document.getElementById('header');
+            var container = document.getElementById('team-header-container');
+            
+            function adjustPadding() {
+              var headerHeight = header.offsetHeight;
+              container.style.paddingTop = (headerHeight + 20) + 'px'; // Add 20px extra space
+            }
+            
+            // Adjust padding on load
+            adjustPadding();
+            
+            // Adjust padding on window resize
+            window.addEventListener('resize', adjustPadding);
+          });
+        </script>
+
+
+    <!-- =======================================================
+        * Template Name: Vesperr
+        * Updated: Sep 18 2023 with Bootstrap v5.3.2
+        * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
+        * Author: BootstrapMade.com
+        * License: https://bootstrapmade.com/license/
+        ======================================================== -->
+</head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="description">
+<meta content="" name="keywords">
+
+<!-- Favicons -->
+<link href="assets/img/AAI-webpage-header.png" rel="icon">
+<link href="assets/img/AAI-webpage-header.png" rel="AAI-webpage-icon  ">
+
+<!-- Google Fonts -->
+<link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="assets/css/home.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/team.css">
+
+
+
+<!-- =======================================================
+  * Template Name: Vesperr
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+    
+        <div class="logo">
+        <a href="index.html"><img src="assets/img/401(K) Pro Logo.png" alt="Your Logo"></a>
+        </div>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+        <nav id="navbar" class="navbar">
+        <ul>
+            <li><a class="nav-link scrollto" href="index.html">Mission</a></li>
+            <li class="dropdown relative" id="features-container">
+            <a href="#" class="hover:text-zinc-700" id="features-toggle">
+                <span>Features</span> <i class="bi bi-chevron-down"></i>
+            </a>
+      
+            <ul id="features-dropdown" class="absolute hidden bg-white shadow-lg mt-2 space-y-2 rounded-lg p-4">
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">account_balance</span>
+                </div>
+                <div class="flex-1">
+                  <a href="dataconsolidation.html" class="text-black hover:text-zinc-700 font-semibold">Data Consolidation and Client Tracking</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">bar_chart</span>
+                </div>
+                <div class="flex-1">
+                  <a href="automatedreporting.html" class="text-black hover:text-zinc-700 font-semibold">Automated Reporting</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">event</span>
+                </div>
+                <div class="flex-1">
+                  <a href="compliancecalendar.html" class="text-black hover:text-zinc-700 font-semibold">Compliance Calendar</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">chat</span>
+                </div>
+                <div class="flex-1">
+                  <a href="compliancechatbots.html" class="text-black hover:text-zinc-700 font-semibold">Compliance Chatbots</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">compare</span>
+                </div>
+                <div class="flex-1">
+                  <a href="plancomparisons.html" class="text-black hover:text-zinc-700 font-semibold">Plan Comparisons</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">security</span>
+                </div>
+                <div class="flex-1">
+                  <a href="securities.html" class="text-black hover:text-zinc-700 font-semibold">Bank-grade Security</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">smart_toy</span>
+                </div>
+                <div class="flex-1">
+                  <a href="aiintegrations.html" class="text-black hover:text-zinc-700 font-semibold">Upcoming AI Features</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">summarize</span>
+                </div>
+                <div class="flex-1">
+                  <a href="summary.html" class="text-black hover:text-zinc-700 font-semibold">Summary</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="team.html">Our Team</a></li>
+          <li><a class="nav-link scrollto" href="index.html#pricing">Pricing</a></li>
+          
+          <li><a class="nav-link scrollto" href="careers.html">Careers</a></li>
+          <li><a class="nav-link scrollto" href="signup.html">Get Started</a></li>
+          <li><a class="getstarted scrollto" href="https://app.401k-pro.ai" style="font-weight: bold;">Log In</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+  </header>
+
+  <main id="main" style="margin-top: 100px;">
+    <section id="careers" class="careers section-bg">
+      <div class="container">
+        <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+          <h2>Join Our Team</h2>
+          <p>Explore exciting career opportunities at AccessibleAI</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 mb-4">
+            <div class="job-post" data-aos="fade-up" data-aos-delay="100">
+              <h3>Sales Intern</h3>
+              <p>Location: Charlotte, NC or Orlando, FL</p>
+              <p>We are looking for enthusiastic and self-motivated Sales Interns to join our team. As a Sales Intern, you will have the opportunity to gain valuable experience in sales strategies, client interactions, and market research.</p>
+              <ul>
+                <li>Assist in lead generation and client outreach</li>
+                <li>Support the sales team in daily administrative tasks</li>
+                <li>Conduct market research and analysis</li>
+                <li>Participate in sales meetings and presentations</li>
+              </ul>
+              <p><strong>Requirements:</strong></p>
+              <ul>
+                <li>Currently pursuing a degree in Business, Marketing, or a related field</li>
+                <li>Excellent communication and interpersonal skills</li>
+                <li>Strong organizational and time management skills</li>
+                <li>Ability to work independently and as part of a team</li>
+              </ul>
+              <a href="sales-intern-form.html" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mb-4">
+            <div class="job-post" data-aos="fade-up" data-aos-delay="200">
+              <h3>Front End Developer</h3>
+              <p>Location: Charlotte, NC or Orlando, FL</p>
+              <p>We are seeking a talented and creative Front End Developer to join our team. As a Front End Developer, you will be responsible for designing and implementing user interface components that enhance user experience.</p>
+              <ul>
+                <li>Develop and maintain web applications using HTML, CSS, and JavaScript</li>
+                <li>Ensure the technical feasibility of UI/UX designs</li>
+                <li>Collaborate with backend developers and web designers to improve usability</li>
+                <li>Optimize applications for maximum speed and scalability</li>
+              </ul>
+              <p><strong>Requirements:</strong></p>
+              <ul>
+                <li>Proven work experience as a Front End Developer</li>
+                <li>Proficient in HTML, CSS, and JavaScript</li>
+                <li>Experience with front-end frameworks (e.g., React, Angular, Vue.js)</li>
+                <li>Strong problem-solving skills and attention to detail</li>
+              </ul>
+              <a href="frontend-developer-form.html" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mb-4">
+            <div class="job-post" data-aos="fade-up" data-aos-delay="300">
+              <h3>Sales Consultant</h3>
+              <p>Location: Charlotte, NC or Orlando, FL</p>
+              <p>We are looking for a dynamic Sales Consultant to join our team. As a Sales Consultant, you will be responsible for driving sales, building relationships with clients, and providing exceptional customer service.</p>
+              <ul>
+                <li>Identify and reach out to potential clients</li>
+                <li>Present and demonstrate our products to clients</li>
+                <li>Negotiate contracts and close sales</li>
+                <li>Provide after-sales support to ensure customer satisfaction</li>
+              </ul>
+              <p><strong>Requirements:</strong></p>
+              <ul>
+                <li>Bachelor's degree in Business, Marketing, or a related field</li>
+                <li>Proven sales experience</li>
+                <li>Excellent communication and negotiation skills</li>
+                <li>Ability to work independently and meet sales targets</li>
+              </ul>
+              <a href="sales-consultant-form.html" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

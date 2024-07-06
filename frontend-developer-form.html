@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front End Developer Application</title>
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/home.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h2>Front End Developer Application</h2>
+    <form action="https://formspree.io/f/mzbnagdq" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="_replyto" required>
+      </div>
+      <div class="form-group">
+        <label for="location">Preferred Location</label>
+        <select class="form-control" id="location" name="location" required>
+          <option value="Charlotte, NC">Charlotte, NC</option>
+          <option value="Orlando, FL">Orlando, FL</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Why do you want to join us?</label>
+        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="resume">Upload Resume</label>
+        <input type="file" class="form-control-file" id="resume" name="resume" required>
+      </div>
+      <input type="hidden" name="_subject" value="Front End Developer Application">
+      <input type="hidden" name="_cc" value="tahmidawal2000@gmail.com">
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit Application</button>
+      </div>
+    </form>
+  </div>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

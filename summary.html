@@ -53,20 +53,9 @@
 
     <style>
         /* Ensure the dropdown stays open on hover */
-        #features-toggle:hover + #features-dropdown:not(.hidden),
-        #features-dropdown:hover:not(.hidden) {
-          display: block;
+        #features-toggle:hover + #features-dropdown, #features-dropdown:hover {
+            display: block;
         }
-
-        #faq {
-          padding-top: 100px; /* Adjust this value as needed */
-        }
-        
-        #faq .section-title {
-            margin-top: 50px; /* Adjust this value as needed */
-        }
-          
-        
 
         /* Style and position the dropdown */
         #features-dropdown {
@@ -121,7 +110,12 @@
             color: #6c757d;
         }
 
-
+        #features-dropdown {
+            display: none !important;
+            transition: opacity 0.2s, visibility 0.2s;
+            opacity: 0 !important;
+            visibility: hidden !important;
+          }
           
           #features-dropdown.hidden {
             display: none !important;
@@ -403,7 +397,7 @@
                     <a href="#" class="hover:text-zinc-700" id="features-toggle">
                       <span>Features</span> <i class="bi bi-chevron-down"></i>
                     </a>
-                    <ul id="features-dropdown" class="absolute hidden bg-white shadow-lg mt-2 space-y-2 rounded-lg p-4 hidden">
+                    <ul id="features-dropdown" class="absolute hidden bg-white shadow-lg mt-2 space-y-2 rounded-lg p-4">
                       <li class="flex items-start space-x-4">
                         <div class="icon-circle mt-0.5">
                           <span class="material-icons">account_balance</span>
@@ -481,263 +475,257 @@
         </div>
     </header><!-- End Header -->
 
-  <!-- ======= Main Content ======= -->
-  <main id="main">
-    <!-- ======= F.A.Q Section ======= -->
-    <section id="faq" class="faq bg-white">
-      <div class="container">
+
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center bg-white">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center"
+                    id="hero-title-div">
+                    <h1 data-aos="fade-in">Product Features</h1>
+                    <h2 data-aos="fade-in" data-aos-delay="400" class="hero-row-padding">A host of features and
+                        capabilities all geared towards helping advisors manage their 401(k) plans more efficiently and
+                        effectively</h2>
+                    </h2>
+                    <div data-aos="fade-in" data-aos-delay="800">
+                        <a href="#product_features_offered_section" class="btn-get-started scrollto">See Features</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
+                    <img src="assets/img/features/features-hero.png" class="img-fluid animated" alt="">
+                </div>
+            </div>
+        </div>
+
+    </section><!-- End Hero -->
+
+    <!-- End Hero -->
+
+
+    <!-- ======= Features Section ======= -->
+    <!-- </section> -->
+    <section id="book-demo" class="book-demo" style="background-color: white;"> 
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center custom-button-container" data-aos="fade-up">
+                    <a href="signup.html" class="custom-button">
+                        Get started with 401(k) Pro
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="product_features_offered_section" class="d-flex bg-light w-100 pb-5 pt-5" data-aos="fade-in">
         <div class="section-title" data-aos="fade-in">
-          <h2>Frequently Asked Questions</h2>
+            <h2>Product Features</h2>
         </div>
-        <!-- FAQ Content Here -->
-        <!-- (Add the same FAQ content you have in your existing HTML) -->
-        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-in" data-aos-delay="100">
-          <div class="col-lg-5">
-            <i class="ri-question-line"></i>
-            <h4>1. What is 401(k) Pro?</h4>
-          </div>
-          <div class="col-lg-7">
-            <p>401(k) Pro is a comprehensive platform that combines an app and spreadsheet to help 401(k) advisors manage their plans efficiently. It centralizes client information, automates reporting, provides regulatory guidance, and offers tools for comparing plans and managing requirements.</p>
-          </div>
-        </div><!-- End F.A.Q Item-->
-        <!-- Add other FAQ items here similarly -->
-        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-in" data-aos-delay="200">
-            <div class="col-lg-5">
-            <i class="ri-question-line"></i>
-            <h4>2. How does 401(k) Pro simplify 401(k) plan management?
-            </h4>
+        <div class="process-container">
+            <p data-aos="fade-in" data-aos-delay="200" class="pb-5">AI and automation tools built for 401(k) advisors
+            </p>
+            <div class="ai-tool-row d-flex">
+                <a href="#data-conslidation-and-client-tracking">
+                    <ul class="tool-box" data-aos="fade-in" data-aos-delay="600">
+                        <i class="material-icons">
+                            <span class="material-symbols-outlined" style="font-size: 48px;">
+                                filter_alt
+                            </span>
+                        </i>
+                        <p>Data Consolidation</p>
+                    </ul>
+                </a>
+                <a href="#automated-reporting">
+                    <ul class="tool-box" data-aos="fade-in" data-aos-delay="300">
+                        <i class="material-icons">
+                            <span class="material-symbols-outlined" style="font-size: 48px;">
+                                edit_note
+                            </span>
+                        </i>
+                        <p>Automated Reporting</p>
+                    </ul>
+                </a>
+                <a href="#compliance-calendar">
+                    <ul class="tool-box" data-aos="fade-in" data-aos-delay="300">
+                        <i class="material-icons">
+                            <span class="material-symbols-outlined" style="font-size: 48px;">
+                                event_upcoming
+                            </span>
+                        </i>
+                        <p>Compliance Calendar</p>
+                    </ul>
+                </a>
+                <a href="#compliance-chatbots">
+                    <ul class="tool-box" data-aos="fade-in" data-aos-delay="300">
+                        <i class="material-icons">
+                            <span class="material-symbols-outlined" style="font-size: 48px;">
+                                robot_2
+                            </span>
+                        </i>
+                        <p>Compliance Chatbots</p>
+                    </ul>
+                </a>
+                <a href="#plan-comparisons">
+                    <ul class="tool-box" data-aos="fade-in" data-aos-delay="300">
+                        <i class="material-icons">
+                            <span class="material-symbols-outlined" style="font-size: 48px;">
+                                compare
+                            </span>
+                        </i>
+                        <p>Plan Comparisons</p>
+                    </ul>
+                </a>
+                <a href="#AI-integrations">
+                    <ul class="tool-box" data-aos="fade-in" data-aos-delay="800">
+                        <i class="material-icons">
+                            <span class="material-symbols-outlined" style="font-size: 48px;">
+                                psychology
+                            </span>
+                        </i>
+                        <p>AI Integrations</p>
+                    </ul>
+                </a>
+                <a href="#professional-security">
+                    <ul class="tool-box" data-aos="fade-in" data-aos-delay="800" style="background-color: #064dbf;">
+                        <i class="material-icons">
+                            <span class="material-symbols-outlined" style="font-size: 48px">
+                                security
+                            </span>
+                        </i>
+                        <p>Professional Security</p>
+                    </ul>
+                </a>
             </div>
-            <div class="col-lg-7">
-            <p>
-                401(k) Pro streamlines the process by centralizing all client information, automating quarterly and annual
-                reporting, and providing easy access to regulatory information through built-in chatbots. This reduces the
-                need to switch between multiple resources and ensures all data is up-to-date and accurate.
+        </div>
+    </section>
 
+    <section id="customization-steps-container" class="bg-white pt-5 pb-5 w-100">
+        <div class="title-section">
+            <div class="section-title" data-aos="fade-in">
+                <h2>401(k) Plan Management IN 6 STEPS</h2>
             </div>
-        </div><!-- End F.A.Q Item-->
-
-        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-in" data-aos-delay="300">
-            <div class="col-lg-5">
-            <i class="ri-question-line"></i>
-            <h4>3. What types of reports can 401(k) Pro generate?
-            </h4>
-            </div>
-            <div class="col-lg-7">
-            <p>
-                401(k) Pro automates the creation of quarterly and annual reports, ensuring compliance with regulatory
-                requirements. These reports are comprehensive, accurate, and tailored to meet the needs of both advisors
-                and their clients.
-            </p>
-            </div>
-        </div><!-- End F.A.Q Item-->
-
-        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-in" data-aos-delay="400">
-            <div class="col-lg-5">
-            <i class="ri-question-line"></i>
-            <h4>4. How does 401(k) Pro help with regulatory compliance?
-            </h4>
-            </div>
-            <div class="col-lg-7">
-            <p>
-                401(k) Pro includes regulatory chatbots that provide guidance on ERISA, DOL, FINRA, and other relevant
-                regulations. These chatbots help advisors understand and comply with the latest rules and requirements,
-                reducing the risk of non-compliance.
-            </p>
-            </div>
-        </div><!-- End F.A.Q Item-->
-        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-in" data-aos-delay="500">
-            <div class="col-lg-5">
-            <i class="ri-question-line"></i>
-            <h4>5. Can 401(k) Pro help compare different 401(k) plans?</h4>
-            </div>
-            <div class="col-lg-7">
-            <p>
-                Yes, 401(k) Pro offers tools to easily compare various 401(k) plans, making it simpler to evaluate and
-                select the best options for new clients or to review existing plans.
-            </p>
-            </div>
-        </div>
-        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-in" data-aos-delay="500">
-            <div class="col-lg-5">
-            <i class="ri-question-line"></i>
-            <h4>6. Is my data secure with 401(k) Pro?
-            </h4>
-            </div>
-            <div class="col-lg-7">
-            <p>
-                Absolutely. 401(k) Pro employs advanced security measures, including encryption and secure data storage,
-                to ensure that all client and plan information is protected and compliant with industry standards.
-            </p>
-            </div>
-        </div>
-        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-in" data-aos-delay="500">
-            <div class="col-lg-5">
-            <i class="ri-question-line"></i>
-            <h4>7. Should I trust AI with my data?
-            </h4>
-            </div>
-            <div class="col-lg-7">
-            <p>
-                Yes, you can trust AI with your data. At 401(k) Pro, we house our AI models internally, ensuring that
-                there is no chance of tech platforms training off of your data. Additionally, if you prefer, you have the
-                option to turn off all AI features.
-            </p>
-            </div>
-        </div>
-        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-in" data-aos-delay="500">
-            <div class="col-lg-5">
-            <i class="ri-question-line"></i>
-            <h4>8. How easy is it to get started with 401(k) Pro?</h4>
-            </div>
-            <div class="col-lg-7">
-            <p>
-                Getting started with 401(k) Pro is simple. Sign up for an account, input your client data, and you can
-                begin managing your 401(k) plans right away. Our user-friendly interface and comprehensive guides make the
-                setup process quick and straightforward. This process should take no longer than an hour.
-            </p>
-            </div>
-        </div>
-        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-in" data-aos-delay="500">
-          <div class="col-lg-5">
-            <i class="ri-question-line"></i>
-            <h4> 9. What kind of support does 401(k) Pro offer?
-            </h4>
-          </div>
-          <div class="col-lg-7">
-            <p>
-              401(k) Pro offers extensive support, including online tutorials, user guides, and a dedicated customer
-              support team available via email and phone to assist with any questions or issues you may encounter.
-            </p>
-          </div>
-        </div>
-        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-in" data-aos-delay="500">
-            <div class="col-lg-5">
-                <i class="ri-question-line"></i>
-                <h4> 10. Can I try 401(k) Pro before committing?
-                </h4>
-            </div>
-            <div class="col-lg-7">
-                <p>
-                Yes, we offer a free trial period so you can explore the features and benefits of 401(k) Pro before
-                making a commitment. Sign up on our website to start your free trial today.
+            <div data-aos="fade-in" data-aos-delay="100">
+                <p class="section-title pb-5">
+                    6 easy steps to make your 401(k) plan management easy and scalable
                 </p>
             </div>
         </div>
-        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-in" data-aos-delay="500">
-            <div class="col-lg-5">
-            <i class="ri-question-line"></i>
-            <h4>11. Can anyone at 401(k) Pro access my data?
-            </h4>
-            </div>
-            <div class="col-lg-7">
-            <p>
 
-                No, no one at 401(k) Pro can ever access your data. If you are not comfortable with uploading data
-                to the Google Sheets plugin within our app, you can download the master spreadsheet and edit it as
-                an Excel file on
-                your computer, ensuring that absolutely zero third parties can access your client data.
-            </p>
-            </div>
-        </div>
-            <!-- End F.A.Q Item-->
+        <ul class="pt-3">
+            <li style="--accent-color:#3498db" data-aos="fade-left" data-aos-delay="100">
+                <div class="date">1. Initial Setup</div>
+                <div class="title">Enter basic information about your clients and their 401(k) plans</div>
+                <div class="descr">We give you an easy to follow step by step guide so that can easily enter your
+                    necessary
+                    client information 401(k) plans making sure that you have all the information you need to
+                    get started. Setup takes under an hour.</div>
+            </li>
+            <li style="--accent-color:#3498db" data-aos="fade-right" data-aos-delay="150">
+                <div class="date">2. Data Entry</div>
+                <div class="title"></div>
+                <div class="descr">Use our proprietary data tracking tool to easily takes of the actions you take for
+                    your 401(k) plans and the requirements that the given stakeholders need to complete so that your
+                    plans stay compliant.
+            </li>
+            <li style="--accent-color:#3498db" data-aos="fade-left" data-aos-delay="200">
+                <div class="date">3 - Automatically Generate Reports</div>
+                <div class="title">Generate your 401(k) quarterly and annual reports in seconds not weeks</div>
+                <div class="descr">Our system will take all of the notes that you have taken over the course of the
+                    quarter or year to automatically generate professional and personalized reports for each of your
+                    clients. All of your client reports are geneated in under 15 seconds.
+                </div>
+            </li>
+            <li style="--accent-color:#3498db" data-aos="fade-right" data-aos-delay="250">
+                <div class="date">4 - Quickly Review</div>
+                <div class="title">Quickly check over each report generated for your clients</div>
+                <div class="descr">Quickly review each report to make sure that it is accurate and that it meets your
+                    standards. If
+                    you see something that you do not like, you can easily edit the report to make sure that it is
+                    perfect.
+            </li>
+            <li style="--accent-color:#3498db" data-aos="fade-left" data-aos-delay="300">
+                <div class="date">5 - Send to Clients</div>
+                <div class="title">Automatically send each report to clients</div>
+                <div class="descr">Once you have reviewed each report you can automatically send them to all of your
+                    clients saving you the time of having to write out each email seperately.</div>
+            </li>
+            <li style="--accent-color:#3498db" data-aos="fade-right" data-aos-delay="350">
+                <div class="date">6 - Relax</div>
+                <div class="title">Relax, you are done</div>
+                <div class="descr">
+                    Now just sit back, relax, and smile :)
+        </ul>
+    </section>
+    </section>
 
-    <section id="contact" class="contact section-bg custom-contact-section">
+    <section id="book-demo" class="book-demo" style="background-color: white;"> 
         <div class="container">
-            <div class="section-title" data-aos="fade-in">
-            <h2>Contact Us</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center custom-button-container" data-aos="fade-up">
+                    <a href="signup.html" class="custom-button">
+                        Get started with 401(k) Pro
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
         </div>
-              
-  
-          <div class="row">
-  
-            <div class="col-lg-4 col-md-6" data-aos="fade-in" data-aos-delay="100" id="our-team-images">
-              <div class="contact-about">
-                <h3>AccessibleAI</h3>
-                <p>Unlock AI's Potential: Contact AccessibleAI Today.</p>
-                <div class="social-links">
-                  <!-- <a href="" class="twitter"><i class="bi bi-twitter"></i></a>
-                  <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                  <a href="#" class="instagram"><i class="bi bi-instagram"></i></a> -->
-                  <a href="https://www.linkedin.com/company/accessible-ai" class="linkedin"><i
-                      class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
+    </section>
+
+    <section id="contact" class="contact mt-5" style="margin-bottom: 1rem;">
+        <div class="container">
+            <div class="section-title mb-5" data-aos="fade-in">
+                <h2>Contact Us</h2>
             </div>
-  
-            <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-in" data-aos-delay="200">
-              <div class="info">
-                <!-- <div>
-                  <i class="ri-map-pin-line"></i>
-                  <p>104 Creekbury Court<br>Cary, North Carolina, 27519</p>
-                </div> -->
-  
-                <div>
-                  <i class="ri-mail-send-line"></i>
-                  <p>cameron.abernethy@makeaccessible.ai</p>
+            <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-in" data-aos-delay="100" id="our-team-images">
+                    <div class="contact-about">
+                        <h3>AccessibleAI</h3>
+                        <p>Unlock AI's Potential: Contact AccessibleAI Today.</p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/company/accessible-ai" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
                 </div>
-  
-                <div>
-                  <i class="ri-phone-line"></i>
-                  <p>+1 919 200 9943</p>
+                <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-in" data-aos-delay="200">
+                    <div class="info">
+                        <div>
+                            <i class="ri-mail-send-line"></i>
+                            <p>cameron.abernethy@makeaccessible.ai</p>
+                        </div>
+                        <div>
+                            <i class="ri-phone-line"></i>
+                            <p>+1 919 200 9943</p>
+                        </div>
+                    </div>
                 </div>
-  
-              </div>
+                <div class="col-lg-5 col-md-12" data-aos="fade-in" data-aos-delay="300">
+                    <form action="https://formspree.io/f/mzbnagdq" method="POST" class="php-email-form">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                        </div>
+                        <div class="my-3">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. We will be in contact as soon as possible. Thank you!</div>
+                        </div>
+                        <div class="text-center"><button type="submit">Send Message</button></div>
+                    </form>
+                </div>
             </div>
-  
-            <div class="col-lg-5 col-md-12" data-aos="fade-in" data-aos-delay="300">
-              <form action="https://formspree.io/f/mzbnagdq" method="POST" class="php-email-form">
-                <div class="form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                </div>
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. We will be in contact as soon as possible. Thank
-                    you!</div>
-                </div>
-                <div class="text-center"><button type="submit">Send Message</button></div>
-              </form>
-            </div>
-  
-            <script>
-              document.addEventListener('DOMContentLoaded', function() {
-                const featuresToggle = document.getElementById('features-toggle');
-                const featuresDropdown = document.getElementById('features-dropdown');
-                
-                featuresToggle.addEventListener('click', function(e) {
-                  e.preventDefault();
-                  featuresDropdown.classList.toggle('hidden');
-                });
-                
-                document.addEventListener('click', function(e) {
-                  if (!featuresToggle.contains(e.target) && !featuresDropdown.contains(e.target)) {
-                    featuresDropdown.classList.add('hidden');
-                  }
-                });
-              });
-            
-            </script>
-  
-  
-      </section><!-- End Contact Section -->
-  
-    </main><!-- End #main -->
-  
-  
-  
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
-  
-    <!-- Vendor JS Files -->
+        </div>
+    </section>
+
     <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -745,12 +733,20 @@
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
-  
-  
-  
-    <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-  
-  </body>
-  
-  </html>
+    <script>
+        const featuresToggle = document.getElementById('features-toggle');
+        const featuresDropdown = document.getElementById('features-dropdown');
+        featuresToggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            featuresDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!featuresToggle.contains(event.target) && !featuresDropdown.contains(event.target)) {
+                featuresDropdown.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

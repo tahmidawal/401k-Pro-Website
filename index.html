@@ -41,10 +41,214 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+  <!-- Add these two lines here -->
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
 
 
   <!-- Template Main CSS File -->
   <link href="assets/css/home.css" rel="stylesheet">
+  <style>
+    /* Ensure the dropdown stays open on hover */
+    #features-toggle:hover + #features-dropdown, #features-dropdown:hover {
+      display: block;
+    }
+  
+    /* Style and position the dropdown */
+    #features-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      min-width: 12rem;
+      padding: 0.5rem 0;
+      margin: 0.025rem 0 0;
+      font-size: 0.8rem;
+      color: #212529;
+      text-align: left;
+      list-style: none;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 0.25rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    }
+  
+    /* Dropdown item styles */
+    #features-dropdown li {
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+    }
+  
+    #features-dropdown li a {
+      color: #212529;
+      text-decoration: none;
+      display: block;
+    }
+  
+    #features-dropdown li a:hover {
+      color: #0056b3;
+      background-color: #f8f9fa;
+    }
+  
+    /* Style for the icons */
+    #features-dropdown li img {
+      width: 24px;
+      height: 24px;
+      margin-right: 0.5rem;
+    }
+  
+    /* Description text style */
+    #features-dropdown li p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: #6c757d;
+    }
+  
+    /* Container for text and description */
+    .dropdown-item-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .icon-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #e6f2ff;
+      color: #3b82f6;
+      flex-shrink: 0;
+    }
+    
+    .icon-circle .material-icons {
+      font-size: 18px;
+    }
+    .nav-link.scrollto[href="signup.html"],
+    .getstarted.scrollto {
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+      line-height: 1;
+      margin-left: 10px;
+    }
+
+    .nav-link.scrollto[href="signup.html"] {
+      background-color: transparent;
+      color: #3498db;
+      border: 2px solid #3498db;
+    }
+
+    .getstarted.scrollto {
+      background-color: #3498db;
+      color: #fff;
+      border: 2px solid #3498db;
+    }
+    
+    .nav-link.scrollto[href="signup.html"]:hover {
+      background-color: #3498db;
+      color: #fff;
+    }
+    
+    
+
+    .nav-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+    
+    .nav-menu > li {
+      flex: 1;
+      text-align: center;
+    }
+    
+    .nav-link {
+      display: inline-block;
+      padding: 10px 0;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    
+    .getstarted.scrollto:hover {
+      background-color: #2980b9;
+      border-color: #2980b9;
+    }
+    
+    
+
+    
+    .login {
+      font-weight: bold;
+      background: #3498db;
+      color: #fff;
+      border-radius: 50px;
+      padding: 10px 20px;
+    }
+    
+
+    
+    .login:hover {
+      background: #fff;
+      color: #3498db;
+      border: 2px solid #3498db;
+    }
+    .navbar ul {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .navbar ul li {
+      margin-left: 5px;
+    }
+    .dropdown {
+      position: relative;
+    }
+    
+    #features-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      display: block;
+      min-width: 10rem;
+      padding: 0.5rem 0;
+      margin: 0.125rem 0 0;
+      font-size: 1rem;
+      color: #212529;
+      text-align: left;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid rgba(0,0,0,.15);
+      border-radius: 0.25rem;
+    }
+    
+    .hidden {
+      display: none !important;
+    }
+  </style>
+  
+  
 
 
 
@@ -62,39 +266,96 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
-
+  
       <div class="logo">
         <a href="index.html"><img src="assets/img/401(K) Pro Logo.png" alt="Your Logo"></a>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
       <nav id="navbar" class="navbar">
         <ul>
-          <li class="dropdown"><a href="#"><span>Product</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="features.html">Features</a></li>
-              <li><a href="why-401(k)-pro.html">Why 401(k) Pro</a></li>
-              <li><a href="demo.html">Product Demo</a></li>
-              <li><a href="faq.html">FAQ</a></li>
+          <li><a class="nav-link scrollto" href="index.html">Mission</a></li>
+          <li class="dropdown relative" id="features-container">
+            <a href="#" class="hover:text-zinc-700" id="features-toggle">
+              <span>Features</span> <i class="bi bi-chevron-down"></i>
+            </a>
+            <ul id="features-dropdown" class="absolute hidden bg-white shadow-lg mt-2 space-y-2 rounded-lg p-4">
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">account_balance</span>
+                </div>
+                <div class="flex-1">
+                  <a href="dataconsolidation.html" class="text-black hover:text-zinc-700 font-semibold">Data Consolidation and Client Tracking</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">bar_chart</span>
+                </div>
+                <div class="flex-1">
+                  <a href="automatedreporting.html" class="text-black hover:text-zinc-700 font-semibold">Automated Reporting</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">event</span>
+                </div>
+                <div class="flex-1">
+                  <a href="compliancecalendar.html" class="text-black hover:text-zinc-700 font-semibold">Compliance Calendar</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">chat</span>
+                </div>
+                <div class="flex-1">
+                  <a href="compliancechatbots.html" class="text-black hover:text-zinc-700 font-semibold">Compliance Chatbots</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">compare</span>
+                </div>
+                <div class="flex-1">
+                  <a href="plancomparisons.html" class="text-black hover:text-zinc-700 font-semibold">Plan Comparisons</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">security</span>
+                </div>
+                <div class="flex-1">
+                  <a href="securities.html" class="text-black hover:text-zinc-700 font-semibold">Bank-grade Security</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">smart_toy</span>
+                </div>
+                <div class="flex-1">
+                  <a href="aiintegrations.html" class="text-black hover:text-zinc-700 font-semibold">Upcoming AI Features</a>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="icon-circle mt-0.5">
+                  <span class="material-icons">summarize</span>
+                </div>
+                <div class="flex-1">
+                  <a href="summary.html" class="text-black hover:text-zinc-700 font-semibold">Summary</a>
+                </div>
+              </li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="beta-testing.html">Beta Testing</a></li>
-          <li class="dropdown"><a href="#"><span>About Us</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a class="nav-link scrollto" href="our-firm.html">Our Firm</a></li>
-              <li><a class="nav-link" href="team.html">Our Team</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-          <li><a class="nav-link scrollto" href="careers.html">Careers</a></li>
+          <li><a class="nav-link scrollto" href="team.html">Our Team</a></li>
+          <li><a class="nav-link scrollto" href="index.html#pricing">Pricing</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="signup.html">Get Started</a></li>
+          <li><a class="getstarted scrollto" href="https://app.401k-pro.ai" style="font-weight: bold;">Log In</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
-      </div>
-  </header><!-- End Header -->
-
-
+    </div>
+  </header>
 
 
 
@@ -192,50 +453,52 @@
       <div class="container w-100">
         <div class="section-title mt-5 mb-5" data-aos="fade-in" data-aos-delay="100">
           <h2>Pricing Advisors Love</h2>
-          <p>Comprehensive 401(k) Plan Magagement Made Accessible to Everyone</p>
-          <p></p>
+          <p>Comprehensive 401(k) Plan Management Made Accessible to Everyone</p>
         </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
-            <div class="box recommended" data-aos="fade-in" data-aos-delay="300">
-              <h3>Basic</h3>
-              <h4><sup>$</sup>199<span> / month</span></h4>
-              <ul>
-                <li>30 Day Free Trial</li>
-                <li>Up to 25 Plans</li>
-                <li>Unlimited Users and Contributors</li>
-                <li>401(k) Plan Management Master Spreadsheet</li>
-                <li>Automated Quarterly and Annual Compliance Reporting</li>
-              </ul>
+        <div class="row pricing-row" style="display: flex; flex-wrap: wrap;">
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0" style="display: flex;">
+            <div class="box recommended" data-aos="fade-in" data-aos-delay="300" style="display: flex; flex-direction: column; width: 100%; justify-content: space-between;">
+              <div>
+                <h3>Basic</h3>
+                <h4><sup>$</sup>199<span> / month</span></h4>
+                <ul style="flex-grow: 1;">
+                  <li>30 Day Free Trial</li>
+                  <li>Up to 25 Plans</li>
+                  <li>Unlimited Users and Contributors</li>
+                  <li>401(k) Plan Management Master Spreadsheet</li>
+                  <li>Automated Quarterly and Annual Compliance Reporting</li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-            <div class="box recommended" data-aos="fade-in" data-aos-delay="400">
-              <h3>Pro (Most Popular)</h3>
-              <h4><sup>$</sup>249<span> / month</span></h4>
-              <ul>
-                <li>Everything in Basic</li>
-                <li>30 day Free Trial</li>
-                <li>Up to 100 Plans</li>
-                <li>AI Notewriting</li>
-                <li>Compliance Chatbots</li>
-
-
-              </ul>
-
+          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" style="display: flex;">
+            <div class="box recommended" data-aos="fade-in" data-aos-delay="400" style="display: flex; flex-direction: column; width: 100%; justify-content: space-between;">
+              <div>
+                <h3>Pro (Most Popular)</h3>
+                <h4><sup>$</sup>249<span> / month</span></h4>
+                <ul style="flex-grow: 1;">
+                  <li>Everything in Basic</li>
+                  <li>30 day Free Trial</li>
+                  <li>Up to 100 Plans</li>
+                  <li>AI Notewriting</li>
+                  <li>Compliance Chatbots</li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-            <div class="box recommended" data-aos="fade-in" data-aos-delay="400">
-              <h3>Enterprise</h3>
-              <h4>Let's Talk</h4>
-              <ul>
-                <li>Everything in Pro</li>
-                <li>Unlimited Plans</li>
-                <li>Custom Integrations</li>
-                <li>Enterprise Security</li>
-              </ul>
-              <button class="btn btn-primary">Contact Us</button>
+          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" style="display: flex;">
+            <div class="box recommended" data-aos="fade-in" data-aos-delay="400" style="display: flex; flex-direction: column; width: 100%; justify-content: space-between;">
+              <div>
+                <h3>Enterprise</h3>
+                <h4>Let's Talk</h4>
+                <ul style="flex-grow: 1;">
+                  <li>Everything in Pro</li>
+                  <li>Unlimited Plans</li>
+                  <li>Custom Integrations</li>
+                  <li>Enterprise Security</li>
+                </ul>
+              </div>
+              <a href="#contact" class="btn btn-primary">Contact Us</a>
             </div>
           </div>
         </div>
@@ -246,7 +509,7 @@
 
 
     <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
+    <section id="about" class="about bg-light">
       <div class="container">
 
         <div class="section-title" data-aos="fade-in">
@@ -409,57 +672,22 @@
 
 
 
-    <!-- ======= Clients Section ======= -->
-
     <section id="clients" class="clients clients bg-white mb-5">
       <div class="section-title pt-6 mt-5" data-aos="fade-in" data-aos-delay="100">
         <h2>Serving 401(K) Planners Everywhere</h2>
       </div>
       <div class="container">
-        <div class="row d-flex justify-content-center-between">
-          <div class="row justify-content-center">
-            <!--             <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="300">
-              <img src="/assets/img/clients/dexit_logo.jpeg" class="img-fluid" alt="" id="dexit_logo">
-            </div> -->
-            <div class="row">
-              <div class="col-6 col-md-4">
-                <img src="assets/img/clients/SEFG_logo.png" class="img-fluid" alt="SEFG Logo">
-              </div>
-              <div class="col-6 col-md-4">
-                <img src="assets/img/clients/Narwhal-resized.png" class="img-fluid" alt="Narwhal Logo">
-              </div>
-              <div class="col-6 col-md-4">
-                <img src="assets/img/clients/Narwhal-resized.png" class="img-fluid" alt="Narwhal Logo">
-              </div>
-            </div>
-
+        <div class="row justify-content-center">
+          <div class="col-6 col-md-4">
+            <img src="assets/img/clients/SEFG_logo.png" class="img-fluid" alt="SEFG Logo">
           </div>
-
-
-          <!-- <div class="col-lg-2 col-md-4 col-6">
-            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-6 col-md-4">
+            <img src="assets/img/clients/Narwhal-resized.png" class="img-fluid" alt="Narwhal Logo">
           </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="200">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="300">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="400">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="500">
-          </div> -->
-
         </div>
-
       </div>
     </section><!-- End Clients Section -->
+    
 
 
 
@@ -722,6 +950,52 @@
               });
             });
           </script>
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const featuresContainer = document.getElementById('features-container');
+              const featuresToggle = document.getElementById('features-toggle');
+              const featuresDropdown = document.getElementById('features-dropdown');
+              let dropdownTimeout;
+            
+              function showDropdown() {
+                clearTimeout(dropdownTimeout);
+                featuresContainer.classList.add('dropdown-open');
+                featuresDropdown.classList.remove('hidden');
+              }
+            
+              function hideDropdown() {
+                dropdownTimeout = setTimeout(function() {
+                  featuresContainer.classList.remove('dropdown-open');
+                  featuresDropdown.classList.add('hidden');
+                }, 300); // 300ms delay, adjust as needed
+              }
+            
+              featuresToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                featuresDropdown.classList.toggle('hidden');
+              });
+            
+              featuresToggle.addEventListener('mouseenter', showDropdown);
+              featuresContainer.addEventListener('mouseleave', hideDropdown);
+            
+              featuresDropdown.addEventListener('mouseenter', showDropdown);
+              featuresDropdown.addEventListener('mouseleave', hideDropdown);
+            
+              // Close dropdown when clicking outside
+              document.addEventListener('click', function(e) {
+                if (!featuresContainer.contains(e.target)) {
+                  featuresContainer.classList.remove('dropdown-open');
+                  featuresDropdown.classList.add('hidden');
+                }
+              });
+            
+              // Prevent dropdown from closing when clicking inside it
+              featuresDropdown.addEventListener('click', function(e) {
+                e.stopPropagation();
+              });
+            });
+          </script>
 
 
     </section><!-- End Contact Section -->
@@ -746,7 +1020,21 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script>
+    const featuresToggle = document.getElementById('features-toggle');
+    const featuresDropdown = document.getElementById('features-dropdown');
+    featuresToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      featuresDropdown.classList.toggle('hidden');
+    });
+  
+    document.addEventListener('click', (event) => {
+      if (!featuresToggle.contains(event.target) && !featuresDropdown.contains(event.target)) {
+        featuresDropdown.classList.add('hidden');
+      }
+    });
+  </script>
+    
 </body>
 
 </html>

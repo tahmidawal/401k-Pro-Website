@@ -346,7 +346,7 @@
               </li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="team.html">Our Team</a></li>
+          <!-- <li><a class="nav-link scrollto" href="team.html">Our Team</a></li> -->
           <li><a class="nav-link scrollto" href="careers.html">Careers</a></li>
           <li><a class="nav-link scrollto" href="index.html#pricing">Pricing</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -381,6 +381,86 @@
         </div>
       </div>
   </section><!-- End Hero -->
+
+  <div id="demo-video" class="section py-5">
+    <div class="container">
+      <div class="card">
+        <div class="row g-0 align-items-center">
+          <div class="col-md-6 p-4">
+            <div class="video-container">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/zIQcvItt1HE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h2 class="card-title">Watch 401(k) Pro in Action</h2>
+              <p class="card-text">See how 401(k) Pro streamlines plan management, automates reporting, and enhances compliance for advisors. Learn how you can save time and grow your business with our comprehensive platform.</p>
+              <a href="https://www.youtube.com/watch?v=zIQcvItt1HE" class="btn btn-primary" target="_blank">Watch Full Video</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+  #demo-video {
+    background-color: #f8f9fa;
+  }
+  
+  #demo-video .card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  #demo-video h2 {
+    color: #333;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  #demo-video .card-text {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #demo-video .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+  }
+  
+  #demo-video .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  @media (min-width: 768px) {
+    #demo-video .card-body {
+      padding: 2rem;
+    }
+  }
+  </style>
 
   <main id="main">
 
@@ -470,6 +550,7 @@
                   <li>Automated Quarterly and Annual Compliance Reporting</li>
                 </ul>
               </div>
+              <a href="signup.html" class="btn btn-primary">Get Started</a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" style="display: flex;">
@@ -479,12 +560,13 @@
                 <h4><sup>$</sup>249<span> / month</span></h4>
                 <ul style="flex-grow: 1;">
                   <li>Everything in Basic</li>
-                  <li>30 day Free Trial</li>
                   <li>Up to 100 Plans</li>
                   <li>AI Notewriting</li>
                   <li>Compliance Chatbots</li>
+                  <li>Automated Data Extraction from Adoption Agreements, Plan Health Reports, and Form 5500</li>
                 </ul>
               </div>
+              <a href="signup.html" class="btn btn-primary">Get Started</a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" style="display: flex;">
@@ -506,6 +588,7 @@
       </div>
     </section>
     <!-- End Pricing Section -->
+
 
 
 
@@ -574,8 +657,7 @@
 
 
 
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg">
+    <!-- <section id="team" class="team section-bg">
       <div class="container">
 
         <div class="section-title" data-aos="fade-in">
@@ -668,7 +750,7 @@
       </div>
 
       </div>
-    </section>
+    </section> -->
     <!-- End Team Section -->
 
 
@@ -796,8 +878,8 @@
           </div>
           <div class="col-lg-7">
             <p>
-              401(k) Pro is a comprehensive platform that combines an app and spreadsheet to help 401(k) advisors manage
-              their plans efficiently. It centralizes client information, automates reporting, provides regulatory
+              401(k) Pro is a plan management and report automation software to help 401(k) advisors manage
+              their plans efficiently. It centralizes client information, automates management & reporting, provides regulatory
               guidance, and offers tools for comparing plans and managing requirements.
             </p>
           </div>
@@ -810,7 +892,7 @@
           </div>
           <div class="col-lg-7">
             <p>
-              401(k) Pro streamlines the process by centralizing all client information, automating quarterly and annual
+              401(k) Pro streamlines the process by centralizing all client information, streamlining data entry, automating quarterly and annual
               reporting, and providing easy access to regulatory information through built-in chatbots. This reduces the
               need to switch between multiple resources and ensures all data is up-to-date and accurate.
             </p>
@@ -824,12 +906,37 @@
           </div>
           <div class="col-lg-7">
             <p>
-              401(k) Pro automates the creation of quarterly and annual reports, ensuring compliance with regulatory
+              401(k) Pro automates the quarterly and annual reports, ensuring compliance with regulatory
               requirements. These reports are comprehensive, accurate, and tailored to meet the needs of both advisors
               and their clients.
             </p>
           </div>
         </div><!-- End F.A.Q Item-->
+
+        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-in" data-aos-delay="300">
+          <div class="col-lg-5">
+            <i class="ri-question-line"></i>
+            <h4>4. How does 401k Pro help me manage my clients?            </h4>
+          </div>
+          <div class="col-lg-7">
+            <p>
+
+              401k Pro streamlines client management with several powerful features:
+              <br><br>
+
+              <strong>Automatic Data Entry:</strong> During client meetings, you can jot down quick notes or "chicken scratch" on your plan touchpoints and checklist. Our AI rewriter then transforms these rough notes into polished, professional language, saving you time and ensuring accuracy.
+              <br><br>
+
+              <strong>Email Integration:</strong> If you receive an email from a client, simply forward it to auto-data-manager@401k-pro.ai. Our AI will automatically update the relevant plan touchpoints or other necessary information in the system.
+              <br><br>
+
+              <strong>AI Data Extraction:</strong> Upload your plan health reports or Form 5500, and our AI data extractor will effortlessly pull the necessary details, updating your plan performance or design information accordingly.
+              
+            </p>
+            
+          </div>
+        </div><!-- End F.A.Q Item-->
+
 
         <!-- Load More Button -->
         <div class="text-center" data-aos="fade-in" data-aos-delay="400">

@@ -10,7 +10,7 @@ const Why401kProPage = () => {
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
       `}</style>
-      <div className="font-roboto font-light bg-white">
+      <div className="font-roboto font-light bg-white py-20">
         <MissionStatement />
         <IndustryIssueOverview />
         <FragmentedEcosystem />

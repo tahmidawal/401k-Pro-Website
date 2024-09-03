@@ -1,46 +1,80 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+const FadeInSection = ({ children, delay = 0 }) => {
+  const [isVisible, setVisible] = useState(false);
+  const domRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setVisible(true), delay);
+        }
+      });
+    });
+    
+    const { current } = domRef;
+    observer.observe(current);
+    
+    return () => observer.unobserve(current);
+  }, [delay]);
+
+  return (
+    <div
+      ref={domRef}
+      className={`transition-opacity duration-1000 ease-in-out ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
+      {children}
+    </div>
+  );
+};
 
 const WhatDrivesUs = () => {
   return (
-  <section className="w-full p-20"  style={{ background: 'linear-gradient(to right, #0A5A9C, #39A5F3)' }}>
-    <div className="font-roboto font-light max-w-5xl mx-auto p-8 text-center">
-      <h1 className="text-4xl mb-8 relative text-white">
-        What Drives Us
-        {/* <span className="absolute left-0 right-0 -top-4 h-px bg-blue-300"></span>
-        <span className="absolute left-0 right-0 -bottom-4 h-px bg-blue-300"></span> */}
-      </h1>
-      
-      <p className="text-xl italic mb-8 text-gray-600 text-white">
-        "AI won't replace humans — but humans with AI will replace humans without AI" <br></br>- <span className="text-white">Harvard Business Review, November 2023.</span>
-      </p>
-      
-      <div className="space-y-6 text-lg text-gray-700 text-left text-white">
-        <p>
-          In the world we live in today, AI has the power to both drive a business forward or make it obsolete. The sad reality is that due to a lack of adequate access to AI and automation, more and more small businesses are becoming obsolete. This must change.
-        </p>
+    <section className="w-full p-1 md:p-20" style={{ background: 'linear-gradient(to right, #0A5A9C, #39A5F3)' }}>
+      <div className="font-roboto font-light max-w-5xl mx-auto p-4 md:p-8 text-center">
+        <FadeInSection>
+          <h1 className="text-3xl md:text-4xl mb-6 md:mb-8 relative text-white">
+            What Drives Us
+          </h1>
+        </FadeInSection>
         
-        <p>
-          Small businesses are not only the backbone of the US economy but critical to the very fabric and diversity of the world we live in. <span className="font-medium">It is our mission to ensure that small businesses are not left behind in the AI revolution</span> because we do not want to live in a world where they have ceased to exist.
-        </p>
+        <FadeInSection delay={200}>
+          <p className="text-lg md:text-xl italic mb-6 md:mb-8 text-white">
+            "AI won't replace humans — but humans with AI will replace humans without AI" <br className="hidden md:inline" />
+            - <span className="text-white">Harvard Business Review, November 2023.</span>
+          </p>
+        </FadeInSection>
         
-        <p>
-          Our challenge to you is to ask yourself, <span className="italic">"Am I doing enough to make sure that my company is as efficient as possible, so that we can survive and thrive in this new world of AI?"</span>
-        </p>
-        
-        <p>
-          As you are thinking hard about that question, we bet your answer will be - <span className="italic">"No, there are inefficiencies in my business that desperately need to be addressed."</span>
-        </p>
-        
-        <p>
-          Just like everyone else, the next thought you will have is <span className="italic">"I know I need AI in my business, but I have no idea where to start."</span> This is where we come in. We are here to guide you through the entire process of both finding inefficencies in your workflows and then implementing AI and automation to solve them.
-        </p>
-        
-        <p className="text-xl font-medium text-center">
-          Working together, we will help your company survive and thrive in this new world of AI.
-        </p>
+        <div className="space-y-4 md:space-y-6 text-base md:text-lg text-left text-white">
+          <FadeInSection delay={400}>
+            <p>
+              In the world we live in today, AI has the power to both drive a business forward or make it obsolete. The sad reality is that due to a lack of adequate access to AI and automation, more and more advisory firms are being left behind.
+            </p>
+          </FadeInSection>
+          
+          <FadeInSection delay={600}>
+            <p>
+              Financial advisors play a critical role in making sure that our world is financially secure. It is our mission to ensure that no advisor is left behind in the AI revolution because we do not want to live in a world where they have ceased to exist.
+            </p>
+          </FadeInSection>
+
+          <FadeInSection delay={800}>
+            <p>
+              Our challenge to you is to ask yourself, <span className="italic">"Am I doing enough to make sure that my practice is as efficient as possible, so that we can survive and thrive in this new world of AI?"</span>
+            </p>
+          </FadeInSection>
+          
+          <FadeInSection delay={1000}>
+            <p className="text-lg md:text-xl font-medium italic">
+              Working together, we push to allow your firm to survive and thrive in this new world of AI.
+            </p>
+          </FadeInSection>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 };
 

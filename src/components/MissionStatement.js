@@ -1,4 +1,3 @@
-import { color } from 'chart.js/helpers';
 import React, { useState, useEffect } from 'react';
 
 const MissionStatement = () => {
@@ -13,7 +12,7 @@ const MissionStatement = () => {
   }, []);
 
   return (
-    <section className="py-20 mt-20">
+    <section className="mt-20" id='why-401k-pro'>
       <div 
         className={`container mx-auto px-4 max-w-4xl text-center transition-opacity duration-1000 ease-in-out ${
           isVisible ? 'opacity-100' : 'opacity-0'
@@ -28,14 +27,19 @@ const MissionStatement = () => {
         <p className="text-xl font-normal mb-8 text-gray-600">
           And yet, 401k plan management is broken.
         </p>
-        <p className="text-xl font-normal mb-8" style={{ 
-          background: 'linear-gradient(to right, #0A5A9C, #39A5F3)', 
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent'
-        }}>
+        <p className="text-xl font-normal mb-8 gradient-text">
           So, we're fixing it.
         </p>
       </div>
+      <style jsx>{`
+        .gradient-text {
+          background: linear-gradient(to right, #0A5A9C, #39A5F3);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
+        }
+      `}</style>
     </section>
   );
 };

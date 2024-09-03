@@ -17,18 +17,30 @@ const FragmentedEcosystemGraphic = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Step 1 */}
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md" style={{ minHeight: 'fit-content' }}>
-          <div className="bg-green-500 text-white text-sm font-medium py-1 px-3 rounded-full inline-block mb-2">
-            Investments
+        <div className="relative h-full" style={{ minHeight: 'fit-content' }}>
+          <div className="absolute inset-0 bg-gray-100 p-6 rounded-lg shadow-md animate-fade" style={{ minHeight: 'fit-content' }}>
+            <div className="bg-red-500 text-white text-sm font-medium py-1 px-3 rounded-full inline-block mb-2">
+              Fiduciary Responsibilities
+            </div>
+            <h3 className="text-2xl font-light mb-2">No Solutions</h3>
+            <p className="text-gray-600">
+              There is no dedicated system specifically designed for helping advisors manage their fiduciary responsibilities.
+            </p>
           </div>
-          <h3 className="text-2xl font-light mb-2">Investment Monitoring Tools</h3>
-          <p className="text-gray-600">
-            Investment monitoring tools such as fi360 and Morninstar provide you with the tools to monitor your plan's investments easily and efficiently.
-          </p>
+          <div className="absolute inset-0 bg-gray-100 p-6 rounded-lg shadow-md animate-fade" style={{ animationDelay: '5s', background: 'linear-gradient(to right, #0A5A9C, #39A5F3)', minHeight: 'fit-content' }}>
+            <div className="bg-green-500 text-white text-sm font-medium py-1 px-3 rounded-full inline-block mb-2">
+              Fiduciary Responsibilities
+            </div>
+            <h3 className="text-2xl font-light mb-2 text-white">401k Pro</h3>
+            <p className="text-gray-600 text-white">
+              With 401k Pro you can easily manage your fiduciary responsibilities. Your plan management ecosystem is now complete.
+            </p>
+          </div>
         </div>
         
+        
         {/* Step 2 */}
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md" style={{ minHeight: 'fit-content' }}>
+        <div className="bg-gray-100 p-6 rounded-lg shadow-md mt-60 sm:mt-0" style={{ minHeight: 'fit-content' }}>
           <div className="bg-green-500 text-white text-sm font-medium py-1 px-3 rounded-full inline-block mb-2">
             Plan Hosting
           </div>
@@ -50,25 +62,14 @@ const FragmentedEcosystemGraphic = () => {
         </div>
         
         {/* Step 4 - Animated */}
-        <div className="relative h-full" style={{ minHeight: 'fit-content' }}>
-          <div className="absolute inset-0 bg-gray-100 p-6 rounded-lg shadow-md animate-fade" style={{ minHeight: 'fit-content' }}>
-            <div className="bg-red-500 text-white text-sm font-medium py-1 px-3 rounded-full inline-block mb-2">
-              Fiduciary Responsibilities
-            </div>
-            <h3 className="text-2xl font-light mb-2">No Solutions</h3>
-            <p className="text-gray-600">
-              There is no dedicated system specifically designed for helping advisors manage their fiduciary responsibilities.
-            </p>
+        <div className="bg-gray-100 p-6 rounded-lg shadow-md" style={{ minHeight: 'fit-content' }}>
+          <div className="bg-green-500 text-white text-sm font-medium py-1 px-3 rounded-full inline-block mb-2">
+            Investments
           </div>
-          <div className="absolute inset-0 bg-gray-100 p-6 rounded-lg shadow-md animate-fade" style={{ animationDelay: '5s', background: 'linear-gradient(to right, #0A5A9C, #39A5F3)', minHeight: 'fit-content' }}>
-            <div className="bg-green-500 text-white text-sm font-medium py-1 px-3 rounded-full inline-block mb-2">
-              Fiduciary Responsibilities
-            </div>
-            <h3 className="text-2xl font-light mb-2 text-white">401k Pro</h3>
-            <p className="text-gray-600 text-white">
-              With 401k Pro you can easily manage your fiduciary responsibilities. Your plan management ecosystem is now complete.
-            </p>
-          </div>
+          <h3 className="text-2xl font-light mb-2">Investment Monitoring Tools</h3>
+          <p className="text-gray-600">
+            Investment monitoring tools such as fi360 and Morninstar provide you with the tools to monitor your plan's investments easily and efficiently.
+          </p>
         </div>
       </div>
     </div>

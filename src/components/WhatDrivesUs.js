@@ -1,75 +1,47 @@
-import React, { useState, useEffect, useRef } from 'react';
-
-const FadeInSection = ({ children, delay = 0 }) => {
-  const [isVisible, setVisible] = useState(false);
-  const domRef = useRef();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setVisible(true), delay);
-        }
-      });
-    });
-    
-    const { current } = domRef;
-    observer.observe(current);
-    
-    return () => observer.unobserve(current);
-  }, [delay]);
-
-  return (
-    <div
-      ref={domRef}
-      className={`transition-opacity duration-1000 ease-in-out ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
-    >
-      {children}
-    </div>
-  );
-};
+import React from 'react';
+import FadeInSection from './FadeInSection';
 
 const WhatDrivesUs = () => {
   return (
-    <section className="w-full p-1 md:p-20" style={{ background: 'linear-gradient(to right, #0A5A9C, #39A5F3)' }}>
-      <div className="font-roboto font-light max-w-5xl mx-auto p-4 md:p-8 text-center">
+    <section className="w-full py-12 sm:py-16 md:py-24 px-4 md:px-8" style={{ background: 'linear-gradient(to right, #0A5A9C, #39A5F3)' }}>
+      <div className="max-w-4xl mx-auto text-white">
         <FadeInSection>
-          <h1 className="text-3xl md:text-4xl mb-6 md:mb-8 relative text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-6 sm:mb-8 text-center">
             What Drives Us
-          </h1>
+          </h2>
         </FadeInSection>
         
-        <FadeInSection delay={200}>
-          <p className="text-lg md:text-xl italic mb-6 md:mb-8 text-white">
-            "AI won't replace humans — but humans with AI will replace humans without AI" <br className="hidden md:inline" />
-            - <span className="text-white">Harvard Business Review, November 2023.</span>
-          </p>
+        <FadeInSection delay={50}>
+          <blockquote className="text-lg sm:text-xl md:text-2xl italic mb-8 sm:mb-12 text-center">
+            "AI won't replace humans — but humans with AI will replace humans without AI"
+            <footer className="mt-2 text-base sm:text-lg">
+              - Harvard Business Review, November 2023
+            </footer>
+          </blockquote>
         </FadeInSection>
         
-        <div className="space-y-4 md:space-y-6 text-base md:text-lg text-left text-white">
-          <FadeInSection delay={400}>
+        <div className="space-y-6 sm:space-y-8 text-base sm:text-normal">
+          <FadeInSection delay={100}>
             <p>
-              In the world we live in today, AI has the power to both drive a business forward or make it obsolete. The sad reality is that due to a lack of adequate access to AI and automation, more and more advisory firms are being left behind.
+              In today's world, AI has the power to propel businesses forward or render them obsolete. The unfortunate reality is that due to limited access to AI and automation, an increasing number of advisory firms are falling behind.
             </p>
           </FadeInSection>
           
-          <FadeInSection delay={600}>
+          <FadeInSection delay={150}>
             <p>
-              Financial advisors play a critical role in making sure that our world is financially secure. It is our mission to ensure that no advisor is left behind in the AI revolution because we do not want to live in a world where they have ceased to exist.
+              Financial advisors play a crucial role in ensuring our world's financial security. Our mission is to prevent any advisor from being left behind in the AI revolution, as we cannot fathom a world where they cease to exist.
             </p>
           </FadeInSection>
 
-          <FadeInSection delay={800}>
+          <FadeInSection delay={200}>
             <p>
-              Our challenge to you is to ask yourself, <span className="italic">"Am I doing enough to make sure that my practice is as efficient as possible, so that we can survive and thrive in this new world of AI?"</span>
+              We challenge you to ask yourself, <span className="italic font-medium">"Am I doing enough to ensure my practice is as efficient as possible, enabling us to survive and thrive in this new AI-driven world?"</span>
             </p>
           </FadeInSection>
           
-          <FadeInSection delay={1000}>
-            <p className="text-lg md:text-xl font-medium italic">
-              Working together, we push to allow your firm to survive and thrive in this new world of AI.
+          <FadeInSection delay={250}>
+            <p className="text-lg sm:text-md md:text-2xl font-medium italic text-center mt-8 sm:mt-12">
+              Together, we strive to empower your firm to flourish in this new era of AI.
             </p>
           </FadeInSection>
         </div>

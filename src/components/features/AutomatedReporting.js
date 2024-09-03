@@ -1,7 +1,6 @@
 import React from 'react';
 import FeatureGrid from './FeatureGrid';
 import { FileText, Clock, BarChart, Users, Shield, Briefcase, Download } from 'lucide-react';
-import ExampleQuarterlyReport from './Adidas Q2 2024 Quarterly Report - 401k Pro.pdf';
 
 
 const AutomatedReporting = () => {
@@ -39,13 +38,13 @@ const AutomatedReporting = () => {
   ];
 
   const exampleReports = [
-    { name: "Quarterly Report Example", url: {ExampleQuarterlyReport} },
-    { name: "Annual Report Example", url: "/path/to/annual-report.pdf" },
+    { name: "Quarterly Report Example", url: "https://drive.google.com/file/d/1-4d6iQnDrF3L-uG-AwhNSFm2rOdPtkOX/view?usp=sharing" },
+    { name: "Annual Report Example", url: "https://drive.google.com/file/d/1VyzpZ-q7BrNKzbtbhdtKQ8WXR-Paxc5a/view?usp=sharing" },
   ];
 
   return (
     <div className="flex flex-col p-4 sm:p-6 md:p-10 mx-2 sm:mx-5 font-['Roboto',sans-serif]">
-      <h1 className="text-3xl sm:text-4xl font-light text-center mb-3 sm:mb-4 mt-20 sm:mt-40">Automated Reporting</h1>
+      <h1 className="text-3xl sm:text-4xl font-light text-center mb-3 sm:mb-4 mt-10">Automated Reporting</h1>
       <p className="text-lg sm:text-xl text-center text-gray-600 font-thin mb-8 sm:mb-12">
         Comprehensive, hyper-personalized compliance reporting in one click
       </p>

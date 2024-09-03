@@ -30,17 +30,17 @@ const BenefitCard = ({ Icon, title, description, delay }) => {
   return (
     <div 
       ref={ref}
-      className={`flex flex-col bg-white shadow-lg rounded-3xl p-8 border border-blue-500 transition-all duration-1000 ease-in-out ${
+      className={`flex flex-col bg-white shadow-lg rounded-3xl p-6 sm:p-8 border border-blue-500 transition-all duration-1000 ease-in-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
-      <div className="flex items-center mb-6">
-        <div className="bg-blue-100 text-sky-600 rounded-full p-4 mr-4">
-          <Icon className="text-2xl" />
+      <div className="flex items-center mb-4 sm:mb-6">
+        <div className="bg-blue-100 text-sky-600 rounded-full p-3 sm:p-4 mr-3 sm:mr-4">
+          <Icon className="text-xl sm:text-2xl" />
         </div>
-        <h3 className="text-2xl font-extralight text-gray-800">{title}</h3>
+        <h3 className="text-xl sm:text-2xl font-extralight text-gray-800">{title}</h3>
       </div>
-      <p className="text-gray-600 font-normal text-lg">{description}</p>
+      <p className="text-gray-600 font-normal text-base sm:text-lg">{description}</p>
     </div>
   );
 };
@@ -107,15 +107,15 @@ const Benefits = () => {
   return (
     <div 
       ref={sectionRef}
-      className={`bg-white py-20 px-8 transition-all duration-1000 ease-in-out ${
+      className={`bg-white py-12 sm:py-20 px-4 sm:px-8 transition-all duration-1000 ease-in-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`} 
       id='benefits'
     >
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-extralight text-gray-800 mb-4 text-center leading-tight">Benefits of 401(k) Pro</h2>
-        <p className="text-gray-600 mb-16 text-center text-xl font-normal">Make 401(k) Plan Management Easy and Scalable</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight text-gray-800 mb-3 sm:mb-4 text-center leading-tight">Benefits of 401(k) Pro</h2>
+        <p className="text-gray-600 mb-10 sm:mb-16 text-center text-lg sm:text-xl font-normal">Make 401(k) Plan Management Easy and Scalable</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
           {benefits.map((benefit, index) => (
             <BenefitCard key={index} {...benefit} delay={index * 200} />
           ))}

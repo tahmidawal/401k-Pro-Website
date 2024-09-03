@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import Header from './components/header';
 import HeroSection from './components/hero';
 import VideoDemoSection from './components/VideoDemoSection';
-import Benefits from './components/benefits';
 import Pricing from './components/pricing';
 import FragmentedEcosystemGraphic from './components/FragmentedEcosystemGraphic';
 import ContactCard from './components/ContactCard';
@@ -17,6 +16,7 @@ import AutomatedReporting from './components/features/AutomatedReporting';
 import RegulatoryChatbot from './components/features/RegulatoryChatbot';
 import SOC2Certified from './components/features/SOC2SCertified';
 import Testimonials from './components/Testimonials';
+import Benefits from './components/Benefits';
 
 const ScrollToSection = () => {
   const location = useLocation();

@@ -74,27 +74,39 @@ const IndustryIssueOverview = () => {
   const issues = [
     {
       number: 1,
-      title: "Late reports.",
-      description: "The industry standard is a 15-21 day close, which means you won't get this month's numbers until next month is already half over. That's useless.",
-      solution: "With Digits, you'll get your reports by the 5th of the month—2-3X faster than any competing firm."
+      title: "Multiple Fragmented Parties",
+      description: "Managing 401k plans requires constant communication between advisors, plan sponsors, recordkeepers, and TPAs. This makes capturing and organizing critical details for due diligence challenging and time-consuming.",
+      solution: "401k Pro streamlines communication between advisors, plan sponsors, recordkeepers, and TPAs by providing an organized platform for capturing and storing important plan details. Whether the communication happens in person, over the phone, or via email, all relevant information is centralized for easy access, making due diligence effortless."
     },
     {
       number: 2,
-      title: "TLDR; please?",
-      description: "Financials delivered as Excel models or black & white PDFs take far too long to understand, with the key takeaways lost in a sea of numbers.",
-      solution: "Digits Reports are live, visual, and intuitive—designed to help you understand your business in seconds."
+      title: "Inability to Scale",
+      description: "Scaling 401k plan management is difficult due to varying plan designs, different service providers, and time-consuming data retrieval processes on recordkeeper platforms. This complexity hinders the creation of consistent, efficient processes.",
+      solution: "401k Pro automates key tasks like note-taking, report writing, and providing best practices for plan sponsors. This creates a scalable, repeatable process that demonstrates your expertise while lightening the workload for plan sponsors, ultimately saving time and improving efficiency across multiple plans."
     },
     {
       number: 3,
-      title: "Compliance nightmares.",
-      description: "Keeping up with changing regulations and ensuring all plans are compliant is a constant challenge for advisors.",
-      solution: "Our platform automatically updates with the latest compliance requirements, alerting you to any issues and guiding you through resolution."
+      title: "Endless Fiduciary Responsibilities",
+      description: "Understanding and adhering to fiduciary responsibilities under DOL and ERISA regulations is complex. A lack of clear processes for plan management can lead to significant compliance risks.",
+      solution: "401k Pro helps you easily adhere to fiduciary responsibilities by offering ready-made or customizable templates that simplify compliance with DOL and ERISA requirements. These templates can be quickly applied across your entire client base, ensuring consistent, compliant plan management."
     },
     {
       number: 4,
-      title: "Data silos.",
-      description: "Critical information is often scattered across multiple systems, making it difficult to get a holistic view of your clients' plans.",
-      solution: "Digits integrates all your data sources into one centralized platform, giving you a comprehensive overview at your fingertips."
+      title: "Manual and Inefficient Data Extraction",
+      description: "Extracting and organizing plan details, such as eligibility requirements and vesting schedules, from adoption agreements is a tedious and time-consuming task, making it difficult to ensure all necessary information is properly captured.",
+      solution: "401k Pro allows you to automatically scan in and organize your plan documents, extracting key data points like eligibility requirements and vesting schedules in seconds."
+    },
+    {
+      number: 5,
+      title: "Inconsistent Review Processes",
+      description: "The absence of a standardized approach to periodic reviews of plan and fiduciary activities leads to inefficiencies and uncertainty. Advisors often struggle to consistently document and manage plan requirements across different clients.",
+      solution: "401k Pro offers customizable templates for quarterly and annual plan reviews, providing a consistent framework for documenting plan management and fiduciary activities. You can use or edit these templates as needed, ensuring a streamlined, repeatable process for all your clients."
+    },
+    {
+      number: 6,
+      title: "Overburdened Plan Sponsors",
+      description: "Plan sponsors are supposed to keep documentation of their plan management process under ERISA regulations, but they often lack the time and expertise to do so effectively. This can lead to compliance risks and increased liability for both the sponsor and the advisor.",
+      solution: "401k Pro allows advisors to provide plan sponsors with the documentation they need to stay compliant, reducing the burden on sponsors and ensuring that all necessary information is properly captured and stored."
     }
   ];
 
@@ -107,7 +119,7 @@ const IndustryIssueOverview = () => {
       style={{ minHeight: "fit-content" }}
     >
       <div 
-        className="relative w-full h-screen min-h-fit text-white overflow-hidden" 
+        className="relative w-full h-fit min-h-fit text-white overflow-hidden" 
         style={{ background: 'linear-gradient(to right, #0A5A9C, #39A5F3)' }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-70"></div>

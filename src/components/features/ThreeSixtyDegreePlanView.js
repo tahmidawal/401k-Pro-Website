@@ -1,8 +1,8 @@
 import React from 'react';
-import FeatureDivWithImage from './FeatureDivWithImage';  // Make sure this path is correct
+import FeatureDivWithImage from './FeatureDivWithImage';  // Ensure this path is correct
 import MasterSpreadsheetMainImage from './MasterSpreadsheetMain.png';
 import ThreeSixyPlanViewImage from './ThreeSixtyPlanView.png';
-import PDFUploadVideo from './PDFUploadVideo.mov';
+import PDFUploadVideo from './PDFUpload.mp4';
 import DashboardImage from './Dashboard.png';
 
 const ThreeSixtyDegreePlanView = () => {
@@ -16,8 +16,8 @@ const ThreeSixtyDegreePlanView = () => {
           }
         `}
       </style>
-      <div className="flex flex-col p-4 sm:p-6 px-4 sm:px-6 md:px-10 mx-2 sm:mx-5 roboto-font">
-        <h1 className="text-3xl sm:text-4xl font-light text-center mb-3 sm:mb-4 sm:mt-40">360° Plan View</h1>
+      <div className="flex flex-col p-4 sm:p-6 sm:pt-4 px-4 sm:px-6 md:px-10 mx-2 sm:mx-5 roboto-font mt-14">
+        <h1 className="text-3xl sm:text-4xl font-light text-center mb-3 sm:mb-4">360° Plan View</h1>
         <p className="text-lg sm:text-xl text-center text-gray-600 font-thin mb-8 sm:mb-12">
           Get a comprehensive overview of your 401(k) plans in one place
         </p>

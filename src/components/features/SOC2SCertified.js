@@ -99,7 +99,7 @@ const SOC2CertificationPage = () => {
     <div className="bg-gray-50 min-h-screen font-roboto">
       <div className="container mx-auto px-4 py-16 sm:py-24">
         <div className="text-center mb-12">
-          <h1 className="text-5xl sm:text-4xl font-extralight mb-4 text-gray-900 mt-20">
+          <h1 className="text-5xl sm:text-4xl font-extralight mb-4 text-gray-900 mt-0">
             SOC2 Certified
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">

@@ -1,9 +1,9 @@
 import React from 'react';
 import { ArrowRight, ArrowLeft, ArrowUp, ArrowDown } from 'lucide-react';
 
-const InverseGradientButton = ({ 
+const WhiteButtonWithArrow = ({ 
   buttonText, 
-  onClick, 
+  link,
   showArrow = true, 
   arrowDirection = 'right' 
 }) => {
@@ -20,11 +20,26 @@ const InverseGradientButton = ({
     }
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    const element = document.querySelector(link);
+    if (element) {
+      const headerOffset = 100; // Adjust this value as needed
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <button
-      type="submit"
+      type="button"
       className="group relative inline-flex items-center justify-center py-3 px-6 rounded-full overflow-hidden transition-all duration-300"
-      onClick={onClick}
+      onClick={handleClick}
     >
       {/* White background with gradient border */}
       <div className="absolute inset-0 bg-white transition-opacity duration-300 group-hover:opacity-0"></div>
@@ -52,4 +67,4 @@ const InverseGradientButton = ({
   );
 };
 
-export default InverseGradientButton;
+export default WhiteButtonWithArrow;

@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Check, ArrowRight } from 'lucide-react';
+import { Check } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const PricingTier = ({ title, price, features, isPopular, delay, stripeLink }) => {
+const PricingTier = ({ title, price, features, isPopular, delay }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,12 +30,12 @@ const PricingTier = ({ title, price, features, isPopular, delay, stripeLink }) =
   }, [delay]);
 
   const handleButtonClick = () => {
-    if (stripeLink) {
-      window.location.href = stripeLink;
-    }
+    navigate('/book-a-demo');
+    // Scroll to top after a short delay to ensure the new page has loaded
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
   };
-
-  const buttonText = title === "Enterprise" ? "Let's Talk" : "Start Now";
 
   return (
     <div 
@@ -61,7 +63,7 @@ const PricingTier = ({ title, price, features, isPopular, delay, stripeLink }) =
         style={{ background: 'linear-gradient(to right, #0A5A9C, #39A5F3)' }}
         onClick={handleButtonClick}
       >
-        <span>{buttonText}</span>
+        <span>Book a Demo</span>
       </button>
     </div>
   );
@@ -98,32 +100,29 @@ const PricingComponent = () => {
       title: "Starter",
       price: 199,
       features: ["30 day free trial", "Up to 25 plans", "Unlimited Contributors", "Master Spreadsheet", "Automated Reporting", "Plan Management Dashboard", "SOC2 Certified Security"],
-      isPopular: false,
-      stripeLink: "https://buy.stripe.com/fZebM80V65RVdb2144"
+      isPopular: false
     },
     {
       title: "Professional",
       price: 349,
       features: ["Everything in Basic", "30 day free trial", "Up to 100 Plans", "AI Notewriting", "Regulatory Chatbot", "AI Data Entry for PDFs"],
-      isPopular: true,
-      stripeLink: "https://buy.stripe.com/4gw3fCeLW2FJ2wofYZ"
+      isPopular: true
     },
     {
       title: "Enterprise",
       price: '999+',
       features: ["Everything in Pro", "Unlimited Plans", "Custom Integrations", "Dedicated Account Manager", "Custom Reporting", "Custom Compliance Alerts"],
-      isPopular: false,
-      stripeLink: "#book-a-demo"
+      isPopular: false
     }
   ];
 
   return ( 
     <div 
       ref={sectionRef}
+      id="pricing"
       className={`flex flex-col items-center bg-gray-100 p-4 sm:p-6 md:p-8 lg:p-12 transition-all duration-1000 ease-in-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`} 
-      id='pricing'
     >
       <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extralight mb-2 sm:mb-3 leading-tight text-center">
         Your all-in-one plan management platform

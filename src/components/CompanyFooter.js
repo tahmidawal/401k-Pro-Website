@@ -45,7 +45,7 @@ const Footer = () => {
           <FooterSection
             title="Product"
             items={[
-              { text: 'SOC2 Certified', link: '/SOC2-certified' },
+              { text: 'Security', link: '/security' },
               { text: 'Demo Video', link: '/#demo-video' },
               { text: 'Try for Free', link: '/#pricing' }
             ]}

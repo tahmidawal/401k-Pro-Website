@@ -14,7 +14,7 @@ import CompanyFooter from './components/CompanyFooter';
 import CareersPage from './components/CareersPage';
 import AutomatedReporting from './components/features/AutomatedReporting';
 import RegulatoryChatbot from './components/features/RegulatoryChatbot';
-import SOC2Certified from './components/features/SOC2SCertified';
+import Security from './components/features/Security';
 import Testimonials from './components/Testimonials';
 import Benefits from './components/Benefits';
 
@@ -61,7 +61,7 @@ function App() {
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/automated-reporting" element={<AutomatedReporting />} />
             <Route path="/regulatory-chatbot" element={<RegulatoryChatbot />} />
-            <Route path="/soc2-certified" element={<SOC2Certified />} />
+            <Route path="/security" element={<Security />} />
             <Route path="/book-a-demo" element={<ContactCard 
               title="Book a Demo"
               subtitle="Get a personalized demo of 401k Pro"

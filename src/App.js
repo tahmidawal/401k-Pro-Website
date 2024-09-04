@@ -16,7 +16,7 @@ import AutomatedReporting from './components/features/AutomatedReporting';
 import RegulatoryChatbot from './components/features/RegulatoryChatbot';
 import Security from './components/features/Security';
 import Testimonials from './components/Testimonials';
-import Benefits from './components/Benefits';
+import Benefits from './components/benefits';
 
 const ScrollToSection = () => {
   const location = useLocation();

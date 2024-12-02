@@ -1,72 +1,150 @@
 import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { FileText, Clock, ClipboardCheck, Users, Shield, UserPlus, Download, FileDigit } from 'lucide-react';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { FileText, Clock, ClipboardCheck, Users, Shield, UserPlus, Download, FileDigit, Sparkles } from 'lucide-react';
 import GradientButtonWithArrow from '../buttons/GradientButtonWithArrow';
 
-const GradientIcon = ({ icon: Icon }) => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="#0A5A9C" />
-        <stop offset="100%" stopColor="#39A5F3" />
-      </linearGradient>
-    </defs>
-    <Icon stroke="url(#icon-gradient)" />
-  </svg>
+// Add these new animation variants near the top of the file
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 20,
+    scale: 0.95
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.04, 0.62, 0.23, 0.98]
+    }
+  }
+};
+
+// Update the hero section animation
+const heroVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      when: "beforeChildren",
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.04, 0.62, 0.23, 0.98]
+    }
+  }
+};
+
+// Animated background circles
+const AnimatedCircle = ({ delay = 0, className }) => (
+  <motion.div
+    className={`absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 ${className}`}
+    animate={{
+      scale: [1, 1.2, 1],
+      rotate: [0, 90, 0],
+      opacity: [0.5, 0.2, 0.5],
+    }}
+    transition={{
+      duration: 8,
+      repeat: Infinity,
+      delay,
+    }}
+  />
 );
 
-const FeatureCard = ({ icon, title, description }) => (
+// Modern feature card with 3D hover effect
+const FeatureCard = ({ icon: Icon, title, description }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.6 }}
+      whileHover={{ translateY: -8 }}
+      className="group relative h-full"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-3xl blur-xl transform group-hover:scale-105 transition-transform duration-500"></div>
+      <div className="relative bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-white/20 shadow-lg overflow-hidden h-full flex flex-col">
+        <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-full blur-2xl transform translate-x-8 -translate-y-8"></div>
+        <div className="relative z-10 flex flex-col h-full">
+          <div className="w-14 h-14 mb-6 relative flex-shrink-0">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
+            <div className="relative flex items-center justify-center w-full h-full bg-white rounded-xl border border-white/50">
+              <Icon className="w-6 h-6 text-blue-600" strokeWidth={1.5} />
+            </div>
+          </div>
+          <h3 className="text-xl font-light mb-3 bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent flex-shrink-0">
+            {title}
+          </h3>
+          <p className="text-gray-600 text-sm leading-relaxed flex-grow">
+            {description}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+// Modern step card with number indicator
+const StepCard = ({ number, text }) => (
   <motion.div
-    className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100"
-    whileHover={{ y: -5, scale: 1.02 }}
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.3 }}
+    whileHover={{ scale: 1.02 }}
+    className="relative group"
   >
-    <div className="w-12 h-12 mb-4">
-      <GradientIcon icon={icon} />
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-2xl blur-lg"></div>
+    <div className="relative flex items-center bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-lg">
+      <div className="flex-shrink-0 mr-6">
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-full blur-lg"></div>
+          <div className="relative w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full flex items-center justify-center text-white font-light">
+            {number}
+          </div>
+        </div>
+      </div>
+      <p className="text-gray-700 font-light">{text}</p>
     </div>
-    <h3 className="text-xl font-light mb-2">{title}</h3>
-    <p className="text-gray-600 text-sm font-light">{description}</p>
   </motion.div>
 );
 
+// Modern download button
 const DownloadButton = ({ name, url }) => (
   <a
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    className="group relative inline-flex items-center justify-center py-3 px-6 rounded-full overflow-hidden transition-all duration-300"
+    className="group relative inline-flex items-center space-x-2 px-6 py-3 rounded-xl overflow-hidden"
   >
-    <div className="absolute inset-0 bg-white transition-opacity duration-300 group-hover:opacity-0"></div>
-    <div className="absolute inset-0 bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] rounded-full p-[2px] transition-opacity duration-300 group-hover:opacity-0">
-      <div className="bg-white h-full w-full rounded-full"></div>
-    </div>
-    <div className="absolute inset-0 bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] transition-all duration-300 group-hover:text-white flex items-center">
-      <span className="mr-2 transition-all duration-300">
-        <Download size={20} className="text-[#0A5A95] text-light group-hover:text-white" />
-      </span>
-      {name}
-    </span>
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 group-hover:from-blue-600/20 group-hover:to-cyan-400/20 transition-all duration-300"></div>
+    <Download size={20} className="text-blue-600 transition-transform duration-300 group-hover:-translate-y-1" />
+    <span className="relative font-light text-gray-700">{name}</span>
   </a>
 );
-
-const FadeInSection = ({ children }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.5 }}
-    >
-      {children}
-    </motion.div>
-  );
-};
 
 const AutomatedReporting = () => {
   const features = [
@@ -108,86 +186,162 @@ const AutomatedReporting = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen font-['Roboto',sans-serif] font-light">
-      <div className="container mx-auto px-4 py-16 sm:py-24">
+    <div className="relative min-h-screen bg-white overflow-hidden font-['Roboto',sans-serif] font-light">
+      {/* Background animations */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      >
+        <AnimatedCircle delay={0} className="top-0 left-0 w-[500px] h-[500px] bg-blue-200/30" />
+        <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
+        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" />
+      </motion.div>
+
+      <div className="relative max-w-7xl mx-auto px-4 py-24">
+        {/* Hero Section with staggered animation */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          variants={heroVariants}
+          initial="hidden"
+          animate="visible"
+          className="text-center mb-20"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extralight mb-6 leading-tight">
-            <span className="text-gray-700">Automated</span>{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3]">Reporting</span>
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            Comprehensive, hyper-personalized compliance reporting in one click
-          </p>
+          <motion.h1 
+            variants={textVariants}
+            className="text-7xl font-extralight mb-6"
+          >
+            <motion.span
+              variants={textVariants}
+              className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400"
+            >
+              Automated Reporting
+            </motion.span>
+            {/* <br />
+            <motion.span
+              variants={textVariants}
+              className="text-gray-800"
+            >
+              Reporting
+            </motion.span> */}
+          </motion.h1>
+          <motion.p
+            variants={textVariants}
+            className="text-xl text-gray-600 max-w-2xl mx-auto"
+          >
+            Generate comprehensive, personalized compliance reports with a single click
+          </motion.p>
         </motion.div>
 
-        <FadeInSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {features.map((feature, index) => (
-              <FeatureCard key={index} {...feature} />
+        {/* Features Grid with staggered animation */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24"
+        >
+          {features.map((feature, index) => (
+            <motion.div key={index} variants={itemVariants}>
+              <FeatureCard {...feature} />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* How It Works Section with staggered animation */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mb-24"
+        >
+          <motion.h2 
+            variants={textVariants}
+            className="text-4xl font-extralight text-center mb-12"
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+              How It Works
+            </span>
+          </motion.h2>
+          <div className="space-y-4">
+            {[
+              "Track your plan touchpoints and requirements over the course of the year",
+              "Select the type of report you'd like to generate",
+              "Click one button and generate your report",
+              "Download and make any necessary edits",
+              "Send to your clients",
+              "That's it!"
+            ].map((step, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+              >
+                <StepCard number={index + 1} text={step} />
+              </motion.div>
             ))}
           </div>
-        </FadeInSection>
+        </motion.div>
 
-        <FadeInSection>
-          <div className="bg-white p-8 rounded-3xl shadow-lg mb-16 mt-16">
-            <h2 className="text-3xl font-light mb-8 text-center text-gray-800">How It Works</h2>
-            <div className="space-y-4">
-              {[
-                "Track your plan touchpoints and requirements over the course of the year",
-                "Select the type of report you'd like to generate",
-                "Click one button and generate your report",
-                "Download and make any necessary edits",
-                "Send to your clients",
-                "That's it!"
-              ].map((step, index) => (
+        {/* Example Reports Section with fade-in animation */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative mb-24"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-3xl blur-xl"></div>
+          <div className="relative bg-white/80 backdrop-blur-sm p-12 rounded-3xl border border-white/20 shadow-lg">
+            <motion.h2 
+              variants={textVariants}
+              className="text-3xl font-light text-center mb-8"
+            >
+              Example Reports
+            </motion.h2>
+            <motion.div 
+              variants={containerVariants}
+              className="flex flex-wrap justify-center gap-6"
+            >
+              {exampleReports.map((report, index) => (
                 <motion.div
                   key={index}
-                  className="flex items-center bg-gray-50 rounded-2xl p-4"
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
+                  variants={itemVariants}
                 >
-                  <div className="flex-shrink-0 mr-6">
-                    <span className="bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-medium">{index + 1}</span>
-                  </div>
-                  <p className="text-gray-700 flex-grow">{step}</p>
+                  <DownloadButton {...report} />
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
-        </FadeInSection>
+        </motion.div>
 
-        <FadeInSection>
-          <div className="bg-white rounded-3xl p-8 shadow-lg">
-            <h2 className="text-3xl font-light text-center mb-6 text-gray-800">Download Example Reports</h2>
-            <p className="text-center text-gray-600 mb-8">
-              See the quality and conciseness of our reports for yourself.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {exampleReports.map((report, index) => (
-                <DownloadButton key={index} {...report} />
-              ))}
-            </div>
-          </div>
-        </FadeInSection>
-
-        <FadeInSection>
-          <div className="text-center mt-16">
-            <h2 className="text-3xl font-light mb-6 text-gray-800">Ready to streamline your reporting?</h2>
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join the growing number of companies benefiting from our automated reporting solution.
-            </p>
+        {/* CTA Section with fade-up animation */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <motion.h2 
+            variants={textVariants}
+            className="text-4xl font-extralight mb-6"
+          >
+            Ready to streamline your reporting?
+          </motion.h2>
+          <motion.p
+            variants={textVariants}
+            className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
+          >
+            Join forward-thinking advisors who are saving hours on compliance reporting
+          </motion.p>
+          <motion.div variants={itemVariants}>
             <GradientButtonWithArrow 
               buttonText="Get Started" 
               link="/book-a-demo"
-              showArrow={false}
+              showArrow={true}
             />
-          </div>
-        </FadeInSection>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

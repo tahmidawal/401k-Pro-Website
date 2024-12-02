@@ -2,40 +2,64 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { ShieldCheck, Check, ChevronDown, ChevronUp, Lock, Shield, Server, Bell, Database, Code, Trash } from 'lucide-react';
 
-// Floating animation for background elements
-const FloatingElement = ({ children, delay = 0 }) => (
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 20,
+    scale: 0.95
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.04, 0.62, 0.23, 0.98]
+    }
+  }
+};
+
+// Animated background circles
+const AnimatedCircle = ({ delay = 0, className }) => (
   <motion.div
+    className={`absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 ${className}`}
     animate={{
-      y: [0, -10, 0],
-      rotate: [-1, 1, -1],
+      scale: [1, 1.2, 1],
+      rotate: [0, 90, 0],
+      opacity: [0.5, 0.2, 0.5],
     }}
     transition={{
-      duration: 5,
+      duration: 8,
       repeat: Infinity,
-      repeatType: "reverse",
       delay,
     }}
-  >
-    {children}
-  </motion.div>
+  />
 );
 
+// Modern gradient icon
 const GradientIcon = ({ Icon }) => (
-  <div className="relative group">
-    <div className="absolute inset-0 bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] blur-xl opacity-20 group-hover:opacity-75 transition-opacity"></div>
-    <svg width="96" height="96" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative">
-      <defs>
-        <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#0A5A9C" />
-          <stop offset="100%" stopColor="#39A5F3" />
-        </linearGradient>
-      </defs>
-      <Icon stroke="url(#icon-gradient)" strokeWidth={1.5} />
-    </svg>
+  <div className="relative w-24 h-24">
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-full blur-xl transform group-hover:scale-110 transition-transform duration-300"></div>
+    <div className="relative flex items-center justify-center w-full h-full bg-white rounded-full border border-white/50">
+      <Icon className="w-12 h-12 text-blue-600" strokeWidth={1.5} />
+    </div>
   </div>
 );
 
-const SecurityCategory = ({ title, features, icon: Icon }) => {
+// Modern security category card
+const SecurityCategory = ({ title, features, icon: Icon, index }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -50,32 +74,35 @@ const SecurityCategory = ({ title, features, icon: Icon }) => {
     <motion.div
       ref={ref}
       style={{ scale, opacity }}
-      className="relative group"
+      variants={itemVariants}
+      className="group relative"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] rounded-xl blur-lg opacity-5 group-hover:opacity-10 transition-opacity"></div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="bg-white/80 shadow-lg rounded-xl overflow-hidden border border-gray-100 backdrop-blur-xl relative"
-      >
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-3xl blur-xl transform group-hover:scale-105 transition-transform duration-500"></div>
+      <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl border border-white/20 shadow-lg overflow-hidden">
         <button 
-          className="flex justify-between items-center w-full text-left p-6 group"
+          className="flex justify-between items-center w-full text-left p-8 group"
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          <div className="flex items-center space-x-4">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] flex items-center justify-center">
-              <Icon className="text-white" size={20} />
+          <div className="flex items-center space-x-6">
+            <div className="relative w-14 h-14 flex-shrink-0">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
+              <div className="relative flex items-center justify-center w-full h-full bg-white rounded-xl border border-white/50">
+                <Icon className="w-6 h-6 text-blue-600" strokeWidth={1.5} />
+              </div>
             </div>
-            <h3 className="text-xl font-light text-gray-800">{title}</h3>
+            <h3 className="text-xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
+              {title}
+            </h3>
           </div>
           <motion.div
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.3 }}
+            className="text-gray-400 group-hover:text-blue-500 transition-colors duration-300"
           >
-            {isExpanded ? <ChevronUp size={24} className="text-gray-500" /> : <ChevronDown size={24} className="text-gray-500" />}
+            <ChevronDown size={24} />
           </motion.div>
         </button>
+        
         <AnimatePresence>
           {isExpanded && (
             <motion.div
@@ -83,29 +110,31 @@ const SecurityCategory = ({ title, features, icon: Icon }) => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
+              className="px-8 pb-8"
             >
-              <ul className="px-6 pb-6 space-y-3">
+              <div className="space-y-4">
                 {features.map((feature, index) => (
-                  <motion.li
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     className="flex items-start group"
                   >
-                    <div className="flex-shrink-0 h-5 w-5 mt-1 mr-3">
-                      <div className="relative">
-                        <Check className="text-green-500 absolute transition-transform group-hover:scale-110" />
+                    <div className="relative w-6 h-6 flex-shrink-0 mr-4 mt-0.5">
+                      <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
+                      <div className="relative flex items-center justify-center w-full h-full bg-white rounded-full border border-white/50">
+                        <Check className="w-4 h-4 text-green-500" />
                       </div>
                     </div>
-                    <span className="text-gray-600">{feature}</span>
-                  </motion.li>
+                    <span className="text-gray-600 font-light">{feature}</span>
+                  </motion.div>
                 ))}
-              </ul>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };
@@ -186,59 +215,92 @@ const Security = () => {
   ];
 
   return (
-    <div className="font-['Roboto',sans-serif] bg-white min-h-screen relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-white -z-10"></div>
-      <FloatingElement>
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
-      </FloatingElement>
-      <FloatingElement delay={2}>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
-      </FloatingElement>
+    <div className="relative min-h-screen bg-white overflow-hidden font-['Roboto',sans-serif] font-light">
+      {/* Background animations */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      >
+        <AnimatedCircle delay={0} className="top-0 left-0 w-[500px] h-[500px] bg-blue-200/30" />
+        <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
+        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" />
+      </motion.div>
 
-      <div className="container mx-auto px-4 py-16 sm:py-24 relative">
+      <div className="relative max-w-7xl mx-auto px-4 py-24">
+        {/* Hero Section */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="text-center mb-20"
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extralight mb-8 leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3]">Security</span>
-          </h1>
-          <p className="text-xl text-gray-600 font-light max-w-2xl mx-auto mb-12">
+          <motion.h1 
+            variants={itemVariants}
+            className="text-7xl font-extralight mb-6"
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+              Enterprise-Grade
+            </span>
+            <br />
+            <span className="text-gray-800">
+              Security
+            </span>
+          </motion.h1>
+          <motion.p
+            variants={itemVariants}
+            className="text-xl text-gray-600 max-w-2xl mx-auto mb-12"
+          >
             Your data's safety is our top priority
-          </p>
-          <div className="flex justify-center">
+          </motion.p>
+          <motion.div variants={itemVariants} className="flex justify-center">
             <GradientIcon Icon={ShieldCheck} />
+          </motion.div>
+        </motion.div>
+
+        {/* Security Categories */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto space-y-6"
+        >
+          {securityCategories.map((category, index) => (
+            <SecurityCategory 
+              key={index}
+              index={index}
+              {...category}
+            />
+          ))}
+        </motion.div>
+
+        {/* Commitment Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mt-24"
+        >
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-3xl blur-xl"></div>
+            <div className="relative bg-white/80 backdrop-blur-sm p-12 rounded-3xl border border-white/20 shadow-lg">
+              <motion.h2 
+                variants={itemVariants}
+                className="text-3xl font-light text-center mb-6"
+              >
+                Our Commitment to Security
+              </motion.h2>
+              <motion.p
+                variants={itemVariants}
+                className="text-gray-600 text-center font-light max-w-3xl mx-auto"
+              >
+                We are committed to maintaining the highest standards of security to protect our organization and the privacy of its clients. Our security controls are designed and implemented to ensure the confidentiality, integrity, and availability of your data.
+              </motion.p>
+            </div>
           </div>
         </motion.div>
-        
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-6">
-            {securityCategories.map((category, index) => (
-              <SecurityCategory 
-                key={index} 
-                {...category}
-              />
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mt-16 text-center bg-white/80 shadow-lg rounded-2xl p-8 border border-gray-100 backdrop-blur-xl relative"
-          >
-            <FloatingElement>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] rounded-2xl blur-2xl opacity-5"></div>
-            </FloatingElement>
-            <h2 className="text-2xl font-light mb-4 text-gray-800">Our Commitment to Security</h2>
-            <p className="text-gray-600 mb-6 max-w-3xl mx-auto">
-              We are committed to maintaining the highest standards of security to protect our organization and the privacy of its clients. Our security controls are designed and implemented to ensure the confidentiality, integrity, and availability of your data.
-            </p>
-          </motion.div>
-        </div>
       </div>
     </div>
   );

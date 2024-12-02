@@ -37,31 +37,43 @@ const ThreeSixtyDegreePlanView = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen font-['Roboto',sans-serif] font-light">
-      <div className="container mx-auto px-4 py-16 sm:py-24">
+    <div className="bg-white min-h-screen font-['Roboto',sans-serif] font-light relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-white -z-10"></div>
+      <FloatingElement>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+      </FloatingElement>
+      <FloatingElement delay={2}>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+      </FloatingElement>
+
+      <div className="max-w-7xl mx-auto px-4 py-16 sm:py-24 relative">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extralight mb-6 leading-tight">
-            <span className="text-gray-700">360°</span>{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3]">Plan View</span>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extralight mb-8 leading-tight">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3]">
+              360° Plan View
+            </span>
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Get a comprehensive overview of your 401(k) plans in one place
           </p>
         </motion.div>
-        
+
         <div className="space-y-24">
-          <FeatureDivWithImage
-            title="401k Pro Master Spreadsheet"
-            description="Our Master Spreadsheet allows you to keep all of your fiduciary plan management information in one place. Everything you need is now at your fingertips."
-            image={MasterSpreadsheetMainImage}
-            imageAlt="Master Spreadsheet"
-            imageOnRight={false}
-          />
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] blur-3xl opacity-10 -z-10"></div>
+            <FeatureDivWithImage
+              title="401k Pro Master Spreadsheet"
+              description="Our Master Spreadsheet allows you to keep all of your fiduciary plan management information in one place. Everything you need is now at your fingertips."
+              image={MasterSpreadsheetMainImage}
+              imageAlt="Master Spreadsheet"
+              imageOnRight={false}
+            />
+          </div>
           
           <FeatureDivWithImage
             title="Everything You Need, Nothing You Don't"
@@ -97,33 +109,41 @@ const ThreeSixtyDegreePlanView = () => {
         </div>
 
         <FadeInSection>
-          <div id="plan-view-details" className="bg-white p-8 rounded-3xl shadow-lg mb-16 mt-24">
-            <h2 className="text-3xl font-light mb-8 text-center text-gray-800">360° Plan View Details</h2>
-            <div className="space-y-4">
-              {planViewDetails.map((detail, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-center bg-gray-50 rounded-2xl p-4"
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="flex-shrink-0 mr-6">
-                    <span className="bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-medium">{index + 1}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-800 mb-1">{detail.title}</h3>
-                    <p className="text-gray-600">{detail.description}</p>
-                  </div>
-                </motion.div>
-              ))}
+          <div id="plan-view-details" className="relative mt-24 mb-16">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] blur-lg opacity-10"></div>
+            <div className="bg-white p-8 rounded-3xl shadow-lg backdrop-blur-xl border border-gray-100">
+              <h2 className="text-3xl font-light mb-8 text-center text-gray-800">360° Plan View Details</h2>
+              <div className="space-y-4">
+                {planViewDetails.map((detail, index) => (
+                  <motion.div
+                    key={index}
+                    className="group relative"
+                    whileHover={{ scale: 1.02, y: -5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="absolute inset-0 transition-opacity"></div>
+                    <div className="bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] p-[1px] rounded-2xl">
+                      <div className="bg-white p-6 rounded-2xl flex items-center gap-6">
+                        <span className="bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-medium flex-shrink-0">
+                          {index + 1}
+                        </span>
+                        <div>
+                          <h3 className="text-lg font-medium text-gray-800 mb-1">{detail.title}</h3>
+                          <p className="text-gray-600">{detail.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </FadeInSection>
 
         <FadeInSection>
-          <div className="text-center mt-16">
-            <h2 className="text-3xl font-light mb-6 text-gray-800">Ready to get a 360° view of your plans?</h2>
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <div className="text-center mt-24">
+            <h2 className="text-3xl font-light mb-6">Ready to get a 360° view of your plans?</h2>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Start managing your 401(k) plans more efficiently with our comprehensive solution.
             </p>
             <GradientButtonWithArrow 
@@ -137,5 +157,22 @@ const ThreeSixtyDegreePlanView = () => {
     </div>
   );
 };
+
+const FloatingElement = ({ children, delay = 0 }) => (
+  <motion.div
+    animate={{
+      y: [0, -10, 0],
+      rotate: [-1, 1, -1],
+    }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+      repeatType: "reverse",
+      delay,
+    }}
+  >
+    {children}
+  </motion.div>
+);
 
 export default ThreeSixtyDegreePlanView;

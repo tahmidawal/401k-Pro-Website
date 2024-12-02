@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ChevronDown, ChevronUp, Menu, X, RefreshCcwDot, FileText, MessageSquare, Shield } from 'lucide-react';
+import { ChevronDown, ChevronUp, Menu, X, RefreshCcwDot, FileText, MessageSquare, Shield, UsersRound, Bot, ArrowRight } from 'lucide-react';
 import logo from '../img/401k Pro Logo.png';
 import GradientButtonWithArrow from './buttons/GradientButtonWithArrow';
 import WhiteButtonWithArrow from './buttons/WhiteButtonWithArrow';
@@ -54,50 +54,86 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 font-roboto">
-      <nav className="flex items-center justify-between p-4 bg-white shadow-md">
-        <button onClick={() => handleNavigation('/')} className="flex items-center">
-          <img src={logo} alt="401k Pro Logo" className="h-8 w-auto" />
+      {/* Pure white background with subtle shadow */}
+      <div className="absolute inset-0 bg-white shadow-sm border-b border-gray-100"></div>
+      
+      <nav className="relative max-w-7xl mx-auto flex items-center justify-between p-4">
+        {/* Logo */}
+        <button 
+          onClick={() => handleNavigation('/')} 
+          className="relative group flex items-center"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-xl blur-lg group-hover:scale-110 transition-transform duration-300"></div>
+          <img src={logo} alt="401k Pro Logo" className="relative h-8 w-auto" />
         </button>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-8">
           <DesktopNavLinks handleNavigation={handleNavigation} />
         </div>
 
+        {/* Action Buttons */}
         <div className="hidden md:flex items-center space-x-4">
           <ActionButtons isMobile={false} handleNavigation={handleNavigation} />
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-500 hover:text-sky-500 transition duration-200"
+          className="md:hidden relative group p-2 rounded-xl"
           onClick={toggleMobileMenu}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-xl blur-lg group-hover:scale-110 transition-transform duration-300"></div>
+          <div className="relative">
+            {isMobileMenuOpen ? 
+              <X size={24} className="text-blue-600" /> : 
+              <Menu size={24} className="text-blue-600" />
+            }
+          </div>
         </button>
       </nav>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-md">
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link to="/why-401k-pro" onClick={() => handleNavigation('/why-401k-pro')} className="text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#0A5A9C] hover:to-[#39A5F3] transition duration-200">
-              Why 401k Pro
-            </Link>
-            <div>
+        <div className="md:hidden">
+          <div className="absolute inset-0 bg-white/90 backdrop-blur-xl"></div>
+          <div className="relative container mx-auto px-4 py-6 space-y-6">
+            {/* Mobile Nav Links */}
+            <button 
+              onClick={() => handleNavigation('/why-401k-pro')} 
+              className="w-full text-left px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
+            >
+              <span className="text-gray-700 font-light">Why 401k Pro</span>
+            </button>
+            
+            {/* Features Dropdown */}
+            <div className="space-y-2">
               <button
                 onClick={toggleMobileFeatureDropdown}
-                className="text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#0A5A9C] hover:to-[#39A5F3] transition duration-200 flex items-center justify-between w-full"
+                className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
               >
-                <span>Features</span>
-                {isMobileFeatureDropdownOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                <span className="text-gray-700 font-light">Features</span>
+                {isMobileFeatureDropdownOpen ? 
+                  <ChevronUp size={20} className="text-blue-600" /> : 
+                  <ChevronDown size={20} className="text-blue-600" />
+                }
               </button>
-              {isMobileFeatureDropdownOpen && <FeatureDropdown handleNavigation={handleNavigation} />}
+              
+              {isMobileFeatureDropdownOpen && (
+                <div className="pl-4 space-y-1">
+                  <FeatureDropdown handleNavigation={handleNavigation} />
+                </div>
+              )}
             </div>
-            <Link to="/#pricing" onClick={() => handleNavigation('/#pricing')} className="text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#0A5A9C] hover:to-[#39A5F3] transition duration-200">
-              Pricing
-            </Link>
-            <div className="pt-4 border-t border-gray-200">
+
+            <button 
+              onClick={() => handleNavigation('/#pricing')} 
+              className="w-full text-left px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
+            >
+              <span className="text-gray-700 font-light">Pricing</span>
+            </button>
+
+            {/* Mobile Action Buttons */}
+            <div className="pt-4">
               <ActionButtons isMobile={true} handleNavigation={handleNavigation} />
             </div>
           </div>
@@ -131,9 +167,16 @@ const DesktopNavLinks = ({ handleNavigation }) => {
 
   return (
     <>
-      <button onClick={() => handleNavigation('/why-401k-pro')} className="text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#0A5A9C] hover:to-[#39A5F3] transition duration-200">
-        Why 401k Pro
+      <button 
+        onClick={() => handleNavigation('/why-401k-pro')} 
+        className="relative group px-4 py-2 rounded-xl"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-cyan-400/0 group-hover:from-blue-600/5 group-hover:to-cyan-400/5 rounded-xl transition-all duration-300"></div>
+        <span className="relative font-light text-gray-600 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0A5A9C] group-hover:to-[#39A5F3] transition duration-200">
+          Why 401k Pro
+        </span>
       </button>
+
       <div 
         className="relative"
         onMouseEnter={openDropdown}
@@ -141,81 +184,143 @@ const DesktopNavLinks = ({ handleNavigation }) => {
         ref={dropdownRef}
       >
         <button 
-          className="text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#0A5A9C] hover:to-[#39A5F3] transition duration-200 flex items-center"
+          className="relative group px-4 py-2 rounded-xl flex items-center space-x-1"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
-          <span>Features</span>
-          {isDropdownOpen ? <ChevronUp size={20} className="ml-1" /> : <ChevronDown size={20} className="ml-1" />}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-cyan-400/0 group-hover:from-blue-600/5 group-hover:to-cyan-400/5 rounded-xl transition-all duration-300"></div>
+          <span className="relative font-light text-gray-600 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0A5A9C] group-hover:to-[#39A5F3] transition duration-200">
+            Features
+          </span>
+          <div className="relative transition-transform duration-200 transform group-hover:translate-y-0.5">
+            {isDropdownOpen ? 
+              <ChevronUp size={16} className="text-gray-400 group-hover:text-blue-500" /> : 
+              <ChevronDown size={16} className="text-gray-400 group-hover:text-blue-500" />
+            }
+          </div>
         </button>
+
         {isDropdownOpen && (
-          <div className="absolute left-0 mt-2 w-64 opacity-0 transform -translate-y-2 transition-all duration-200 ease-in-out"
+          <div className="absolute left-0 mt-2 w-[320px] opacity-0 transform -translate-y-2 transition-all duration-200 ease-in-out"
                style={{ opacity: isDropdownOpen ? 1 : 0, transform: isDropdownOpen ? 'translateY(0)' : 'translateY(-10px)' }}>
             <FeatureDropdown handleNavigation={handleNavigation} />
           </div>
         )}
       </div>
-      <button onClick={() => handleNavigation('/#pricing')} className="text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#0A5A9C] hover:to-[#39A5F3] transition duration-200">
-        Pricing
+
+      <button 
+        onClick={() => handleNavigation('/#pricing')} 
+        className="relative group px-4 py-2 rounded-xl"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-cyan-400/0 group-hover:from-blue-600/5 group-hover:to-cyan-400/5 rounded-xl transition-all duration-300"></div>
+        <span className="relative font-light text-gray-600 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0A5A9C] group-hover:to-[#39A5F3] transition duration-200">
+          Pricing
+        </span>
       </button>
     </>
   );
 };
 
 const FeatureDropdown = ({ handleNavigation }) => (
-  <div className="py-2 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden">
-    <DropdownItem 
-      to="/360-degree-client-view" 
-      text="360° Plan View" 
-      icon={RefreshCcwDot}
-      handleNavigation={handleNavigation} 
-    />
-    <DropdownItem 
-      to="/automated-reporting" 
-      text="Automated Reporting" 
-      icon={FileText}
-      handleNavigation={handleNavigation} 
-    />
-    <DropdownItem 
-      to="/regulatory-chatbot" 
-      text="Regulatory Chatbot" 
-      icon={MessageSquare}
-      handleNavigation={handleNavigation} 
-    />
-    <DropdownItem 
-      to="/security" 
-      text="Security" 
-      icon={Shield}
-      handleNavigation={handleNavigation} 
-    />
+  <div className="py-2 bg-white/80 backdrop-blur-xl rounded-2xl border border-white/20 shadow-xl overflow-hidden">
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-2xl blur-lg"></div>
+    <div className="relative">
+      <DropdownItem 
+        to="/360-degree-client-view" 
+        text="360° Plan View" 
+        description="Complete overview of your client's retirement plan"
+        icon={RefreshCcwDot}
+        handleNavigation={handleNavigation} 
+      />
+      <DropdownItem 
+        to="/plan-documents" 
+        text="Plan Documents" 
+        description="Centralized document management system"
+        icon={FileText}
+        handleNavigation={handleNavigation} 
+      />
+      <DropdownItem 
+        to="/automated-reporting" 
+        text="Automated Reporting" 
+        description="Generate comprehensive reports instantly"
+        icon={FileText}
+        handleNavigation={handleNavigation} 
+      />
+      <DropdownItem 
+        to="/participant-census" 
+        text="Participant Census" 
+        description="Streamlined participant data management"
+        icon={UsersRound}
+        handleNavigation={handleNavigation} 
+      />
+      <DropdownItem 
+        to="/ai-integrations" 
+        text="AI Integrations" 
+        description="Advanced AI-powered insights and automation"
+        icon={Bot}
+        handleNavigation={handleNavigation} 
+      />
+      <DropdownItem 
+        to="/security" 
+        text="Security" 
+        description="Enterprise-grade security protocols"
+        icon={Shield}
+        handleNavigation={handleNavigation} 
+      />
+    </div>
   </div>
 );
 
-const DropdownItem = ({ to, text, icon: Icon, handleNavigation }) => (
+const DropdownItem = ({ to, text, description, icon: Icon, handleNavigation }) => (
   <button
     onClick={() => handleNavigation(to)}
-    className="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 ease-in-out"
+    className="group flex items-center w-full px-4 py-3 hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
   >
-    <Icon size={18} className="mr-3 text-blue-500" />
-    <span className="font-light hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#0A5A9C] hover:to-[#39A5F3] transition duration-200">
-      {text}
-    </span>
+    <div className="relative w-10 h-10 flex-shrink-0 flex items-center justify-center mr-3">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-xl blur-lg group-hover:scale-110 transition-transform duration-300"></div>
+      <div className="absolute inset-0 bg-white/80 rounded-xl border border-white/20"></div>
+      <Icon className="relative z-10 w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform duration-300" strokeWidth={1.5} />
+    </div>
+    <div className="text-left">
+      <div className="font-light text-sm group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0A5A9C] group-hover:to-[#39A5F3] transition duration-200">
+        {text}
+      </div>
+      <div className="text-xs text-gray-500 group-hover:text-gray-600 transition duration-200">
+        {description}
+      </div>
+    </div>
   </button>
 );
 
 const ActionButtons = ({ isMobile, handleNavigation }) => (
-  <div className={`flex ${isMobile ? 'flex-col space-y-2' : 'flex-row space-x-4'} w-full`}>
-    <GradientButtonWithArrow
-      buttonText="Book Demo"
+  <div className={`flex ${isMobile ? 'flex-col space-y-3' : 'flex-row space-x-4'} w-full`}>
+    <button
       onClick={() => handleNavigation('/book-a-demo')}
-      showArrow={false}
-      fullWidth={isMobile}
-    />
-    <WhiteButtonWithArrow
-      buttonText="Log In"
+      className="relative group px-6 py-2.5 rounded-xl overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-colors duration-300"></div>
+      <div className="relative flex items-center justify-center space-x-2">
+        <span className="text-white font-light">Book Demo</span>
+        <div className="transform group-hover:translate-x-1 transition-transform duration-200">
+          <ArrowRight size={16} className="text-white" />
+        </div>
+      </div>
+    </button>
+    
+    <button
       onClick={() => window.location.href = 'https://app.401k-pro.ai'}
-      showArrow={false}
-      fullWidth={isMobile}
-    />
+      className="relative group px-6 py-2.5 rounded-xl overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 group-hover:from-blue-600/10 group-hover:to-cyan-400/10 transition-all duration-300"></div>
+      <div className="relative flex items-center justify-center space-x-2">
+        <span className="text-gray-600 font-light group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0A5A9C] group-hover:to-[#39A5F3] transition duration-200">
+          Log In
+        </span>
+        <div className="transform group-hover:translate-x-1 transition-transform duration-200">
+          <ArrowRight size={16} className="text-gray-400 group-hover:text-blue-500" />
+        </div>
+      </div>
+    </button>
   </div>
 );
 

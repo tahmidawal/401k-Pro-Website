@@ -17,6 +17,8 @@ import RegulatoryChatbot from './components/features/RegulatoryChatbot';
 import Security from './components/features/Security';
 import Testimonials from './components/Testimonials';
 import Benefits from './components/benefits';
+import PlanDocuments from './components/features/PlanDocuments';
+import ParticipantCensus from './components/features/ParticipantCensus';
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -68,6 +70,8 @@ function App() {
               buttonText="Book a Demo"
               buttonLink="https://calendly.com/401k-pro/demo"
             />} />
+            <Route path="/plan-documents" element={<PlanDocuments />} />
+            <Route path="/participant-census" element={<ParticipantCensus />} />
           </Routes>
         </main>
         <CompanyFooter />

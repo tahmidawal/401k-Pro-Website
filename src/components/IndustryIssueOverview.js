@@ -125,7 +125,7 @@ const IndustryIssueOverview = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-70"></div>
         
         <div className="relative z-10 container mx-auto px-4 py-16 h-full flex flex-col justify-center">
-          <h2 className={`text-4xl font-light mb-12 transition-all duration-1000 ease-out ${
+          <h2 className={`text-4xl font-light mb-12 transition-all duration-1000 ease-out text-center ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             How is 401k plan management broken?

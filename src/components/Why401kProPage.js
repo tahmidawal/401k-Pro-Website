@@ -1,8 +1,7 @@
 import React from 'react';
 import MissionStatement from './MissionStatement';
 import IndustryIssueOverview from './IndustryIssueOverview';
-import FragmentedEcosystem from './FragmentedEcosystem';
-import FragmentedEcosystemGraphic from './FragmentedEcosystemGraphic';
+import FragmentedEcosystemCombined from './FragmentedEcosystemCombined';
 
 const Why401kProPage = () => {
   return (
@@ -10,11 +9,10 @@ const Why401kProPage = () => {
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
       `}</style>
-      <div className="font-roboto font-light bg-white py-20">
+      <div className="font-roboto font-light bg-white">
         <MissionStatement />
         <IndustryIssueOverview />
-        <FragmentedEcosystem />
-        <FragmentedEcosystemGraphic />
+        <FragmentedEcosystemCombined />
         
       </div>
     </>

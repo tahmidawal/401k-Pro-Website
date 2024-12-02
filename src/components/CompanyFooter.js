@@ -1,6 +1,6 @@
 import React from 'react';
 import { Linkedin } from 'lucide-react';
-import Logo from './401k Pro Logo Footer.png'
+import Logo from '../img/401k Pro Logo-Photoroom.png';
 
 // Import the new icons from @tabler/icons-react
 import { IconBrandInstagram, IconBrandTwitter } from '@tabler/icons-react';
@@ -25,7 +25,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-center text-center">
             {/* First column - Your logo and company info */}
-            <img src={Logo} alt="401k Pro Logo" className="h-8 mb-4" />
+            <img src={Logo} alt="401k Pro Logo-Photoroom" className="h-8 mb-4" />
             {/* <p className="text-sm mb-2">Plan management made simple, personal, and scalable</p> */}
             <p className="text-sm mb-4">© 2024 AccessibleAI, LLC</p>
             <p className="text-sm mb-2">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const testimonials = [
   {
@@ -16,7 +17,6 @@ const testimonials = [
 const Testimonials = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [isQuoteChanging, setIsQuoteChanging] = useState(false);
   const componentRef = useRef(null);
 
   useEffect(() => {
@@ -42,11 +42,7 @@ const Testimonials = () => {
   }, []);
 
   const handleQuoteChange = (index) => {
-    setIsQuoteChanging(true);
-    setTimeout(() => {
-      setCurrentQuote(index);
-      setIsQuoteChanging(false);
-    }, 300); // This should match the transition duration in the CSS
+    setCurrentQuote(index);
   };
 
   return (
@@ -54,15 +50,13 @@ const Testimonials = () => {
       ref={componentRef}
       className={`flex flex-col items-center justify-center min-h-fit-content bg-white p-4 font-['Roboto',sans-serif] mt-12 sm:mt-16 md:mt-20 mb-12 sm:mb-16 md:mb-20 transition-all duration-1000 ease-in-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`}
+      } relative overflow-hidden`}
     >
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-      `}</style>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-3xl blur-3xl opacity-30"></div>
       
-      <h2 className="text-xl sm:text-2xl font-light mb-4 sm:mb-6 text-center">What people say about us</h2>
+      <h2 className="text-xl sm:text-2xl font-light mb-4 sm:mb-6 text-center z-10">What people say about us</h2>
       
-      <div className="flex justify-center space-x-2 mb-6 sm:mb-8">
+      <div className="flex justify-center space-x-2 mb-6 sm:mb-8 z-10">
         {testimonials.map((_, index) => (
           <button
             key={index}
@@ -75,15 +69,17 @@ const Testimonials = () => {
         ))}
       </div>
       
-      <div className="max-w-2xl w-full p-4 sm:p-6 border border-gray-200 rounded-lg shadow-lg">
-        <blockquote className={`text-xl sm:text-2xl md:text-3xl font-light italic text-center mb-4 sm:mb-6 transition-opacity duration-300 ${
-          isQuoteChanging ? 'opacity-0' : 'opacity-100'
-        }`}>
+      <div className="max-w-2xl w-full p-4 sm:p-6 border border-gray-200 rounded-lg shadow-lg relative z-10">
+        <motion.blockquote
+          className={`text-xl sm:text-2xl md:text-3xl font-light italic text-center mb-4 sm:mb-6`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5 }}
+        >
           "{testimonials[currentQuote].quote}"
-        </blockquote>
-        <footer className={`text-center text-xs sm:text-sm text-gray-500 transition-opacity duration-300 ${
-          isQuoteChanging ? 'opacity-0' : 'opacity-100'
-        }`}>
+        </motion.blockquote>
+        <footer className="text-center text-xs sm:text-sm text-gray-500">
           <p className="font-medium">{testimonials[currentQuote].author}</p>
           <p>{testimonials[currentQuote].position}</p>
         </footer>

@@ -1,76 +1,77 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
-const IssuePoint = ({ number, title, description, solution, delay }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), delay);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
     }
+  }
+};
 
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [delay]);
+const itemVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 20,
+    scale: 0.95
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.04, 0.62, 0.23, 0.98]
+    }
+  }
+};
 
+const IssuePoint = ({ number, title, description, solution }) => {
   return (
-    <div 
-      ref={ref} 
-      className={`space-y-4 transition-all duration-1000 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`}
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ scale: 1.02 }}
+      className="relative group h-full"
     >
-      <div className="flex items-center space-x-4">
-        <span className="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center font-semibold">
-          {number}
-        </span>
-        <h3 className="text-2xl font-light">{title}</h3>
+      <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-white/10 rounded-3xl blur-lg transform group-hover:scale-105 transition-all duration-500"></div>
+      <div className="relative bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10 overflow-hidden h-full flex flex-col">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-white/5 to-transparent rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div className="flex items-center space-x-4 mb-6">
+          <div className="relative flex-shrink-0">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-full blur-lg"></div>
+            <div className="relative w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full flex items-center justify-center text-white font-light text-xl">
+              {number}
+            </div>
+          </div>
+          <h3 className="text-2xl font-light text-white">{title}</h3>
+        </div>
+        
+        <div className="space-y-4 flex-grow flex flex-col">
+          <div className="relative flex-grow">
+            <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent rounded-lg blur-sm"></div>
+            <p className="relative text-gray-300 leading-relaxed">
+              {description}
+            </p>
+          </div>
+          
+          <div className="relative pt-4">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-400/10 rounded-lg blur-sm"></div>
+            <p className="relative text-white/90 leading-relaxed">
+              {solution}
+            </p>
+          </div>
+        </div>
       </div>
-      <p className="text-gray-300">{description}</p>
-      <p className="text-gray-300">{solution}</p>
-    </div>
+    </motion.div>
   );
 };
 
 const IndustryIssueOverview = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   const issues = [
     {
       number: 1,
@@ -111,38 +112,63 @@ const IndustryIssueOverview = () => {
   ];
 
   return (
-    <section 
-      ref={sectionRef} 
-      className={`py-16 transition-opacity duration-1000 ease-out ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
-      style={{ minHeight: "fit-content" }}
-    >
-      <div 
-        className="relative w-full h-fit min-h-fit text-white overflow-hidden" 
-        style={{ background: 'linear-gradient(to right, #0A5A9C, #39A5F3)' }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-70"></div>
-        
-        <div className="relative z-10 container mx-auto px-4 py-16 h-full flex flex-col justify-center">
-          <h2 className={`text-4xl font-light mb-12 transition-all duration-1000 ease-out text-center ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}>
-            How is 401k plan management broken?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section className="relative overflow-hidden py-24 font-['Roboto',sans-serif] font-light">
+      {/* Background with modern gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0A5A9C] to-[#39A5F3]">
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      </div>
+
+      {/* Animated background elements */}
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, 90, 0],
+          opacity: [0.3, 0.2, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          delay: 0,
+        }}
+        className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-500/30 to-cyan-500/30 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
+      />
+
+      <motion.div
+        animate={{
+          scale: [1, 1.1, 1],
+          rotate: [0, -90, 0],
+          opacity: [0.3, 0.2, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          delay: 2,
+        }}
+        className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"
+      />
+
+      <div className="relative z-10 container mx-auto px-4">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.h2 
+            variants={itemVariants}
+            className="text-5xl sm:text-6xl font-extralight text-center mb-16"
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200">
+              How is 401k plan management broken?
+            </span>
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-fr">
             {issues.map((issue, index) => (
-              <IssuePoint 
-                key={index} 
-                number={issue.number} 
-                title={issue.title} 
-                description={issue.description} 
-                solution={issue.solution} 
-                delay={index * 200}
-              />
+              <IssuePoint key={index} {...issue} />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

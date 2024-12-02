@@ -1,139 +1,239 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Check } from 'lucide-react';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { Check, Sparkles, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const PricingTier = ({ title, price, features, isPopular, delay }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), delay);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
     }
+  }
+};
 
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [delay]);
+const itemVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 20,
+    scale: 0.95
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.04, 0.62, 0.23, 0.98]
+    }
+  }
+};
+
+// Floating animation for background elements
+const FloatingElement = ({ children, delay = 0 }) => (
+  <motion.div
+    animate={{
+      y: [0, -10, 0],
+      rotate: [-1, 1, -1],
+    }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+      repeatType: "reverse",
+      delay,
+    }}
+  >
+    {children}
+  </motion.div>
+);
+
+const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/month" }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const navigate = useNavigate();
 
   const handleButtonClick = () => {
     navigate('/book-a-demo');
-    // Scroll to top after a short delay to ensure the new page has loaded
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
+    setTimeout(() => window.scrollTo(0, 0), 100);
   };
 
+  const commonFeatures = [
+    "Master Spreadsheet",
+    "Automated Reporting",
+    "Plan Management Dashboard",
+    "AI Notewriting",
+    "Unlimited Users",
+    "Regulatory Chatbot",
+    "AI Data Entry for PDFs",
+    "SOC2 Certified Security",
+    "Custom Report Templates",
+    "Advanced Analytics"
+  ];
+
   return (
-    <div 
+    <motion.div
       ref={ref}
-      className={`bg-white p-4 sm:p-6 rounded-2xl shadow-lg w-full max-w-xs font-sans flex flex-col ${
-        isPopular ? 'border-2 border-blue-500' : ''
-      } transition-all duration-1000 ease-in-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.8, delay }}
+      whileHover={{ translateY: -10 }}
+      className="relative group h-full"
     >
-      <div className="flex-grow">
-        <h2 className="text-xl sm:text-2xl font-extralight mb-2 leading-tight">{title}</h2>
-        <p className="text-3xl sm:text-4xl font-normal mb-4">${price}<span className="text-sm sm:text-base text-gray-500">/month</span></p>
-        <ul className="space-y-2">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start text-sm sm:text-base font-normal text-gray-700">
-              <Check className="text-sky-500 mr-2 flex-shrink-0 mt-1" size={14} />
-              <span>{feature}</span>
+      {/* Background gradient effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div>
+      
+      {/* Card content */}
+      <div className={`relative h-full backdrop-blur-xl bg-white/80 p-8 rounded-2xl border ${
+        isPopular ? 'border-blue-500/50' : 'border-white/20'
+      } shadow-lg overflow-hidden flex flex-col`}>
+        {/* Popular badge */}
+        {isPopular && (
+          <div className="absolute top-4 right-4">
+            <div className="relative">
+              <div className="relative px-3 py-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full">
+                <span className="text-white text-sm font-light">Most Popular</span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
+
+        {/* Plan range and price */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-light mb-4">{planRange}</h2>
+          <div className="flex items-baseline">
+            <span className="text-4xl font-light">${price}</span>
+            <span className="text-gray-500 ml-2">{priceSubtext}</span>
+          </div>
+        </div>
+
+        {/* All features included notice */}
+        <div className="mb-6 p-3 bg-blue-50 rounded-xl">
+          <p className="text-blue-600 text-sm font-medium text-center">
+            All Features Included
+          </p>
+        </div>
+
+        {/* Features preview */}
+        <ul className="space-y-4 mb-8 flex-grow">
+          {commonFeatures.slice(0, 4).map((feature, index) => (
+            <li key={index} className="flex items-start gap-3">
+              <div className="relative flex-shrink-0 mt-1">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-sm opacity-20"></div>
+                <Check className="relative text-blue-600 w-4 h-4" />
+              </div>
+              <span className="text-gray-600">{feature}</span>
             </li>
           ))}
+          <li className="text-gray-500 text-sm text-center">+ All other features</li>
         </ul>
+
+        {/* CTA Button */}
+        <button 
+          onClick={handleButtonClick}
+          className="relative group w-full"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="relative bg-gradient-to-r from-blue-600 to-cyan-400 text-white font-light py-3 px-6 rounded-full flex items-center justify-center gap-2">
+            <span>Book a Demo</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </div>
+        </button>
       </div>
-      <button 
-        className="w-full text-white py-2 px-4 rounded-full flex items-center justify-center text-sm sm:text-base font-normal mt-4 sm:mt-6"
-        style={{ background: 'linear-gradient(to right, #0A5A9C, #39A5F3)' }}
-        onClick={handleButtonClick}
-      >
-        <span>Book a Demo</span>
-      </button>
-    </div>
+    </motion.div>
   );
 };
 
 const PricingComponent = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const { scrollYProgress } = useScroll();
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   const pricingTiers = [
     {
-      title: "Starter",
-      price: 199,
-      features: ["30 day free trial", "Up to 25 plans", "Unlimited Contributors", "Master Spreadsheet", "Automated Reporting", "Plan Management Dashboard", "SOC2 Certified Security"],
+      planRange: "1-15 Plans",
+      price: 200,
       isPopular: false
     },
     {
-      title: "Professional",
-      price: 349,
-      features: ["Everything in Basic", "30 day free trial", "Up to 100 Plans", "AI Notewriting", "Regulatory Chatbot", "AI Data Entry for PDFs"],
+      planRange: "16-40 Plans",
+      price: 400,
       isPopular: true
     },
     {
-      title: "Enterprise",
-      price: '999+',
-      features: ["Everything in Pro", "Unlimited Plans", "Custom Integrations", "Dedicated Account Manager", "Custom Reporting", "Custom Compliance Alerts"],
-      isPopular: false
+      planRange: "41+ Plans",
+      price: '10',
+      isPopular: false,
+      priceSubtext: "per plan/month"
     }
   ];
 
-  return ( 
-    <div 
-      ref={sectionRef}
-      id="pricing"
-      className={`flex flex-col items-center bg-gray-100 p-4 sm:p-6 md:p-8 lg:p-12 transition-all duration-1000 ease-in-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`} 
-    >
-      <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extralight mb-2 sm:mb-3 leading-tight text-center">
-        Your all-in-one plan management platform
-      </h1>
-      <p className="text-gray-500 mb-6 sm:mb-8 text-sm sm:text-base font-normal text-center max-w-xl">
-        Priced for advisors of all sizes
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full max-w-5xl mb-4">
-        {pricingTiers.map((tier, index) => (
-          <PricingTier key={index} {...tier} delay={index * 200} />
-        ))}
+  return (
+    <div id="pricing" className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-blue-50/30 overflow-hidden py-32">
+      {/* Animated background elements */}
+      <motion.div 
+        style={{ y: backgroundY }}
+        className="absolute inset-0 pointer-events-none"
+      >
+        <FloatingElement delay={0}>
+          <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+        </FloatingElement>
+        <FloatingElement delay={2}>
+          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+        </FloatingElement>
+      </motion.div>
+
+      <div className="max-w-7xl mx-auto px-4 relative">
+        {/* Hero Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="text-center mb-20"
+        >
+          <motion.div
+            animate={{ 
+              scale: [1, 1.2, 1],
+              rotate: [0, 360, 360]
+            }}
+            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+            className="inline-block mb-8"
+          >
+            <div className="relative w-24 h-24">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-full blur-xl"></div>
+              <div className="relative flex items-center justify-center h-full">
+                <Sparkles size={48} className="text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text" />
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.h1 
+            variants={itemVariants}
+            className="text-7xl font-extralight mb-6"
+          >
+            Simple{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+              Pricing
+            </span>
+          </motion.h1>
+          <motion.p
+            variants={itemVariants}
+            className="text-xl text-gray-600 max-w-2xl mx-auto"
+          >
+            Simple pricing based on your number of plans. All features included.
+          </motion.p>
+        </motion.div>
+
+        {/* Pricing Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          {pricingTiers.map((tier, index) => (
+            <PricingTier key={index} {...tier} delay={index * 0.2} />
+          ))}
+        </div>
       </div>
     </div>
   );

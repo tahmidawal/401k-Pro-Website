@@ -4,7 +4,7 @@ import Header from './components/header';
 import HeroSection from './components/hero';
 import VideoDemoSection from './components/VideoDemoSection';
 import Pricing from './components/pricing';
-import FragmentedEcosystemGraphic from './components/FragmentedEcosystemGraphic';
+import FragmentedEcosystemCombined from './components/FragmentedEcosystemCombined';
 import ContactCard from './components/ContactCard';
 import Why401kProPage from './components/Why401kProPage';
 import MissionStatement from './components/MissionStatement';
@@ -19,6 +19,7 @@ import Testimonials from './components/Testimonials';
 import Benefits from './components/benefits';
 import PlanDocuments from './components/features/PlanDocuments';
 import ParticipantCensus from './components/features/ParticipantCensus';
+import AIIntegrations from './components/features/AIIntegrations';
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -41,8 +42,8 @@ const HomePage = () => (
     <VideoDemoSection />
     <Benefits />
     <Pricing />
-    <MissionStatement />
-    <FragmentedEcosystemGraphic />
+    {/* <MissionStatement /> */}
+    <FragmentedEcosystemCombined />
     <WhatDrivesUs />
     <Testimonials />
 
@@ -62,7 +63,7 @@ function App() {
             <Route path="/360-degree-client-view" element={<ThreeSixtyDegreePlanView />} />
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/automated-reporting" element={<AutomatedReporting />} />
-            <Route path="/regulatory-chatbot" element={<RegulatoryChatbot />} />
+            <Route path="/ai-integrations" element={<AIIntegrations />} />
             <Route path="/security" element={<Security />} />
             <Route path="/book-a-demo" element={<ContactCard 
               title="Book a Demo"

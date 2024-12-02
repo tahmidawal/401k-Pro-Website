@@ -1,0 +1,312 @@
+import React, { useRef } from 'react';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { Bot, FileText, Upload, Mail, Sparkles, ArrowRight, Clock, TrendingUp, ShieldCheck, Users, BrainCircuit } from 'lucide-react';
+import GradientButtonWithArrow from '../buttons/GradientButtonWithArrow';
+
+// Floating animation for background elements
+const FloatingElement = ({ children, delay = 0 }) => (
+  <motion.div
+    animate={{
+      y: [0, -10, 0],
+      rotate: [-1, 1, -1],
+    }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+      repeatType: "reverse",
+      delay,
+    }}
+  >
+    {children}
+  </motion.div>
+);
+
+// Feature card component
+const FeatureCard = ({ feature, index }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.95, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0.5, 1]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ scale, opacity }}
+      className="relative h-full"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] blur-3xl opacity-10 -z-10 transform rotate-3"></div>
+      <div className="bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] p-[2px] rounded-3xl backdrop-blur-xl h-full">
+        <div className="bg-white/90 p-8 rounded-3xl h-full backdrop-blur-xl relative overflow-hidden flex flex-col">
+          <FloatingElement delay={index * 0.5}>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
+          </FloatingElement>
+          
+          <div className="w-16 h-16 mb-6 relative flex-shrink-0">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] blur-lg opacity-50"></div>
+            <div className="relative w-full h-full rounded-2xl bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] flex items-center justify-center">
+              {feature.icon}
+            </div>
+          </div>
+          
+          <h3 className="text-2xl font-light mb-4 flex-shrink-0">{feature.title}</h3>
+          <p className="text-gray-600 leading-relaxed mb-6 flex-grow">{feature.description}</p>
+          
+          <div className="space-y-2 flex-shrink-0">
+            {feature.highlights.map((highlight, idx) => (
+              <div key={idx} className="flex items-center space-x-2 text-gray-600">
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                <span>{highlight}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+// Add this new component after FeatureCard
+const BenefitCard = ({ title, description, icon: Icon }) => (
+  <motion.div
+    whileHover={{ scale: 1.02 }}
+    className="relative p-6 bg-white rounded-2xl"
+  >
+    <div className="absolute inset-0 bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] opacity-5 rounded-2xl"></div>
+    <Icon className="w-8 h-8 text-blue-600 mb-4" />
+    <h3 className="text-xl font-light mb-2">{title}</h3>
+    <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
+  </motion.div>
+);
+
+const AIIntegrations = () => {
+  const features = [
+    {
+      icon: <Bot className="w-8 h-8 text-white" />,
+      title: "AI Chat Assistant",
+      description: "Intelligent document analysis with contextual responses. Get instant insights about uploaded documents and receive answers backed by regulatory knowledge.",
+      highlights: [
+        "Ask questions about document content",
+        "Receive contextual responses",
+        "Regulatory-aware answers"
+      ]
+    },
+    {
+      icon: <Upload className="w-8 h-8 text-white" />,
+      title: "Automated Data Entry",
+      description: "Upload PDFs to automatically populate Plan Design, Elections, and Performance data. Save time and ensure accuracy with our smart document processing.",
+      highlights: [
+        "Automatic field population",
+        "Smart document processing",
+        "Accuracy verification"
+      ]
+    },
+    {
+      icon: <FileText className="w-8 h-8 text-white" />,
+      title: "AI Professional Rewriting",
+      description: "Transform your touchpoints with our AI Writer. Ensure consistent, professional language across all reports with just one click.",
+      highlights: [
+        "Professional tone adjustment",
+        "Error-free content",
+        "Consistent messaging"
+      ]
+    },
+    {
+      icon: <Mail className="w-8 h-8 text-white" />,
+      title: "Email Integration",
+      description: "Forward stakeholder email chains to automatically generate documentation for touchpoints in your reports. Streamline your workflow with automated documentation.",
+      highlights: [
+        "Automatic documentation",
+        "Email chain processing",
+        "One-click reports"
+      ]
+    }
+  ];
+
+  // In the AIIntegrations component, add this benefits data before the return statement
+  const benefits = [
+    {
+      icon: Clock,
+      title: "Save 15+ Hours Weekly",
+      description: "Automate routine tasks like document review, data entry, and report generation, freeing up valuable time for client relationships."
+    },
+    {
+      icon: TrendingUp,
+      title: "Increase Revenue by 30%",
+      description: "Identify high-potential opportunities and automate lead scoring to focus on clients most likely to need additional services."
+    },
+    {
+      icon: ShieldCheck,
+      title: "Reduce Compliance Risk",
+      description: "AI-powered compliance checks and automated documentation ensure regulatory requirements are met consistently."
+    },
+    {
+      icon: Users,
+      title: "Scale Your Practice",
+      description: "Handle more clients without proportionally increasing staff, maintaining high service quality through automation."
+    },
+    {
+      icon: BrainCircuit,
+      title: "Enhanced Decision Making",
+      description: "Leverage AI insights to make data-driven recommendations and identify patterns across your client base."
+    },
+    {
+      icon: Sparkles,
+      title: "Competitive Edge",
+      description: "Stay ahead of the curve with cutting-edge technology that differentiates your practice in a crowded market."
+    }
+  ];
+
+  return (
+    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-blue-50/30 overflow-hidden font-['Roboto',sans-serif] font-light">
+      {/* Background animations */}
+      <FloatingElement>
+        <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+      </FloatingElement>
+      <FloatingElement delay={2}>
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+      </FloatingElement>
+
+      <div className="max-w-7xl mx-auto px-4 py-32 relative">
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-center mb-32"
+        >
+          <motion.div
+            animate={{ 
+              scale: [1, 1.2, 1],
+              rotate: [0, 360, 360]
+            }}
+            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+            className="inline-block mb-8"
+          >
+            <div className="relative w-24 h-24">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-full blur-xl"></div>
+              <div className="relative flex items-center justify-center h-full">
+                <Bot size={48} className="text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text" />
+              </div>
+            </div>
+          </motion.div>
+
+          <h1 className="text-7xl font-extralight mb-8">
+            AI
+            <span className="relative mx-4">
+              <span className="relative z-10 text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text">
+                Integrations
+              </span>
+              <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 -z-10 transform skew-x-12"></div>
+            </span>
+            Hub
+          </h1>
+          <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Harness the power of AI to streamline your workflow and enhance productivity
+          </p>
+        </motion.div>
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32 auto-rows-fr">
+          {features.map((feature, index) => (
+            <FeatureCard key={index} feature={feature} index={index} />
+          ))}
+        </div>
+
+        {/* Benefits Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-32"
+        >
+          <h2 className="text-4xl font-light text-center mb-4">
+            Why AI Matters for
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 ml-2">
+              401k Advisors
+            </span>
+          </h2>
+          <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-16">
+            Transform your practice with AI-powered tools designed specifically for retirement plan advisors
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <BenefitCard {...benefit} />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* ROI Stats */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-gradient-to-br from-blue-600 to-cyan-400 p-[1px] rounded-2xl"
+            >
+              <div className="bg-white p-6 rounded-2xl">
+                <h3 className="text-4xl font-light text-blue-600 mb-2">92%</h3>
+                <p className="text-gray-600">Reduction in manual data entry time</p>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-gradient-to-br from-blue-600 to-cyan-400 p-[1px] rounded-2xl"
+            >
+              <div className="bg-white p-6 rounded-2xl">
+                <h3 className="text-4xl font-light text-blue-600 mb-2">3.5x</h3>
+                <p className="text-gray-600">More client touchpoints managed</p>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-gradient-to-br from-blue-600 to-cyan-400 p-[1px] rounded-2xl"
+            >
+              <div className="bg-white p-6 rounded-2xl">
+                <h3 className="text-4xl font-light text-blue-600 mb-2">45%</h3>
+                <p className="text-gray-600">Increase in client satisfaction scores</p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <div className="inline-block p-1 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full">
+            <div className="bg-white px-12 py-16 rounded-full relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+              <h2 className="text-4xl font-light mb-6">Ready to Experience the Future?</h2>
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Join forward-thinking advisors leveraging AI to transform their practice
+              </p>
+              <GradientButtonWithArrow 
+                buttonText="Get Started" 
+                link="/book-a-demo"
+                showArrow={true}
+              />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+export default AIIntegrations;

@@ -131,12 +131,14 @@ const Benefits = () => {
           viewport={{ once: true }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-extralight mb-6 leading-tight">
-              Benefits of{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3]">
-                401(k) Pro
+            <h1 className="text-7xl font-extralight mb-6">
+              {" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+                Benefits
               </span>
-            </h2>
+              {" "}
+              of 401(k) Pro
+            </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Make 401(k) Plan Management Easy and Scalable
             </p>

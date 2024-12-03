@@ -106,7 +106,7 @@ const MissionStatement = () => {
                 href="/book-a-demo" 
                 className="group inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-400 text-white px-8 py-4 rounded-full hover:shadow-lg transition-shadow duration-300"
               >
-                <span>See How We're Doing It</span>
+                <span>See How</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
             </motion.div>

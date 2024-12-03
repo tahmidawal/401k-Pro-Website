@@ -170,7 +170,7 @@ const AIIntegrations = () => {
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
       </FloatingElement>
 
-      <div className="max-w-7xl mx-auto px-4 py-32 relative">
+      <div className="max-w-7xl mx-auto px-4 relative">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -202,7 +202,7 @@ const AIIntegrations = () => {
               </span>
               <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 -z-10 transform skew-x-12"></div>
             </span>
-            Hub
+            {/* Hub */}
           </h1>
           <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Harness the power of AI to streamline your workflow and enhance productivity

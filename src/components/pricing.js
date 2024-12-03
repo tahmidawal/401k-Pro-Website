@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { Check, Sparkles, ArrowRight } from 'lucide-react';
+import { Check, Sparkles, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 // Animation variants
@@ -54,24 +54,19 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const navigate = useNavigate();
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleButtonClick = () => {
     navigate('/book-a-demo');
     setTimeout(() => window.scrollTo(0, 0), 100);
   };
 
-  const commonFeatures = [
-    "Master Spreadsheet",
-    "Automated Reporting",
-    "Plan Management Dashboard",
-    "AI Notewriting",
-    "Unlimited Users",
-    "Regulatory Chatbot",
-    "AI Data Entry for PDFs",
-    "SOC2 Certified Security",
-    "Custom Report Templates",
-    "Advanced Analytics"
-  ];
+  const scrollToFeatures = () => {
+    const featuresSection = document.getElementById('features-section');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <motion.div
@@ -112,26 +107,22 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
           </div>
         </div>
 
-        {/* All features included notice */}
-        <div className="mb-6 p-3 bg-blue-50 rounded-xl">
-          <p className="text-blue-600 text-sm font-medium text-center">
-            All Features Included
-          </p>
+        {/* Notices */}
+        <div className="space-y-4 mb-8">
+          <button 
+            onClick={scrollToFeatures}
+            className="w-full p-3 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300 group"
+          >
+            <p className="text-blue-600 text-sm font-medium text-center group-hover:scale-105 transition-transform duration-300">
+              All Features Included
+            </p>
+          </button>
+          <div className="p-3 bg-blue-50 rounded-xl">
+            <p className="text-blue-600 text-sm font-medium text-center">
+              Unlimited Users
+            </p>
+          </div>
         </div>
-
-        {/* Features preview */}
-        <ul className="space-y-4 mb-8 flex-grow">
-          {commonFeatures.slice(0, 4).map((feature, index) => (
-            <li key={index} className="flex items-start gap-3">
-              <div className="relative flex-shrink-0 mt-1">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-sm opacity-20"></div>
-                <Check className="relative text-blue-600 w-4 h-4" />
-              </div>
-              <span className="text-gray-600">{feature}</span>
-            </li>
-          ))}
-          <li className="text-gray-500 text-sm text-center">+ All other features</li>
-        </ul>
 
         {/* CTA Button */}
         <button 
@@ -144,6 +135,86 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </div>
         </button>
+      </div>
+    </motion.div>
+  );
+};
+
+const FeaturesList = () => {
+  const features = [
+    "Master Spreadsheet",
+    "Plan Documents",
+    "Automated Reporting",
+    "Participant Census Automation",
+    "Plan Management Dashboard",
+    "AI Notewriting",
+    "AI Email Integrations",
+    "AI PDF Data Extraction",
+    "AI Data Entry for PDFs",
+    "SOC2 Certified Security",
+  ];
+
+  return (
+    <motion.div
+      id="features-section"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="max-w-5xl mx-auto mt-20 px-4"
+    >
+      {/* Section Header */}
+      <motion.div 
+        className="text-center mb-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 className="text-4xl font-extralight mb-4">
+          Every Plan{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+            Includes
+          </span>
+        </h2>
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          Everything you need to streamline your 401(k) plan management
+        </p>
+      </motion.div>
+
+      {/* Features Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-16">
+        {features.map((feature, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.1,
+              ease: "easeOut"
+            }}
+            whileHover={{ scale: 1.02 }}
+            className="relative group"
+          >
+            {/* Background gradient effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-500"></div>
+            
+            {/* Card content */}
+            <div className="relative backdrop-blur-xl bg-white/80 p-4 rounded-xl border border-white/20 shadow-lg overflow-hidden flex items-center gap-4">
+              {/* Icon container */}
+              <div className="relative flex-shrink-0">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-full">
+                  <Check className="text-blue-600 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+              </div>
+              
+              {/* Feature text */}
+              <span className="text-gray-700 text-base font-light group-hover:text-blue-600 transition-colors duration-300">
+                {feature}
+              </span>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </motion.div>
   );
@@ -173,7 +244,7 @@ const PricingComponent = () => {
   ];
 
   return (
-    <div id="pricing" className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-blue-50/30 overflow-hidden py-32">
+    <div id="pricing" className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-blue-50/30 overflow-hidden">
       {/* Animated background elements */}
       <motion.div 
         style={{ y: backgroundY }}
@@ -234,6 +305,9 @@ const PricingComponent = () => {
             <PricingTier key={index} {...tier} delay={index * 0.2} />
           ))}
         </div>
+
+        {/* Features List */}
+        <FeaturesList />
       </div>
     </div>
   );

@@ -256,7 +256,7 @@ const ParticipantCensus = () => {
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 py-32 relative">
+      <div className="max-w-7xl mx-auto px-4 relative">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -341,7 +341,7 @@ const ParticipantCensus = () => {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <div className="inline-block p-1 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full">
+          <div className="inline-block p-1 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full mb-24">
             <div className="bg-white px-12 py-16 rounded-full relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-4xl font-light mb-6">Ready to Grow Your Practice?</h2>

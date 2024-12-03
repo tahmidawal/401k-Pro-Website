@@ -253,9 +253,9 @@ const Security = () => {
           >
             Your data's safety is our top priority
           </motion.p>
-          <motion.div variants={itemVariants} className="flex justify-center">
+          {/* <motion.div variants={itemVariants} className="flex justify-center">
             <GradientIcon Icon={ShieldCheck} />
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         {/* Security Categories */}

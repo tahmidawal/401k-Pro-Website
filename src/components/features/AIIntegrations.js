@@ -130,18 +130,18 @@ const AIIntegrations = () => {
   const benefits = [
     {
       icon: Clock,
-      title: "Save 15+ Hours Weekly",
+      title: "Save Time",
       description: "Automate routine tasks like document review, data entry, and report generation, freeing up valuable time for client relationships."
     },
     {
       icon: TrendingUp,
-      title: "Increase Revenue by 30%",
-      description: "Identify high-potential opportunities and automate lead scoring to focus on clients most likely to need additional services."
+      title: "Increase Revenue",
+      description: "Save time and increase revenue by automating routine tasks and focusing on revenue-generating activities."
     },
     {
       icon: ShieldCheck,
       title: "Reduce Compliance Risk",
-      description: "AI-powered compliance checks and automated documentation ensure regulatory requirements are met consistently."
+      description: "AI-powered compliance checks and automated documentation promote regulatory requirements are met consistently."
     },
     {
       icon: Users,
@@ -150,13 +150,13 @@ const AIIntegrations = () => {
     },
     {
       icon: BrainCircuit,
-      title: "Enhanced Decision Making",
-      description: "Leverage AI insights to make data-driven recommendations and identify patterns across your client base."
+      title: "Stay Organized",
+      description: "Keep all of your data in one place, and let AI help you stay organized."
     },
     {
       icon: Sparkles,
       title: "Competitive Edge",
-      description: "Stay ahead of the curve with cutting-edge technology that differentiates your practice in a crowded market."
+      description: "Stay ahead of the your competition with cutting-edge technology that differentiates your practice in a crowded market."
     }
   ];
 
@@ -234,21 +234,28 @@ const AIIntegrations = () => {
             Transform your practice with AI-powered tools designed specifically for retirement plan advisors
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-gradient-to-br from-blue-600 to-cyan-400 p-[1px] rounded-2xl h-full"
               >
-                <BenefitCard {...benefit} />
+                <div className="bg-white p-6 rounded-2xl h-full">
+                  <div className="relative w-14 h-14 flex-shrink-0 mb-4">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg"></div>
+                    <div className="relative flex items-center justify-center w-full h-full bg-white rounded-xl border border-white/50">
+                      <benefit.icon className="w-6 h-6 text-blue-600" strokeWidth={1.5} />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-light text-blue-600 mb-2">{benefit.title}</h3>
+                  <p className="text-gray-600">{benefit.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
 
-          {/* ROI Stats */}
+          {/* ROI Stats
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -279,7 +286,7 @@ const AIIntegrations = () => {
                 <p className="text-gray-600">Increase in client satisfaction scores</p>
               </div>
             </motion.div>
-          </div>
+          </div> */}
         </motion.div>
 
         {/* CTA Section */}
@@ -292,7 +299,7 @@ const AIIntegrations = () => {
           <div className="inline-block p-1 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full">
             <div className="bg-white px-12 py-16 rounded-full relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
-              <h2 className="text-4xl font-light mb-6">Ready to Experience the Future?</h2>
+              <h2 className="text-4xl font-light mb-6">Ready to Gain Your Competitive Advantage?</h2>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                 Join forward-thinking advisors leveraging AI to transform their practice
               </p>

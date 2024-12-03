@@ -117,7 +117,7 @@ const Benefits = () => {
   ];
 
   return (
-    <div className="relative bg-gradient-to-b from-white to-gray-50/30 py-24 overflow-hidden" id="benefits">
+    <div className="relative py-24 overflow-hidden" id="benefits">
       {/* Animated background elements */}
       <AnimatedCircle delay={0} className="top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" />
       <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />

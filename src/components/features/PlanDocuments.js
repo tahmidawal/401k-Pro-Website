@@ -125,7 +125,7 @@ const UseCaseCard = ({ title, description }) => (
     className="group relative"
   >
     <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-2xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity"></div>
-    <div className="bg-gradient-to-r from-blue-600 to-cyan-400 p-[1px] rounded-2xl relative">
+    <div className=" rounded-2xl relative">
       <div className="bg-white/80 p-6 rounded-2xl h-full backdrop-blur-xl">
         <FloatingElement>
           <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-xl transform translate-x-8 -translate-y-8"></div>

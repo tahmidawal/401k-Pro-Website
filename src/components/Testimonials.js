@@ -76,7 +76,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-blue-50/30 overflow-hidden py-24">
+    <div className="relative min-h-screen overflow-hidden py-24">
       {/* Animated background elements */}
       <motion.div 
         style={{ y: backgroundY }}

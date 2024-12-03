@@ -37,17 +37,30 @@ const ScrollToSection = () => {
 };
 
 const HomePage = () => (
-  <>
-    <HeroSection />
-    <VideoDemoSection />
-    <Benefits />
-    <Pricing />
-    {/* <MissionStatement /> */}
-    <FragmentedEcosystemCombined />
-    <WhatDrivesUs />
-    <Testimonials />
+  <div className="bg-gradient-to-b from-gray-50 via-white to-blue-50/30 relative overflow-hidden">
+    {/* Animated background elements */}
+    <div className="absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float-slow top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" 
+      style={{transform: "scale(1.1) rotate(-15deg)"}}
+    />
+    <div className="absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float-medium bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30"
+      style={{transform: "scale(1.04) rotate(18deg)"}} 
+    />
+    <div className="absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float-fast top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20"
+      style={{transform: "scale(0.95) rotate(45deg) translate(-50%, -50%)"}}
+    />
 
-  </>
+    {/* Content */}
+    <div className="relative z-10">
+      <HeroSection />
+      <VideoDemoSection />
+      <Benefits />
+      <Pricing />
+      {/* <MissionStatement /> */}
+      <FragmentedEcosystemCombined />
+      <WhatDrivesUs />
+      <Testimonials />
+    </div>
+  </div>
 );
 
 function App() {

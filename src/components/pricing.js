@@ -122,6 +122,11 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
               Unlimited Users
             </p>
           </div>
+          <div className="p-3 bg-blue-50 rounded-xl">
+            <p className="text-blue-600 text-sm font-medium text-center">
+              30-Day Free Trial
+            </p>
+          </div>
         </div>
 
         {/* CTA Button */}
@@ -156,11 +161,11 @@ const FeaturesList = () => {
 
   return (
     <motion.div
-      id="features-section"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       className="max-w-5xl mx-auto mt-20 px-4"
+      id="features-section"
     >
       {/* Section Header */}
       <motion.div 
@@ -244,7 +249,7 @@ const PricingComponent = () => {
   ];
 
   return (
-    <div id="pricing" className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-blue-50/30 overflow-hidden">
+    <div id="pricing" className="relative min-h-screen overflow-hidden">
       {/* Animated background elements */}
       <motion.div 
         style={{ y: backgroundY }}

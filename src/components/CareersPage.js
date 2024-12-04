@@ -1,13 +1,59 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { Check, ArrowRight } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Check, ArrowRight, Briefcase, Users, Code, Brain, Sparkles, ChartBar } from 'lucide-react'; // Added ChartBar import
 import GradientButtonWithArrow from './buttons/GradientButtonWithArrow';
-import WhiteButtonWithArrow from './buttons/WhiteButtonWithArrow';
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 20,
+    scale: 0.95
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.04, 0.62, 0.23, 0.98]
+    }
+  }
+};
+
+// Animated background circles
+const AnimatedCircle = ({ delay = 0, className }) => (
+  <motion.div
+    className={`absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 ${className}`}
+    animate={{
+      scale: [1, 1.2, 1],
+      rotate: [0, 90, 0],
+      opacity: [0.5, 0.2, 0.5],
+    }}
+    transition={{
+      duration: 8,
+      repeat: Infinity,
+      delay,
+    }}
+  />
+);
 
 const jobListings = [
   {
     title: "Sales Associate",
+    icon: Briefcase,
+    salary: "$70,000 - $100,000",
     features: [
       "Learn about effective implementation of AI in business",
       "Deliver unparalleled customer experiences",
@@ -18,7 +64,8 @@ const jobListings = [
   },
   {
     title: "Full Stack Developer",
-    salary: "90,000 - 120,000",
+    icon: Code,
+    salary: "$90,000 - $120,000",
     features: [
       "Create intuitive robot interfaces",
       "Shape human-robot interactions",
@@ -29,7 +76,19 @@ const jobListings = [
     isPopular: true
   },
   {
+    title: "AI Engineer",
+    icon: Brain,
+    salary: "$100,000 - $130,000",
+    features: [
+      "Build and optimize large language models",
+      "Work on real-world projects",
+      "Learn from industry experts",
+    ],
+    isPopular: true
+  },
+  {
     title: "Machine Learning Intern",
+    icon: Brain,
     salary: "Competitive",
     features: [
       "Train and optimize AI models",
@@ -39,60 +98,190 @@ const jobListings = [
       "Networking opportunities"
     ],
     isPopular: true
+  },
+  {
+    title: "Data Analyst",
+    icon: ChartBar,
+    salary: "$80,000 - $110,000",
+    features: [
+      "Analyze and interpret complex data sets",
+      "Provide actionable insights to drive business decisions",
+      "Collaborate with cross-functional teams",
+      "Opportunity for career advancement"
+    ],
+    isPopular: true
+  },
+  {
+    title: "Product Manager",
+    icon: Sparkles,
+    salary: "$100,000 - $130,000",
+    features: [
+      "Lead product development from concept to launch",
+      "Work closely with engineering and design teams",
+      "Define product vision and strategy",
+      "Drive user engagement and satisfaction"
+    ],
+    isPopular: true
+  },
+  {
+    title: "UX/UI Designer",
+    icon: Users,
+    salary: "$75,000 - $105,000",
+    features: [
+      "Design user-friendly interfaces and experiences",
+      "Conduct user research and testing",
+      "Collaborate with developers to implement designs",
+      "Stay updated with design trends and best practices"
+    ],
+    isPopular: true
   }
 ];
 
-const JobCard = ({ title, salary, features, isPopular }) => {
+const JobCard = ({ title, icon: Icon, salary, features, isPopular }) => {
   return (
-    <div className={`
-      relative
-      bg-white p-6 rounded-2xl shadow-lg w-full font-sans flex flex-col h-full border border-gray-300
-      ${isPopular ? 'gradient-border' : ''}
-    `}>
-      <div className="flex-grow overflow-hidden">
-        <h2 className="text-2xl font-extralight mb-2 leading-tight mb-5">{title}</h2>
-        <ul className="space-y-2 overflow-y-auto pr-2">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start text-base font-normal text-gray-700">
-              <Check className="text-sky-500 mr-2 flex-shrink-0 mt-1" size={16} />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-        <div className="mt-4">
+    <motion.div
+      whileHover={{ scale: 1.02, y: -5 }}
+      className="relative group h-full"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-300"></div>
+      <div className="relative h-full backdrop-blur-xl bg-white/80 p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden flex flex-col">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
+        
+        {/* Icon */}
+        <div className="relative w-16 h-16 mb-6">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg"></div>
+          <div className="relative flex items-center justify-center h-full bg-white rounded-xl border border-white/50">
+            <Icon className="w-8 h-8 text-blue-600" />
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="flex-grow">
+          <h2 className="text-2xl font-light mb-2 bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text text-transparent">{title}</h2>
+          <p className="text-gray-600 mb-4">{salary}</p>
+          <ul className="space-y-3">
+            {features.map((feature, index) => (
+              <li key={index} className="flex items-start text-base font-normal text-gray-700">
+                <Check className="text-blue-600 mr-2 flex-shrink-0 mt-1" size={16} />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        {/* Button - now in a separate div after flex-grow content */}
+        <div className="mt-6">
           <GradientButtonWithArrow
             buttonText="Apply Now"
-            onClick={() => window.location.href = '/apply'
-            }
+            onClick={() => window.location.href = '/apply'}
+            showArrow={true}
           />
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const CareersPage = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
+  const { scrollYProgress } = useScroll();
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <div className="bg-white min-h-screen font-sans">
-      <main className="container mx-auto px-4 py-40">
-        <h2 className="text-2xl sm:text-4xl font-extralight mb-3 leading-tight text-center">
-          Join Our Team
-        </h2>
-        <p className="text-gray-500 mb-10 text-base font-normal text-center max-w-xl mx-auto">
-          Help us shape the future of 401k plan management
-        </p>
+    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-blue-50/30 overflow-hidden">
+      {/* Animated background elements */}
+      <motion.div 
+        style={{ y: backgroundY }}
+        className="absolute inset-0 pointer-events-none"
+      >
+        <AnimatedCircle delay={0} className="top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" />
+        <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
+        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" />
+      </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl mx-auto mb-4">
-          {jobListings.map((job, index) => (
-            <div key={index} data-aos="fade-up" data-aos-delay={index * 100} className="h-full">
-              <JobCard {...job} />
+      <main className="relative max-w-7xl mx-auto px-4 pb-24">
+        {/* Hero Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="text-center mb-20"
+        >
+          <motion.div
+            animate={{ 
+              scale: [1, 1.2, 1],
+              rotate: [0, 360, 360]
+            }}
+            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+            className="inline-block mb-8"
+          >
+            <div className="relative w-24 h-24">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-full blur-xl"></div>
+              <div className="relative flex items-center justify-center h-full">
+                <Users size={48} className="text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text" />
+              </div>
             </div>
+          </motion.div>
+
+          <motion.h1 
+            variants={itemVariants}
+            className="text-7xl font-extralight mb-6"
+          >
+            Join Our
+            <span className="relative mx-4">
+              <span className="relative z-10 text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text">
+                Team
+              </span>
+              <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 -z-10 transform skew-x-12"></div>
+            </span>
+          </motion.h1>
+          
+          <motion.p
+            variants={itemVariants}
+            className="text-xl text-gray-600 max-w-2xl mx-auto"
+          >
+            Help us shape the future of 401k plan management
+          </motion.p>
+        </motion.div>
+
+        {/* Job Listings Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {jobListings.map((job, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={index}
+            >
+              <JobCard {...job} />
+            </motion.div>
           ))}
         </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mt-24"
+        >
+          <div className="inline-block p-1 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full">
+            <div className="bg-white px-12 py-16 rounded-full relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+              <h2 className="text-4xl font-light mb-6">Don't See Your Role?</h2>
+              <p className="text-xl text-gray-600 mb-8">
+                We're always looking for talented individuals to join our team
+              </p>
+              <GradientButtonWithArrow 
+                buttonText="Contact Us" 
+                link="/contact"
+                showArrow={true}
+              />
+            </div>
+          </div>
+        </motion.div>
       </main>
     </div>
   );

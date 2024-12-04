@@ -36,63 +36,57 @@ const FeatureCard = ({ icon, title, description, index }) => (
 // First, add this expanded step data
 const stepsData = [
   {
-    title: "Set up participant data in the Master Spreadsheet",
-    description: "The foundation of effective plan management starts here. Our Master Spreadsheet isn't just a database – it's your command center for participant information. By centralizing all participant data in one secure location, you eliminate the chaos of multiple spreadsheets and reduce errors by 98%. This systematic approach ensures nothing falls through the cracks and sets the stage for sophisticated analytics and insights.",
-    benefits: [
-      "Eliminate data silos and redundancy",
-      "Reduce data entry errors by 98%",
-      "Access historical data instantly",
-      "Enable real-time collaboration"
-    ]
-  },
-  {
     title: "Distribute surveys through Typeform integration",
-    description: "Gone are the days of manually sending and tracking surveys. Our Typeform integration transforms this time-consuming process into a seamless operation. With one click, you can distribute professionally designed surveys to thousands of participants. The system automatically tracks responses and sends gentle reminders, increasing response rates by an average of 72% compared to traditional methods.",
+    description: "Say goodbye to the hassle of manually sending and tracking surveys. Our Typeform integration streamlines this process, allowing you to distribute professionally designed surveys effortlessly. The system automatically tracks responses and sends gentle reminders to enhance engagement.",
     benefits: [
-      "Increase response rates by 72%",
-      "Save 15+ hours per survey campaign",
-      "Maintain professional brand consistency",
-      "Automated reminder system"
+      "Comprehensive risk tolerance survey",
+      "Enhanced participant engagement",
+      "Seamless distribution to participants",
+      // "Automated reminder system"
     ]
   },
   {
     title: "Collect and process responses in real-time",
-    description: "Experience the power of real-time data processing. As responses come in, our system automatically analyzes and categorizes the information, providing instant insights. This immediate processing allows you to identify trends and take action while the data is fresh, rather than waiting weeks for manual compilation. Our clients report making informed decisions 5x faster with this real-time capability.",
+    description: "As responses come in, our system automatically analyzes and organizes the information, providing immediate insights. This real-time processing enables you to identify trends and take action promptly, eliminating the need for lengthy manual compilation.",
     benefits: [
-      "Instant data validation and cleaning",
-      "Automated trend identification",
-      "Real-time completion tracking",
-      "Immediate actionable insights"
+      "Automated response collection",
+      "Efficient data organization and categorization"
     ]
   },
   {
     title: "Generate instant participant census reports",
-    description: "Transform raw data into compelling insights instantly. Our advanced reporting engine creates comprehensive census reports that would typically take days to compile manually. These reports include sophisticated analytics, visual representations of key metrics, and actionable recommendations. The automated system ensures consistency and eliminates human error while reducing report generation time by 95%.",
+    description: "Quickly transform raw data into valuable insights. Our advanced reporting engine creates comprehensive census reports in an instant, allowing you to analyze participants' risk tolerance and identify potential clients for your wealth advisory practice.",
     benefits: [
-      "95% reduction in report generation time",
-      "Customizable report templates",
-      "Advanced data visualization",
-      "Automated compliance checks"
+      "Instant participant report generation",
+      "Insightful analysis of participant data"
     ]
   },
   {
     title: "Review risk tolerance and lead scores",
-    description: "Leverage our sophisticated scoring system to understand your participants better than ever before. Our AI-powered analysis examines multiple factors to create accurate risk profiles and identify high-potential leads. This systematic approach has helped our clients increase their advisory service conversion rates by 3.5x while ensuring more appropriate risk-aligned investment recommendations.",
+    description: "Utilize our sophisticated scoring system to gain a deeper understanding of your participants. Our AI-powered analysis evaluates various factors to create accurate risk profiles and identify promising leads, ensuring tailored investment recommendations.",
     benefits: [
-      "3.5x higher conversion rates",
-      "AI-powered risk analysis",
-      "Multi-factor lead scoring",
-      "Predictive behavioral insights"
+      "Improved understanding of participants",
+      "AI-driven risk analysis",
+      "Effective lead scoring",
+      "Behavioral insights for better decision-making"
     ]
   },
   {
     title: "Identify high-potential advisory opportunities",
-    description: "Transform data into revenue opportunities. Our system doesn't just collect data – it identifies participants most likely to benefit from additional advisory services. By analyzing factors like account balance, contribution rates, risk tolerance, and engagement levels, we help you focus your efforts where they'll have the biggest impact. Clients using this targeted approach report a 4.2x increase in advisory service adoption.",
+    description: "Transform your data into actionable revenue opportunities. Our system identifies participants who are likely to benefit from additional advisory services, helping you focus your efforts where they can make the most impact.",
     benefits: [
-      "4.2x increase in service adoption",
-      "Prioritized opportunity pipeline",
-      "Data-driven engagement strategies",
-      "ROI-focused targeting"
+      "Streamlined opportunity identification",
+      "Targeted engagement strategies",
+      "Focused approach to advisory services"
+    ]
+  },
+  {
+    title: "Grow your practice",
+    description: "Leverage our advanced lead scoring system to pinpoint participants with the highest potential for your wealth advisory practice. This targeted approach allows you to concentrate on those who will benefit most from your services, facilitating growth.",
+    benefits: [
+      "Targeted opportunity identification",
+      "Strategic engagement strategies",
+      "Focused outreach for advisory services"
     ]
   }
 ];
@@ -211,34 +205,34 @@ const ParticipantCensus = () => {
     },
     {
       title: "Real-Time Processing",
-      description: "Collect and process responses automatically in real-time, eliminating the need for manual follow-ups and data entry.",
+      description: "Collect and process responses automatically in real-time, eliminating the need for manual follow-ups and data entry. Sit back and relax, we've got this.",
       icon: Zap
     },
     {
       title: "Instant Participant Risk Tolerance and Lead Score Reports",
-      description: "Effortlessly create comprehensive risk tolerance and lead score reports for every participant. With 401k Pro, you receive detailed documentation for each individual, ensuring you have all the insights you need at your fingertips without lifting a finger.",
+      description: "401k Pro automatically creates comprehensive risk tolerance and lead score reports for every participant. With 401k Pro, you receive detailed documentation for each individual, ensuring you have all the insights you need at your fingertips without lifting a finger.",
       icon: FileCheck
     },
     {
       title: "Risk Mismatch Detection",
-      description: "Identify discrepancies between perceived risk tolerance and actual financial behavior, enabling more informed investment discussions.",
+      description: "Each participant reports their perceived risk tolerance, while an automatic risk tolerance score is generated based on their survey responses. This enables you to easily identify discrepancies between perceived risk tolerance and actual financial behavior, facilitating more informed investment discussions.",
       icon: Target
     },
     {
-      title: "Lead Scoring System",
-      description: "Highlight participants with the greatest potential for individual wealth advisory services using advanced metrics and scoring.",
+      title: "IWAP Lead Scoring System",
+      description: "Highlight participants with the greatest potential for individual wealth advisory practice using advanced metrics and scoring giving you the oppurtunity to grow your practice.",
       icon: ChartBar
     }
   ];
 
-  const benefits = [
-    "Centralized, accurate, and real-time participant data",
-    "Automated survey distribution and response collection",
-    "Instant participant risk tolerance and lead score reports",
-    "Risk tolerance analysis and alignment",
-    "High-potential lead identification",
-    "Demographic and investment potential grouping"
-  ];
+  // const benefits = [
+  //   "Centralized, accurate, and real-time participant data",
+  //   "Automated survey distribution and response collection",
+  //   "Instant participant risk tolerance and lead score reports",
+  //   "Risk tolerance analysis and alignment",
+  //   "High-potential lead identification",
+  //   "Demographic and investment potential grouping"
+  // ];
 
   const { scrollYProgress } = useScroll();
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
@@ -328,11 +322,11 @@ const ParticipantCensus = () => {
         </motion.div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-32">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-32">
           {benefits.map((benefit, index) => (
             <BenefitCard key={index} benefit={benefit} />
           ))}
-        </div>
+        </div> */}
 
         {/* Enhanced CTA Section */}
         <motion.div

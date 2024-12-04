@@ -147,7 +147,7 @@ const Testimonials = () => {
                     <button
                       key={index}
                       className={`w-8 h-2 rounded transition-colors duration-300 ${
-                        index === currentQuote ? 'bg-blue-600' : 'bg-gray-200'
+                        index === currentQuote ? 'bg-gradient-to-r from-blue-600 to-cyan-400' : 'bg-gray-200'
                       }`}
                       onClick={() => setCurrentQuote(index)}
                       aria-label={`View testimonial ${index + 1}`}

@@ -246,11 +246,10 @@ const ThreeSixtyDegreePlanView = () => {
       title: "Client Information",
       description: "Keep all essential client details in one place for easy access and management.",
       details: [
-        "Centralized client database",
-        "Contact information management",
-        "Historical data tracking",
-        "Custom fields for specific needs",
-        "Automated data validation"
+        "All of your clients in one place",
+        "Contact information",
+        "Record Keeper",
+        "TPA",
       ]
     },
     {
@@ -258,11 +257,13 @@ const ThreeSixtyDegreePlanView = () => {
       title: "Plan Touchpoints",
       description: "Track and manage all interactions and key events related to each plan.",
       details: [
-        "Meeting scheduling and tracking",
-        "Automated reminders",
-        "Communication history",
-        "Action item tracking",
-        "Follow-up management"
+        "Easily track and categorize client interactions",
+        "Track actions across all plan stakeholders including plan sponsors, participants, record keepers, and TPAs",
+        "In built AI automatically rewrites all interactions so that they can be professionally presented in your quarterly and annual reports.",
+        "Automatically add in plan touchpoints by simply forwarding emails to the 401k Pro email address",
+        "Visualizations to track the nunber of touchpoints you have with each client.",
+        "Automatically flows into Quarterly Reports",
+        "Automatically flows in Annual Plan Review Reports" 
       ]
     },
     {
@@ -270,11 +271,13 @@ const ThreeSixtyDegreePlanView = () => {
       title: "Fiduciary Requirements Checklist",
       description: "Promote compliance with a comprehensive checklist of fiduciary responsibilities.",
       details: [
-        "ERISA compliance tracking",
-        "Responsibility assignment",
+        "In built requirements calendar to easily promote plan compliance",
+        "Easily assign requirements to their corresponding parties",
         "Deadline monitoring",
-        "Documentation management",
-        "Audit preparation support"
+        "Add custom requirements",
+        "Automatically flows into Quarterly Reports",
+        "Automatically flows in Annual Plan Review Reports"
+
       ]
     },
     {
@@ -282,11 +285,11 @@ const ThreeSixtyDegreePlanView = () => {
       title: "Plan Design and Elections",
       description: "Document and track plan design features and elections for each client.",
       details: [
-        "Plan feature configuration",
-        "Election tracking",
-        "Version history",
-        "Change documentation",
-        "Compliance verification"
+        "All plan design details in one place",
+        "Instant data querying and sorting",
+        "AI powered data entry with PDF data extraction from plan highlights or adoptions agreements.",
+        "Automatically flows in Annual Plan Review Reports"
+
       ]
     },
     {
@@ -295,10 +298,10 @@ const ThreeSixtyDegreePlanView = () => {
       description: "Monitor and analyze the performance of each plan over time.",
       details: [
         "Performance metrics tracking",
-        "Trend analysis",
-        "Benchmark comparisons",
-        "Custom reporting",
-        "Alert notifications"
+        "All plan performance details in one place", 
+        "AI powered data entry with PDF data extraction from Record Keeper plan health reports",
+        "Automatically flows in Annual Plan Review Reports"
+
       ]
     },
     {
@@ -306,11 +309,9 @@ const ThreeSixtyDegreePlanView = () => {
       title: "Advisor Service Schedule",
       description: "Manage and track your service commitments for each plan.",
       details: [
-        "Service calendar management",
-        "Task automation",
-        "Progress tracking",
-        "Client communication logs",
-        "Service level monitoring"
+        "Easily communicate your service commitments to your clients",
+        "Automatically flows in Annual Plan Review Reports"
+        
       ]
     },
     {
@@ -318,11 +319,21 @@ const ThreeSixtyDegreePlanView = () => {
       title: "Fee Schedule",
       description: "Maintain clear and transparent fee information for each plan.",
       details: [
-        "Fee structure management",
-        "Automatic calculations",
-        "Historical tracking",
-        "Comparison tools",
-        "Disclosure generation"
+        "Easily communicate your fees with clients",
+        "Include advisor fees, recordkeeper fees, and TPA fees",
+        "Automatically flows in Annual Plan Review Reports for transparency."
+
+      ]
+    },
+    {
+      icon: Target,
+      title: "Plan Participants",
+      description: "Keep track of all plan participants",
+      details: [
+        "Automatically entered using the 401k Pro participant census",
+        "Easily identify leads for your individual wealth advisor practice",
+        "Identify mismatches between a participants perceived risk tolerance and their actual risk tolerance",
+        "Comprehensive risk tolerance reports"
       ]
     },
     {
@@ -332,9 +343,6 @@ const ThreeSixtyDegreePlanView = () => {
       details: [
         "Lead tracking",
         "Pipeline management",
-        "Activity logging",
-        "Follow-up automation",
-        "Conversion analytics"
       ]
     }
   ];

@@ -76,7 +76,7 @@ const WhatDrivesUs = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <motion.div
+          {/* <motion.div
             animate={{ 
               scale: [1, 1.2, 1],
               rotate: [0, 360, 360]
@@ -90,7 +90,7 @@ const WhatDrivesUs = () => {
                 <Quote size={48} className="text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text" />
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           <motion.h1 
             variants={itemVariants}

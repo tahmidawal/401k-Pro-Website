@@ -50,7 +50,7 @@ const FragmentedEcosystemGraphic = () => {
       `}</style>
 
       {/* Background with modern gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-blue-50/30">
+      <div className="absolute inset-0 ">
         <div className="absolute inset-0"></div>
       </div>
 

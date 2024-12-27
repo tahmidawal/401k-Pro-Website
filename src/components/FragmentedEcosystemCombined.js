@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Check, Sparkles } from 'lucide-react';
 
 // Animation variants
 const containerVariants = {
@@ -56,34 +55,24 @@ const EcosystemCard = ({ badge, title, description, isAnimated = false, delay = 
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay }}
       whileHover={{ translateY: -10 }}
-      className="relative group h-full"
+      className="relative group"
     >
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div>
       
-      <div className={`relative h-full backdrop-blur-xl ${
-        gradient ? 'bg-white/80' : 'bg-white/80'
-      } p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden flex flex-col`}>
+      <div className="relative backdrop-blur-xl bg-white/80 p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden flex flex-col">
         {gradient && (
           <div className="absolute top-4 right-4">
-            {/* <div className="relative">
-              <div className="relative px-3 py-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full">
-                <span className="text-white text-sm font-light">Core Solution</span>
-              </div>
-            </div> */}
+            {/* Optional badge or highlight element here */}
           </div>
         )}
-
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
-
         <div className="mb-8">
           <div className={`text-sm font-medium py-1 px-3 rounded-full inline-block mb-4 ${
             gradient ? 'bg-blue-50 text-blue-600' : 'bg-blue-50 text-blue-600'
           } relative z-10 w-fit`}>
             {badge}
           </div>
-          <h3 className={`text-2xl font-light mb-4 relative z-10 text-gray-800`}>
+          <h3 className="text-2xl font-light mb-4 relative z-10 text-gray-800">
             {title}
           </h3>
           <p className="text-gray-600 leading-relaxed font-light">
@@ -93,16 +82,7 @@ const EcosystemCard = ({ badge, title, description, isAnimated = false, delay = 
 
         {gradient && (
           <div className="space-y-4">
-            {/* <div className="p-3 bg-blue-50 rounded-xl">
-              <p className="text-blue-600 text-sm font-medium text-center">
-                Streamline Your Workflow
-              </p>
-            </div>
-            <div className="p-3 bg-blue-50 rounded-xl">
-              <p className="text-blue-600 text-sm font-medium text-center">
-                Enhance Compliance
-              </p>
-            </div> */}
+            {/* Additional content if needed */}
           </div>
         )}
       </div>
@@ -112,12 +92,13 @@ const EcosystemCard = ({ badge, title, description, isAnimated = false, delay = 
 
 const FragmentedEcosystemCombined = () => {
   const { scrollYProgress } = useScroll();
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  // const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <div className="relative min-h-screen mb-20">
+    // 1) Wrap everything in "relative overflow-hidden" to prevent large absolute elements from extending the page height.
+    <div className="relative overflow-hidden">
       {/* Animated background elements */}
-      <motion.div 
+      {/* <motion.div 
         style={{ y: backgroundY }}
         className="absolute inset-0 pointer-events-none"
       >
@@ -127,9 +108,11 @@ const FragmentedEcosystemCombined = () => {
         <FloatingElement delay={2}>
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
         </FloatingElement>
-      </motion.div>
+      </motion.div> */}
 
-      <div className="max-w-7xl mx-auto px-4 relative">
+      {/* 2) Add top/bottom padding for spacing rather than huge margin on the wrapper */}
+      <div className="max-w-7xl mx-auto px-4 relative mb-20">
+        
         {/* Hero Section */}
         <motion.div
           variants={containerVariants}
@@ -146,25 +129,19 @@ const FragmentedEcosystemCombined = () => {
             transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
             className="inline-block mb-8"
           >
-            <div className="relative w-24 h-24">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-full blur-xl"></div>
-              <div className="relative flex items-center justify-center h-full">
-                <Sparkles size={48} className="text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text" />
-              </div>
-            </div>
           </motion.div>
 
           <motion.h1 
             variants={itemVariants}
-            className="text-7xl font-extralight mb-6"
+            className="text-6xl font-extralight mb-6"
           >
             Your Complete
-            <br />
+            <span> </span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-              Plan Management Ecosystem
+              Ecosystem
             </span>
-            
           </motion.h1>
+
           <motion.p
             variants={itemVariants}
             className="text-xl text-gray-600 max-w-2xl mx-auto"

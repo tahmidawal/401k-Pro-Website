@@ -22,7 +22,7 @@ const FloatingElement = ({ children, delay = 0 }) => (
 
 const MissionStatement = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-blue-50/30 overflow-hidden font-['Roboto',sans-serif] font-light">
+    <div className="relative overflow-hidden font-['Roboto',sans-serif] font-light">
       {/* Background animations */}
       <FloatingElement>
         <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
@@ -55,7 +55,7 @@ const MissionStatement = () => {
             </div>
           </motion.div>
 
-          <h1 className="text-7xl font-extralight mb-8">
+          <h1 className="text-6xl font-extralight mb-8">
             Let's
             <span className="relative mx-4">
               <span className="relative z-10 text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text">
@@ -72,11 +72,9 @@ const MissionStatement = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="space-y-6 max-w-3xl mx-auto"
           >
-            <p className="text-2xl text-gray-600 leading-relaxed">
-              Transform your plan management with AI-powered insights and seamless organization.
-            </p>
+            
 
-            <div className="relative p-8 bg-white/80 backdrop-blur-sm rounded-3xl border border-white/20 shadow-lg">
+            <div className="relative p-8">
               <FloatingElement>
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-3xl"></div>
               </FloatingElement>

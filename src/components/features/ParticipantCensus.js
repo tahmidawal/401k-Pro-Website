@@ -240,118 +240,122 @@ const ParticipantCensus = () => {
   const { isExpanded, toggleStep } = useExpandedSteps(stepsData.length);
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-blue-50/30 overflow-hidden">
-      {/* Animated background elements */}
-      <motion.div 
-        style={{ y: backgroundY }}
-        className="absolute inset-0 pointer-events-none"
-      >
-        <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
-      </motion.div>
-
-      <div className="max-w-7xl mx-auto px-4 relative">
-        {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-center mb-32"
+    <section aria-labelledby="participant-census-title">
+      {/* <h2 id="participant-census-title">Participant Census Management</h2> */}
+      <meta name="description" content="Efficiently manage your 401k participant census with automated tools and real-time updates." />
+      <div className="relative min-h-screen  overflow-hidden">
+        {/* Animated background elements */}
+        <motion.div 
+          style={{ y: backgroundY }}
+          className="absolute inset-0 pointer-events-none"
         >
+          <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+        </motion.div>
+
+        <div className="max-w-7xl mx-auto px-4 relative">
+          {/* Hero Section */}
           <motion.div
-            animate={{ 
-              scale: [1, 1.2, 1],
-              rotate: [0, 360, 360]
-            }}
-            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-            className="inline-block mb-8"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-center mb-32"
           >
-            <div className="relative w-24 h-24">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-full blur-xl"></div>
-              <div className="relative flex items-center justify-center h-full">
-                <Users size={48} className="text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text" />
+            <motion.div
+              animate={{ 
+                scale: [1, 1.2, 1],
+                rotate: [0, 360, 360]
+              }}
+              transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+              className="inline-block mb-8"
+            >
+              <div className="relative w-24 h-24">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-full blur-xl"></div>
+                <div className="relative flex items-center justify-center h-full">
+                  <Users size={48} className="text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text" />
+                </div>
               </div>
+            </motion.div>
+
+            <h1 className="text-6xl font-extralight mb-8">
+              Participant
+              <span className="relative mx-4">
+                <span className="relative z-10 text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text animate-gradient">
+                  Census
+                </span>
+                <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 -z-10 transform skew-x-12"></div>
+              </span>
+              Hub
+            </h1>
+            <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Transform your participant data into actionable insights with our next-generation census management system
+            </p>
+          </motion.div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
+            {features.map((feature, index) => (
+              <FeatureCard key={index} {...feature} index={index} />
+            ))}
+          </div>
+
+          {/* Process Timeline */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="relative mb-32"
+          >
+            <h2 className="text-4xl font-light text-center mb-12">
+              <span className="bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text text-transparent">
+                How It Works
+              </span>
+            </h2>
+            <div className="grid gap-4 max-w-4xl mx-auto">
+              {stepsData.map((step, index) => (
+                <StepCard 
+                  key={index}
+                  step={step}
+                  index={index}
+                  isExpanded={isExpanded(index)}
+                  onToggle={toggleStep}
+                />
+              ))}
             </div>
           </motion.div>
 
-          <h1 className="text-7xl md:text-8xl font-extralight mb-8">
-            Participant
-            <span className="relative mx-4">
-              <span className="relative z-10 text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text animate-gradient">
-                Census
-              </span>
-              <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 -z-10 transform skew-x-12"></div>
-            </span>
-            Hub
-          </h1>
-          <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Transform your participant data into actionable insights with our next-generation census management system
-          </p>
-        </motion.div>
-
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
-          {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} index={index} />
-          ))}
-        </div>
-
-        {/* Process Timeline */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative mb-32"
-        >
-          <h2 className="text-4xl font-light text-center mb-12">
-            <span className="bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text text-transparent">
-              How It Works
-            </span>
-          </h2>
-          <div className="grid gap-4 max-w-4xl mx-auto">
-            {stepsData.map((step, index) => (
-              <StepCard 
-                key={index}
-                step={step}
-                index={index}
-                isExpanded={isExpanded(index)}
-                onToggle={toggleStep}
-              />
+          {/* Benefits Grid */}
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-32">
+            {benefits.map((benefit, index) => (
+              <BenefitCard key={index} benefit={benefit} />
             ))}
-          </div>
-        </motion.div>
+          </div> */}
 
-        {/* Benefits Grid */}
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-32">
-          {benefits.map((benefit, index) => (
-            <BenefitCard key={index} benefit={benefit} />
-          ))}
-        </div> */}
-
-        {/* Enhanced CTA Section */}
-        <motion.div
-          whileInView={{ opacity: 1, scale: 1 }}
-          initial={{ opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <div className="inline-block p-1 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full mb-24">
-            <div className="bg-white px-12 py-16 rounded-full relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
-              <h2 className="text-4xl font-light mb-6">Ready to Grow Your Practice?</h2>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Join forward-thinking advisors leveraging next-generation technology
-              </p>
-              <GradientButtonWithArrow 
-                buttonText="Get Started" 
-                link="/book-a-demo"
-                showArrow={true}
-              />
+          {/* Enhanced CTA Section */}
+          <motion.div
+            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <div className="inline-block p-1 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full mb-24">
+              <div className="bg-white px-12 py-16 rounded-full relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+                <h2 className="text-4xl font-light mb-6">Ready to Grow Your Practice?</h2>
+                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                  Join forward-thinking advisors leveraging next-generation technology
+                </p>
+                <GradientButtonWithArrow 
+                  buttonText="Get Started" 
+                  link="/book-a-demo"
+                  showArrow={true}
+                />
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

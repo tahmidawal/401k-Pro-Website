@@ -186,16 +186,16 @@ const AutomatedReporting = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white overflow-hidden font-['Roboto',sans-serif] font-light">
+    <div className="relative min-h-screen overflow-hidden font-['Roboto',sans-serif] font-light">
       {/* Background animations */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
       >
-        <AnimatedCircle delay={0} className="top-0 left-0 w-[500px] h-[500px] bg-blue-200/30" />
+        {/* <AnimatedCircle delay={0} className="top-0 left-0 w-[500px] h-[500px] bg-blue-200/30" />
         <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
-        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" />
+        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" /> */}
       </motion.div>
 
       <div className="relative max-w-7xl mx-auto px-4 py-24">
@@ -208,13 +208,15 @@ const AutomatedReporting = () => {
         >
           <motion.h1 
             variants={textVariants}
-            className="text-7xl font-extralight mb-6"
+            className="text-6xl font-extralight mb-6"
           >
+            <span className="text-transparent bg-clip-text bg-gray-600">Automated</span>
+            <span className="text-transparent bg-clip-text bg-gray-600"> </span>
             <motion.span
               variants={textVariants}
               className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400"
             >
-              Automated Reporting
+              Reporting
             </motion.span>
             {/* <br />
             <motion.span

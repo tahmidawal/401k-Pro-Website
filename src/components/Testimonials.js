@@ -106,17 +106,12 @@ const Testimonials = () => {
             transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
             className="inline-block mb-8"
           >
-            <div className="relative w-24 h-24">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-full blur-xl"></div>
-              <div className="relative flex items-center justify-center h-full">
-                <MessageSquareQuote size={48} className="text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text" />
-              </div>
-            </div>
+            
           </motion.div>
 
           <motion.h1 
             variants={itemVariants}
-            className="text-7xl font-extralight mb-6"
+            className="text-6xl font-extralight mb-6"
           >
             What People{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">

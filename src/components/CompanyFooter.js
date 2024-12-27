@@ -35,7 +35,7 @@ const itemVariants = {
 
 const FooterSection = ({ title, items }) => (
   <motion.div variants={itemVariants}>
-    <h3 className="font-light text-xl mb-6 bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
+    <h3 className="font-light text-xl mb-6 bg-clip-text text-transparent">
       {title}
     </h3>
     <ul className="space-y-3">
@@ -76,12 +76,12 @@ const ContactInfo = ({ icon: Icon, text }) => (
 
 const Footer = () => {
   return (
-    <footer className="relative bg-gradient-to-b from-white to-blue-50/30 overflow-hidden py-24 font-['Roboto',sans-serif] font-light">
+    <footer className="relative overflow-hidden py-16 font-['Roboto',sans-serif] font-light border-t border-gray-200">
       {/* Background blur elements */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-cyan-400/10 to-transparent rounded-full blur-3xl"></div>
-      </div>
+      </div> */}
 
       <motion.div 
         variants={containerVariants}

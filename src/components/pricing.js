@@ -54,7 +54,6 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const navigate = useNavigate();
-  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleButtonClick = () => {
     navigate('/book-a-demo');
@@ -78,7 +77,7 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
       className="relative group h-full"
     >
       {/* Background gradient effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div> */}
       
       {/* Card content */}
       <div className={`relative h-full backdrop-blur-xl bg-white/80 p-8 rounded-2xl border ${
@@ -175,10 +174,7 @@ const FeaturesList = () => {
         transition={{ duration: 0.8 }}
       >
         <h2 className="text-4xl font-extralight mb-4">
-          Every Plan{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-            Includes
-          </span>
+          Every Plan Includes
         </h2>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
           Everything you need to streamline your 401(k) plan management
@@ -249,7 +245,7 @@ const PricingComponent = () => {
   ];
 
   return (
-    <div id="pricing" className="relative min-h-screen overflow-hidden">
+    <div id="pricing" className="relative min-h-screen overflow-hidden mb-20">
       {/* Animated background elements */}
       <motion.div 
         style={{ y: backgroundY }}
@@ -271,7 +267,7 @@ const PricingComponent = () => {
           animate="visible"
           className="text-center mb-20"
         >
-          <motion.div
+          {/* <motion.div
             animate={{ 
               scale: [1, 1.2, 1],
               rotate: [0, 360, 360]
@@ -285,11 +281,11 @@ const PricingComponent = () => {
                 <Sparkles size={48} className="text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text" />
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           <motion.h1 
             variants={itemVariants}
-            className="text-7xl font-extralight mb-6"
+            className="text-6xl font-extralight mb-6"
           >
             Simple{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">

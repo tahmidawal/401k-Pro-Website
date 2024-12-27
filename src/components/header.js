@@ -75,95 +75,97 @@ const Header = () => {
   };
 
   return (
-    <>
-      <ScrollToSection />
-      <header className="fixed top-0 left-0 right-0 z-50 font-roboto">
-        {/* Pure white background with subtle shadow */}
-        <div className="absolute inset-0 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100"></div>
-        
-        <nav className="relative max-w-7xl mx-auto flex items-center justify-between px-4 py-3 lg:py-4">
-          {/* Logo */}
-          <button 
-            onClick={() => handleNavigation('/')} 
-            className="relative group flex items-center"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-xl blur-lg group-hover:scale-110 transition-transform duration-300"></div>
-            <img src={logo} alt="401k Pro Logo-Photoroom" className="relative h-6 sm:h-8 w-auto" />
-          </button>
+    <header role="banner">
+      <nav role="navigation" aria-label="Main navigation">
+        <ScrollToSection />
+        <div className="fixed top-0 left-0 right-0 z-50 font-roboto">
+          {/* Pure white background with subtle shadow */}
+          <div className="absolute inset-0 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100"></div>
+          
+          <div className="relative max-w-7xl mx-auto flex items-center justify-between px-4 py-3 lg:py-4">
+            {/* Logo */}
+            <button 
+              onClick={() => handleNavigation('/')} 
+              className="relative group flex items-center"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-xl blur-lg group-hover:scale-110 transition-transform duration-300"></div>
+              <img src={logo} alt="401k Pro Logo-Photoroom" className="relative h-6 sm:h-8 w-auto" />
+            </button>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <DesktopNavLinks handleNavigation={handleNavigation} />
-          </div>
-
-          {/* Action Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <ActionButtons isMobile={false} handleNavigation={handleNavigation} />
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden relative group p-2 rounded-xl"
-            onClick={toggleMobileMenu}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-xl blur-lg group-hover:scale-110 transition-transform duration-300"></div>
-            <div className="relative">
-              {isMobileMenuOpen ? 
-                <X size={20} className="text-blue-600" /> : 
-                <Menu size={20} className="text-blue-600" />
-              }
+            {/* Desktop Menu */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <DesktopNavLinks handleNavigation={handleNavigation} />
             </div>
-          </button>
-        </nav>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-[57px] sm:top-[65px] bg-white/95 backdrop-blur-xl z-50 overflow-y-auto">
-            <div className="container mx-auto px-4 py-6 space-y-4">
-              {/* Mobile Nav Links */}
-              <button 
-                onClick={() => handleNavigation('/why-401k-pro')} 
-                className="w-full text-left px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
-              >
-                <span className="text-gray-700 font-light">Why 401k Pro</span>
-              </button>
-              
-              {/* Features Dropdown */}
-              <div className="space-y-2">
-                <button
-                  onClick={toggleMobileFeatureDropdown}
-                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
+            {/* Action Buttons */}
+            <div className="hidden lg:flex items-center space-x-4">
+              <ActionButtons isMobile={false} handleNavigation={handleNavigation} />
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden relative group p-2 rounded-xl"
+              onClick={toggleMobileMenu}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-xl blur-lg group-hover:scale-110 transition-transform duration-300"></div>
+              <div className="relative">
+                {isMobileMenuOpen ? 
+                  <X size={20} className="text-blue-600" /> : 
+                  <Menu size={20} className="text-blue-600" />
+                }
+              </div>
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="lg:hidden fixed inset-0 top-[57px] sm:top-[65px] bg-white/95 backdrop-blur-xl z-50 overflow-y-auto">
+              <div className="container mx-auto px-4 py-6 space-y-4">
+                {/* Mobile Nav Links */}
+                <button 
+                  onClick={() => handleNavigation('/why-401k-pro')} 
+                  className="w-full text-left px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
                 >
-                  <span className="text-gray-700 font-light">Features</span>
-                  {isMobileFeatureDropdownOpen ? 
-                    <ChevronUp size={18} className="text-blue-600" /> : 
-                    <ChevronDown size={18} className="text-blue-600" />
-                  }
+                  <span className="text-gray-700 font-light">Why 401k Pro</span>
                 </button>
                 
-                {isMobileFeatureDropdownOpen && (
-                  <div className="pl-4 space-y-1">
-                    <FeatureDropdown handleNavigation={handleNavigation} isMobile={true} />
-                  </div>
-                )}
-              </div>
+                {/* Features Dropdown */}
+                <div className="space-y-2">
+                  <button
+                    onClick={toggleMobileFeatureDropdown}
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
+                  >
+                    <span className="text-gray-700 font-light">Features</span>
+                    {isMobileFeatureDropdownOpen ? 
+                      <ChevronUp size={18} className="text-blue-600" /> : 
+                      <ChevronDown size={18} className="text-blue-600" />
+                    }
+                  </button>
+                  
+                  {isMobileFeatureDropdownOpen && (
+                    <div className="pl-4 space-y-1">
+                      <FeatureDropdown handleNavigation={handleNavigation} isMobile={true} />
+                    </div>
+                  )}
+                </div>
 
-              <button 
-                onClick={() => handleNavigation('/pricing')} 
-                className="w-full text-left px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
-              >
-                <span className="text-gray-700 font-light">Pricing</span>
-              </button>
+                <button 
+                  onClick={() => handleNavigation('/pricing')} 
+                  className="w-full text-left px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
+                >
+                  <span className="text-gray-700 font-light">Pricing</span>
+                </button>
 
-              {/* Mobile Action Buttons */}
-              <div className="pt-4 px-4">
-                <ActionButtons isMobile={true} handleNavigation={handleNavigation} />
+                {/* Mobile Action Buttons */}
+                <div className="pt-4 px-4">
+                  <ActionButtons isMobile={true} handleNavigation={handleNavigation} />
+                </div>
               </div>
             </div>
-          </div>
-        )}
-      </header>
-    </>
+          )}
+        </div>
+      </nav>
+    </header>
   );
 };
 
@@ -335,7 +337,7 @@ const ActionButtons = ({ isMobile, handleNavigation }) => (
   <div className={`flex ${isMobile ? 'flex-col space-y-3' : 'flex-row space-x-3 sm:space-x-4'} w-full`}>
     <button
       onClick={() => handleNavigation('/book-a-demo')}
-      className="relative group px-4 sm:px-6 py-2.5 rounded-xl overflow-hidden"
+      className="relative group px-4 sm:px-6 py-2.5 rounded-full overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
       <div className="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-colors duration-300"></div>
@@ -349,7 +351,7 @@ const ActionButtons = ({ isMobile, handleNavigation }) => (
     
     <button
       onClick={() => window.location.href = 'https://app.401k-pro.ai'}
-      className="relative group px-4 sm:px-6 py-2.5 rounded-xl overflow-hidden"
+      className="relative group px-4 sm:px-6 py-2.5 rounded-full overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 group-hover:from-blue-600/10 group-hover:to-cyan-400/10 transition-all duration-300"></div>
       <div className="relative flex items-center justify-center space-x-2">

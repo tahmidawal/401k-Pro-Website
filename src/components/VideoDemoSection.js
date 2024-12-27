@@ -51,11 +51,11 @@ const AnimatedCircle = ({ delay = 0, className }) => (
 
 const DemoVideoSection = () => {
   return (
-    <section id="demo-video" className="relative min-h-screen flex items-center justify-center font-['Roboto',sans-serif] font-light py-24 overflow-hidden">
+    <section id="demo-video" className="relative flex items-center justify-center font-['Roboto',sans-serif] font-light py-24 overflow-hidden">
       {/* Animated background elements */}
-      <AnimatedCircle delay={0} className="top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" />
+      {/* <AnimatedCircle delay={0} className="top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" />
       <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
-      <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" />
+      <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" /> */}
 
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <motion.div
@@ -100,7 +100,7 @@ const DemoVideoSection = () => {
                   className="text-4xl sm:text-5xl font-extralight mb-6 leading-tight"
                 >
                   <span className="text-gray-800">Watch 401(k) Pro in</span>{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3]">
+                  <span className="text-transparent bg-clip-text">
                     Action
                   </span>
                 </motion.h2>

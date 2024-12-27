@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Clock, Shield, Infinity, ThumbsUp, Users, TrendingUp } from 'lucide-react';
+import { Clock, Shield, Infinity, ThumbsUp, Users, TrendingUp, CheckCircle } from 'lucide-react';
 
 // Animation variants
 const containerVariants = {
@@ -85,43 +85,43 @@ const BenefitCard = ({ Icon, title, description, delay }) => {
 const Benefits = () => {
   const benefits = [
     {
-      Icon: Clock,
-      title: "Save Time",
-      description: "Manage 401(k) plans in half the time. Compliance reporting takes seconds, allowing you to grow your business faster."
+      Icon: CheckCircle,
+      title: "Prove Your Value",
+      description: "Prove your value as an advisor to your plan sponsors and auditors with clear, tangible deliverables that document every action taken in the plan management process. A plan sponsor will never again ask if all you do is show up for educational events."
     },
     {
       Icon: Shield,
       title: "Promote Compliance",
-      description: "Integrated calendar and tracking system simplifies compliance promotion in your clients' plans."
+      description: "Includes built-in, easy-to-follow compliance checklists that can be marked as complete. This allows even inexperienced advisors to follow a clear template and communicate compliance requirements with all stakeholders, while automating due diligence reporting for plan sponsors."
     },
     {
       Icon: Infinity,
-      title: "All In One Place",
-      description: "Centralize client information, reports, and compliance data. No more switching between resources."
-    },
-    {
-      Icon: ThumbsUp,
-      title: "Easy to Use",
-      description: "Built-in fiduciary best practices empower advisors of all experience levels in retirement plan management."
-    },
-    {
-      Icon: Users,
-      title: "All Stakeholders",
-      description: "Easily communicate with TPAs, recordkeepers, and plan sponsors. Share reports and data securely."
+      title: "Keep Everything in One Place",
+      description: "Centralizes all fiduciary plan data and documents into one location, making information easily accessible with just a few clicks and reducing time and complexity in managing scattered data."
     },
     {
       Icon: TrendingUp,
-      title: "Scalable",
-      description: "Grow your business effortlessly. Add new clients, plans, and users with ease, regardless of team size."
+      title: "Make Me More Money",
+      description: "401k Pro makes you money helping improve participant-to-IWAP (Individual Wealth Advisory Practice) conversions, saves time to onboard and manage more clients, generates professional marketing materials, and justifies higher fees with clear, tangible deliverables."
+    },
+    {
+      Icon: Users,
+      title: "Communicate With All Stakeholders",
+      description: "Easily communicate with TPAs, recordkeepers, and plan sponsors. Share reports with all parties in the plan management process so that everyone is always on the same page."
+    },
+    {
+      Icon: Clock,
+      title: "Save Time",
+      description: "Time is a valuable resource, and 401k Pro is designed to help you manage 401(k) plans efficiently. By streamlining plan management and minimizing the time spent on compliance reporting and administrative tasks, you can dedicate more energy to growing your business."
     }
   ];
 
   return (
     <div className="relative py-24 overflow-hidden" id="benefits">
       {/* Animated background elements */}
-      <AnimatedCircle delay={0} className="top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" />
+      {/* <AnimatedCircle delay={0} className="top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" />
       <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
-      <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" />
+      <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" /> */}
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <motion.div
@@ -131,7 +131,7 @@ const Benefits = () => {
           viewport={{ once: true }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h1 className="text-7xl font-extralight mb-6">
+            <h1 className="text-6xl font-extralight mb-6">
               {" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
                 Benefits

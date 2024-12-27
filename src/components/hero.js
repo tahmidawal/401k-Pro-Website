@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart2, Users, ShieldCheck, FileText } from 'lucide-react';
 import logo from '../img/401k Pro Logo-Photoroom.png';
+import { Helmet } from 'react-helmet-async';
 
 // Animation variants
 const containerVariants = {
@@ -84,109 +85,120 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-blue-50/30 overflow-hidden py-16 px-4 sm:px-6 lg:px-8 flex items-center -mt-5" id="hero">
-      {/* Animated background elements */}
-      <AnimatedCircle delay={0} className="top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" />
-      <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
-      <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" />
+    <>
+      <Helmet>
+        <title>401k Pro - Streamline Your 401k Plan Administration</title>
+        <meta name="description" content="Simplify your 401k plan administration with automated reporting, AI-powered insights, and comprehensive plan management tools. Start optimizing your retirement plans today." />
+        <meta name="keywords" content="401k administration, retirement plans, plan management, automated reporting, AI insights" />
+        <meta property="og:title" content="401k Pro - Streamline Your 401k Plan Administration" />
+        <meta property="og:description" content="Simplify your 401k plan administration with automated reporting, AI-powered insights, and comprehensive plan management tools." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://your-domain.com" />
+      </Helmet>
+      <div className="relative min-h-screen  overflow-hidden py-16 px-4 sm:px-6 lg:px-8 flex items-center -mt-5" id="hero">
+        {/* Animated background elements */}
+        {/* <AnimatedCircle delay={0} className="top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" />
+        <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
+        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" /> */}
 
-      <div className="max-w-7xl mx-auto relative">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col lg:flex-row items-center justify-between gap-12"
-        >
-          {/* Text Content */}
-          <motion.div 
-            variants={itemVariants}
-            className="w-full lg:w-1/2 text-center lg:text-left"
+        <div className="max-w-7xl mx-auto relative">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col lg:flex-row items-center justify-between gap-12"
           >
-            <motion.h1 
+            {/* Text Content */}
+            <motion.div 
               variants={itemVariants}
-              className="text-5xl sm:text-6xl lg:text-7xl font-extralight mb-6 leading-tight"
+              className="w-full lg:w-1/2 text-center lg:text-left"
+            >
+              <motion.h1 
+                variants={itemVariants}
+                className="text-5xl sm:text-7xl lg:text-7xl font-extralight mb-6 leading-tight"
+              >
+                <span className="bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
+                  Scale Your
+                </span>
+                <br />
+                Advisory Practice
+              </motion.h1>
+              <motion.p 
+                variants={itemVariants}
+                className="text-xl text-gray-600 mb-8 leading-relaxed"
+              >
+                401(k) Pro is a comprehensive 401(k) plan management and reporting tool that helps you
+                manage your plan more efficiently and effectively.
+              </motion.p>
+              <motion.button 
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={scrollToBenefits}
+                className="relative group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative bg-gradient-to-r from-blue-600 to-cyan-400 text-white font-light py-3 px-6 rounded-full inline-flex items-center gap-2">
+                  <span>How We Can Help</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </div>
+              </motion.button>
+            </motion.div>
+
+            {/* Image */}
+            <motion.div 
+              variants={itemVariants}
+              className="w-full lg:w-1/2 hidden lg:block"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-3xl blur-2xl"></div>
+                <motion.div
+                  animate={{ 
+                    y: [-10, 10, -10],
+                    rotate: [-1, 1, -1],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }}
+                  className="relative"
+                >
+                  <img src={logo} alt="401k Pro Logo-Photoroom" className="w-full h-auto" />
+                </motion.div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Mobile Features */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="mt-12 lg:hidden space-y-4"
+          >
+            <motion.h2 
+              variants={itemVariants}
+              className="text-2xl font-light text-center mb-6"
             >
               <span className="bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
-                Scale Your
+                Key Features
               </span>
-              <br />
-              Advisory Practice
-            </motion.h1>
-            <motion.p 
-              variants={itemVariants}
-              className="text-xl text-gray-600 mb-8 leading-relaxed"
-            >
-              401(k) Pro is a comprehensive 401(k) plan management and reporting tool that helps you
-              manage your plan more efficiently and effectively.
-            </motion.p>
-            <motion.button 
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={scrollToBenefits}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative bg-gradient-to-r from-blue-600 to-cyan-400 text-white font-light py-3 px-6 rounded-full inline-flex items-center gap-2">
-                <span>How We Can Help</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </div>
-            </motion.button>
-          </motion.div>
-
-          {/* Image */}
-          <motion.div 
-            variants={itemVariants}
-            className="w-full lg:w-1/2 hidden lg:block"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-3xl blur-2xl"></div>
-              <motion.div
-                animate={{ 
-                  y: [-10, 10, -10],
-                  rotate: [-1, 1, -1],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }}
-                className="relative"
-              >
-                <img src={logo} alt="401k Pro Logo-Photoroom" className="w-full h-auto" />
-              </motion.div>
+            </motion.h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                >
+                  <FeatureCard {...feature} />
+                </motion.div>
+              ))}
             </div>
           </motion.div>
-        </motion.div>
-
-        {/* Mobile Features */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="mt-12 lg:hidden space-y-4"
-        >
-          <motion.h2 
-            variants={itemVariants}
-            className="text-2xl font-light text-center mb-6"
-          >
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
-              Key Features
-            </span>
-          </motion.h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-              >
-                <FeatureCard {...feature} />
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

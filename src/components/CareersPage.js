@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Check, ArrowRight, Briefcase, Users, Code, Brain, Sparkles, ChartBar } from 'lucide-react'; // Added ChartBar import
+import { Check, Briefcase, Users, Code, Brain, Sparkles, ChartBar } from 'lucide-react'; // Added ChartBar import
 import GradientButtonWithArrow from './buttons/GradientButtonWithArrow';
 
 // Animation variants
@@ -187,15 +187,15 @@ const CareersPage = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-blue-50/30 overflow-hidden">
+    <div className="relative min-h-screen  overflow-hidden">
       {/* Animated background elements */}
       <motion.div 
         style={{ y: backgroundY }}
         className="absolute inset-0 pointer-events-none"
       >
-        <AnimatedCircle delay={0} className="top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" />
+        {/* <AnimatedCircle delay={0} className="top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" />
         <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
-        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" />
+        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" /> */}
       </motion.div>
 
       <main className="relative max-w-7xl mx-auto px-4 pb-24">
@@ -224,7 +224,7 @@ const CareersPage = () => {
 
           <motion.h1 
             variants={itemVariants}
-            className="text-7xl font-extralight mb-6"
+            className="text-6xl font-extralight mb-6"
           >
             Join Our
             <span className="relative mx-4">

@@ -222,9 +222,9 @@ const Security = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
       >
-        <AnimatedCircle delay={0} className="top-0 left-0 w-[500px] h-[500px] bg-blue-200/30" />
+        {/* <AnimatedCircle delay={0} className="top-0 left-0 w-[500px] h-[500px] bg-blue-200/30" />
         <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
-        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" />
+        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" /> */}
       </motion.div>
 
       <div className="relative max-w-7xl mx-auto px-4 py-24">
@@ -237,7 +237,7 @@ const Security = () => {
         >
           <motion.h1 
             variants={itemVariants}
-            className="text-7xl font-extralight mb-6"
+            className="text-6xl font-extralight mb-6"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
               Enterprise-Grade
@@ -290,7 +290,7 @@ const Security = () => {
                 variants={itemVariants}
                 className="text-3xl font-light text-center mb-6"
               >
-                Our Commitment to Security
+                Our Commitment to You
               </motion.h2>
               <motion.p
                 variants={itemVariants}

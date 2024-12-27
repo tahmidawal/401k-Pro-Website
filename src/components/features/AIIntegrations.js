@@ -161,7 +161,7 @@ const AIIntegrations = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-blue-50/30 overflow-hidden font-['Roboto',sans-serif] font-light">
+    <div className="relative min-h-screen  overflow-hidden font-['Roboto',sans-serif] font-light">
       {/* Background animations */}
       <FloatingElement>
         <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
@@ -194,7 +194,7 @@ const AIIntegrations = () => {
             </div>
           </motion.div>
 
-          <h1 className="text-7xl font-extralight mb-8">
+          <h1 className="text-6xl font-extralight mb-8">
             AI
             <span className="relative mx-4">
               <span className="relative z-10 text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text">
@@ -296,7 +296,7 @@ const AIIntegrations = () => {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <div className="inline-block p-1 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full">
+          <div className="inline-block p-1 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full mb-16">
             <div className="bg-white px-12 py-16 rounded-full relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-4xl font-light mb-6">Ready to Gain Your Competitive Advantage?</h2>

@@ -7,19 +7,18 @@ import Pricing from './components/pricing';
 import FragmentedEcosystemCombined from './components/FragmentedEcosystemCombined';
 import ContactCard from './components/ContactCard';
 import Why401kProPage from './components/Why401kProPage';
-import MissionStatement from './components/MissionStatement';
 import ThreeSixtyDegreePlanView from './components/features/ThreeSixtyDegreePlanView';
 import WhatDrivesUs from './components/WhatDrivesUs';
 import CompanyFooter from './components/CompanyFooter';
 import CareersPage from './components/CareersPage';
 import AutomatedReporting from './components/features/AutomatedReporting';
-import RegulatoryChatbot from './components/features/RegulatoryChatbot';
 import Security from './components/features/Security';
 import Testimonials from './components/Testimonials';
 import Benefits from './components/benefits';
 import PlanDocuments from './components/features/PlanDocuments';
 import ParticipantCensus from './components/features/ParticipantCensus';
 import AIIntegrations from './components/features/AIIntegrations';
+import { HelmetProvider } from 'react-helmet-async';
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -37,17 +36,8 @@ const ScrollToSection = () => {
 };
 
 const HomePage = () => (
-  <div className="bg-gradient-to-b from-gray-50 via-white to-blue-50/30 relative overflow-hidden">
-    {/* Animated background elements */}
-    <div className="absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float-slow top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" 
-      style={{transform: "scale(1.1) rotate(-15deg)"}}
-    />
-    <div className="absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float-medium bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30"
-      style={{transform: "scale(1.04) rotate(18deg)"}} 
-    />
-    <div className="absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float-fast top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20"
-      style={{transform: "scale(0.95) rotate(45deg) translate(-50%, -50%)"}}
-    />
+  <div className=" relative overflow-hidden">
+    
 
     {/* Content */}
     <div className="relative z-10">
@@ -65,32 +55,35 @@ const HomePage = () => (
 
 function App() {
   return (
-    <Router>
-      <div className="App flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow pt-16"> {/* Add padding-top here */}
-          <ScrollToSection />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/why-401k-pro" element={<Why401kProPage />} />
-            <Route path="/360-degree-client-view" element={<ThreeSixtyDegreePlanView />} />
-            <Route path="/careers" element={<CareersPage />} />
-            <Route path="/automated-reporting" element={<AutomatedReporting />} />
-            <Route path="/ai-integrations" element={<AIIntegrations />} />
-            <Route path="/security" element={<Security />} />
-            <Route path="/book-a-demo" element={<ContactCard 
-              title="Book a Demo"
-              subtitle="Get a personalized demo of 401k Pro"
-              buttonText="Book a Demo"
-              buttonLink="https://calendly.com/401k-pro/demo"
-            />} />
-            <Route path="/plan-documents" element={<PlanDocuments />} />
-            <Route path="/participant-census" element={<ParticipantCensus />} />
-          </Routes>
-        </main>
-        <CompanyFooter />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <div className="">
+          <Header />
+          <main className="pt-16 bg-gradient-to-b from-gray-50 via-white to-blue-50/30"> {/* Add padding-top here */}
+            <ScrollToSection />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/why-401k-pro" element={<Why401kProPage />} />
+              <Route path="/360-degree-client-view" element={<ThreeSixtyDegreePlanView />} />
+              <Route path="/careers" element={<CareersPage />} />
+              <Route path="/automated-reporting" element={<AutomatedReporting />} />
+              <Route path="/ai-integrations" element={<AIIntegrations />} />
+              <Route path="/security" element={<Security />} />
+              <Route path="/book-a-demo" element={<ContactCard 
+                title="Book a Demo"
+                subtitle="Get a personalized demo of 401k Pro"
+                buttonText="Book a Demo"
+                buttonLink="https://calendly.com/401k-pro/demo"
+              />} />
+              <Route path="/plan-documents" element={<PlanDocuments />} />
+              <Route path="/participant-census" element={<ParticipantCensus />} />
+            </Routes>
+            <CompanyFooter />
+          </main>
+          
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 }
 

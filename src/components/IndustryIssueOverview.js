@@ -153,10 +153,11 @@ const IndustryIssueOverview = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          className="max-w-7xl mx-auto"
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-5xl sm:text-6xl font-extralight text-center mb-16"
+            className="text-5xl font-extralight text-center mb-16"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200">
               How is 401k plan management broken?

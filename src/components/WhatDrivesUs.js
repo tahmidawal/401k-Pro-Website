@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Sparkles, Quote } from 'lucide-react';
 
 // Animation variants
 const containerVariants = {
@@ -50,23 +49,23 @@ const FloatingElement = ({ children, delay = 0 }) => (
 );
 
 const WhatDrivesUs = () => {
-  const { scrollYProgress } = useScroll();
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  // const { scrollYProgress } = useScroll();
+  // const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
     <div className="relative min-h-screen overflow-hidden py-24">
       {/* Animated background elements */}
-      <motion.div 
+      {/* <motion.div 
         style={{ y: backgroundY }}
         className="absolute inset-0 pointer-events-none"
-      >
-        <FloatingElement delay={0}>
+      > */}
+        {/* <FloatingElement delay={0}>
           <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
         </FloatingElement>
         <FloatingElement delay={2}>
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
-        </FloatingElement>
-      </motion.div>
+        </FloatingElement> */}
+      {/* </motion.div> */}
 
       <div className="max-w-7xl mx-auto px-4 relative">
         <motion.div
@@ -94,7 +93,7 @@ const WhatDrivesUs = () => {
 
           <motion.h1 
             variants={itemVariants}
-            className="text-7xl font-extralight mb-6"
+            className="text-6xl font-extralight mb-6"
           >
             What{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">

@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { Check, Sparkles, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 // Animation variants
 const containerVariants = {
@@ -32,24 +33,6 @@ const itemVariants = {
   }
 };
 
-// Floating animation for background elements
-const FloatingElement = ({ children, delay = 0 }) => (
-  <motion.div
-    animate={{
-      y: [0, -10, 0],
-      rotate: [-1, 1, -1],
-    }}
-    transition={{
-      duration: 5,
-      repeat: Infinity,
-      repeatType: "reverse",
-      delay,
-    }}
-  >
-    {children}
-  </motion.div>
-);
-
 const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/month" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -58,13 +41,6 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
   const handleButtonClick = () => {
     navigate('/book-a-demo');
     setTimeout(() => window.scrollTo(0, 0), 100);
-  };
-
-  const scrollToFeatures = () => {
-    const featuresSection = document.getElementById('features-section');
-    if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   return (
@@ -76,28 +52,19 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
       whileHover={{ translateY: -10 }}
       className="relative group h-full"
     >
-      {/* Background gradient effect */}
-      {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div> */}
-      
-      {/* Card content */}
       <div className={`relative h-full backdrop-blur-xl bg-white/80 p-8 rounded-2xl border ${
         isPopular ? 'border-blue-500/50' : 'border-white/20'
       } shadow-lg overflow-hidden flex flex-col`}>
-        {/* Popular badge */}
         {isPopular && (
           <div className="absolute top-4 right-4">
-            <div className="relative">
-              <div className="relative px-3 py-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full">
-                <span className="text-white text-sm font-light">Most Popular</span>
-              </div>
+            <div className="relative px-3 py-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full">
+              <span className="text-white text-sm font-light">Most Popular</span>
             </div>
           </div>
         )}
 
-        {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
 
-        {/* Plan range and price */}
         <div className="mb-8">
           <h2 className="text-2xl font-light mb-4">{planRange}</h2>
           <div className="flex items-baseline">
@@ -106,16 +73,12 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
           </div>
         </div>
 
-        {/* Notices */}
         <div className="space-y-4 mb-8">
-          <button 
-            onClick={scrollToFeatures}
-            className="w-full p-3 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300 group"
-          >
-            <p className="text-blue-600 text-sm font-medium text-center group-hover:scale-105 transition-transform duration-300">
+          <div className="p-3 bg-blue-50 rounded-xl">
+            <p className="text-blue-600 text-sm font-medium text-center">
               All Features Included
             </p>
-          </button>
+          </div>
           <div className="p-3 bg-blue-50 rounded-xl">
             <p className="text-blue-600 text-sm font-medium text-center">
               Unlimited Users
@@ -128,7 +91,6 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
           </div>
         </div>
 
-        {/* CTA Button */}
         <button 
           onClick={handleButtonClick}
           className="relative group w-full"
@@ -151,11 +113,9 @@ const FeaturesList = () => {
     "Automated Reporting",
     "Participant Census Automation",
     "Plan Management Dashboard",
-    "AI Notewriting",
-    "AI Email Integrations",
-    "AI PDF Data Extraction",
-    "AI Data Entry for PDFs",
-    "SOC2 Certified Security",
+    "AI-Powered Features",
+    "Secure SOC2 Certified Platform",
+    "24/7/365 Support"
   ];
 
   return (
@@ -166,7 +126,6 @@ const FeaturesList = () => {
       className="max-w-5xl mx-auto mt-20 px-4"
       id="features-section"
     >
-      {/* Section Header */}
       <motion.div 
         className="text-center mb-10"
         initial={{ opacity: 0, y: 20 }}
@@ -177,11 +136,10 @@ const FeaturesList = () => {
           Every Plan Includes
         </h2>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-          Everything you need to streamline your 401(k) plan management
+          Everything you need to streamline 401(k) plan management.
         </p>
       </motion.div>
 
-      {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-16">
         {features.map((feature, index) => (
           <motion.div
@@ -196,20 +154,14 @@ const FeaturesList = () => {
             whileHover={{ scale: 1.02 }}
             className="relative group"
           >
-            {/* Background gradient effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-500"></div>
-            
-            {/* Card content */}
             <div className="relative backdrop-blur-xl bg-white/80 p-4 rounded-xl border border-white/20 shadow-lg overflow-hidden flex items-center gap-4">
-              {/* Icon container */}
               <div className="relative flex-shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                 <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-full">
                   <Check className="text-blue-600 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                 </div>
               </div>
-              
-              {/* Feature text */}
               <span className="text-gray-700 text-base font-light group-hover:text-blue-600 transition-colors duration-300">
                 {feature}
               </span>
@@ -245,72 +197,68 @@ const PricingComponent = () => {
   ];
 
   return (
-    <div id="pricing" className="relative min-h-screen overflow-hidden mb-20">
-      {/* Animated background elements */}
-      <motion.div 
-        style={{ y: backgroundY }}
-        className="absolute inset-0 pointer-events-none"
-      >
-        <FloatingElement delay={0}>
-          <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
-        </FloatingElement>
-        <FloatingElement delay={2}>
-          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
-        </FloatingElement>
-      </motion.div>
-
-      <div className="max-w-7xl mx-auto px-4 relative">
-        {/* Hero Section */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="text-center mb-20"
+    <>
+      <Helmet>
+        <title>401k Pro - Pricing Plans</title>
+        <meta
+          name="description"
+          content="Explore simple and transparent pricing for 401(k) Pro. All features included in every plan with scalable options to match your advisory needs."
+        />
+        <meta
+          name="keywords"
+          content="401k Pro pricing, simple pricing, transparent costs, scalable 401k plans, 401k management software"
+        />
+        <meta property="og:title" content="401k Pro - Pricing Plans" />
+        <meta
+          property="og:description"
+          content="Explore simple and transparent pricing for 401(k) Pro. All features included in every plan with scalable options to match your advisory needs."
+        />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://your-domain.com/pricing" />
+      </Helmet>
+      <div id="pricing" className="relative min-h-screen overflow-hidden mb-20">
+        <motion.div 
+          style={{ y: backgroundY }}
+          className="absolute inset-0 pointer-events-none"
         >
-          {/* <motion.div
-            animate={{ 
-              scale: [1, 1.2, 1],
-              rotate: [0, 360, 360]
-            }}
-            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-            className="inline-block mb-8"
-          >
-            <div className="relative w-24 h-24">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-full blur-xl"></div>
-              <div className="relative flex items-center justify-center h-full">
-                <Sparkles size={48} className="text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text" />
-              </div>
-            </div>
-          </motion.div> */}
-
-          <motion.h1 
-            variants={itemVariants}
-            className="text-6xl font-extralight mb-6"
-          >
-            Simple{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-              Pricing
-            </span>
-          </motion.h1>
-          <motion.p
-            variants={itemVariants}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
-          >
-            Simple pricing based on your number of plans. All features included.
-          </motion.p>
+          <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
         </motion.div>
 
-        {/* Pricing Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {pricingTiers.map((tier, index) => (
-            <PricingTier key={index} {...tier} delay={index * 0.2} />
-          ))}
-        </div>
+        <div className="max-w-7xl mx-auto px-4 relative">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-center mb-20"
+          >
+            <motion.h1 
+              variants={itemVariants}
+              className="text-6xl font-extralight mb-6"
+            >
+              Simple{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+                Pricing
+              </span>
+            </motion.h1>
+            <motion.p
+              variants={itemVariants}
+              className="text-xl text-gray-600 max-w-2xl mx-auto"
+            >
+              Transparent pricing based on the number of plans. All features included in every plan.
+            </motion.p>
+          </motion.div>
 
-        {/* Features List */}
-        <FeaturesList />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            {pricingTiers.map((tier, index) => (
+              <PricingTier key={index} {...tier} delay={index * 0.2} />
+            ))}
+          </div>
+
+          <FeaturesList />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

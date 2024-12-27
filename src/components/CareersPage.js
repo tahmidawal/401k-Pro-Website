@@ -32,22 +32,6 @@ const itemVariants = {
   }
 };
 
-// Animated background circles
-const AnimatedCircle = ({ delay = 0, className }) => (
-  <motion.div
-    className={`absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 ${className}`}
-    animate={{
-      scale: [1, 1.2, 1],
-      rotate: [0, 90, 0],
-      opacity: [0.5, 0.2, 0.5],
-    }}
-    transition={{
-      duration: 8,
-      repeat: Infinity,
-      delay,
-    }}
-  />
-);
 
 const jobListings = [
   {

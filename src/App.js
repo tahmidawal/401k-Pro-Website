@@ -5,7 +5,6 @@ import HeroSection from './components/hero';
 import VideoDemoSection from './components/VideoDemoSection';
 import Pricing from './components/pricing';
 import FragmentedEcosystemCombined from './components/FragmentedEcosystemCombined';
-import ContactCard from './components/ContactCard';
 import Why401kProPage from './components/Why401kProPage';
 import ThreeSixtyDegreePlanView from './components/features/ThreeSixtyDegreePlanView';
 import WhatDrivesUs from './components/WhatDrivesUs';
@@ -69,12 +68,12 @@ function App() {
               <Route path="/automated-reporting" element={<AutomatedReporting />} />
               <Route path="/ai-integrations" element={<AIIntegrations />} />
               <Route path="/security" element={<Security />} />
-              <Route path="/book-a-demo" element={<ContactCard 
+              {/* <Route path="/book-a-demo" element={<ContactCard 
                 title="Book a Demo"
                 subtitle="Get a personalized demo of 401k Pro"
                 buttonText="Book a Demo"
                 buttonLink="https://calendly.com/401k-pro/demo"
-              />} />
+              />} /> */}
               <Route path="/plan-documents" element={<PlanDocuments />} />
               <Route path="/participant-census" element={<ParticipantCensus />} />
             </Routes>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 // Animation variants
 const containerVariants = {
@@ -30,25 +31,8 @@ const itemVariants = {
   }
 };
 
-// Floating animation for background elements
-const FloatingElement = ({ children, delay = 0 }) => (
-  <motion.div
-    animate={{
-      y: [0, -10, 0],
-      rotate: [-1, 1, -1],
-    }}
-    transition={{
-      duration: 5,
-      repeat: Infinity,
-      repeatType: "reverse",
-      delay,
-    }}
-  >
-    {children}
-  </motion.div>
-);
 
-const EcosystemCard = ({ badge, title, description, isAnimated = false, delay = 0, gradient = false }) => {
+const EcosystemCard = ({ badge, title, description, delay = 0 }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -61,15 +45,8 @@ const EcosystemCard = ({ badge, title, description, isAnimated = false, delay = 
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div>
       
       <div className="relative backdrop-blur-xl bg-white/80 p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden flex flex-col">
-        {gradient && (
-          <div className="absolute top-4 right-4">
-            {/* Optional badge or highlight element here */}
-          </div>
-        )}
         <div className="mb-8">
-          <div className={`text-sm font-medium py-1 px-3 rounded-full inline-block mb-4 ${
-            gradient ? 'bg-blue-50 text-blue-600' : 'bg-blue-50 text-blue-600'
-          } relative z-10 w-fit`}>
+          <div className="text-sm font-medium py-1 px-3 rounded-full inline-block mb-4 bg-blue-50 text-blue-600 relative z-10">
             {badge}
           </div>
           <h3 className="text-2xl font-light mb-4 relative z-10 text-gray-800">
@@ -79,110 +56,104 @@ const EcosystemCard = ({ badge, title, description, isAnimated = false, delay = 
             {description}
           </p>
         </div>
-
-        {gradient && (
-          <div className="space-y-4">
-            {/* Additional content if needed */}
-          </div>
-        )}
       </div>
     </motion.div>
   );
 };
 
 const FragmentedEcosystemCombined = () => {
-  const { scrollYProgress } = useScroll();
-  // const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    // 1) Wrap everything in "relative overflow-hidden" to prevent large absolute elements from extending the page height.
-    <div className="relative overflow-hidden">
-      {/* Animated background elements */}
-      {/* <motion.div 
-        style={{ y: backgroundY }}
-        className="absolute inset-0 pointer-events-none"
-      >
-        <FloatingElement delay={0}>
-          <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
-        </FloatingElement>
-        <FloatingElement delay={2}>
-          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
-        </FloatingElement>
-      </motion.div> */}
+    <>
+      <Helmet>
+        <title>401k Pro - Complete Ecosystem for 401(k) Plan Management</title>
+        <meta
+          name="description"
+          content="401k Pro integrates fiduciary management, compliance, and investment monitoring tools to streamline the 401(k) ecosystem for advisors."
+        />
+        <meta
+          name="keywords"
+          content="401k ecosystem, fiduciary tools, plan management, ERISA compliance, investment monitoring, record keepers"
+        />
+        <meta property="og:title" content="401k Pro - Complete Ecosystem for 401(k) Plan Management" />
+        <meta
+          property="og:description"
+          content="Discover how 401k Pro connects fiduciary management, compliance, and investment tools to simplify 401(k) administration for advisors."
+        />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://your-domain.com/ecosystem" />
+      </Helmet>
 
-      {/* 2) Add top/bottom padding for spacing rather than huge margin on the wrapper */}
-      <div className="max-w-7xl mx-auto px-4 relative mb-20">
-        
-        {/* Hero Section */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
+      <div className="relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 relative mb-20">
+          {/* Hero Section */}
           <motion.div
-            animate={{ 
-              scale: [1, 1.2, 1],
-              rotate: [0, 360, 360]
-            }}
-            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-            className="inline-block mb-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-20"
           >
+            <motion.div
+              animate={{ 
+                scale: [1, 1.2, 1],
+                rotate: [0, 360, 360]
+              }}
+              transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+              className="inline-block mb-8"
+            ></motion.div>
+
+            <motion.h1 
+              variants={itemVariants}
+              className="text-6xl font-extralight mb-6"
+            >
+              Your Complete
+              <span> </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+                Ecosystem
+              </span>
+            </motion.h1>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-xl text-gray-600 max-w-2xl mx-auto"
+            >
+              Streamline your fiduciary responsibilities and plan management with an interconnected 401(k) ecosystem.
+            </motion.p>
           </motion.div>
 
-          <motion.h1 
-            variants={itemVariants}
-            className="text-6xl font-extralight mb-6"
-          >
-            Your Complete
-            <span> </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-              Ecosystem
-            </span>
-          </motion.h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <EcosystemCard
+              badge="Fiduciary Responsibilities"
+              title="401k Pro"
+              description="401k Pro empowers advisors to efficiently manage fiduciary duties, automate compliance, and centralize data for streamlined plan management."
+              delay={0}
+            />
 
-          <motion.p
-            variants={itemVariants}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
-          >
-            Discover how our solutions integrate to streamline your fiduciary responsibilities
-          </motion.p>
-        </motion.div>
+            <EcosystemCard
+              badge="Plan Hosting"
+              title="Record Keepers"
+              description="Leverage platforms from record keepers to manage participant data, contributions, and distributions while ensuring data accuracy."
+              delay={0.2}
+            />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <EcosystemCard
-            badge="Fiduciary Responsibilities"
-            title="401k Pro"
-            description="With 401k Pro you can easily manage your fiduciary responsibilities. Your plan management ecosystem is now complete."
-            isAnimated={true}
-            delay={0}
-            gradient={true}
-          />
+            <EcosystemCard
+              badge="ERISA Compliance"
+              title="TPAs and ERISA Attorneys"
+              description="TPAs and ERISA Attorneys handle plan accounting and ensure your plans remain ERISA-compliant with robust regulatory guidance."
+              delay={0.4}
+            />
 
-          <EcosystemCard
-            badge="Plan Hosting"
-            title="Record Keepers"
-            description="Record Keepers allow you to easily host your plans on their platform and provide you with the tools to manage them."
-            delay={0.2}
-          />
-
-          <EcosystemCard
-            badge="ERISA Compliance"
-            title="TPAs and ERISA Attorneys"
-            description="TPAs and ERISA Attorneys easily take care of the plan's accounting and ERISA compliance."
-            delay={0.4}
-          />
-
-          <EcosystemCard
-            badge="Investments"
-            title="Investment Monitoring Tools"
-            description="Investment monitoring tools such as fi360 and Morningstar provide you with the tools to monitor your plan's investments easily and efficiently."
-            delay={0.6}
-          />
+            <EcosystemCard
+              badge="Investment Monitoring"
+              title="Monitoring Tools"
+              description="Tools like fi360 and Morningstar simplify investment monitoring, enabling better plan performance and compliance reporting."
+              delay={0.6}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

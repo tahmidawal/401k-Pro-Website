@@ -1,9 +1,18 @@
 import React, { useRef } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { FileText, Clock, ClipboardCheck, Users, Shield, UserPlus, Download, FileDigit, Sparkles } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
+import { motion, useScroll } from 'framer-motion';
+import {
+  FileText,
+  Clock,
+  ClipboardCheck,
+  Users,
+  Shield,
+  UserPlus,
+  Download,
+} from 'lucide-react';
 import GradientButtonWithArrow from '../buttons/GradientButtonWithArrow';
 
-// Add these new animation variants near the top of the file
+// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -32,7 +41,7 @@ const itemVariants = {
   }
 };
 
-// Update the hero section animation
+// Hero section animation
 const heroVariants = {
   hidden: { opacity: 0, y: -20 },
   visible: {
@@ -58,27 +67,11 @@ const textVariants = {
   }
 };
 
-// Animated background circles
-const AnimatedCircle = ({ delay = 0, className }) => (
-  <motion.div
-    className={`absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 ${className}`}
-    animate={{
-      scale: [1, 1.2, 1],
-      rotate: [0, 90, 0],
-      opacity: [0.5, 0.2, 0.5],
-    }}
-    transition={{
-      duration: 8,
-      repeat: Infinity,
-      delay,
-    }}
-  />
-);
 
 // Modern feature card with 3D hover effect
 const FeatureCard = ({ icon: Icon, title, description }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useScroll(ref, { once: true });
 
   return (
     <motion.div
@@ -113,10 +106,7 @@ const FeatureCard = ({ icon: Icon, title, description }) => {
 
 // Modern step card with number indicator
 const StepCard = ({ number, text }) => (
-  <motion.div
-    whileHover={{ scale: 1.02 }}
-    className="relative group"
-  >
+  <motion.div whileHover={{ scale: 1.02 }} className="relative group">
     <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-2xl blur-lg"></div>
     <div className="relative flex items-center bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-lg">
       <div className="flex-shrink-0 mr-6">
@@ -141,212 +131,323 @@ const DownloadButton = ({ name, url }) => (
     className="group relative inline-flex items-center space-x-2 px-6 py-3 rounded-xl overflow-hidden"
   >
     <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 group-hover:from-blue-600/20 group-hover:to-cyan-400/20 transition-all duration-300"></div>
-    <Download size={20} className="text-blue-600 transition-transform duration-300 group-hover:-translate-y-1" />
+    <Download
+      size={20}
+      className="text-blue-600 transition-transform duration-300 group-hover:-translate-y-1"
+    />
     <span className="relative font-light text-gray-700">{name}</span>
   </a>
 );
 
-const AutomatedReporting = () => {
+const AutomatReprting = () => {
+  // Same features data
   const features = [
     {
-      title: "Quarterly + Annual Reports",
-      description: "401k Pro generates both quarterly and annual reports for your clients, so you can keep them informed and compliant with ease.",
+      title: 'Quarterly + Annual Reports',
+      description:
+        '401k Pro generates both quarterly and annual reports for your clients, so you can keep them informed and compliant with ease.',
       icon: ClipboardCheck
     },
     {
-      title: "One and Done",
-      description: "With 401k Pro, simply click one button and all of your compliance reporting is generated and ready to go. Reporting takes under 30 seconds.",
+      title: 'One and Done',
+      description:
+        "With 401k Pro, simply click one button and all of your compliance reporting is generated and ready to go. Reporting takes under 30 seconds.",
       icon: Clock
     },
     {
-      title: "5 Pages Max",
-      description: "Our reports are designed to be concise and to the point, so you can quickly and easily communicate the most important information to your clients. After all, who has time to read 80 page reports from their advisors anyway? Let's just get to the point.",
+      title: '5 Pages Max',
+      description:
+        "Our reports are designed to be concise and to the point, so you can quickly and easily communicate the most important information to your clients. After all, who has time to read 80 page reports from their advisors anyway? Let's just get to the point.",
       icon: FileText
     },
     {
-      title: "Hyper-Personalized",
-      description: "All of the information in your reports is simply documentation of emails and conversations you've already had with your clients, so it is always unique and personalized to them. Your practice will be scalable while never making your clients feel like they are just a number.",
+      title: 'Hyper-Personalized',
+      description:
+        "All of the information in your reports is simply documentation of emails and conversations you've already had with your clients, so it is always unique and personalized to them. Your practice will be scalable while never making your clients feel like they are just a number.",
       icon: Users
     },
     {
-      title: "Due dilligence? No Problem",
-      description: "Record-keeping is effortless with 401k Pro. Our reports are designed to demonstrate your diligence in meeting fiduciary responsibilities, making it easy to showcase your efforts.",
+      title: 'Due dilligence? No Problem',
+      description:
+        "Record-keeping is effortless with 401k Pro. Our reports are designed to demonstrate your diligence in meeting fiduciary responsibilities, making it easy to showcase your efforts.",
       icon: Shield
     },
     {
-      title: "Support Your Plan Sponsors",
-      description: "Under ERISA, plan sponsors are required to maintain documentation of their plan management process. However, realistically, they're often too busy running their businesses to keep up with this requirement. With 401k Pro, you can provide your plan sponsors with the necessary documentation to stay compliant.",
+      title: 'Support Your Plan Sponsors',
+      description:
+        "Under ERISA, plan sponsors are required to maintain documentation of their plan management process. However, realistically, they're often too busy running their businesses to keep up with this requirement. With 401k Pro, you can provide your plan sponsors with the necessary documentation to stay compliant.",
       icon: UserPlus
     }
   ];
 
+  // Example reports
   const exampleReports = [
-    { name: "Quarterly Report Example", url: "https://drive.google.com/file/d/1-4d6iQnDrF3L-uG-AwhNSFm2rOdPtkOX/view?usp=sharing" },
-    { name: "Annual Report Example", url: "https://drive.google.com/file/d/1VyzpZ-q7BrNKzbtbhdtKQ8WXR-Paxc5a/view?usp=sharing" },
+    {
+      name: 'Quarterly Report Example',
+      url: 'https://drive.google.com/file/d/1-4d6iQnDrF3L-uG-AwhNSFm2rOdPtkOX/view?usp=sharing'
+    },
+    {
+      name: 'Annual Report Example',
+      url: 'https://drive.google.com/file/d/1VyzpZ-q7BrNKzbtbhdtKQ8WXR-Paxc5a/view?usp=sharing'
+    }
   ];
 
+  // SEO keywords
+  const seoKeywords = [
+    '401k compliance software',
+    'automated 401k reporting',
+    '401k quarterly reporting software',
+    '401k annual reporting',
+    'ERISA compliance reporting',
+    'fiduciary reporting tools',
+    'streamline 401k reporting',
+    'AI-powered 401k tools',
+    'retirement plan reporting',
+    'financial advisor reporting software',
+    'plan sponsor documentation',
+    'automated compliance testing',
+    '401k plan document management',
+    'retirement plan automation',
+    'fiduciary risk management'
+  ].join(', ');
+
+  // Structured data
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: '401k Pro Automated Reporting',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web-based',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD'
+    },
+    description:
+      'AI-powered 401(k) plan reporting software for financial advisors. Generate comprehensive, personalized compliance reports with a single click.',
+    featureList: [
+      'Automated quarterly and annual reports',
+      'One-click report generation',
+      'Concise, personalized reporting',
+      'ERISA compliance documentation',
+      'Plan sponsor support',
+      'Fiduciary documentation'
+    ]
+  };
+
   return (
-    <div className="relative min-h-screen overflow-hidden font-['Roboto',sans-serif] font-light">
-      {/* Background animations */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-      >
-        {/* <AnimatedCircle delay={0} className="top-0 left-0 w-[500px] h-[500px] bg-blue-200/30" />
-        <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
-        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" /> */}
-      </motion.div>
+    <>
+      <Helmet>
+        <title>Automated 401(k) Reporting Software for Financial Advisors | 401k Pro</title>
+        <meta
+          name="description"
+          content="Transform your 401(k) plan reporting with AI-powered automation. Generate comprehensive, personalized compliance reports in seconds. Perfect for financial advisors and plan sponsors."
+        />
+        <meta name="keywords" content={seoKeywords} />
 
-      <div className="relative max-w-7xl mx-auto px-4 py-24">
-        {/* Hero Section with staggered animation */}
+        {/* Open Graph tags */}
+        <meta
+          property="og:title"
+          content="Automated 401(k) Reporting Software | 401k Pro"
+        />
+        <meta
+          property="og:description"
+          content="Generate comprehensive, personalized 401(k) compliance reports with a single click. Save hours on reporting while maintaining perfect documentation."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://401kpro.com/automated-reporting"
+        />
+        <meta
+          property="og:image"
+          content="https://401kpro.com/images/automated-reporting-preview.jpg"
+        />
+
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Automated 401(k) Reporting Software | 401k Pro"
+        />
+        <meta
+          name="twitter:description"
+          content="Generate comprehensive, personalized 401(k) compliance reports with a single click. Save hours on reporting while maintaining perfect documentation."
+        />
+        <meta
+          name="twitter:image"
+          content="https://401kpro.com/images/automated-reporting-preview.jpg"
+        />
+
+        {/* Additional meta tags */}
+        <meta name="robots" content="index, follow" />
+        <meta
+          name="author"
+          content="401k Pro - AI-Powered 401(k) Plan Management Software"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          rel="canonical"
+          href="https://401kpro.com/automated-reporting"
+        />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+
+      <div className="relative min-h-screen overflow-hidden font-['Roboto',sans-serif] font-light">
+        {/* Background animations */}
         <motion.div
-          variants={heroVariants}
-          initial="hidden"
-          animate="visible"
-          className="text-center mb-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
         >
-          <motion.h1 
-            variants={textVariants}
-            className="text-6xl font-extralight mb-6"
-          >
-            <span className="text-transparent bg-clip-text bg-gray-600">Automated</span>
-            <span className="text-transparent bg-clip-text bg-gray-600"> </span>
-            <motion.span
-              variants={textVariants}
-              className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400"
-            >
-              Reporting
-            </motion.span>
-            {/* <br />
-            <motion.span
-              variants={textVariants}
-              className="text-gray-800"
-            >
-              Reporting
-            </motion.span> */}
-          </motion.h1>
-          <motion.p
-            variants={textVariants}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
-          >
-            Generate comprehensive, personalized compliance reports with a single click
-          </motion.p>
+          {/* 
+          Uncomment if you want the animated circles:
+          <AnimatedCircle delay={0} className="top-0 left-0 w-[500px] h-[500px] bg-blue-200/30" />
+          <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
+          <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" />
+          */}
         </motion.div>
 
-        {/* Features Grid with staggered animation */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24"
-        >
-          {features.map((feature, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <FeatureCard {...feature} />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* How It Works Section with staggered animation */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mb-24"
-        >
-          <motion.h2 
-            variants={textVariants}
-            className="text-4xl font-extralight text-center mb-12"
+        <div className="relative max-w-7xl mx-auto px-4 py-24">
+          {/* Hero Section with staggered animation */}
+          <motion.div
+            variants={heroVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-center mb-20"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-              How It Works
-            </span>
-          </motion.h2>
-          <div className="space-y-4">
-            {[
-              "Track your plan touchpoints and requirements over the course of the year",
-              "Select the type of report you'd like to generate",
-              "Click one button and generate your report",
-              "Download and make any necessary edits",
-              "Send to your clients",
-              "That's it!"
-            ].map((step, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
+            <motion.h1 variants={textVariants} className="text-6xl font-extralight mb-6">
+              <span className="text-transparent bg-clip-text bg-gray-600">
+                Automated
+              </span>
+              <span className="text-transparent bg-clip-text bg-gray-600"> </span>
+              <motion.span
+                variants={textVariants}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400"
               >
-                <StepCard number={index + 1} text={step} />
+                Reporting
+              </motion.span>
+            </motion.h1>
+            <motion.p
+              variants={textVariants}
+              className="text-xl text-gray-600 max-w-2xl mx-auto"
+            >
+              Generate comprehensive, personalized compliance reports with a single click
+            </motion.p>
+          </motion.div>
+
+          {/* Features Grid with staggered animation */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24"
+          >
+            {features.map((feature, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <FeatureCard {...feature} />
               </motion.div>
             ))}
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Example Reports Section with fade-in animation */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="relative mb-24"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-3xl blur-xl"></div>
-          <div className="relative bg-white/80 backdrop-blur-sm p-12 rounded-3xl border border-white/20 shadow-lg">
-            <motion.h2 
+          {/* How It Works Section with staggered animation */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-24"
+          >
+            <motion.h2
               variants={textVariants}
-              className="text-3xl font-light text-center mb-8"
+              className="text-4xl font-extralight text-center mb-12"
             >
-              Example Reports
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+                How It Works
+              </span>
             </motion.h2>
-            <motion.div 
-              variants={containerVariants}
-              className="flex flex-wrap justify-center gap-6"
-            >
-              {exampleReports.map((report, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                >
-                  <DownloadButton {...report} />
+            <div className="space-y-4">
+              {[
+                'Track your plan touchpoints and requirements over the course of the year',
+                "Select the type of report you'd like to generate",
+                'Click one button and generate your report',
+                'Download and make any necessary edits',
+                'Send to your clients',
+                "That's it!"
+              ].map((step, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <StepCard number={index + 1} text={step} />
                 </motion.div>
               ))}
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* CTA Section with fade-up animation */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <motion.h2 
-            variants={textVariants}
-            className="text-4xl font-extralight mb-6"
-          >
-            Ready to streamline your reporting?
-          </motion.h2>
-          <motion.p
-            variants={textVariants}
-            className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
-          >
-            Join forward-thinking advisors who are saving hours on compliance reporting
-          </motion.p>
-          <motion.div variants={itemVariants}>
-            <GradientButtonWithArrow 
-              buttonText="Get Started" 
-              link="/book-a-demo"
-              showArrow={true}
-            />
+            </div>
           </motion.div>
-        </motion.div>
+
+          {/* Example Reports Section with fade-in animation */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative mb-24"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-3xl blur-xl"></div>
+            <div className="relative bg-white/80 backdrop-blur-sm p-12 rounded-3xl border border-white/20 shadow-lg">
+              <motion.h2
+                variants={textVariants}
+                className="text-3xl font-light text-center mb-8"
+              >
+                Example Reports
+              </motion.h2>
+              <motion.div
+                variants={containerVariants}
+                className="flex flex-wrap justify-center gap-6"
+              >
+                {exampleReports.map((report, index) => (
+                  <motion.div key={index} variants={itemVariants}>
+                    <DownloadButton {...report} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* CTA Section with fade-up animation */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <motion.h2
+              variants={textVariants}
+              className="text-4xl font-extralight mb-6"
+            >
+              Ready to streamline your reporting?
+            </motion.h2>
+            <motion.p
+              variants={textVariants}
+              className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
+            >
+              Join forward-thinking advisors who are saving hours on compliance reporting
+            </motion.p>
+            <motion.div variants={itemVariants}>
+              <GradientButtonWithArrow
+                buttonText="Get Started"
+                link="/book-a-demo"
+                showArrow={true}
+              />
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default AutomatedReporting;
+export default AutomatReprting;

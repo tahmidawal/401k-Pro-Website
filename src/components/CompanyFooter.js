@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, Phone } from 'lucide-react';
-import Logo from '../img/401k Pro Logo-Photoroom.png';
+import Logo from '../img/401k-Pro-Logo-Photoroom.webp';
 import { IconBrandInstagram, IconBrandTwitter } from '@tabler/icons-react';
+
 
 // Animation variants
 const containerVariants = {

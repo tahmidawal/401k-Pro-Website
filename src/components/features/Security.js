@@ -1,6 +1,17 @@
 import React, { useState, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ShieldCheck, Check, ChevronDown, ChevronUp, Lock, Shield, Server, Bell, Database, Code, Trash } from 'lucide-react';
+import {
+  Check,
+  ChevronDown,
+  Lock,
+  Shield,
+  Server,
+  Bell,
+  Database,
+  Code,
+  Trash
+} from 'lucide-react';
 
 // Animation variants
 const containerVariants = {
@@ -31,32 +42,7 @@ const itemVariants = {
   }
 };
 
-// Animated background circles
-const AnimatedCircle = ({ delay = 0, className }) => (
-  <motion.div
-    className={`absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 ${className}`}
-    animate={{
-      scale: [1, 1.2, 1],
-      rotate: [0, 90, 0],
-      opacity: [0.5, 0.2, 0.5],
-    }}
-    transition={{
-      duration: 8,
-      repeat: Infinity,
-      delay,
-    }}
-  />
-);
 
-// Modern gradient icon
-const GradientIcon = ({ Icon }) => (
-  <div className="relative w-24 h-24">
-    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-full blur-xl transform group-hover:scale-110 transition-transform duration-300"></div>
-    <div className="relative flex items-center justify-center w-full h-full bg-white rounded-full border border-white/50">
-      <Icon className="w-12 h-12 text-blue-600" strokeWidth={1.5} />
-    </div>
-  </div>
-);
 
 // Modern security category card
 const SecurityCategory = ({ title, features, icon: Icon, index }) => {
@@ -79,7 +65,7 @@ const SecurityCategory = ({ title, features, icon: Icon, index }) => {
     >
       <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-3xl blur-xl transform group-hover:scale-105 transition-transform duration-500"></div>
       <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl border border-white/20 shadow-lg overflow-hidden">
-        <button 
+        <button
           className="flex justify-between items-center w-full text-left p-8 group"
           onClick={() => setIsExpanded(!isExpanded)}
         >
@@ -102,7 +88,7 @@ const SecurityCategory = ({ title, features, icon: Icon, index }) => {
             <ChevronDown size={24} />
           </motion.div>
         </button>
-        
+
         <AnimatePresence>
           {isExpanded && (
             <motion.div
@@ -214,14 +200,86 @@ const Security = () => {
     }
   ];
 
+  // SEO data
+  const seoKeywords = [
+    '401k security',
+    'AWS security for 401k platform',
+    'data protection',
+    'encrypted backups',
+    'MFA for retirement plan',
+    'pen testing 401k software',
+    'containerized application security',
+  ].join(', ');
+
+  // Structured Data (JSON-LD)
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Enterprise-Grade Security | 401k Pro',
+    description:
+      'Explore advanced security measures that protect your data. Features include network security, data protection, access control, backups, and application security for 401(k) plan management.',
+    about: {
+      '@type': 'Thing',
+      name: 'Security'
+    }
+  };
+
   return (
     <div className="relative min-h-screen bg-white overflow-hidden font-['Roboto',sans-serif] font-light">
+      {/* SEO Helmet */}
+      <Helmet>
+        <title>Enterprise-Grade Security | 401k Pro</title>
+        <meta
+          name="description"
+          content="Your data's safety is our top priority. Learn about our comprehensive security measures, including network security, data protection, access control, and automated backups."
+        />
+        <meta name="keywords" content={seoKeywords} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Enterprise-Grade Security | 401k Pro" />
+        <meta
+          property="og:description"
+          content="Protecting your 401k data with encryption, MFA, and robust infrastructure. Explore our security features for the utmost data protection."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://your-domain.com/security" />
+        <meta property="og:image" content="https://your-domain.com/images/security-og.jpg" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Enterprise-Grade Security | 401k Pro" />
+        <meta
+          name="twitter:description"
+          content="Robust encryption, frequent backups, and advanced monitoring to safeguard your 401k data. Learn about our security features."
+        />
+        <meta name="twitter:image" content="https://your-domain.com/images/security-og.jpg" />
+
+        {/* Additional meta tags */}
+        <meta name="robots" content="index, follow" />
+        <meta
+          name="author"
+          content="401k Pro - AI-Powered 401(k) Plan Management Software"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link
+          rel="canonical"
+          href="https://your-domain.com/security"
+        />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+
       {/* Background animations */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
       >
+        {/* If you want your AnimatedCircle components, uncomment them: */}
         {/* <AnimatedCircle delay={0} className="top-0 left-0 w-[500px] h-[500px] bg-blue-200/30" />
         <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
         <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" /> */}
@@ -235,7 +293,7 @@ const Security = () => {
           animate="visible"
           className="text-center mb-20"
         >
-          <motion.h1 
+          <motion.h1
             variants={itemVariants}
             className="text-6xl font-extralight mb-6"
           >
@@ -253,9 +311,6 @@ const Security = () => {
           >
             Your data's safety is our top priority
           </motion.p>
-          {/* <motion.div variants={itemVariants} className="flex justify-center">
-            <GradientIcon Icon={ShieldCheck} />
-          </motion.div> */}
         </motion.div>
 
         {/* Security Categories */}
@@ -267,7 +322,7 @@ const Security = () => {
           className="max-w-4xl mx-auto space-y-6"
         >
           {securityCategories.map((category, index) => (
-            <SecurityCategory 
+            <SecurityCategory
               key={index}
               index={index}
               {...category}
@@ -286,7 +341,7 @@ const Security = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-3xl blur-xl"></div>
             <div className="relative bg-white/80 backdrop-blur-sm p-12 rounded-3xl border border-white/20 shadow-lg">
-              <motion.h2 
+              <motion.h2
                 variants={itemVariants}
                 className="text-3xl font-light text-center mb-6"
               >

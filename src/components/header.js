@@ -1,9 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ChevronDown, ChevronUp, Menu, X, RefreshCcwDot, FileText, MessageSquare, Shield, UsersRound, Bot, ArrowRight } from 'lucide-react';
-import logo from '../img/401k Pro Logo-Photoroom.png';
-import GradientButtonWithArrow from './buttons/GradientButtonWithArrow';
-import WhiteButtonWithArrow from './buttons/WhiteButtonWithArrow';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { ChevronDown, ChevronUp, Menu, X, RefreshCcwDot, FileText, Shield, UsersRound, Bot, ArrowRight } from 'lucide-react';
+import logo from '../img/401k-Pro-Logo-Photoroom.webp';
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -189,7 +187,7 @@ const DesktopNavLinks = ({ handleNavigation }) => {
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
     };
-  }, []);
+  }, [timeoutId]);
 
   return (
     <>

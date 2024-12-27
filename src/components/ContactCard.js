@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { motion } from 'framer-motion';
-import { Send, Mail, MessageSquare, ArrowRight, Sparkles } from 'lucide-react';
+import { Send, Mail, MessageSquare, Sparkles } from 'lucide-react';
 
 // Animation variants
 const containerVariants = {

@@ -131,17 +131,22 @@ const JobCard = ({ title, icon: Icon, salary, features, isPopular }) => {
       <div className="relative h-full backdrop-blur-xl bg-white/80 p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden flex flex-col">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
         
-        {/* Icon */}
-        <div className="relative w-16 h-16 mb-6">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg"></div>
-          <div className="relative flex items-center justify-center h-full bg-white rounded-xl border border-white/50">
-            <Icon className="w-8 h-8 text-blue-600" />
+        {/* Icon and Title Container */}
+        <div className="flex items-center gap-4 mb-4">
+          {/* Icon */}
+          <div className="relative w-16 h-16">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg"></div>
+            <div className="relative flex items-center justify-center h-full bg-white rounded-xl border border-white/50">
+              <Icon className="w-8 h-8 text-blue-600" />
+            </div>
           </div>
+
+          {/* Title */}
+          <h2 className="text-2xl font-light bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text text-transparent">{title}</h2>
         </div>
 
         {/* Content */}
         <div className="flex-grow">
-          <h2 className="text-2xl font-light mb-2 bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text text-transparent">{title}</h2>
           <p className="text-gray-600 mb-4">{salary}</p>
           <ul className="space-y-3">
             {features.map((feature, index) => (
@@ -153,7 +158,7 @@ const JobCard = ({ title, icon: Icon, salary, features, isPopular }) => {
           </ul>
         </div>
         
-        {/* Button - now in a separate div after flex-grow content */}
+        {/* Button */}
         <div className="mt-6">
           <GradientButtonWithArrow
             buttonText="Apply Now"
@@ -251,9 +256,9 @@ const CareersPage = () => {
           transition={{ duration: 0.8 }}
           className="text-center mt-24"
         >
-          <div className="inline-block p-1 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full">
+          <div className="inline-block p-1 rounded-full">
             <div className="bg-white px-12 py-16 rounded-full relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-4xl font-light mb-6">Don't See Your Role?</h2>
               <p className="text-xl text-gray-600 mb-8">
                 We're always looking for talented individuals to join our team

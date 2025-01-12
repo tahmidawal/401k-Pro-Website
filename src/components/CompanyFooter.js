@@ -1,18 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Mail, Phone } from 'lucide-react';
+import { Linkedin, Mail, Phone, ChevronRight } from 'lucide-react';
 import Logo from '../img/401k-Pro-Logo-Photoroom.webp';
 import { IconBrandInstagram, IconBrandTwitter } from '@tabler/icons-react';
 
-
-// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
     }
   }
 };
@@ -20,35 +18,33 @@ const containerVariants = {
 const itemVariants = {
   hidden: { 
     opacity: 0, 
-    y: 20,
-    scale: 0.95
+    y: 10,
   },
   visible: { 
     opacity: 1, 
     y: 0,
-    scale: 1,
     transition: {
-      duration: 0.8,
-      ease: [0.04, 0.62, 0.23, 0.98]
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1]
     }
   }
 };
 
 const FooterSection = ({ title, items }) => (
-  <motion.div variants={itemVariants}>
-    <h3 className="font-light text-xl mb-6 bg-clip-text text-transparent">
+  <motion.div variants={itemVariants} className="space-y-6">
+    <h3 className="font-normal text-base text-gray-900">
       {title}
     </h3>
     <ul className="space-y-3">
       {items.map((item, index) => (
         <motion.li 
           key={index}
-          whileHover={{ x: 5 }}
-          className="transition-colors duration-300"
+          className="group flex items-center"
         >
+          <ChevronRight className="w-3 h-3 text-blue-500 opacity-0 -ml-4 mr-1 transition-all duration-200 group-hover:opacity-100 group-hover:ml-0" />
           <a 
             href={item.link} 
-            className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
+            className="text-gray-600 hover:text-blue-600 transition-all duration-200"
           >
             {item.text}
           </a>
@@ -58,85 +54,99 @@ const FooterSection = ({ title, items }) => (
   </motion.div>
 );
 
-const SocialLink = ({ href, icon: Icon, color }) => (
+const SocialLink = ({ href, icon: Icon, label }) => (
   <motion.a
-    whileHover={{ scale: 1.1, y: -2 }}
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
     href={href}
-    className={`text-${color} hover:text-${color}/80 transition-colors duration-300`}
+    className="relative group"
+    aria-label={label}
   >
-    <Icon size={20} />
+    <div className="absolute inset-0 bg-gray-100 rounded-full transition-transform duration-200 group-hover:scale-110" />
+    <div className="relative flex items-center justify-center w-10 h-10">
+      <Icon size={18} className="text-gray-700 transition-colors duration-200 group-hover:text-blue-600" />
+    </div>
   </motion.a>
 );
 
 const ContactInfo = ({ icon: Icon, text }) => (
-  <div className="flex items-center space-x-2 text-gray-600">
-    <Icon size={16} className="text-blue-600" />
-    <span>{text}</span>
-  </div>
+  <motion.div 
+    whileHover={{ x: 4 }}
+    className="flex items-center space-x-3 text-gray-600 hover:text-gray-900 transition-all duration-200 cursor-pointer group"
+  >
+    <div className="bg-blue-50 p-2.5 rounded-full transition-colors duration-200 group-hover:bg-blue-100">
+      <Icon size={16} className="text-blue-600" />
+    </div>
+    <span className="text-sm">{text}</span>
+  </motion.div>
 );
 
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden py-16 font-['Roboto',sans-serif] font-light border-t border-gray-200">
-      {/* Background blur elements */}
-      {/* <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-cyan-400/10 to-transparent rounded-full blur-3xl"></div>
-      </div> */}
+    <footer className="relative border-t border-gray-100">
+      <div className="absolute inset-0 pointer-events-none" />
+      
+      {/* Main footer content */}
+      <div className="relative pt-20 pb-12 font-['Inter',sans-serif]">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="container mx-auto px-6"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-16 gap-y-12">
+            {/* Company Info */}
+            <motion.div variants={itemVariants} className="space-y-6">
+              <motion.img 
+                whileHover={{ scale: 1.02 }}
+                src={Logo} 
+                alt="401k Pro Logo" 
+                className="h-8 cursor-pointer" 
+              />
+              <p className="text-sm text-gray-500">© 2024 AccessibleAI, LLC</p>
+              <div className="flex space-x-6">
+                <a href="/terms" className="text-sm text-gray-600 hover:text-blue-600 transition-all duration-200">Terms</a>
+                <a href="/privacy" className="text-sm text-gray-600 hover:text-blue-600 transition-all duration-200">Privacy</a>
+              </div>
+            </motion.div>
 
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="container mx-auto px-4 relative"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Company Info */}
-          <motion.div variants={itemVariants}>
-            <img src={Logo} alt="401k Pro Logo" className="h-8 mb-6" />
-            <p className="text-gray-600 mb-4">© 2024 AccessibleAI, LLC</p>
-            <div className="flex space-x-4">
-              <a href="/terms" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">Terms</a>
-              <a href="/privacy" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">Privacy</a>
-            </div>
-          </motion.div>
+            {/* Careers */}
+            <FooterSection
+              title="Careers"
+              items={[
+                { text: "We're hiring! See open roles", link: "/careers" }
+              ]}
+            />
 
-          {/* Careers */}
-          <FooterSection
-            title="Careers"
-            items={[
-              { text: "We're hiring! See open roles", link: "/careers" }
-            ]}
-          />
+            {/* Product */}
+            <FooterSection
+              title="Product"
+              items={[
+                { text: 'Security', link: '/security' },
+                { text: 'Demo Video', link: '/#demo-video' },
+                { text: 'Try for Free', link: '/#pricing' }
+              ]}
+            />
 
-          {/* Product */}
-          <FooterSection
-            title="Product"
-            items={[
-              { text: 'Security', link: '/security' },
-              { text: 'Demo Video', link: '/#demo-video' },
-              { text: 'Try for Free', link: '/#pricing' }
-            ]}
-          />
-
-          {/* Connect */}
-          <motion.div variants={itemVariants}>
-            <h3 className="font-light text-xl mb-6 bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
-              Connect
-            </h3>
-            <div className="flex space-x-4 mb-6">
-              <SocialLink href="#" icon={IconBrandTwitter} color="blue-400" />
-              <SocialLink href="https://www.linkedin.com/company/accessible-ai/?viewAsMember=true" icon={Linkedin} color="blue-600" />
-              <SocialLink href="#" icon={IconBrandInstagram} color="pink-500" />
-            </div>
-            <div className="space-y-3">
-              <ContactInfo icon={Phone} text="+1 (919) 200-9943" />
-              <ContactInfo icon={Mail} text="info@401k-pro.ai" />
-            </div>
-          </motion.div>
-        </div>
-      </motion.div>
+            {/* Connect */}
+            <motion.div variants={itemVariants} className="space-y-6">
+              <h3 className="font-normal text-base text-gray-900">
+                Connect
+              </h3>
+              <div className="flex space-x-3">
+                <SocialLink href="#" icon={IconBrandTwitter} label="Twitter" />
+                <SocialLink href="https://www.linkedin.com/company/accessible-ai/?viewAsMember=true" icon={Linkedin} label="LinkedIn" />
+                <SocialLink href="#" icon={IconBrandInstagram} label="Instagram" />
+              </div>
+              <div className="space-y-3">
+                <ContactInfo icon={Phone} text="+1 (919) 200-9943" />
+                <ContactInfo icon={Mail} text="info@401k-pro.ai" />
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </footer>
   );
 };

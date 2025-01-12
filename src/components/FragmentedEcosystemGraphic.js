@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const Card = ({ badge, title, description, isAnimated = false, delay = 0, gradient = false }) => {
   const baseClasses = "relative backdrop-blur-sm p-8 rounded-3xl border overflow-hidden h-full flex flex-col";
   const gradientClasses = gradient 
-    ? "bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] border-white/10 text-white" 
+    ? "bg-gradient-to-br from-blue-600 to-cyan-400 border-white/10 text-white" 
     : "bg-white/10 border-white/10";
   
   const card = (

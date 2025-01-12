@@ -18,6 +18,7 @@ import PlanDocuments from './components/features/PlanDocuments';
 import ParticipantCensus from './components/features/ParticipantCensus';
 import AIIntegrations from './components/features/AIIntegrations';
 import { HelmetProvider } from 'react-helmet-async';
+import ContactCard from './components/ContactCard';
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -68,12 +69,8 @@ function App() {
               <Route path="/automated-reporting" element={<AutomatedReporting />} />
               <Route path="/ai-integrations" element={<AIIntegrations />} />
               <Route path="/security" element={<Security />} />
-              {/* <Route path="/book-a-demo" element={<ContactCard 
-                title="Book a Demo"
-                subtitle="Get a personalized demo of 401k Pro"
-                buttonText="Book a Demo"
-                buttonLink="https://calendly.com/401k-pro/demo"
-              />} /> */}
+              <Route path="/book-a-demo" element={<ContactCard 
+              />} />
               <Route path="/plan-documents" element={<PlanDocuments />} />
               <Route path="/participant-census" element={<ParticipantCensus />} />
             </Routes>

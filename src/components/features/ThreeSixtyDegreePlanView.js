@@ -4,8 +4,9 @@ import { Database, Calendar, FileText, Settings, RefreshCcw, Users, DollarSign, 
 import GradientButtonWithArrow from '../buttons/GradientButtonWithArrow';
 import MasterSpreadsheetMainImage from './MasterSpreadsheetMain.webp';
 import ThreeSixyPlanViewImage from './ThreeSixtyPlanView.webp';
-import PDFUploadVideo from './PDFUpload.mp4';
+import AIPDFDataExtraction from './AI-PDF-Data-Extraction.mp4';
 import DashboardImage from './Dashboard.webp';
+import PlanDesignAndElectionsQuery from './PlanDesignAndElectionsQuery.mp4';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -252,7 +253,7 @@ const ThreeSixtyDegreePlanView = () => {
     {
       title: "AI Powered Data Entry",
       description: "Hate entering data by hand? Trust us, we do too. That's why we've built an AI powered data entry system that can read and understand your PDFs, and automatically enter the data into your Master Spreadsheet for you.",
-      media: PDFUploadVideo,
+      media: AIPDFDataExtraction,
       isVideo: true
     },
     {
@@ -265,8 +266,8 @@ const ThreeSixtyDegreePlanView = () => {
     {
       title: "Stay Organized and Find Your Information Instantly",
       description: "401k Pro allows you to easily organize all of your plan information in one place, and find it instantly using our global search.",
-      media: DashboardImage,
-      isVideo: false,
+      media: PlanDesignAndElectionsQuery,
+      isVideo: true,
       reversed: true
     }
   ];

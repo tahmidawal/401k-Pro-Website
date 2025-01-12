@@ -116,6 +116,7 @@ const FeaturesList = () => {
     "AI-Powered Features",
     "Secure SOC2 Certified Platform",
     "24/7/365 Support"
+    
   ];
 
   return (

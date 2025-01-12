@@ -43,7 +43,7 @@ const BenefitCard = ({ Icon, title, description }) => {
       className="group relative h-full"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-lg transform group-hover:scale-105 transition-transform duration-500"></div>
-      <div className="relative h-full bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden">
+      <div className="relative h-full bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
         
         <div className="relative">
@@ -121,7 +121,7 @@ const Benefits = () => {
         <link rel="canonical" href="https://your-domain.com/benefits" />
       </Helmet>
       <div className="relative py-24 overflow-hidden" id="benefits">
-        <div className="max-w-screen-xl mx-auto px-6 sm:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -129,18 +129,18 @@ const Benefits = () => {
             viewport={{ once: true }}
           >
             <motion.div variants={itemVariants} className="text-center mb-16">
-              <h1 className="text-5xl sm:text-6xl font-extralight mb-6">
+              <h1 className="text-6xl font-extralight mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
                   Benefits
                 </span>{" "}
                 of 401(k) Pro
               </h1>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Discover how 401(k) Pro transforms plan management for advisors, making it efficient, scalable, and compliant.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {benefits.map((benefit, index) => (
                 <BenefitCard key={index} {...benefit} />
               ))}

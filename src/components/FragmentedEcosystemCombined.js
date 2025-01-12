@@ -39,18 +39,24 @@ const EcosystemCard = ({ badge, title, description, delay = 0 }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay }}
       whileHover={{ translateY: -10 }}
-      className="relative group"
+      className="relative group h-full"
     >
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div>
       
-      <div className="relative backdrop-blur-xl bg-white/80 p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden flex flex-col">
-        <div className="mb-8">
-          <div className="text-sm font-medium py-1 px-3 rounded-full inline-block mb-4 bg-blue-50 text-blue-600 relative z-10">
+      <div className="relative backdrop-blur-xl bg-white/80 p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden flex flex-col h-full">
+        <div className="flex flex-col h-full">
+          <div className="text-sm font-medium py-1 px-3 rounded-full inline-block mb-4 bg-blue-50 text-blue-600 relative z-10 w-fit">
             {badge}
           </div>
           <h3 className="text-2xl font-light mb-4 relative z-10 text-gray-800">
-            {title}
+            {title === "Advisors + 401k Pro" ? (
+              <>
+                Advisors + <span className="bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text text-transparent">401k Pro</span>
+              </>
+            ) : (
+              title
+            )}
           </h3>
           <p className="text-gray-600 leading-relaxed font-light">
             {description}
@@ -125,7 +131,7 @@ const FragmentedEcosystemCombined = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <EcosystemCard
               badge="Fiduciary Responsibilities"
-              title="401k Pro"
+              title="Advisors + 401k Pro"
               description="401k Pro empowers advisors to efficiently manage fiduciary duties, automate compliance, and centralize data for streamlined plan management."
               delay={0}
             />

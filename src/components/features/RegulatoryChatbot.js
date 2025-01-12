@@ -82,7 +82,7 @@ const RegulatoryChatbot = () => {
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extralight mb-6 leading-tight">
             <span className="text-gray-700">Regulatory</span>{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3]">Chatbot</span>
+            <span className="text-transparent bg-clip-textbg-gradient-to-bl from-sky-400 to-blue-800">Chatbot</span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
             Got a regulatory question? We're here to help.

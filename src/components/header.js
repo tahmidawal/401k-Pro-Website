@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ChevronDown, ChevronUp, Menu, X, RefreshCcwDot, FileText, Shield, UsersRound, Bot, ArrowRight } from 'lucide-react';
-import logo from '../img/401k-Pro-Logo-Photoroom.webp';
+import logo from '../img/Plan360-No-Bg.png';
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -335,30 +335,23 @@ const ActionButtons = ({ isMobile, handleNavigation }) => (
   <div className={`flex ${isMobile ? 'flex-col space-y-3' : 'flex-row space-x-3 sm:space-x-4'} w-full`}>
     <button
       onClick={() => handleNavigation('/book-a-demo')}
-      className="relative group px-4 sm:px-6 py-2.5 rounded-full overflow-hidden"
+      className="relative group"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <div className="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-colors duration-300"></div>
-      <div className="relative flex items-center justify-center space-x-2">
-        <span className="text-white font-light">Book Demo</span>
-        <div className="transform group-hover:translate-x-1 transition-transform duration-200">
-          <ArrowRight size={16} className="text-white" />
-        </div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="relative bg-gradient-to-r from-blue-600 to-cyan-400 text-white font-light px-4 sm:px-6 py-2.5 rounded-full inline-flex items-center justify-center w-full">
+        <span>Book Demo</span>
+        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
       </div>
     </button>
     
     <button
-      onClick={() => window.location.href = 'https://app.401k-pro.ai'}
-      className="relative group px-4 sm:px-6 py-2.5 rounded-full overflow-hidden"
+      onClick={() => window.location.href = 'https://testapp.401k-pro.ai'}
+      className="relative group"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 group-hover:from-blue-600/10 group-hover:to-cyan-400/10 transition-all duration-300"></div>
-      <div className="relative flex items-center justify-center space-x-2">
-        <span className="text-gray-600 font-light group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0A5A9C] group-hover:to-[#39A5F3] transition duration-200">
-          Log In
-        </span>
-        <div className="transform group-hover:translate-x-1 transition-transform duration-200">
-          <ArrowRight size={16} className="text-gray-400 group-hover:text-blue-500" />
-        </div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+      <div className="relative bg-white text-gray-600 font-light px-4 sm:px-6 py-2.5 rounded-full inline-flex items-center justify-center w-full border border-gray-200 group-hover:border-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600/5 group-hover:to-cyan-400/5">
+        <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-cyan-400">Log In</span>
+        <ArrowRight className="w-4 h-4 ml-2 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300" />
       </div>
     </button>
   </div>

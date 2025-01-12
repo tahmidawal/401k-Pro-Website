@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart2, Users, ShieldCheck, FileText } from 'lucide-react';
-import logo from '../img/401k Pro Logo-Photoroom.png';
+import logo from '../img/Plan360-No-Bg.png';
 import { Helmet } from 'react-helmet-async';
 
 // Animation variants
@@ -33,22 +33,6 @@ const itemVariants = {
   }
 };
 
-// Animated background element
-const AnimatedCircle = ({ delay = 0, className }) => (
-  <motion.div
-    className={`absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 ${className}`}
-    animate={{
-      scale: [1, 1.2, 1],
-      rotate: [0, 90, 0],
-      opacity: [0.5, 0.2, 0.5],
-    }}
-    transition={{
-      duration: 8,
-      repeat: Infinity,
-      delay,
-    }}
-  />
-);
 
 // Modern feature card with glass morphism
 const FeatureCard = ({ icon: Icon, text }) => (
@@ -152,20 +136,8 @@ const HeroSection = () => {
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-3xl blur-2xl"></div>
-                <motion.div
-                  animate={{ 
-                    y: [-10, 10, -10],
-                    rotate: [-1, 1, -1],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                  className="relative"
-                >
+                
                   <img src={logo} alt="401k Pro Logo-Photoroom" className="w-full h-auto" />
-                </motion.div>
               </div>
             </motion.div>
           </motion.div>

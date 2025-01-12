@@ -81,7 +81,6 @@ const FeatureCard = ({ feature, index }) => {
   );
 };
 
-
 // Main Component with SEO enhancements
 const AIIntegration = () => {
   // Original feature data
@@ -342,9 +341,9 @@ const AIIntegration = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <div className="inline-block p-1 mb-16">
+            <div className="inline-block p-1 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full mb-16">
               <div className="bg-white px-12 py-16 rounded-full relative overflow-hidden">
-                <div className="absolute inset-0 hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
                 <h2 className="text-4xl font-light mb-6">Ready to Gain Your Competitive Advantage?</h2>
                 <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                   Join forward-thinking advisors leveraging AI to transform their practice

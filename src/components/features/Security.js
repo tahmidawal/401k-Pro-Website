@@ -76,7 +76,7 @@ const SecurityCategory = ({ title, features, icon: Icon, index }) => {
                 <Icon className="w-6 h-6 text-blue-600" strokeWidth={1.5} />
               </div>
             </div>
-            <h3 className="text-xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
+            <h3 className="text-xl font-light bg-gradient-to-bl from-sky-400 to-blue-800 bg-clip-text text-transparent">
               {title}
             </h3>
           </div>
@@ -297,12 +297,12 @@ const Security = () => {
             variants={itemVariants}
             className="text-6xl font-extralight mb-6"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-              Enterprise-Grade
+            <span className="text-transparent bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-800">
+              Enterprise
             </span>
-            <br />
+           <span> </span>
             <span className="text-gray-800">
-              Security
+              Grade Security
             </span>
           </motion.h1>
           <motion.p

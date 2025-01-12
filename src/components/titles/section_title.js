@@ -1,4 +1,3 @@
-import { Section } from 'lucide-react';
 import React from 'react';
 
 const SectionTitle = ({ mainTitle, subtitle }) => {

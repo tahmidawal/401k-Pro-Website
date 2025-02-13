@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Database, Calendar, FileText, Settings, RefreshCcw, Users, DollarSign, Target, ChevronDown } from 'lucide-react';
+import { Database, Calendar, FileText, Settings, RefreshCcw, Users, DollarSign, Target, ChevronDown, TrendingUp } from 'lucide-react';
 import GradientButtonWithArrow from '../buttons/GradientButtonWithArrow';
 import MasterSpreadsheetMainImage from './MasterSpreadsheetMain.webp';
 import ThreeSixyPlanViewImage from './ThreeSixtyPlanView.webp';
@@ -130,129 +130,121 @@ const PlanViewDetail = ({ icon: Icon, title, description, details, index }) => {
 
 const ThreeSixtyDegreePlanView = () => {
   const features = [
-    {
-      icon: Database,
-      title: "Client Information",
-      description: "Keep all essential client details in one place for easy access and management.",
-      details: [
-        "All of your clients in one place",
-        "Contact information",
-        "Record Keeper",
-        "TPA",
-      ]
-    },
-    {
-      icon: Calendar,
-      title: "Plan Touchpoints",
-      description: "Track and manage all interactions and key events related to each plan.",
-      details: [
-        "Easily track and categorize client interactions",
-        "Track actions across all plan stakeholders including plan sponsors, participants, record keepers, and TPAs",
-        "In built AI automatically rewrites all interactions so that they can be professionally presented in your quarterly and annual reports.",
-        "Automatically add in plan touchpoints by simply forwarding emails to the PlanSync email address",
-        "Visualizations to track the nunber of touchpoints you have with each client.",
-        "Automatically flows into Quarterly Reports",
-        "Automatically flows in Annual Plan Review Reports" 
-      ]
-    },
-    {
-      icon: FileText,
-      title: "Fiduciary Requirements Checklist",
-      description: "Promote compliance with a comprehensive checklist of fiduciary responsibilities.",
-      details: [
-        "In built requirements calendar to easily promote plan compliance",
-        "Easily assign requirements to their corresponding parties",
-        "Deadline monitoring",
-        "Add custom requirements",
-        "Automatically flows into Quarterly Reports",
-        "Automatically flows in Annual Plan Review Reports"
-
-      ]
-    },
-    {
-      icon: Settings,
-      title: "Plan Design and Elections",
-      description: "Document and track plan design features and elections for each client.",
-      details: [
-        "All plan design details in one place",
-        "Instant data querying and sorting",
-        "AI powered data entry with PDF data extraction from plan highlights or adoptions agreements.",
-        "Automatically flows in Annual Plan Review Reports"
-
-      ]
-    },
-    {
-      icon: RefreshCcw,
-      title: "Plan Performance",
-      description: "Monitor and analyze the performance of each plan over time.",
-      details: [
-        "Performance metrics tracking",
-        "All plan performance details in one place", 
-        "AI powered data entry with PDF data extraction from Record Keeper plan health reports",
-        "Automatically flows in Annual Plan Review Reports"
-
-      ]
-    },
-    {
-      icon: Users,
-      title: "Advisor Service Schedule",
-      description: "Manage and track your service commitments for each plan.",
-      details: [
-        "Easily communicate your service commitments to your clients",
-        "Automatically flows in Annual Plan Review Reports"
-        
-      ]
-    },
-    {
-      icon: DollarSign,
-      title: "Fee Schedule",
-      description: "Maintain clear and transparent fee information for each plan.",
-      details: [
-        "Easily communicate your fees with clients",
-        "Include advisor fees, recordkeeper fees, and TPA fees",
-        "Automatically flows in Annual Plan Review Reports for transparency."
-
-      ]
-    },
-    {
-      icon: Target,
-      title: "Plan Participants",
-      description: "Keep track of all plan participants",
-      details: [
-        "Automatically entered using the PlanSync participant census",
-        "Easily identify leads for your individual wealth advisor practice",
-        "Identify mismatches between a participants perceived risk tolerance and their actual risk tolerance",
-        "Comprehensive risk tolerance reports"
-      ]
-    },
-    {
-      icon: Target,
-      title: "Client Prospecting",
-      description: "Keep track of potential clients and manage your sales pipeline.",
-      details: [
-        "Lead tracking",
-        "Pipeline management",
-      ]
-    }
-  ];
+      {
+        icon: Database,
+        title: "Client Information Hub",
+        description: "Centralize all essential client details for streamlined access and management.",
+        details: [
+          "Manage all client accounts in one place",
+          "Store contact information, plan details, and key stakeholders",
+          "Easily reference record keeper and TPA information",
+        ]
+      },
+      {
+        icon: Calendar,
+        title: "Plan Touchpoints Tracking",
+        description: "Automatically document and categorize all interactions with clients and stakeholders.",
+        details: [
+          "Track all interactions across plan sponsors, participants, record keepers, and TPAs",
+          "AI-powered rewriting for professionally formatted reports",
+          "Auto-add touchpoints by forwarding emails to the 401k Pro email address",
+          "Visual dashboards to track client engagement levels",
+          "Seamlessly integrates into Quarterly and Annual Plan Review Reports",
+        ]
+      },
+      {
+        icon: FileText,
+        title: "Fiduciary Requirements Checklist",
+        description: "Ensure compliance with a structured checklist of all fiduciary obligations.",
+        details: [
+          "Built-in compliance calendar to stay ahead of deadlines",
+          "Assign requirements to the appropriate stakeholders",
+          "Deadline tracking and proactive monitoring",
+          "Customizable to include firm-specific requirements",
+          "Seamlessly integrates into Quarterly and Annual Plan Review Reports",
+        ]
+      },
+      {
+        icon: Settings,
+        title: "Plan Design & Elections",
+        description: "Digitally manage and track plan design features for each client.",
+        details: [
+          "Store all plan design details in one accessible location",
+          "Quick data querying and sorting for efficient insights",
+          "AI-powered PDF extraction from adoption agreements and plan highlights",
+          "Seamlessly integrates into Annual Plan Review Reports",
+        ]
+      },
+      {
+        icon: RefreshCcw,
+        title: "Plan Performance Monitoring",
+        description: "Analyze plan performance over time with AI-powered data extraction.",
+        details: [
+          "Track performance metrics and key plan indicators",
+          "Centralized repository for plan health and performance data",
+          "Automated PDF data extraction from record keeper reports",
+          "Seamlessly integrates into Annual Plan Review Reports",
+        ]
+      },
+      {
+        icon: Users,
+        title: "Advisor Service Schedule",
+        description: "Clearly communicate your service commitments to clients.",
+        details: [
+          "Document and manage advisor service commitments",
+          "Ensure transparency with structured service tracking",
+          "Seamlessly integrates into Annual Plan Review Reports",
+        ]
+      },
+      {
+        icon: DollarSign,
+        title: "Fee Schedule Transparency",
+        description: "Maintain a clear and structured breakdown of plan fees.",
+        details: [
+          "Easily communicate advisor, record keeper, and TPA fees",
+          "Improve fee transparency for plan sponsors",
+          "Seamlessly integrates into Annual Plan Review Reports",
+        ]
+      },
+      {
+        icon: Target,
+        title: "Participant Census & Risk Analysis",
+        description: "Gain deeper insights into plan participants and their financial profiles.",
+        details: [
+          "Automated participant data entry via 401k Pro’s census feature",
+          "Identify individual wealth advisory opportunities",
+          "Analyze mismatches between perceived and actual risk tolerance",
+          "Generate comprehensive risk tolerance reports",
+        ]
+      },
+      {
+        icon: TrendingUp,
+        title: "Client Prospecting & Lead Management",
+        description: "Track and manage potential clients with an integrated sales pipeline.",
+        details: [
+          "Organized lead tracking system",
+          "Pipeline management to convert prospects into clients",
+        ]
+      }
+    ];
 
   const showcases = [
     {
-      title: "PlanSync Centralized Plan Data",
-      description: "Our Centralized Plan Data allows you to keep all of your fiduciary plan management information in one place. Everything you need is now at your fingertips.",
+      title: "401k Pro Master Spreadsheet",
+      description: "Our Master Spreadsheet allows you to keep all of your fiduciary plan management information in one place. Everything you need is now at your fingertips.",
       media: MasterSpreadsheetMainImage,
       isVideo: false
     },
     {
       title: "Everything You Need, Nothing You Don't",
-      description: "Our Centralized Plan Data allows you to keep all of the most important information for your 401(k) plan management in one place.",
+      description: "Our Master Spreadsheet allows you to keep all of the most important information for your 401(k) plan management in one place.",
       media: ThreeSixyPlanViewImage,
       isVideo: false,
       reversed: true
     },
     {
       title: "AI Powered Data Entry",
-      description: "Hate entering data by hand? Trust us, we do too. That's why we've built an AI powered data entry system that can read and understand your PDFs, and automatically enter the data into your Centralized Plan Data for you.",
+      description: "Hate entering data by hand? Trust us, we do too. That's why we've built an AI powered data entry system that can read and understand your PDFs, and automatically enter the data into your Master Spreadsheet for you.",
       media: AIPDFDataExtraction,
       isVideo: true
     },
@@ -265,7 +257,7 @@ const ThreeSixtyDegreePlanView = () => {
     },
     {
       title: "Stay Organized and Find Your Information Instantly",
-      description: "PlanSync allows you to easily organize all of your plan information in one place, and find it instantly using our global search.",
+      description: "401k Pro allows you to easily organize all of your plan information in one place, and find it instantly using our global search.",
       media: PlanDesignAndElectionsQuery,
       isVideo: true,
       reversed: true
@@ -320,7 +312,7 @@ const ThreeSixtyDegreePlanView = () => {
           Ready to get a 360° view of your plans?
         </motion.h2>
         <motion.p variants={itemVariants} className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Start managing your 401(k) plans more efficiently with PlanSync.
+          Start managing your 401(k) plans more efficiently with 401k Pro.
         </motion.p>
         <motion.div variants={itemVariants}>
           <GradientButtonWithArrow buttonText="Get Started" link="/book-a-demo" showArrow={true} />

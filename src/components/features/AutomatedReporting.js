@@ -87,15 +87,17 @@ const FeatureCard = ({ icon: Icon, title, description }) => {
       <div className="relative bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-white/20 shadow-lg overflow-hidden h-full flex flex-col">
         <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-full blur-2xl transform translate-x-8 -translate-y-8"></div>
         <div className="relative z-10 flex flex-col h-full">
-          <div className="w-14 h-14 mb-6 relative flex-shrink-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
-            <div className="relative flex items-center justify-center w-full h-full bg-white rounded-xl border border-white/50">
-              <Icon className="w-6 h-6 text-blue-600" strokeWidth={1.5} />
+          <div className="flex items-center space-x-4 mb-6">
+            <div className="w-14 h-14 relative flex-shrink-0">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
+              <div className="relative flex items-center justify-center w-full h-full bg-white rounded-xl border border-white/50">
+                <Icon className="w-6 h-6 text-blue-600" strokeWidth={1.5} />
+              </div>
             </div>
+            <h3 className="text-xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent flex-shrink-0">
+              {title}
+            </h3>
           </div>
-          <h3 className="text-xl font-light mb-3 bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent flex-shrink-0">
-            {title}
-          </h3>
           <p className="text-gray-600 text-sm leading-relaxed flex-grow">
             {description}
           </p>
@@ -131,7 +133,7 @@ const DownloadButton = ({ name, url }) => (
     rel="noopener noreferrer"
     className="group relative inline-flex items-center space-x-2 px-6 py-3 rounded-xl overflow-hidden"
   >
-    <div className="absolute inset-0  opacity-10 group-hover:opacity-20 transition-all duration-300"></div>
+    <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-all duration-300"></div>
     <div className="absolute inset-0 border border-blue-600/30 rounded-xl"></div>
     <Download
       size={20}
@@ -145,43 +147,42 @@ const AutomatReprting = () => {
   // Same features data
   const features = [
     {
-      title: 'Quarterly + Annual Reports',
+      title: "Quarterly & Annual Reports",
       description:
-        'PlanSync generates both quarterly and annual reports for your clients, so you can keep them informed and compliant with ease.',
-      icon: ClipboardCheck
+        "401k Pro generates detailed quarterly and annual reports automatically, keeping clients informed and ensuring compliance with minimal effort.",
+      icon: ClipboardCheck,
     },
     {
-      title: 'One and Done',
+      title: "One-Click Reporting",
       description:
-        "With PlanSync, simply click one button and all of your compliance reporting is generated and ready to go. Reporting takes under 30 seconds.",
-      icon: Clock
+        "Generate comprehensive compliance reports in under 30 seconds. With just one click, your reports are ready—saving you hours of manual work.",
+      icon: Clock,
     },
     {
-      title: '5 Pages Max',
+      title: "Concise & Impactful",
       description:
-        "Our reports are designed to be concise and to the point, so you can quickly and easily communicate the most important information to your clients. After all, who has time to read 80 page reports from their advisors anyway? Let's just get to the point.",
-      icon: FileText
+        "Reports are designed to be 5 pages max, delivering only the most relevant insights. No more 80-page documents—just clear, actionable information.",
+      icon: FileText,
     },
     {
-      title: 'Hyper-Personalized',
+      title: "Personalized & Scalable",
       description:
-        "All of the information in your reports is simply documentation of emails and conversations you've already had with your clients, so it is always unique and personalized to them. Your practice will be scalable while never making your clients feel like they are just a number.",
-      icon: Users
+        "Every report is built from actual client interactions—ensuring they are always **personalized, relevant, and easy to scale** without losing the personal touch.",
+      icon: Users,
     },
     {
-      title: 'Due dilligence? No Problem',
+      title: "Effortless Due Diligence",
       description:
-        "Record-keeping is effortless with PlanSync. Our reports are designed to demonstrate your diligence in meeting fiduciary responsibilities, making it easy to showcase your efforts.",
-      icon: Shield
+        "401k Pro ensures **seamless documentation of fiduciary responsibilities**, making it easy to demonstrate compliance and maintain airtight records.",
+      icon: Shield,
     },
     {
-      title: 'Support Your Plan Sponsors',
+      title: "Support for Plan Sponsors",
       description:
-        "Under ERISA, plan sponsors are required to maintain documentation of their plan management process. However, realistically, they're often too busy running their businesses to keep up with this requirement. With PlanSync, you can provide your plan sponsors with the necessary documentation to stay compliant.",
-      icon: UserPlus
-    }
+        "Under ERISA, plan sponsors must document their plan management process, but they often lack the time. **401k Pro simplifies compliance by handling documentation for them.**",
+      icon: UserPlus,
+    },
   ];
-
   // Example reports
   const exampleReports = [
     {

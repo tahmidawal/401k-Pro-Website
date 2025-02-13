@@ -75,7 +75,7 @@ const ContactCard = () => {
                   <ContactInfo
                     icon={Mail}
                     label="Email us at"
-                    value="contact@PlanSync.ai"
+                    value="help@plansync.ai"
                   />
                   <ContactInfo
                     icon={Phone}

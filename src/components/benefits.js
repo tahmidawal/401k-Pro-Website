@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, Shield, Infinity, Users, TrendingUp, CheckCircle } from 'lucide-react';
+import { Clock, Shield, Users, TrendingUp, CheckCircle, Database } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
 // Animation variants
@@ -47,16 +47,19 @@ const BenefitCard = ({ Icon, title, description }) => {
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
         
         <div className="relative">
-          <div className="w-14 h-14 mb-6 relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
-            <div className="relative flex items-center justify-center w-full h-full bg-white rounded-xl border border-white/50">
-              <Icon className="w-6 h-6 text-blue-600" strokeWidth={1.5} />
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-10 h-10 relative flex-shrink-0">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
+              <div className="relative flex items-center justify-center w-full h-full bg-white rounded-xl border border-white/50">
+                <Icon className="w-5 h-5 text-blue-600" strokeWidth={1.5} />
+              </div>
             </div>
+            
+            <h3 className="text-xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
+              {title}
+            </h3>
           </div>
           
-          <h3 className="text-xl font-light mb-4 bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
-            {title}
-          </h3>
           <p className="text-gray-600 leading-relaxed">
             {description}
           </p>
@@ -69,35 +72,41 @@ const BenefitCard = ({ Icon, title, description }) => {
 const Benefits = () => {
   const benefits = [
     {
+      Icon: Clock,
+      title: "Save Time",
+      description:
+        "Automate compliance, reporting, and documentation. Free up time to focus on client relationships and business growth.",
+    },
+    {
       Icon: CheckCircle,
       title: "Prove Your Value",
-      description: "Demonstrate your value as an advisor with PlanSync. Show plan sponsors and auditors the tangible results of your work, such as detailed reports documenting all actions in plan management. Eliminate doubts about your role and contributions.",
+      description:
+        "Deliver clear, detailed reports that showcase your work. Help plan sponsors and auditors see the impact of your services.",
     },
     {
       Icon: Shield,
-      title: "Promote Compliance",
-      description: "Ensure ERISA and fiduciary compliance with built-in checklists that guide advisors through complex regulations. Automate due diligence and simplify compliance reporting, making it easier to communicate with stakeholders.",
+      title: "Ensure Compliance",
+      description:
+        "Simplify ERISA and fiduciary compliance with automated checklists and built-in documentation tools.",
     },
     {
-      Icon: Infinity,
-      title: "Centralized Data Management",
-      description: "Access all fiduciary plan data and documents in one place. Say goodbye to scattered information and manage plan details with just a few clicks, saving time and reducing complexity.",
+      Icon: Database,
+      title: "Centralize Plan Data",
+      description:
+        "Store and access all plan documents, touchpoints, and compliance records in one structured platform.",
     },
     {
       Icon: TrendingUp,
-      title: "Increase Revenue Opportunities",
-      description: "Expand your advisory practice by identifying participants who are ready for Individual Wealth Advisory Practice (IWAP) conversions. Streamline client onboarding and justify higher fees with clear, professional deliverables.",
+      title: "Grow Your Revenue",
+      description:
+        "Identify wealth management opportunities among plan participants and streamline client onboarding.",
     },
     {
       Icon: Users,
       title: "Enhance Stakeholder Communication",
-      description: "Facilitate transparent communication with TPAs, record keepers, and plan sponsors. Share detailed reports and ensure everyone is aligned throughout the plan management process.",
+      description:
+        "Improve collaboration with TPAs, record keepers, and plan sponsors through shared reports and automated updates.",
     },
-    {
-      Icon: Clock,
-      title: "Save Time",
-      description: "Automate reporting, compliance, and administrative tasks with PlanSync. Free up valuable time to focus on growing your business and serving clients better.",
-    }
   ];
 
   return (

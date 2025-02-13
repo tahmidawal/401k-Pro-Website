@@ -87,7 +87,7 @@ const Header = () => {
               className="relative group flex items-center"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-xl blur-lg group-hover:scale-110 transition-transform duration-300"></div>
-              <img src={logo} alt="PlanSync Logo-Photoroom" className="relative h-6 sm:h-8 w-auto" />
+              <img src={logo} alt="PlanSync Logo-Photoroom" className="relative h-8 sm:h-12 w-auto" />
             </button>
 
             {/* Desktop Menu */}

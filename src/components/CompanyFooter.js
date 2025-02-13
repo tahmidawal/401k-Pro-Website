@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, Phone, ChevronRight } from 'lucide-react';
-import Logo from '../img/401k-Pro-Logo-Photoroom.webp';
+import Logo from '../img/PlanSync-No-Bg.png';
 import { IconBrandInstagram, IconBrandTwitter } from '@tabler/icons-react';
 
 const containerVariants = {
@@ -101,8 +101,9 @@ const Footer = () => {
               <motion.img 
                 whileHover={{ scale: 1.02 }}
                 src={Logo} 
-                alt="401k Pro Logo" 
-                className="h-8 cursor-pointer" 
+                alt="PlanSync Logo" 
+                className="h-8 cursor-pointer"
+                onClick={() => window.location.href = '/'}
               />
               <p className="text-sm text-gray-500">© 2024 AccessibleAI, LLC</p>
               <div className="flex space-x-6">
@@ -141,7 +142,7 @@ const Footer = () => {
               </div>
               <div className="space-y-3">
                 <ContactInfo icon={Phone} text="+1 (919) 200-9943" />
-                <ContactInfo icon={Mail} text="info@401k-pro.ai" />
+                <ContactInfo icon={Mail} text="info@PlanSync.ai" />
               </div>
             </motion.div>
           </div>

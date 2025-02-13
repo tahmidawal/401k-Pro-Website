@@ -36,19 +36,19 @@ const WhatDrivesUs = () => {
   return (
     <>
       <Helmet>
-        <title>What Drives Us - 401k Pro</title>
+        <title>What Drives Us - PlanSync</title>
         <meta
           name="description"
-          content="Discover the mission and values that drive 401k Pro. Learn how we empower financial advisors with AI-driven tools to thrive in the modern landscape."
+          content="Discover the mission and values that drive PlanSync. Learn how we empower financial advisors with AI-driven tools to thrive in the modern landscape."
         />
         <meta
           name="keywords"
-          content="401k Pro mission, financial advisor tools, AI-driven advisory software, empowering advisors, AI tools for finance"
+          content="PlanSync mission, financial advisor tools, AI-driven advisory software, empowering advisors, AI tools for finance"
         />
-        <meta property="og:title" content="What Drives Us - 401k Pro" />
+        <meta property="og:title" content="What Drives Us - PlanSync" />
         <meta
           property="og:description"
-          content="Learn about 401k Pro's mission to empower financial advisors with AI-driven tools, ensuring efficiency and success in the AI revolution."
+          content="Learn about PlanSync's mission to empower financial advisors with AI-driven tools, ensuring efficiency and success in the AI revolution."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com/what-drives-us" />

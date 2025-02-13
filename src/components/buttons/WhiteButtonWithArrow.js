@@ -43,15 +43,15 @@ const WhiteButtonWithArrow = ({
     >
       {/* White background with gradient border */}
       <div className="absolute inset-0 bg-white transition-opacity duration-300 group-hover:opacity-0"></div>
-      <div className="absolute inset-0bg-gradient-to-bl from-sky-400 to-blue-800 rounded-full p-[2px] transition-opacity duration-300 group-hover:opacity-0">
+      <div className="absolute inset-0inset-0 bg-gradient-to-bl rounded-full p-[2px] transition-opacity duration-300 group-hover:opacity-0">
         <div className="bg-white h-full w-full rounded-full"></div>
       </div>
       
       {/* Gradient background (hidden by default, shown on hover) */}
-      <div className="absolute inset-0bg-gradient-to-bl from-sky-400 to-blue-800 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+      <div className="absolute inset-0inset-0 bg-gradient-to-bl opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
       
       {/* Button content */}
-      <span className="relative z-10 text-transparent bg-clip-textbg-gradient-to-bl from-sky-400 to-blue-800 transition-all duration-300 group-hover:text-white">
+      <span className="relative z-10 text-transparent bg-clip-textinset-0 bg-gradient-to-bl transition-all duration-300 group-hover:text-white">
         {buttonText}
       </span>
       {showArrow && (

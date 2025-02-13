@@ -99,8 +99,8 @@ const FragmentedEcosystemGraphic = () => {
             <div className="absolute inset-0">
               <Card
                 badge="Fiduciary Responsibilities"
-                title="401k Pro"
-                description="With 401k Pro you can easily manage your fiduciary responsibilities. Your plan management ecosystem is now complete."
+                title="PlanSync"
+                description="With PlanSync you can easily manage your fiduciary responsibilities. Your plan management ecosystem is now complete."
                 isAnimated={true}
                 delay={5}
                 gradient={true}

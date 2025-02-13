@@ -31,11 +31,11 @@ const GradientButtonWithArrow = ({
       onClick={link ? undefined : onClick}
     >
       {/* Gradient background */}
-      <div className="absolute inset-0bg-gradient-to-bl from-sky-400 to-blue-800 transition-opacity duration-300 group-hover:opacity-0"></div>
+      <div className="absolute inset-0 inset-0 bg-gradient-to-bl transition-opacity duration-300 group-hover:opacity-0"></div>
       
       {/* White background with gradient border (hidden by default, shown on hover) */}
-      <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-      <div className="absolute inset-0bg-gradient-to-bl from-sky-400 to-blue-800 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-full p-[2px]">
+      <div className="absolute inset-0 bg-gradient-to-bl from-blue-600 to-cyan-400 transition-opacity duration-300 group-hover:opacity-100"></div>
+      <div className="absolute inset-0 inset-0 bg-gradient-to-bl opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-full p-[2px]">
         <div className="bg-white h-full w-full rounded-full"></div>
       </div>
       

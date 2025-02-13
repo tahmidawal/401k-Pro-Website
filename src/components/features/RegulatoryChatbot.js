@@ -39,12 +39,12 @@ const RegulatoryChatbot = () => {
     {
       icon: Zap,
       title: "Answers in Seconds",
-      description: "401k Pro's regulatory chatbot is designed to provide you with answers to your regulatory questions in seconds, saving you time and effort."
+      description: "PlanSync's regulatory chatbot is designed to provide you with answers to your regulatory questions in seconds, saving you time and effort."
     },
     {
       icon: Shield,
       title: "401k Specialized",
-      description: "401k Pro's regulatory chatbot is trained to answer your regulatory questions based upon the actual ERISA, FINRA, and DOL codes so that your answers are actually relevant to your plan management process."
+      description: "PlanSync's regulatory chatbot is trained to answer your regulatory questions based upon the actual ERISA, FINRA, and DOL codes so that your answers are actually relevant to your plan management process."
     },
     {
       icon: MessageSquare,
@@ -82,7 +82,7 @@ const RegulatoryChatbot = () => {
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extralight mb-6 leading-tight">
             <span className="text-gray-700">Regulatory</span>{" "}
-            <span className="text-transparent bg-clip-textbg-gradient-to-bl from-sky-400 to-blue-800">Chatbot</span>
+            <span className="text-transparent bg-clip-textinset-0 bg-gradient-to-bl">Chatbot</span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
             Got a regulatory question? We're here to help.
@@ -131,7 +131,7 @@ const RegulatoryChatbot = () => {
           <div className="bg-white shadow-lg rounded-lg p-6 w-full mx-auto border border-gray-300 mt-12">
             <h2 className="text-3xl font-light mb-4">Disclaimer</h2>
             <p className="text-gray-700 font-light">
-              401k Pro's regulatory chatbot can make mistakes. This chatbot is not a substitute for professional legal advice. Always consult with a qualified legal professional for specific guidance.
+              PlanSync's regulatory chatbot can make mistakes. This chatbot is not a substitute for professional legal advice. Always consult with a qualified legal professional for specific guidance.
             </p>
           </div>
         </FadeInSection>

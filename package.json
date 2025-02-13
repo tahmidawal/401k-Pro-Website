@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b gh-pages -d build -r https://github.com/tahmidawal/401k-Pro-Website.git"
+    "deploy": "gh-pages -b gh-pages -d build -r https://github.com/tahmidawal/PlanSync-Website.git"
   },
   "eslintConfig": {
     "extends": [
@@ -58,5 +58,5 @@
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10"
   },
-  "homepage": "https://401k-pro.ai"
+  "homepage": "https://PlanSync.ai"
 }

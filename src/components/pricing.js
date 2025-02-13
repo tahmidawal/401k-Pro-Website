@@ -86,7 +86,7 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
           </div>
           <div className="p-3 bg-blue-50 rounded-xl">
             <p className="text-blue-600 text-sm font-medium text-center">
-              30-Day Free Trial
+              30-Day Money Back Guarantee
             </p>
           </div>
         </div>
@@ -108,13 +108,13 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
 
 const FeaturesList = () => {
   const features = [
-    "Master Spreadsheet",
+    "Centralized Plan Data",
     "Plan Documents",
     "Automated Reporting",
     "Participant Census Automation",
     "Plan Management Dashboard",
     "AI-Powered Features",
-    "Secure SOC2 Certified Platform",
+    "Top-Tier Security",
     "24/7/365 Support"
     
   ];
@@ -158,9 +158,18 @@ const FeaturesList = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-500"></div>
             <div className="relative backdrop-blur-xl bg-white/80 p-4 rounded-xl border border-white/20 shadow-lg overflow-hidden flex items-center gap-4">
               <div className="relative flex-shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-                <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-full">
-                  <Check className="text-blue-600 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                <div className="relative w-10 h-10 flex items-center justify-center bg-white rounded-full p-[2px]">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full" />
+                  <div className="absolute inset-[2px] bg-white rounded-full" />
+                  <Check className="relative w-5 h-5 [&>path]:fill-transparent [&>path]:stroke-[url(#check-gradient)]" />
+                  <svg className="absolute" width="0" height="0">
+                    <defs>
+                      <linearGradient id="check-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#2563eb" />
+                        <stop offset="100%" stopColor="#22d3ee" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
                 </div>
               </div>
               <span className="text-gray-700 text-base font-light group-hover:text-blue-600 transition-colors duration-300">
@@ -181,16 +190,16 @@ const PricingComponent = () => {
   const pricingTiers = [
     {
       planRange: "1-15 Plans",
-      price: 200,
+      price: 300,
       isPopular: false
     },
     {
-      planRange: "16-40 Plans",
-      price: 400,
+      planRange: "16-50 Plans",
+      price: 500,
       isPopular: true
     },
     {
-      planRange: "41+ Plans",
+      planRange: "51+ Plans",
       price: '10',
       isPopular: false,
       priceSubtext: "per plan/month"
@@ -200,19 +209,19 @@ const PricingComponent = () => {
   return (
     <>
       <Helmet>
-        <title>401k Pro - Pricing Plans</title>
+        <title>PlanSync - Pricing Plans</title>
         <meta
           name="description"
-          content="Explore simple and transparent pricing for 401(k) Pro. All features included in every plan with scalable options to match your advisory needs."
+          content="Explore simple and transparent pricing for PlanSync. All features included in every plan with scalable options to match your advisory needs."
         />
         <meta
           name="keywords"
-          content="401k Pro pricing, simple pricing, transparent costs, scalable 401k plans, 401k management software"
+          content="PlanSync pricing, simple pricing, transparent costs, scalable 401k plans, 401k management software"
         />
-        <meta property="og:title" content="401k Pro - Pricing Plans" />
+        <meta property="og:title" content="PlanSync - Pricing Plans" />
         <meta
           property="og:description"
-          content="Explore simple and transparent pricing for 401(k) Pro. All features included in every plan with scalable options to match your advisory needs."
+          content="Explore simple and transparent pricing for PlanSync. All features included in every plan with scalable options to match your advisory needs."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com/pricing" />
@@ -226,7 +235,7 @@ const PricingComponent = () => {
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
         </motion.div>
 
-        <div className="max-w-7xl mx-auto px-4 relative">
+        <div className="max-w-7xl mx-auto px-4 relative py-24">
           <motion.div
             variants={containerVariants}
             initial="hidden"

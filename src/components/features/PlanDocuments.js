@@ -124,6 +124,31 @@ const ANIMATION_VARIANTS = {
   }
 };
 
+const STAGGER_ANIMATION_VARIANTS = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    }
+  }
+};
+
+const SLIDE_UP_VARIANT = {
+  hidden: { 
+    opacity: 0,
+    y: 30
+  },
+  visible: { 
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.04, 0.62, 0.23, 0.98]
+    }
+  }
+};
 
 const FloatingElement = ({ children, delay = 0 }) => (
   <motion.div
@@ -143,40 +168,29 @@ const FloatingElement = ({ children, delay = 0 }) => (
 );
 
 const FeatureSection = ({ title, description, icon: Icon, isReversed }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.95, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0.5, 1]);
-
   return (
-    <motion.div
-      ref={ref}
-      style={{ scale, opacity }}
-      className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 relative`}
-    >
+    <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 relative`}>
       <div className="w-full md:w-1/2 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-3xl blur-2xl"></div>
-        <div className="bg-gradient-to-r from-blue-600 to-cyan-400 p-[2px] rounded-3xl backdrop-blur-xl">
-          <div className="bg-white/80 p-8 rounded-3xl h-full relative overflow-hidden">
+        <div className="">
+          <div className="bg-white/80 p-8 border border-gray-300 rounded-3xl h-full relative overflow-hidden">
             <FloatingElement delay={0.5}>
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl"></div>
             </FloatingElement>
-            <div className="w-16 h-16 mb-6 relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-lg opacity-50"></div>
-              <div className="relative w-full h-full rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
-                <Icon size={32} className="text-white" />
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 relative flex-shrink-0">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-lg opacity-50"></div>
+                <div className="relative w-full h-full rounded-xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
+                  <Icon size={24} className="text-white" />
+                </div>
               </div>
+              <h3 className="text-2xl font-light">{title}</h3>
             </div>
-            <h3 className="text-2xl font-light mb-4">{title}</h3>
             <p className="text-gray-600 leading-relaxed">{description}</p>
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -207,16 +221,17 @@ const StepIndicator = ({ number }) => (
 // Page Sections
 const Header = () => (
   <motion.div
-    variants={ANIMATION_VARIANTS.container}
+    variants={STAGGER_ANIMATION_VARIANTS}
     initial="hidden"
-    animate="visible"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-100px" }}
     className="text-center mb-20"
   >
-    <motion.h1 variants={ANIMATION_VARIANTS.item} className="text-6xl font-extralight mb-6">
+    <motion.h1 variants={SLIDE_UP_VARIANT} className="text-6xl font-extralight mb-6">
       <span className="text-transparent bg-clip-text bg-gray-600">Plan</span>{' '}
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">Documents</span>
     </motion.h1>
-    <motion.p variants={ANIMATION_VARIANTS.item} className="text-xl text-gray-600 max-w-2xl mx-auto">
+    <motion.p variants={SLIDE_UP_VARIANT} className="text-xl text-gray-600 max-w-2xl mx-auto">
       Transform your document management with AI-powered insights and seamless organization
     </motion.p>
   </motion.div>
@@ -225,52 +240,70 @@ const Header = () => (
 const Features = () => (
   <div className="space-y-16">
     {FEATURES.map((feature, index) => (
-      <FeatureSection key={index} {...feature} isReversed={index % 2 === 1} />
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ 
+          duration: 0.8,
+          delay: index * 0.3, // This creates the staggered effect
+          ease: [0.04, 0.62, 0.23, 0.98] 
+        }}
+      >
+        <FeatureSection {...feature} isReversed={index % 2 === 1} />
+      </motion.div>
     ))}
   </div>
 );
 
 const HowItWorks = () => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
+    variants={STAGGER_ANIMATION_VARIANTS}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-100px" }}
     className="mt-24"
   >
-    <h2 className="text-3xl font-light text-center mb-16">How It Works</h2>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-3xl font-light text-center mb-16">
+      How It Works
+    </motion.h2>
+    <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {STEPS.map(({ step, title, description }) => (
-        <div key={step} className="text-center">
+        <motion.div
+          key={step}
+          variants={SLIDE_UP_VARIANT}
+          className="text-center"
+        >
           <div className="flex justify-center mb-6">
             <StepIndicator number={step} />
           </div>
           <h3 className="text-xl font-light mb-2">{title}</h3>
           <p className="text-gray-600">{description}</p>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   </motion.div>
 );
 
 const DocumentTypes = () => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
+    variants={STAGGER_ANIMATION_VARIANTS}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-100px" }}
     className="mt-24"
   >
-    <h2 className="text-3xl font-light text-center mb-8">
+    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-3xl font-light text-center mb-8">
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
         Comprehensive
       </span>{' '}
       Document Support
-    </h2>
-    <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+    </motion.h2>
+    <motion.p variants={SLIDE_UP_VARIANT} className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
       Our platform supports all critical 401(k) plan documents, making it easy to organize and manage your entire document ecosystem
-    </p>
-    <div className="relative">
+    </motion.p>
+    <motion.div variants={SLIDE_UP_VARIANT} className="relative">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-3xl blur-2xl transform rotate-3"></div>
       <div className="p-[2px] rounded-3xl backdrop-blur-xl">
         <div className="bg-white/80 p-8 rounded-3xl h-full backdrop-blur-xl relative overflow-hidden border border-gray-200 shadow-xl">
@@ -303,44 +336,52 @@ const DocumentTypes = () => (
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   </motion.div>
 );
 
 const UseCases = () => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
+    variants={STAGGER_ANIMATION_VARIANTS}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-100px" }}
     className="mt-24"
   >
-    <h2 className="text-3xl font-light text-center mb-12">Use Cases</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-3xl font-light text-center mb-12">
+      Use Cases
+    </motion.h2>
+    <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {USE_CASES.map((useCase, index) => (
-        <UseCaseCard key={index} {...useCase} />
+        <motion.div key={index} variants={SLIDE_UP_VARIANT}>
+          <UseCaseCard {...useCase} />
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   </motion.div>
 );
 
 const CTASection = () => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
+    variants={STAGGER_ANIMATION_VARIANTS}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-100px" }}
     className="text-center mt-24"
   >
-    <h2 className="text-3xl font-light mb-6">Ready to Transform Your Document Management?</h2>
-    <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-3xl font-light mb-6">
+      Ready to Transform Your Document Management?
+    </motion.h2>
+    <motion.p variants={SLIDE_UP_VARIANT} className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
       Join forward-thinking advisors who are leveraging AI to streamline their document workflows
-    </p>
-    <GradientButtonWithArrow 
-      buttonText="Get Started" 
-      link="/book-a-demo"
-      showArrow={false}
-    />
+    </motion.p>
+    <motion.div variants={SLIDE_UP_VARIANT}>
+      <GradientButtonWithArrow 
+        buttonText="Get Started" 
+        link="/book-a-demo"
+        showArrow={false}
+      />
+    </motion.div>
   </motion.div>
 );
 
@@ -348,7 +389,7 @@ const CTASection = () => (
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: '401k Pro Plan Documents Management',
+  name: 'PlanSync Plan Documents Management',
   description:
     'Streamline your 401(k) plan document management with AI-powered tools, centralized storage, and secure sharing. Perfect for financial advisors and plan sponsors.',
   applicationCategory: 'BusinessApplication',
@@ -373,7 +414,7 @@ const PlanDocuments = () => {
     <>
       <Helmet>
         {/* Primary Title Tag */}
-        <title>Manage Plan Documents | 401k Pro</title>
+        <title>Manage Plan Documents | PlanSync</title>
 
         {/* Meta Description & Keywords (same original meaning, optimized) */}
         <meta
@@ -386,7 +427,7 @@ const PlanDocuments = () => {
         />
 
         {/* Open Graph / Social Media */}
-        <meta property="og:title" content="Manage Plan Documents | 401k Pro" />
+        <meta property="og:title" content="Manage Plan Documents | PlanSync" />
         <meta 
           property="og:description" 
           content="Simplify 401(k) document management with centralized tools, AI-powered insights, and robust compliance features." 
@@ -397,7 +438,7 @@ const PlanDocuments = () => {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Manage Plan Documents | 401k Pro" />
+        <meta name="twitter:title" content="Manage Plan Documents | PlanSync" />
         <meta
           name="twitter:description"
           content="Easily store, search, and share 401(k) plan documents. Automate compliance checks and streamline audits with AI assistance."
@@ -408,7 +449,7 @@ const PlanDocuments = () => {
         <meta name="robots" content="index, follow" />
         <meta 
           name="author" 
-          content="401k Pro - AI-Powered 401(k) Plan Management Software"
+          content="PlanSync - AI-Powered 401(k) Plan Management Software"
         />
         <meta 
           name="viewport" 

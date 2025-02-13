@@ -63,7 +63,7 @@ function App() {
             <ScrollToSection />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/why-401k-pro" element={<Why401kProPage />} />
+              <Route path="/why-PlanSync" element={<Why401kProPage />} />
               <Route path="/360-degree-client-view" element={<ThreeSixtyDegreePlanView />} />
               <Route path="/careers" element={<CareersPage />} />
               <Route path="/automated-reporting" element={<AutomatedReporting />} />

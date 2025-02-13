@@ -71,7 +71,7 @@ const Benefits = () => {
     {
       Icon: CheckCircle,
       title: "Prove Your Value",
-      description: "Demonstrate your value as an advisor with 401(k) Pro. Show plan sponsors and auditors the tangible results of your work, such as detailed reports documenting all actions in plan management. Eliminate doubts about your role and contributions.",
+      description: "Demonstrate your value as an advisor with PlanSync. Show plan sponsors and auditors the tangible results of your work, such as detailed reports documenting all actions in plan management. Eliminate doubts about your role and contributions.",
     },
     {
       Icon: Shield,
@@ -96,26 +96,26 @@ const Benefits = () => {
     {
       Icon: Clock,
       title: "Save Time",
-      description: "Automate reporting, compliance, and administrative tasks with 401(k) Pro. Free up valuable time to focus on growing your business and serving clients better.",
+      description: "Automate reporting, compliance, and administrative tasks with PlanSync. Free up valuable time to focus on growing your business and serving clients better.",
     }
   ];
 
   return (
     <>
       <Helmet>
-        <title>401k Pro - Benefits of Our 401(k) Management Software</title>
+        <title>PlanSync - Benefits of Our 401(k) Management Software</title>
         <meta
           name="description"
-          content="Learn how 401k Pro simplifies plan management, improves compliance, and helps advisors grow their business. See the benefits of centralized tools and automated reporting."
+          content="Learn how PlanSync simplifies plan management, improves compliance, and helps advisors grow their business. See the benefits of centralized tools and automated reporting."
         />
         <meta
           name="keywords"
           content="401k benefits, fiduciary compliance, plan management software, automated reporting, stakeholder communication, centralized data management"
         />
-        <meta property="og:title" content="401k Pro - Benefits of Our 401(k) Management Software" />
+        <meta property="og:title" content="PlanSync - Benefits of Our 401(k) Management Software" />
         <meta
           property="og:description"
-          content="Learn how 401k Pro simplifies plan management, improves compliance, and helps advisors grow their business. See the benefits of centralized tools and automated reporting."
+          content="Learn how PlanSync simplifies plan management, improves compliance, and helps advisors grow their business. See the benefits of centralized tools and automated reporting."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com/benefits" />
@@ -133,10 +133,10 @@ const Benefits = () => {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
                   Benefits
                 </span>{" "}
-                of 401(k) Pro
+                of PlanSync
               </h1>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Discover how 401(k) Pro transforms plan management for advisors, making it efficient, scalable, and compliant.
+                Discover how PlanSync transforms plan management for advisors, making it efficient, scalable, and compliant.
               </p>
             </motion.div>
 

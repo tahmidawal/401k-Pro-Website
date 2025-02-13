@@ -211,9 +211,9 @@ const ParticipantCensus = () => {
   // Original feature data
   const features = [
     {
-      title: 'Master Spreadsheet Integration',
+      title: 'Integrated With Your Plan Data',
       description:
-        'Automatically sync all participant responses with the Master Spreadsheet, creating a single, unified hub for participant data across all plans and companies.',
+        'Automatically sync all participant responses with your centralized plan data, creating a single, unified hub for participant data across all plans and companies.',
       icon: Database
     },
     {
@@ -231,7 +231,7 @@ const ParticipantCensus = () => {
     {
       title: 'Instant Participant Risk Tolerance and Lead Score Reports',
       description:
-        '401k Pro automatically creates comprehensive risk tolerance and lead score reports for every participant. With 401k Pro, you receive detailed documentation for each individual, ensuring you have all the insights you need at your fingertips without lifting a finger.',
+        'PlanSync automatically creates comprehensive risk tolerance and lead score reports for every participant. With PlanSync, you receive detailed documentation for each individual, ensuring you have all the insights you need at your fingertips without lifting a finger.',
       icon: FileCheck
     },
     {
@@ -241,7 +241,7 @@ const ParticipantCensus = () => {
       icon: Target
     },
     {
-      title: 'Independent Wealth Advisory Practice Lead Scoring System',
+      title: 'Participant Discovery for Individual Wealth Advisory Practices',
       description:
         'Highlight participants with the greatest potential for individual wealth advisory practice using advanced metrics and scoring, giving you the opportunity to grow your practice.',
       icon: ChartBar
@@ -288,7 +288,7 @@ const ParticipantCensus = () => {
         {/* Relevant Keywords */}
         <meta
           name="keywords"
-          content="participant census, 401k pro, real-time processing, risk tolerance reports, lead scoring, Typeform integration, wealth advisory"
+          content="participant census, PlanSync, real-time processing, risk tolerance reports, lead scoring, Typeform integration, wealth advisory"
         />
 
         <meta name="robots" content="index, follow" />

@@ -58,7 +58,7 @@ const GraphicSection = () => {
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-center">Complete the Circle</h2>
         
         <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12 text-center max-w-2xl mx-auto">
-          401(k) Pro completes the advisor's 401k Plan Management circle by providing the first scalable method of taking care of your fiduciary responsibilities.
+          PlanSync completes the advisor's 401k Plan Management circle by providing the first scalable method of taking care of your fiduciary responsibilities.
         </p>
         
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
@@ -87,9 +87,9 @@ const GraphicSection = () => {
           </div>
           
           <div className="bg-blue-500 text-white p-4 sm:p-6 rounded-lg shadow-md w-full flex flex-col">
-            <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">401k Pro</h3>
+            <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">PlanSync</h3>
             <p className="text-sm sm:text-base text-white flex-grow">
-              With 401k Pro you can easily manage your fiduciary responsibilities. 
+              With PlanSync you can easily manage your fiduciary responsibilities. 
             </p>
           </div>
         </div>

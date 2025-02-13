@@ -42,25 +42,42 @@ const EcosystemCard = ({ badge, title, description, delay = 0 }) => {
       className="relative group h-full"
     >
       {/* Background gradient effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500 border border-gray-300"></div>
       
-      <div className="relative backdrop-blur-xl bg-white/80 p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden flex flex-col h-full">
-        <div className="flex flex-col h-full">
-          <div className="text-sm font-medium py-1 px-3 rounded-full inline-block mb-4 bg-blue-50 text-blue-600 relative z-10 w-fit">
-            {badge}
+      <div className={`relative backdrop-blur-xl bg-white/80 p-8 rounded-2xl shadow-lg overflow-hidden flex flex-col h-full ${
+        title === "Advisors + PlanSync" 
+          ? "border-2 border-gradient-to-r from-cyan-400 to-blue-600 p-[2px]"
+          : "border border-white/20 border-r border-gray-200"
+      }`}>
+        {/* Add inner white container for Advisors + PlanSync to maintain same background */}
+        <div className={`${
+          title === "Advisors + PlanSync" 
+            ? "bg-white/80 rounded-xl p-8 h-full"
+            : ""
+        }`}>
+          <div className="flex flex-col h-full">
+            <div className="text-sm font-medium py-1 px-3 rounded-full inline-block mb-4 bg-blue-50 text-blue-600 relative z-10 w-fit">
+              {badge}
+            </div>
+            <h3 className="text-2xl font-light mb-4 relative z-10 text-gray-800">
+              {title === "Advisors + PlanSync" ? (
+                <>
+                  Advisors + <span className="bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text text-transparent">PlanSync</span>
+                </>
+              ) : (
+                title
+              )}
+            </h3>
+            <p className="text-gray-600 leading-relaxed font-light">
+              {description.includes("<span") ? (
+                <>
+                  PlanSync is designed to enhance, <span className="text-blue-600">never replace</span>, the role of advisor by equipping them with the tools they need to manage fiduciary responsibilities more efficiently.
+                </>
+              ) : (
+                description
+              )}
+            </p>
           </div>
-          <h3 className="text-2xl font-light mb-4 relative z-10 text-gray-800">
-            {title === "Advisors + 401k Pro" ? (
-              <>
-                Advisors + <span className="bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text text-transparent">401k Pro</span>
-              </>
-            ) : (
-              title
-            )}
-          </h3>
-          <p className="text-gray-600 leading-relaxed font-light">
-            {description}
-          </p>
         </div>
       </div>
     </motion.div>
@@ -72,19 +89,19 @@ const FragmentedEcosystemCombined = () => {
   return (
     <>
       <Helmet>
-        <title>401k Pro - Complete Ecosystem for 401(k) Plan Management</title>
+        <title>PlanSync - Complete Ecosystem for 401(k) Plan Management</title>
         <meta
           name="description"
-          content="401k Pro integrates fiduciary management, compliance, and investment monitoring tools to streamline the 401(k) ecosystem for advisors."
+          content="PlanSync integrates fiduciary management, compliance, and investment monitoring tools to streamline the 401(k) ecosystem for advisors."
         />
         <meta
           name="keywords"
           content="401k ecosystem, fiduciary tools, plan management, ERISA compliance, investment monitoring, record keepers"
         />
-        <meta property="og:title" content="401k Pro - Complete Ecosystem for 401(k) Plan Management" />
+        <meta property="og:title" content="PlanSync - Complete Ecosystem for 401(k) Plan Management" />
         <meta
           property="og:description"
-          content="Discover how 401k Pro connects fiduciary management, compliance, and investment tools to simplify 401(k) administration for advisors."
+          content="Discover how PlanSync connects fiduciary management, compliance, and investment tools to simplify 401(k) administration for advisors."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com/ecosystem" />
@@ -131,8 +148,8 @@ const FragmentedEcosystemCombined = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <EcosystemCard
               badge="Fiduciary Responsibilities"
-              title="Advisors + 401k Pro"
-              description="401k Pro empowers advisors to efficiently manage fiduciary duties, automate compliance, and centralize data for streamlined plan management."
+              title="Advisors + PlanSync"
+              description="PlanSync is designed to enhance, <span className='text-blue-600'>never replace</span>, the role of advisor by equipping them with the tools they need to manage fiduciary responsibilities more efficiently."
               delay={0}
             />
 

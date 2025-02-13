@@ -76,7 +76,7 @@ const SecurityCategory = ({ title, features, icon: Icon, index }) => {
                 <Icon className="w-6 h-6 text-blue-600" strokeWidth={1.5} />
               </div>
             </div>
-            <h3 className="text-xl font-light bg-gradient-to-bl from-sky-400 to-blue-800 bg-clip-text text-transparent">
+            <h3 className="text-xl font-light text-gray-800">
               {title}
             </h3>
           </div>
@@ -215,7 +215,7 @@ const Security = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Enterprise-Grade Security | 401k Pro',
+    name: 'Enterprise-Grade Security | PlanSync',
     description:
       'Explore advanced security measures that protect your data. Features include network security, data protection, access control, backups, and application security for 401(k) plan management.',
     about: {
@@ -228,7 +228,7 @@ const Security = () => {
     <div className="relative min-h-screen bg-white overflow-hidden font-['Roboto',sans-serif] font-light">
       {/* SEO Helmet */}
       <Helmet>
-        <title>Enterprise-Grade Security | 401k Pro</title>
+        <title>Enterprise-Grade Security | PlanSync</title>
         <meta
           name="description"
           content="Your data's safety is our top priority. Learn about our comprehensive security measures, including network security, data protection, access control, and automated backups."
@@ -236,7 +236,7 @@ const Security = () => {
         <meta name="keywords" content={seoKeywords} />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Enterprise-Grade Security | 401k Pro" />
+        <meta property="og:title" content="Enterprise-Grade Security | PlanSync" />
         <meta
           property="og:description"
           content="Protecting your 401k data with encryption, MFA, and robust infrastructure. Explore our security features for the utmost data protection."
@@ -247,7 +247,7 @@ const Security = () => {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Enterprise-Grade Security | 401k Pro" />
+        <meta name="twitter:title" content="Enterprise-Grade Security | PlanSync" />
         <meta
           name="twitter:description"
           content="Robust encryption, frequent backups, and advanced monitoring to safeguard your 401k data. Learn about our security features."
@@ -258,7 +258,7 @@ const Security = () => {
         <meta name="robots" content="index, follow" />
         <meta
           name="author"
-          content="401k Pro - AI-Powered 401(k) Plan Management Software"
+          content="PlanSync - AI-Powered 401(k) Plan Management Software"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -297,12 +297,14 @@ const Security = () => {
             variants={itemVariants}
             className="text-6xl font-extralight mb-6"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-bl from-sky-400 to-blue-800">
-              Enterprise
-            </span>
-           <span> </span>
+            
+           
             <span className="text-gray-800">
-              Grade Security
+              Enterprise Grade
+            </span>
+            <span> </span>
+            <span className="text-transparent bg-clip-text inset-0 bg-gradient-to-bl from-blue-600 to-cyan-400">
+              Security
             </span>
           </motion.h1>
           <motion.p

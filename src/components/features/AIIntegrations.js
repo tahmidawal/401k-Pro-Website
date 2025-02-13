@@ -50,16 +50,16 @@ const FeatureCard = ({ feature, index }) => {
       style={{ scale, opacity }}
       className="relative h-full"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] blur-3xl opacity-10 -z-10 transform rotate-3"></div>
-      <div className="bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] p-[2px] rounded-3xl backdrop-blur-xl h-full">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-3xl opacity-10 -z-10 transform rotate-3"></div>
+      <div className=" h-full">
         <div className="bg-white/90 p-8 rounded-3xl h-full backdrop-blur-xl relative overflow-hidden flex flex-col">
           <FloatingElement delay={index * 0.5}>
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
           </FloatingElement>
           
           <div className="w-16 h-16 mb-6 relative flex-shrink-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] blur-lg opacity-50"></div>
-            <div className="relative w-full h-full rounded-2xl bg-gradient-to-r from-[#0A5A9C] to-[#39A5F3] flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-lg opacity-50"></div>
+            <div className="relative w-full h-full rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
               {feature.icon}
             </div>
           </div>
@@ -178,7 +178,7 @@ const AIIntegration = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: '401k Pro AI Integration',
+    name: 'PlanSync AI Integration',
     description:
       'Harness the power of AI to streamline your workflow as a 401k advisor. Automate data entry, rewriting, email integration, and more.',
     applicationCategory: 'BusinessApplication',
@@ -205,7 +205,7 @@ const AIIntegration = () => {
     <>
       {/* SEO Helmet */}
       <Helmet>
-        <title>AI Integration for 401k Advisors | 401k Pro</title>
+        <title>AI Integration for 401k Advisors | PlanSync</title>
         <meta
           name="description"
           content="Harness the power of AI to streamline your workflow and enhance productivity. Perfect for 401k advisors seeking to automate data entry, professional rewriting, email integration, and more."
@@ -213,7 +213,7 @@ const AIIntegration = () => {
         <meta name="keywords" content={seoKeywords} />
         
         {/* Open Graph / Social Media */}
-        <meta property="og:title" content="AI Integration for 401k Advisors | 401k Pro" />
+        <meta property="og:title" content="AI Integration for 401k Advisors | PlanSync" />
         <meta
           property="og:description"
           content="Intelligent document analysis, automated data entry, professional rewriting, and email integration—all powered by AI to boost your advisory practice."
@@ -224,7 +224,7 @@ const AIIntegration = () => {
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AI Integration for 401k Advisors | 401k Pro" />
+        <meta name="twitter:title" content="AI Integration for 401k Advisors | PlanSync" />
         <meta
           name="twitter:description"
           content="Enhance your workflow with AI-powered tools for data entry, rewriting, and email integration—designed for 401k advisors."
@@ -233,7 +233,7 @@ const AIIntegration = () => {
 
         {/* Additional Meta Tags */}
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="401k Pro - AI-Powered 401(k) Plan Management Software" />
+        <meta name="author" content="PlanSync - AI-Powered 401(k) Plan Management Software" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href="https://your-domain.com/ai-integration" />
 

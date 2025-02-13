@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ChevronDown, ChevronUp, Menu, X, RefreshCcwDot, FileText, Shield, UsersRound, Bot, ArrowRight } from 'lucide-react';
-import logo from '../img/Plan360-No-Bg.png';
+import logo from '../img/PlanSyncAI-No-Bg.png';
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -87,7 +87,7 @@ const Header = () => {
               className="relative group flex items-center"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-xl blur-lg group-hover:scale-110 transition-transform duration-300"></div>
-              <img src={logo} alt="401k Pro Logo-Photoroom" className="relative h-6 sm:h-8 w-auto" />
+              <img src={logo} alt="PlanSync Logo-Photoroom" className="relative h-6 sm:h-8 w-auto" />
             </button>
 
             {/* Desktop Menu */}
@@ -121,10 +121,10 @@ const Header = () => {
               <div className="container mx-auto px-4 py-6 space-y-4">
                 {/* Mobile Nav Links */}
                 <button 
-                  onClick={() => handleNavigation('/why-401k-pro')} 
+                  onClick={() => handleNavigation('/why-PlanSync')} 
                   className="w-full text-left px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
                 >
-                  <span className="text-gray-700 font-light">Why 401k Pro</span>
+                  <span className="text-gray-700 font-light">Why PlanSync</span>
                 </button>
                 
                 {/* Features Dropdown */}
@@ -192,12 +192,12 @@ const DesktopNavLinks = ({ handleNavigation }) => {
   return (
     <>
       <button 
-        onClick={() => handleNavigation('/why-401k-pro')} 
+        onClick={() => handleNavigation('/why-PlanSync')} 
         className="relative group px-4 py-2 rounded-xl"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-cyan-400/0 group-hover:from-blue-600/5 group-hover:to-cyan-400/5 rounded-xl transition-all duration-300"></div>
         <span className="relative font-light text-gray-600 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0A5A9C] group-hover:to-[#39A5F3] transition duration-200">
-          Why 401k Pro
+          Why PlanSync
         </span>
       </button>
 
@@ -345,7 +345,7 @@ const ActionButtons = ({ isMobile, handleNavigation }) => (
     </button>
     
     <button
-      onClick={() => window.location.href = 'https://testapp.401k-pro.ai'}
+      onClick={() => window.location.href = 'https://testapp.PlanSync.ai'}
       className="relative group"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>

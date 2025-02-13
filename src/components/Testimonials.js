@@ -35,12 +35,12 @@ const itemVariants = {
 // Testimonials data
 const testimonials = [
   {
-    quote: "401k Pro has completely transformed the way we manage 401k plans.",
+    quote: "PlanSync has completely transformed the way we manage 401k plans.",
     author: "Chad Trevithick",
     position: "CFP, Southeast Financial Group"
   },
   {
-    quote: "I can't believe how much time we've saved since switching to 401k Pro.",
+    quote: "I can't believe how much time we've saved since switching to PlanSync.",
     author: "Andrew Wilson",
     position: "401k Associate, Narwhal Capital"
   },
@@ -67,19 +67,19 @@ const Testimonials = () => {
   return (
     <>
       <Helmet>
-        <title>What People Say About 401k Pro</title>
+        <title>What People Say About PlanSync</title>
         <meta
           name="description"
-          content="Read testimonials from advisors who trust 401k Pro for managing retirement plans. See how our platform transforms plan management and saves time."
+          content="Read testimonials from advisors who trust PlanSync for managing retirement plans. See how our platform transforms plan management and saves time."
         />
         <meta
           name="keywords"
-          content="401k Pro testimonials, advisor reviews, retirement plan software feedback, plan management tools, automated compliance tools"
+          content="PlanSync testimonials, advisor reviews, retirement plan software feedback, plan management tools, automated compliance tools"
         />
-        <meta property="og:title" content="What People Say About 401k Pro" />
+        <meta property="og:title" content="What People Say About PlanSync" />
         <meta
           property="og:description"
-          content="Discover what advisors say about 401k Pro. Testimonials highlight time savings, efficiency, and the value of our AI-driven tools."
+          content="Discover what advisors say about PlanSync. Testimonials highlight time savings, efficiency, and the value of our AI-driven tools."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com/testimonials" />

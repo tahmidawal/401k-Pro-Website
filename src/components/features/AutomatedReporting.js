@@ -131,7 +131,8 @@ const DownloadButton = ({ name, url }) => (
     rel="noopener noreferrer"
     className="group relative inline-flex items-center space-x-2 px-6 py-3 rounded-xl overflow-hidden"
   >
-    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 group-hover:from-blue-600/20 group-hover:to-cyan-400/20 transition-all duration-300"></div>
+    <div className="absolute inset-0  opacity-10 group-hover:opacity-20 transition-all duration-300"></div>
+    <div className="absolute inset-0 border border-blue-600/30 rounded-xl"></div>
     <Download
       size={20}
       className="text-blue-600 transition-transform duration-300 group-hover:-translate-y-1"
@@ -146,13 +147,13 @@ const AutomatReprting = () => {
     {
       title: 'Quarterly + Annual Reports',
       description:
-        '401k Pro generates both quarterly and annual reports for your clients, so you can keep them informed and compliant with ease.',
+        'PlanSync generates both quarterly and annual reports for your clients, so you can keep them informed and compliant with ease.',
       icon: ClipboardCheck
     },
     {
       title: 'One and Done',
       description:
-        "With 401k Pro, simply click one button and all of your compliance reporting is generated and ready to go. Reporting takes under 30 seconds.",
+        "With PlanSync, simply click one button and all of your compliance reporting is generated and ready to go. Reporting takes under 30 seconds.",
       icon: Clock
     },
     {
@@ -170,13 +171,13 @@ const AutomatReprting = () => {
     {
       title: 'Due dilligence? No Problem',
       description:
-        "Record-keeping is effortless with 401k Pro. Our reports are designed to demonstrate your diligence in meeting fiduciary responsibilities, making it easy to showcase your efforts.",
+        "Record-keeping is effortless with PlanSync. Our reports are designed to demonstrate your diligence in meeting fiduciary responsibilities, making it easy to showcase your efforts.",
       icon: Shield
     },
     {
       title: 'Support Your Plan Sponsors',
       description:
-        "Under ERISA, plan sponsors are required to maintain documentation of their plan management process. However, realistically, they're often too busy running their businesses to keep up with this requirement. With 401k Pro, you can provide your plan sponsors with the necessary documentation to stay compliant.",
+        "Under ERISA, plan sponsors are required to maintain documentation of their plan management process. However, realistically, they're often too busy running their businesses to keep up with this requirement. With PlanSync, you can provide your plan sponsors with the necessary documentation to stay compliant.",
       icon: UserPlus
     }
   ];
@@ -216,7 +217,7 @@ const AutomatReprting = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: '401k Pro Automated Reporting',
+    name: 'PlanSync Automated Reporting',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web-based',
     offers: {
@@ -239,7 +240,7 @@ const AutomatReprting = () => {
   return (
     <>
       <Helmet>
-        <title>Automated 401(k) Reporting Software for Financial Advisors | 401k Pro</title>
+        <title>Automated 401(k) Reporting Software for Financial Advisors | PlanSync</title>
         <meta
           name="description"
           content="Transform your 401(k) plan reporting with AI-powered automation. Generate comprehensive, personalized compliance reports in seconds. Perfect for financial advisors and plan sponsors."
@@ -249,7 +250,7 @@ const AutomatReprting = () => {
         {/* Open Graph tags */}
         <meta
           property="og:title"
-          content="Automated 401(k) Reporting Software | 401k Pro"
+          content="Automated 401(k) Reporting Software | PlanSync"
         />
         <meta
           property="og:description"
@@ -269,7 +270,7 @@ const AutomatReprting = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Automated 401(k) Reporting Software | 401k Pro"
+          content="Automated 401(k) Reporting Software | PlanSync"
         />
         <meta
           name="twitter:description"
@@ -284,7 +285,7 @@ const AutomatReprting = () => {
         <meta name="robots" content="index, follow" />
         <meta
           name="author"
-          content="401k Pro - AI-Powered 401(k) Plan Management Software"
+          content="PlanSync - AI-Powered 401(k) Plan Management Software"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link

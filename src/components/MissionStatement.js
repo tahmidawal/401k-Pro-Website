@@ -25,19 +25,19 @@ const MissionStatement = () => {
   return (
     <>
       <Helmet>
-        <title>Our Mission - 401k Pro</title>
+        <title>Our Mission - PlanSync</title>
         <meta
           name="description"
-          content="At 401k Pro, we are on a mission to transform 401(k) plan management. Learn how our tools empower advisors and businesses to thrive in an AI-driven world."
+          content="At PlanSync, we are on a mission to transform 401(k) plan management. Learn how our tools empower advisors and businesses to thrive in an AI-driven world."
         />
         <meta
           name="keywords"
-          content="401k Pro mission, 401k plan management, AI tools for advisors, business transformation, retirement planning tools"
+          content="PlanSync mission, 401k plan management, AI tools for advisors, business transformation, retirement planning tools"
         />
-        <meta property="og:title" content="Our Mission - 401k Pro" />
+        <meta property="og:title" content="Our Mission - PlanSync" />
         <meta
           property="og:description"
-          content="Discover how 401k Pro is revolutionizing 401(k) management with cutting-edge tools and a commitment to advisor success."
+          content="Discover how PlanSync is revolutionizing 401(k) management with cutting-edge tools and a commitment to advisor success."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com/mission" />

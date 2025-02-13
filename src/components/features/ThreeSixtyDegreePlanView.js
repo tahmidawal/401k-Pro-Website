@@ -149,7 +149,7 @@ const ThreeSixtyDegreePlanView = () => {
         "Easily track and categorize client interactions",
         "Track actions across all plan stakeholders including plan sponsors, participants, record keepers, and TPAs",
         "In built AI automatically rewrites all interactions so that they can be professionally presented in your quarterly and annual reports.",
-        "Automatically add in plan touchpoints by simply forwarding emails to the 401k Pro email address",
+        "Automatically add in plan touchpoints by simply forwarding emails to the PlanSync email address",
         "Visualizations to track the nunber of touchpoints you have with each client.",
         "Automatically flows into Quarterly Reports",
         "Automatically flows in Annual Plan Review Reports" 
@@ -219,7 +219,7 @@ const ThreeSixtyDegreePlanView = () => {
       title: "Plan Participants",
       description: "Keep track of all plan participants",
       details: [
-        "Automatically entered using the 401k Pro participant census",
+        "Automatically entered using the PlanSync participant census",
         "Easily identify leads for your individual wealth advisor practice",
         "Identify mismatches between a participants perceived risk tolerance and their actual risk tolerance",
         "Comprehensive risk tolerance reports"
@@ -238,21 +238,21 @@ const ThreeSixtyDegreePlanView = () => {
 
   const showcases = [
     {
-      title: "401k Pro Master Spreadsheet",
-      description: "Our Master Spreadsheet allows you to keep all of your fiduciary plan management information in one place. Everything you need is now at your fingertips.",
+      title: "PlanSync Centralized Plan Data",
+      description: "Our Centralized Plan Data allows you to keep all of your fiduciary plan management information in one place. Everything you need is now at your fingertips.",
       media: MasterSpreadsheetMainImage,
       isVideo: false
     },
     {
       title: "Everything You Need, Nothing You Don't",
-      description: "Our Master Spreadsheet allows you to keep all of the most important information for your 401(k) plan management in one place.",
+      description: "Our Centralized Plan Data allows you to keep all of the most important information for your 401(k) plan management in one place.",
       media: ThreeSixyPlanViewImage,
       isVideo: false,
       reversed: true
     },
     {
       title: "AI Powered Data Entry",
-      description: "Hate entering data by hand? Trust us, we do too. That's why we've built an AI powered data entry system that can read and understand your PDFs, and automatically enter the data into your Master Spreadsheet for you.",
+      description: "Hate entering data by hand? Trust us, we do too. That's why we've built an AI powered data entry system that can read and understand your PDFs, and automatically enter the data into your Centralized Plan Data for you.",
       media: AIPDFDataExtraction,
       isVideo: true
     },
@@ -265,7 +265,7 @@ const ThreeSixtyDegreePlanView = () => {
     },
     {
       title: "Stay Organized and Find Your Information Instantly",
-      description: "401k Pro allows you to easily organize all of your plan information in one place, and find it instantly using our global search.",
+      description: "PlanSync allows you to easily organize all of your plan information in one place, and find it instantly using our global search.",
       media: PlanDesignAndElectionsQuery,
       isVideo: true,
       reversed: true
@@ -320,7 +320,7 @@ const ThreeSixtyDegreePlanView = () => {
           Ready to get a 360° view of your plans?
         </motion.h2>
         <motion.p variants={itemVariants} className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Start managing your 401(k) plans more efficiently with 401k Pro.
+          Start managing your 401(k) plans more efficiently with PlanSync.
         </motion.p>
         <motion.div variants={itemVariants}>
           <GradientButtonWithArrow buttonText="Get Started" link="/book-a-demo" showArrow={true} />

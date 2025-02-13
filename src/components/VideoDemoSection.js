@@ -37,19 +37,19 @@ const DemoVideoSection = () => {
   return (
     <>
       <Helmet>
-        <title>401k Pro - See Our Platform in Action</title>
+        <title>PlanSync - See Our Platform in Action</title>
         <meta
           name="description"
-          content="Watch how 401k Pro simplifies 401(k) plan management for advisors. Learn about AI-powered reporting, compliance automation, and participant tools."
+          content="Watch how PlanSync simplifies 401(k) plan management for advisors. Learn about AI-powered reporting, compliance automation, and participant tools."
         />
         <meta
           name="keywords"
           content="401k demo video, plan management tools, automated reporting, fiduciary compliance, AI for financial advisors"
         />
-        <meta property="og:title" content="401k Pro - See Our Platform in Action" />
+        <meta property="og:title" content="PlanSync - See Our Platform in Action" />
         <meta
           property="og:description"
-          content="Watch how 401k Pro simplifies 401(k) plan management for advisors. Learn about AI-powered reporting, compliance automation, and participant tools."
+          content="Watch how PlanSync simplifies 401(k) plan management for advisors. Learn about AI-powered reporting, compliance automation, and participant tools."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com/demo-video" />
@@ -83,7 +83,7 @@ const DemoVideoSection = () => {
                           frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
-                          title="401k Pro Demo Video"
+                          title="PlanSync Demo Video"
                         ></iframe>
                         <div className="absolute inset-0 flex items-center justify-center">
                           <motion.div
@@ -104,7 +104,7 @@ const DemoVideoSection = () => {
                     variants={itemVariants}
                     className="text-4xl sm:text-5xl font-extralight mb-6 leading-tight"
                   >
-                    <span className="text-gray-800">See 401(k) Pro in</span>{" "}
+                    <span className="text-gray-800">See PlanSync in</span>{" "}
                     <span className="text-gray-800 bg-clip-text">
                       Action
                     </span>
@@ -113,7 +113,7 @@ const DemoVideoSection = () => {
                     variants={itemVariants}
                     className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed"
                   >
-                    Discover how 401(k) Pro streamlines plan management, automates reporting, and enhances compliance. Save time, reduce complexity, and grow your advisory business.
+                    Discover how PlanSync streamlines plan management, automates reporting, and enhances compliance. Save time, reduce complexity, and grow your advisory business.
                   </motion.p>
                   <motion.div variants={itemVariants}>
                     <GradientButtonWithArrow

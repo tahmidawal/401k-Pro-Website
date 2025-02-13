@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart2, Users, ShieldCheck, FileText } from 'lucide-react';
-import logo from '../img/Plan360-No-Bg.png';
+import logo from '../img/PlanSyncAI-No-Bg.png';
 import { Helmet } from 'react-helmet-async';
 
 // Animation variants
@@ -71,10 +71,10 @@ const HeroSection = () => {
   return (
     <>
       <Helmet>
-        <title>401k Pro - Streamline Your 401k Plan Administration</title>
+        <title>PlanSync - Streamline Your 401k Plan Administration</title>
         <meta name="description" content="Simplify your 401k plan administration with automated reporting, AI-powered insights, and comprehensive plan management tools. Start optimizing your retirement plans today." />
         <meta name="keywords" content="401k administration, retirement plans, plan management, automated reporting, AI insights" />
-        <meta property="og:title" content="401k Pro - Streamline Your 401k Plan Administration" />
+        <meta property="og:title" content="PlanSync - Streamline Your 401k Plan Administration" />
         <meta property="og:description" content="Simplify your 401k plan administration with automated reporting, AI-powered insights, and comprehensive plan management tools." />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com" />
@@ -111,7 +111,7 @@ const HeroSection = () => {
                 variants={itemVariants}
                 className="text-xl text-gray-600 mb-8 leading-relaxed"
               >
-                401(k) Pro is a comprehensive 401(k) plan management and reporting tool that helps you
+                PlanSync is a comprehensive 401(k) plan management and reporting tool that helps you
                 manage your plan more efficiently and effectively.
               </motion.p>
               <motion.button 
@@ -137,7 +137,7 @@ const HeroSection = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-3xl blur-2xl"></div>
                 
-                  <img src={logo} alt="401k Pro Logo-Photoroom" className="w-full h-auto" />
+                  <img src={logo} alt="PlanSync Logo-Photoroom" className="w-full h-auto" />
               </div>
             </motion.div>
           </motion.div>

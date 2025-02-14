@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { Mail, FileUp, MousePointer, Layers } from 'lucide-react';
 
 // Animation variants
 const containerVariants = {
@@ -84,7 +85,78 @@ const EcosystemCard = ({ badge, title, description, delay = 0 }) => {
   );
 };
 
+// Add new WorkflowFeatureCard component
+const WorkflowFeatureCard = ({ icon: Icon, title, description }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="relative group"
+  >
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-2xl blur-lg transform group-hover:scale-105 transition-transform duration-500"></div>
+    <div className="relative bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-lg">
+      <div className="flex items-start gap-4">
+        <div className="flex-shrink-0 p-3 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-xl">
+          <Icon className="w-6 h-6 text-blue-600" />
+        </div>
+        <div>
+          <h3 className="text-lg font-light text-gray-800 mb-2">{title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+);
+
+const FeatureCard = ({ icon: Icon, title, description }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="relative group"
+  >
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-2xl blur-lg transform group-hover:scale-105 transition-transform duration-500"></div>
+    <div className="relative bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-lg h-auto">
+      <div className="flex items-start gap-4">
+        <div className="flex-shrink-0 p-3 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-xl">
+          <Icon className="w-6 h-6 text-blue-600" />
+        </div>
+        <div>
+          <h3 className="text-lg font-light text-gray-800 mb-2">{title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+);
+
 const FragmentedEcosystemCombined = () => {
+
+  // Add workflow features data
+  const workflowFeatures = [
+     {
+      icon: Layers,
+      title: "Keep Your Current Tools, Work Smarter",
+      description: "401k Pro integrates with the systems you already use—no need to change your workflow. We handle the tedious, time-consuming tasks so you can focus on what matters most: advising your clients."
+    },
+    {
+      icon: MousePointer,
+      title: "Advisors Stay at the Center",
+      description: "401k Pro enhances your workflow while never replacing your expertise. You drive the decision-making, client relationships, and plan management. We help with the boring stuff."
+    },
+    {
+      icon: Mail,
+      title: "Forward Emails, Auto-Log Touchpoints",
+      description: "Simply forward emails to your 401k Pro email address, and our system automatically categorizes and stores data for compliance and reporting."
+    },
+    {
+      icon: FileUp,
+      title: "Upload PDFs, Extract Data Instantly",
+      description: "Upload plan documents and let our AI-powered data extraction automatically pull key details for you—no more manual copy-pasting."
+    },  
+  ];
 
   return (
     <>
@@ -175,6 +247,61 @@ const FragmentedEcosystemCombined = () => {
             />
           </div>
         </div>
+
+        {/* Add WorkflowIntegration section */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="py-24 bg-gradient-to-b from-white to-gray-50"
+        >
+          <div className="max-w-7xl mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-5xl font-extralight mb-6">
+                Seamless Integration With
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400"> Your Workflow</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                No Need to Change Your Process—401k Pro Works With It
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mb-16"
+            >
+              <p className="text-gray-600 text-center max-w-3xl mx-auto">
+                We know that advisors don't have time to rebuild their entire workflow just to adopt new software. 
+                That's why 401k Pro integrates directly into how you already work—no disruptions, no complicated onboarding.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            >
+              {workflowFeatures.map((feature, index) => (
+                <FeatureCard 
+                  key={index} 
+                  {...feature}
+                />
+              ))}
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </>
   );

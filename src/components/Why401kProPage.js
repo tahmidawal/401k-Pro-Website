@@ -2,7 +2,6 @@ import React from 'react';
 import MissionStatement from './MissionStatement';
 import IndustryIssueOverview from './IndustryIssueOverview';
 import FragmentedEcosystemCombined from './FragmentedEcosystemCombined';
-import WorkflowIntegration from './WorkflowIntegration';
 
 const Why401kProPage = () => {
   return (
@@ -13,7 +12,6 @@ const Why401kProPage = () => {
         <div className="mt-20">
           <FragmentedEcosystemCombined />
         </div>
-        <WorkflowIntegration />
       </div>
     </div>
   );

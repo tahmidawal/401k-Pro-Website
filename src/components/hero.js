@@ -111,8 +111,7 @@ const HeroSection = () => {
                 variants={itemVariants}
                 className="text-xl text-gray-600 mb-8 leading-relaxed"
               >
-                PlanSync is a comprehensive 401(k) plan management and reporting tool that helps you
-                manage your plan more efficiently and effectively.
+                PlanSync is an AI powered 401(k) plan management and reporting tool that helps advisors manage their plans more efficiently.
               </motion.p>
               <motion.button 
                 variants={itemVariants}

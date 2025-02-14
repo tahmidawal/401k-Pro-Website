@@ -56,7 +56,7 @@ const DemoVideoSection = () => {
       </Helmet>
       <section
         id="demo-video"
-        className="relative flex items-center justify-center font-['Roboto',sans-serif] font-light py-24 overflow-hidden"
+        className="relative flex items-center justify-center font-['Roboto',sans-serif] font-light py-12 md:py-24 overflow-hidden"
       >
         <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <motion.div
@@ -69,7 +69,60 @@ const DemoVideoSection = () => {
               variants={itemVariants}
               className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-lg border border-white/20 overflow-hidden"
             >
-              <div className="flex flex-col md:flex-row">
+              {/* Mobile Design */}
+              <div className="block md:hidden">
+                <div className="p-6">
+                  <motion.h2
+                    variants={itemVariants}
+                    className="text-3xl font-extralight mb-4 leading-tight text-gray-800"
+                  >
+                    See PlanSync in Action
+                  </motion.h2>
+                  <motion.p
+                    variants={itemVariants}
+                    className="text-base text-gray-600 mb-6 leading-relaxed"
+                  >
+                    Discover how PlanSync streamlines plan management, automates reporting, and enhances compliance. Save time, reduce complexity, and grow your advisory business.
+                  </motion.p>
+                </div>
+                
+                <div className="px-4 pb-6">
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-xl blur-lg transform group-hover:scale-105 transition-transform duration-500"></div>
+                    <div className="relative">
+                      <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-xl">
+                        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/5 to-gray-900/10 backdrop-blur-sm"></div>
+                        <iframe
+                          className="absolute top-0 left-0 w-full h-full"
+                          src="https://www.youtube.com/embed/zIQcvItt1HE"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          title="PlanSync Demo Video"
+                        ></iframe>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <motion.div
+                            whileHover={{ scale: 1.1 }}
+                            className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center cursor-pointer"
+                          >
+                            <Play className="w-5 h-5 text-white fill-current" />
+                          </motion.div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-6 flex justify-center">
+                    <GradientButtonWithArrow
+                      buttonText="Book a Demo"
+                      link="/book-a-demo"
+                      showArrow={true}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop Design */}
+              <div className="hidden md:flex flex-col md:flex-row">
                 {/* Video Section */}
                 <div className="w-full md:w-1/2 p-8 sm:p-12">
                   <div className="relative group">

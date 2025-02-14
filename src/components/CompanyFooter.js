@@ -83,7 +83,7 @@ const ContactInfo = ({ icon: Icon, text }) => (
 
 const Footer = () => {
   return (
-    <footer className="relative border-t border-gray-100">
+    <footer className="relative border-t">
       <div className="absolute inset-0 pointer-events-none" />
       
       {/* Main footer content */}

@@ -74,7 +74,7 @@ const DemoVideoSection = () => {
                 <div className="p-6">
                   <motion.h2
                     variants={itemVariants}
-                    className="text-3xl font-extralight mb-4 leading-tight text-gray-800"
+                    className="text-3xl font-extralight mb-4 leading-tight text-center text-gray-800"
                   >
                     See PlanSync in Action
                   </motion.h2>
@@ -155,12 +155,9 @@ const DemoVideoSection = () => {
                 <div className="w-full md:w-1/2 p-8 sm:p-12 flex flex-col justify-center">
                   <motion.h2
                     variants={itemVariants}
-                    className="text-4xl sm:text-5xl font-extralight mb-6 leading-tight"
+                    className="text-3xl sm:text-4xl font-extralight mb-6 leading-tight text-center md:text-left"
                   >
-                    <span className="text-gray-800">See PlanSync in</span>{" "}
-                    <span className="text-gray-800 bg-clip-text">
-                      Action
-                    </span>
+                    <span className="text-gray-800">See PlanSync in Action</span>{" "}
                   </motion.h2>
                   <motion.p
                     variants={itemVariants}

@@ -96,79 +96,160 @@ const Testimonials = () => {
         </motion.div>
 
         <div className="max-w-7xl mx-auto px-4 relative">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <motion.h1 
-              variants={itemVariants}
-              className="text-6xl font-extralight mb-6"
-            >
-              What People{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-                Say
-              </span>
-            </motion.h1>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
+          {/* Mobile Design */}
+          <div className="block md:hidden">
             <motion.div
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="relative"
+              className="text-center mb-12"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div>
-              <div className="relative bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden">
-                <div className="flex items-center justify-between mb-8">
-                  <button 
-                    onClick={prevQuote}
-                    className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
-                  >
-                    <ChevronLeft className="w-6 h-6 text-gray-600" />
-                  </button>
-                  <div className="flex space-x-2">
-                    {testimonials.map((_, index) => (
-                      <button
-                        key={index}
-                        className={`w-8 h-2 rounded transition-colors duration-300 ${
-                          index === currentQuote ? 'bg-gradient-to-r from-blue-600 to-cyan-400' : 'bg-gray-200'
-                        }`}
-                        onClick={() => setCurrentQuote(index)}
-                        aria-label={`View testimonial ${index + 1}`}
-                      />
-                    ))}
-                  </div>
-                  <button 
-                    onClick={nextQuote}
-                    className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
-                  >
-                    <ChevronRight className="w-6 h-6 text-gray-600" />
-                  </button>
-                </div>
-
-                <motion.div
-                  key={currentQuote}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-center"
-                >
-                  <blockquote className="text-3xl font-light mb-8 text-gray-700">
-                    "{testimonials[currentQuote].quote}"
-                  </blockquote>
-                  <footer className="text-gray-600">
-                    <p className="text-xl font-medium mb-2">{testimonials[currentQuote].author}</p>
-                    <p className="text-lg">{testimonials[currentQuote].position}</p>
-                  </footer>
-                </motion.div>
-              </div>
+              <motion.h1 
+                variants={itemVariants}
+                className="text-4xl font-extralight mb-4"
+              >
+                What People{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+                  Say
+                </span>
+              </motion.h1>
             </motion.div>
+
+            <div className="mx-auto">
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div>
+                <div className="relative bg-white/80 backdrop-blur-xl p-6 rounded-2xl border border-white/20 shadow-lg overflow-hidden">
+                  <div className="flex items-center justify-between mb-6">
+                    <button 
+                      onClick={prevQuote}
+                      className="p-1.5 rounded-full hover:bg-gray-100 transition-colors duration-200"
+                    >
+                      <ChevronLeft className="w-5 h-5 text-gray-600" />
+                    </button>
+                    <div className="flex space-x-2">
+                      {testimonials.map((_, index) => (
+                        <button
+                          key={index}
+                          className={`w-6 h-1.5 rounded transition-colors duration-300 ${
+                            index === currentQuote ? 'bg-gradient-to-r from-blue-600 to-cyan-400' : 'bg-gray-200'
+                          }`}
+                          onClick={() => setCurrentQuote(index)}
+                          aria-label={`View testimonial ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                    <button 
+                      onClick={nextQuote}
+                      className="p-1.5 rounded-full hover:bg-gray-100 transition-colors duration-200"
+                    >
+                      <ChevronRight className="w-5 h-5 text-gray-600" />
+                    </button>
+                  </div>
+
+                  <motion.div
+                    key={currentQuote}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-center"
+                  >
+                    <blockquote className="text-xl font-light mb-6 text-gray-700">
+                      "{testimonials[currentQuote].quote}"
+                    </blockquote>
+                    <footer className="text-gray-600">
+                      <p className="text-lg font-medium mb-1">{testimonials[currentQuote].author}</p>
+                      <p className="text-base">{testimonials[currentQuote].position}</p>
+                    </footer>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Desktop Design */}
+          <div className="hidden md:block">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="text-center mb-20"
+            >
+              <motion.h1 
+                variants={itemVariants}
+                className="text-6xl font-extralight mb-6"
+              >
+                What People{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+                  Say
+                </span>
+              </motion.h1>
+            </motion.div>
+
+            <div className="max-w-4xl mx-auto">
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div>
+                <div className="relative bg-white/80 backdrop-blur-xl p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden">
+                  <div className="flex items-center justify-between mb-8">
+                    <button 
+                      onClick={prevQuote}
+                      className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
+                    >
+                      <ChevronLeft className="w-6 h-6 text-gray-600" />
+                    </button>
+                    <div className="flex space-x-2">
+                      {testimonials.map((_, index) => (
+                        <button
+                          key={index}
+                          className={`w-8 h-2 rounded transition-colors duration-300 ${
+                            index === currentQuote ? 'bg-gradient-to-r from-blue-600 to-cyan-400' : 'bg-gray-200'
+                          }`}
+                          onClick={() => setCurrentQuote(index)}
+                          aria-label={`View testimonial ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                    <button 
+                      onClick={nextQuote}
+                      className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
+                    >
+                      <ChevronRight className="w-6 h-6 text-gray-600" />
+                    </button>
+                  </div>
+
+                  <motion.div
+                    key={currentQuote}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-center"
+                  >
+                    <blockquote className="text-3xl font-light mb-8 text-gray-700">
+                      "{testimonials[currentQuote].quote}"
+                    </blockquote>
+                    <footer className="text-gray-600">
+                      <p className="text-xl font-medium mb-2">{testimonials[currentQuote].author}</p>
+                      <p className="text-lg">{testimonials[currentQuote].position}</p>
+                    </footer>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>

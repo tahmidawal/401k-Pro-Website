@@ -147,7 +147,7 @@ const ThreeSixtyDegreePlanView = () => {
         details: [
           "Track all interactions across plan sponsors, participants, record keepers, and TPAs",
           "AI-powered rewriting for professionally formatted reports",
-          "Auto-add touchpoints by forwarding emails to the 401k Pro email address",
+          "Auto-add touchpoints by forwarding emails to the PlanSync email address",
           "Visual dashboards to track client engagement levels",
           "Seamlessly integrates into Quarterly and Annual Plan Review Reports",
         ]
@@ -211,7 +211,7 @@ const ThreeSixtyDegreePlanView = () => {
         title: "Participant Census & Risk Analysis",
         description: "Gain deeper insights into plan participants and their financial profiles.",
         details: [
-          "Automated participant data entry via 401k Pro’s census feature",
+          "Automated participant data entry via PlanSync’s census feature",
           "Identify individual wealth advisory opportunities",
           "Analyze mismatches between perceived and actual risk tolerance",
           "Generate comprehensive risk tolerance reports",
@@ -230,7 +230,7 @@ const ThreeSixtyDegreePlanView = () => {
 
   const showcases = [
     {
-      title: "401k Pro Master Spreadsheet",
+      title: "PlanSync Master Spreadsheet",
       description: "Our Master Spreadsheet allows you to keep all of your fiduciary plan management information in one place. Everything you need is now at your fingertips.",
       media: MasterSpreadsheetMainImage,
       isVideo: false
@@ -257,7 +257,7 @@ const ThreeSixtyDegreePlanView = () => {
     },
     {
       title: "Stay Organized and Find Your Information Instantly",
-      description: "401k Pro allows you to easily organize all of your plan information in one place, and find it instantly using our global search.",
+      description: "PlanSync allows you to easily organize all of your plan information in one place, and find it instantly using our global search.",
       media: PlanDesignAndElectionsQuery,
       isVideo: true,
       reversed: true
@@ -312,7 +312,7 @@ const ThreeSixtyDegreePlanView = () => {
           Ready to get a 360° view of your plans?
         </motion.h2>
         <motion.p variants={itemVariants} className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Start managing your 401(k) plans more efficiently with 401k Pro.
+          Start managing your 401(k) plans more efficiently with PlanSync.
         </motion.p>
         <motion.div variants={itemVariants}>
           <GradientButtonWithArrow buttonText="Get Started" link="/book-a-demo" showArrow={true} />

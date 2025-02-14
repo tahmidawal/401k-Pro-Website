@@ -149,7 +149,7 @@ const AutomatReprting = () => {
     {
       title: "Quarterly & Annual Reports",
       description:
-        "401k Pro generates detailed quarterly and annual reports automatically, keeping clients informed and ensuring compliance with minimal effort.",
+        "PlanSync generates detailed quarterly and annual reports automatically, keeping clients informed and ensuring compliance with minimal effort.",
       icon: ClipboardCheck,
     },
     {
@@ -173,13 +173,13 @@ const AutomatReprting = () => {
     {
       title: "Effortless Due Diligence",
       description:
-        "401k Pro ensures **seamless documentation of fiduciary responsibilities**, making it easy to demonstrate compliance and maintain airtight records.",
+        "PlanSync ensures **seamless documentation of fiduciary responsibilities**, making it easy to demonstrate compliance and maintain airtight records.",
       icon: Shield,
     },
     {
       title: "Support for Plan Sponsors",
       description:
-        "Under ERISA, plan sponsors must document their plan management process, but they often lack the time. **401k Pro simplifies compliance by handling documentation for them.**",
+        "Under ERISA, plan sponsors must document their plan management process, but they often lack the time. **PlanSync simplifies compliance by handling documentation for them.**",
       icon: UserPlus,
     },
   ];

@@ -33,6 +33,18 @@ const itemVariants = {
   }
 };
 
+// Move features array outside of components
+const features = [
+  "Centralized Plan Data",
+  "Plan Documents",
+  "Automated Reporting",
+  "Participant Census Automation",
+  "Plan Management Dashboard",
+  "AI-Powered Features",
+  "Top-Tier Security",
+  "24/7/365 Support"
+];
+
 const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/month" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -106,19 +118,74 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
   );
 };
 
-const FeaturesList = () => {
-  const features = [
-    "Centralized Plan Data",
-    "Plan Documents",
-    "Automated Reporting",
-    "Participant Census Automation",
-    "Plan Management Dashboard",
-    "AI-Powered Features",
-    "Top-Tier Security",
-    "24/7/365 Support"
-    
-  ];
+const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month" }) => {
+  const navigate = useNavigate();
 
+  const handleButtonClick = () => {
+    navigate('/book-a-demo');
+    setTimeout(() => window.scrollTo(0, 0), 100);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="relative w-full"
+    >
+      <div className={`relative backdrop-blur-xl bg-white/80 p-6 rounded-xl border ${
+        isPopular ? 'border-blue-500/50' : 'border-white/20'
+      } shadow-lg`}>
+        {isPopular && (
+          <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+            <div className="px-4 py-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full">
+              <span className="text-white text-sm font-light">Most Popular</span>
+            </div>
+          </div>
+        )}
+
+        <div className="text-center mb-6">
+          <h2 className="text-xl font-light mb-3">{planRange}</h2>
+          <div className="flex items-baseline justify-center">
+            <span className="text-3xl font-light">${price}</span>
+            <span className="text-gray-500 ml-2">{priceSubtext}</span>
+          </div>
+        </div>
+
+        <div className="space-y-3 mb-6">
+          <div className="p-2 bg-blue-50 rounded-lg">
+            <p className="text-blue-600 text-sm font-medium text-center">
+              All Features Included
+            </p>
+          </div>
+          <div className="p-2 bg-blue-50 rounded-lg">
+            <p className="text-blue-600 text-sm font-medium text-center">
+              Unlimited Users
+            </p>
+          </div>
+          <div className="p-2 bg-blue-50 rounded-lg">
+            <p className="text-blue-600 text-sm font-medium text-center">
+              30-Day Money Back
+            </p>
+          </div>
+        </div>
+
+        <button 
+          onClick={handleButtonClick}
+          className="relative w-full"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-sm opacity-75"></div>
+          <div className="relative bg-gradient-to-r from-blue-600 to-cyan-400 text-white font-light py-2.5 px-4 rounded-full flex items-center justify-center gap-2">
+            <span>Book a Demo</span>
+            <ArrowRight className="w-4 h-4" />
+          </div>
+        </button>
+      </div>
+    </motion.div>
+  );
+};
+
+const FeaturesList = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -235,16 +302,16 @@ const PricingComponent = () => {
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
         </motion.div>
 
-        <div className="max-w-7xl mx-auto px-4 relative py-24">
+        <div className="max-w-7xl mx-auto px-4 relative py-12 md:py-24">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-center mb-20"
+            className="text-center mb-12 md:mb-20"
           >
             <motion.h1 
               variants={itemVariants}
-              className="text-6xl font-extralight mb-6"
+              className="text-4xl md:text-6xl font-extralight mb-4 md:mb-6"
             >
               Simple{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
@@ -253,19 +320,69 @@ const PricingComponent = () => {
             </motion.h1>
             <motion.p
               variants={itemVariants}
-              className="text-xl text-gray-600 max-w-2xl mx-auto"
+              className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4"
             >
               Transparent pricing based on the number of plans. All features included in every plan.
             </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          {/* Mobile Pricing Display */}
+          <div className="block md:hidden space-y-6 mb-16">
+            {pricingTiers.map((tier, index) => (
+              <MobilePricingTier key={index} {...tier} />
+            ))}
+          </div>
+
+          {/* Desktop Pricing Display */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8 mb-20">
             {pricingTiers.map((tier, index) => (
               <PricingTier key={index} {...tier} delay={index * 0.2} />
             ))}
           </div>
 
-          <FeaturesList />
+          {/* Mobile Features List */}
+          <div className="block md:hidden">
+            <motion.div 
+              className="text-center mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-2xl font-extralight mb-3">
+                Every Plan Includes
+              </h2>
+              <p className="text-gray-600 text-base px-4">
+                Everything you need to streamline 401(k) plan management.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 gap-3 px-4">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative"
+                >
+                  <div className="relative backdrop-blur-xl bg-white/80 p-3 rounded-lg border border-white/20 shadow-sm flex items-center gap-3">
+                    <div className="w-8 h-8 flex-shrink-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full flex items-center justify-center">
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-gray-700 text-sm font-light">
+                      {feature}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Features List */}
+          <div className="hidden md:block">
+            <FeaturesList />
+          </div>
         </div>
       </div>
     </>

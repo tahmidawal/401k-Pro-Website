@@ -77,49 +77,49 @@ const IndustryIssueOverview = () => {
       number: 1,
       title: "Limited Access to Critical Plan Data",
       description: "Advisors and plan sponsors often struggle to access essential plan details, such as plan design, fee disclosures, compliance records, and historical plan documentation. This lack of centralized data slows down decision-making and increases the risk of oversight.",
-      solution: "401k Pro centralizes all plan-related data, including plan design details, compliance documents, and advisor touchpoints, making critical information instantly accessible. This improves efficiency, reduces errors, and ensures advisors always have the right data at their fingertips."
+      solution: "PlanSync centralizes all plan-related data, including plan design details, compliance documents, and advisor touchpoints, making critical information instantly accessible. This improves efficiency, reduces errors, and ensures advisors always have the right data at their fingertips."
     },
     {
       number: 2,
       title: "Manual and Repetitive Data Entry",
       description: "Data entry for plan documents, meeting notes, and compliance tracking is time-consuming and error-prone. Advisors waste valuable time inputting information instead of focusing on client service and business growth.",
-      solution: "401k Pro automates data extraction and entry using AI-powered document scanning and email processing. This eliminates the need for manual input, saving advisors hours per plan while improving accuracy and efficiency."
+      solution: "PlanSync automates data extraction and entry using AI-powered document scanning and email processing. This eliminates the need for manual input, saving advisors hours per plan while improving accuracy and efficiency."
     },
     {
       number: 3,
       title: "Inconsistent and Inefficient Compliance Tracking",
       description: "Ensuring compliance with ERISA and DOL regulations requires meticulous record-keeping and documentation. Without a structured system, advisors risk missing key requirements, leading to potential audits and legal issues.",
-      solution: "401k Pro provides automated compliance tracking, ensuring all fiduciary responsibilities are documented and stored in one place. Advisors can generate reports instantly, making it easy to demonstrate compliance and reduce regulatory risks."
+      solution: "PlanSync provides automated compliance tracking, ensuring all fiduciary responsibilities are documented and stored in one place. Advisors can generate reports instantly, making it easy to demonstrate compliance and reduce regulatory risks."
     },
     {
       number: 4,
       title: "Disorganized Due Diligence and Reporting",
       description: "Advisors must regularly document their interactions, decisions, and fiduciary actions, but traditional reporting methods are slow and fragmented. Many rely on spreadsheets and manual notes, leading to inefficiencies and gaps in reporting.",
-      solution: "401k Pro automates due diligence reporting by capturing key actions from advisor-client interactions and generating structured reports. This ensures a clear audit trail and makes it easy to present plan oversight activities to sponsors and auditors."
+      solution: "PlanSync automates due diligence reporting by capturing key actions from advisor-client interactions and generating structured reports. This ensures a clear audit trail and makes it easy to present plan oversight activities to sponsors and auditors."
     },
     {
       number: 5,
       title: "Missed Wealth Advisory Opportunities",
       description: "Advisors often overlook participants who could benefit from financial planning services, missing out on potential wealth advisory clients. Without structured data on participant behavior and needs, engaging these individuals effectively is difficult.",
-      solution: "401k Pro analyzes participant data to help advisors identify potential wealth advisory clients. This enables proactive engagement, opening new revenue streams while enhancing participant financial wellness."
+      solution: "PlanSync analyzes participant data to help advisors identify potential wealth advisory clients. This enables proactive engagement, opening new revenue streams while enhancing participant financial wellness."
     },
     {
       number: 6,
       title: "Fragmented Communication Between Stakeholders",
       description: "Advisors, plan sponsors, TPAs, and recordkeepers frequently rely on disconnected email threads and spreadsheets to track plan management tasks. This fragmented approach leads to miscommunication, missed deadlines, and compliance risks.",
-      solution: "401k Pro centralizes communication by automatically logging touchpoints from emails and meetings. This ensures all stakeholders have a clear record of actions taken, reducing confusion and improving plan oversight."
+      solution: "PlanSync centralizes communication by automatically logging touchpoints from emails and meetings. This ensures all stakeholders have a clear record of actions taken, reducing confusion and improving plan oversight."
     },
     {
       number: 7,
       title: "Lack of Organization in Plan Documentation",
       description: "Plan-related documents—such as adoption agreements, investment policies, and service agreements—are often stored in multiple locations, making retrieval difficult when needed for compliance reviews or audits.",
-      solution: "401k Pro provides a structured document management system where advisors can store, search, and retrieve all plan-related files in one place. This ensures quick access to critical information, reducing compliance risks and improving efficiency."
+      solution: "PlanSync provides a structured document management system where advisors can store, search, and retrieve all plan-related files in one place. This ensures quick access to critical information, reducing compliance risks and improving efficiency."
     },
     {
       number: 8,
       title: "Time-Consuming Plan Reviews",
       description: "Quarterly and annual plan reviews require advisors to manually compile reports from multiple sources, consuming valuable time and increasing the risk of missing key details.",
-      solution: "401k Pro automates plan reviews by consolidating data into structured quarterly and annual reports. This streamlines the process, ensuring consistent and thorough evaluations while saving advisors hours of work per client."
+      solution: "PlanSync automates plan reviews by consolidating data into structured quarterly and annual reports. This streamlines the process, ensuring consistent and thorough evaluations while saving advisors hours of work per client."
     }
   ];
 

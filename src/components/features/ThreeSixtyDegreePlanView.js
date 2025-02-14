@@ -103,7 +103,7 @@ const PlanViewDetail = ({ icon: Icon, title, description, details, index }) => {
         <div className="border-t border-gray-100">
           <button onClick={() => setIsExpanded(!isExpanded)} className="w-full px-6 py-3 flex items-center justify-between">
             <span className="text-sm text-gray-500 transition-colors duration-300">{isExpanded ? 'Show less' : 'Learn more'}</span>
-            <ChevronDown className="text-gray-400 transition-colors duration-300" style={{ transform: isExpanded ? 'rotate(180deg)' : '' }} />
+            <ChevronDown className="text-gray-400 transition-colors duration-300"/>
           </button>
           <AnimatePresence>
             {isExpanded && (
@@ -265,7 +265,7 @@ const ThreeSixtyDegreePlanView = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white overflow-hidden font-['Roboto',sans-serif] font-light">
+    <div className="relative min-h-screen overflow-hidden font-['Roboto',sans-serif] font-light max-w-7xl mx-auto ">
       <motion.div
         variants={containerVariants}
         initial="hidden"

@@ -3,45 +3,9 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Mail, FileUp, MousePointer, Layers } from 'lucide-react';
 
-// Animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 20,
-    scale: 0.95
-  },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0.04, 0.62, 0.23, 0.98]
-    }
-  }
-};
-
-
 const EcosystemCard = ({ badge, title, description, delay = 0 }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay }}
-      whileHover={{ translateY: -10 }}
-      className="relative group h-full"
-    >
+    <div className="relative group h-full">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500 border border-gray-300"></div>
       
@@ -81,42 +45,12 @@ const EcosystemCard = ({ badge, title, description, delay = 0 }) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
-// Add new WorkflowFeatureCard component
-const WorkflowFeatureCard = ({ icon: Icon, title, description }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
-    className="relative group"
-  >
-    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-2xl blur-lg transform group-hover:scale-105 transition-transform duration-500"></div>
-    <div className="relative bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-lg">
-      <div className="flex items-start gap-4">
-        <div className="flex-shrink-0 p-3 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-xl">
-          <Icon className="w-6 h-6 text-blue-600" />
-        </div>
-        <div>
-          <h3 className="text-lg font-light text-gray-800 mb-2">{title}</h3>
-          <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
-        </div>
-      </div>
-    </div>
-  </motion.div>
-);
-
 const FeatureCard = ({ icon: Icon, title, description }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
-    className="relative group"
-  >
+  <div className="relative group">
     <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-2xl blur-lg transform group-hover:scale-105 transition-transform duration-500"></div>
     <div className="relative bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-lg h-auto">
       <div className="flex items-start gap-4">
@@ -129,7 +63,7 @@ const FeatureCard = ({ icon: Icon, title, description }) => (
         </div>
       </div>
     </div>
-  </motion.div>
+  </div>
 );
 
 const FragmentedEcosystemCombined = () => {
@@ -183,60 +117,36 @@ const FragmentedEcosystemCombined = () => {
         <div className="max-w-7xl mx-auto px-4 relative mb-20">
           {/* Mobile Hero Section */}
           <div className="block md:hidden">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <motion.h1 
-                variants={itemVariants}
-                className="text-4xl font-extralight mb-4"
-              >
+            <div className="text-center mb-12">
+              <h1 className="text-4xl font-extralight mb-4">
                 Your Complete
                 <span> </span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
                   Ecosystem
                 </span>
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                variants={itemVariants}
-                className="text-lg text-gray-600 max-w-2xl mx-auto"
-              >
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 Streamline your fiduciary responsibilities and plan management with an interconnected 401(k) ecosystem.
-              </motion.p>
-            </motion.div>
+              </p>
+            </div>
           </div>
 
           {/* Desktop Hero Section */}
           <div className="hidden md:block">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="text-center mb-20"
-            >
-              <motion.h1 
-                variants={itemVariants}
-                className="text-6xl font-extralight mb-6"
-              >
+            <div className="text-center mb-20">
+              <h1 className="text-6xl font-extralight mb-6">
                 Your Complete
                 <span> </span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
                   Ecosystem
                 </span>
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                variants={itemVariants}
-                className="text-xl text-gray-600 max-w-2xl mx-auto"
-              >
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Streamline your fiduciary responsibilities and plan management with an interconnected 401(k) ecosystem.
-              </motion.p>
-            </motion.div>
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -271,21 +181,9 @@ const FragmentedEcosystemCombined = () => {
         </div>
 
         {/* Add WorkflowIntegration section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="py-24 bg-gradient-to-b from-white to-gray-50"
-        >
+        <div className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-center mb-16"
-            >
+            <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-extralight mb-6">
                 Seamless Integration With
                 <br className="block md:hidden" />
@@ -297,37 +195,25 @@ const FragmentedEcosystemCombined = () => {
               <p className="text-gray-600 text-center max-w-3xl mx-auto">
                 PlanSync Works With It
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mb-16"
-            >
+            <div className="mb-16">
               <p className="text-gray-600 text-center max-w-3xl mx-auto">
                 We know that advisors don't have time to rebuild their entire workflow just to adopt new software. 
                 That's why PlanSync integrates directly into how you already work—no disruptions, no complicated onboarding.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {workflowFeatures.map((feature, index) => (
                 <FeatureCard 
                   key={index} 
                   {...feature}
                 />
               ))}
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </>
   );

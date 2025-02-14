@@ -136,12 +136,7 @@ const IndustryIssueOverview = () => {
           rotate: [0, 90, 0],
           opacity: [0.3, 0.2, 0.3],
         }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          delay: 0,
-        }}
-        className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-500/30 to-cyan-500/30 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
+        className="absolute top-0 left-0 bg-gradient-to-br from-blue-500/30 to-cyan-500/30 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
       />
 
       <motion.div
@@ -155,7 +150,7 @@ const IndustryIssueOverview = () => {
           repeat: Infinity,
           delay: 2,
         }}
-        className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"
+        className="absolute bottom-0 right-0 bg-gradient-to-br from-purple-500/30 to-blue-500/30 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"
       />
 
       <div className="relative z-10 container mx-auto px-4 pb-24">

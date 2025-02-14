@@ -108,8 +108,8 @@ const Header = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-xl blur-lg group-hover:scale-110 transition-transform duration-300"></div>
               <div className="relative">
                 {isMobileMenuOpen ? 
-                  <X size={20} className="text-blue-600" /> : 
-                  <Menu size={20} className="text-blue-600" />
+                  <X size={20} className="text-sky-600" /> : 
+                  <Menu size={20} className="text-sky-600" />
                 }
               </div>
             </button>
@@ -118,41 +118,54 @@ const Header = () => {
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
             <div className="lg:hidden fixed inset-0 top-[57px] sm:top-[65px] bg-white/95 backdrop-blur-xl z-50 overflow-y-auto">
-              <div className="container mx-auto px-4 py-6 space-y-4">
+              <div className="container mx-auto px-4 py-6 space-y-6">
                 {/* Mobile Nav Links */}
-                <button 
-                  onClick={() => handleNavigation('/why-PlanSync')} 
-                  className="w-full text-left px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
-                >
-                  <span className="text-gray-700 font-light">Why PlanSync</span>
-                </button>
-                
-                {/* Features Dropdown */}
-                <div className="space-y-2">
-                  <button
-                    onClick={toggleMobileFeatureDropdown}
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
+                <div className="space-y-4">
+                  <button 
+                    onClick={() => handleNavigation('/why-PlanSync')} 
+                    className="w-full flex items-center space-x-3 px-4 py-3.5 rounded-2xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
                   >
-                    <span className="text-gray-700 font-light">Features</span>
-                    {isMobileFeatureDropdownOpen ? 
-                      <ChevronUp size={18} className="text-blue-600" /> : 
-                      <ChevronDown size={18} className="text-blue-600" />
-                    }
+                    <div className="w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-400/10">
+                      <ArrowRight className="w-4 h-4 text-blue-600" />
+                    </div>
+                    <span className="text-gray-700 font-light text-lg">Why PlanSync</span>
                   </button>
                   
-                  {isMobileFeatureDropdownOpen && (
-                    <div className="pl-4 space-y-1">
-                      <FeatureDropdown handleNavigation={handleNavigation} isMobile={true} />
-                    </div>
-                  )}
-                </div>
+                  {/* Features Dropdown */}
+                  <div className="space-y-3">
+                    <button
+                      onClick={toggleMobileFeatureDropdown}
+                      className="w-full flex items-center justify-between px-4 py-3.5 rounded-2xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
+                    >
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-400/10">
+                          <Menu className="w-4 h-4 text-blue-600" />
+                        </div>
+                        <span className="text-gray-700 font-light text-lg">Features</span>
+                      </div>
+                      {isMobileFeatureDropdownOpen ? 
+                        <ChevronUp size={20} className="text-blue-600" /> : 
+                        <ChevronDown size={20} className="text-blue-600" />
+                      }
+                    </button>
+                    
+                    {isMobileFeatureDropdownOpen && (
+                      <div className="bg-gradient-to-br from-blue-50/50 to-cyan-50/50 rounded-2xl p-3 space-y-2">
+                        <FeatureDropdown handleNavigation={handleNavigation} isMobile={true} />
+                      </div>
+                    )}
+                  </div>
 
-                <button 
-                  onClick={() => handleNavigation('/pricing')} 
-                  className="w-full text-left px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
-                >
-                  <span className="text-gray-700 font-light">Pricing</span>
-                </button>
+                  <button 
+                    onClick={() => handleNavigation('/pricing')} 
+                    className="w-full flex items-center space-x-3 px-4 py-3.5 rounded-2xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
+                  >
+                    <div className="w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-400/10">
+                      <ArrowRight className="w-4 h-4 text-blue-600" />
+                    </div>
+                    <span className="text-gray-700 font-light text-lg">Pricing</span>
+                  </button>
+                </div>
 
                 {/* Mobile Action Buttons */}
                 <div className="pt-4 px-4">
@@ -247,7 +260,7 @@ const DesktopNavLinks = ({ handleNavigation }) => {
 const FeatureDropdown = ({ handleNavigation, isMobile = false }) => (
   <div className={`${
     isMobile 
-      ? 'bg-transparent space-y-1' 
+      ? 'space-y-2' 
       : 'py-2 bg-white/80 backdrop-blur-xl rounded-2xl border border-white/20 shadow-xl overflow-hidden'
   }`}>
     {!isMobile && (
@@ -311,7 +324,7 @@ const DropdownItem = ({ to, text, description, icon: Icon, handleNavigation, isM
     onClick={() => handleNavigation(to)}
     className={`group flex items-center w-full ${
       isMobile 
-        ? 'px-4 py-2 hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5' 
+        ? 'p-3 rounded-xl bg-white/80 hover:bg-white transition-colors duration-300' 
         : 'px-4 py-3 hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5'
     } transition-all duration-300`}
   >
@@ -321,10 +334,10 @@ const DropdownItem = ({ to, text, description, icon: Icon, handleNavigation, isM
       <Icon className={`relative z-10 ${isMobile ? 'w-4 h-4' : 'w-5 h-5'} text-blue-600 group-hover:scale-110 transition-transform duration-300`} strokeWidth={1.5} />
     </div>
     <div className="text-left">
-      <div className={`font-light ${isMobile ? 'text-sm' : 'text-base'} group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0A5A9C] group-hover:to-[#39A5F3] transition duration-200`}>
+      <div className="font-light text-sm group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0A5A9C] group-hover:to-[#39A5F3] transition duration-200">
         {text}
       </div>
-      <div className={`${isMobile ? 'text-xs' : 'text-sm'} text-gray-500 group-hover:text-gray-600 transition duration-200`}>
+      <div className="text-xs text-gray-500 group-hover:text-gray-600 transition duration-200">
         {description}
       </div>
     </div>

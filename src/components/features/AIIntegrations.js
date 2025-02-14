@@ -41,30 +41,32 @@ const FeatureCard = ({ feature, index }) => {
     offset: ["start end", "end start"]
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.95, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0.5, 1]);
+  // const scale = useTransform(scrollYProgress, [0, 0.5], [0.95, 1]);
+  // const opacity = useTransform(scrollYProgress, [0, 0.3], [0.5, 1]);
 
   return (
     <motion.div
       ref={ref}
-      style={{ scale, opacity }}
+      // style={{ scale }}
       className="relative h-full"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-3xl opacity-10 -z-10 transform rotate-3"></div>
-      <div className=" h-full">
-        <div className="bg-white/90 p-8 rounded-3xl h-full backdrop-blur-xl relative overflow-hidden flex flex-col">
+      <div className="h-full">
+        <div className="bg-white p-8 rounded-3xl h-full backdrop-blur-xl relative overflow-hidden flex flex-col border border-gray-300">
           <FloatingElement delay={index * 0.5}>
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
           </FloatingElement>
           
-          <div className="w-16 h-16 mb-6 relative flex-shrink-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-lg opacity-50"></div>
-            <div className="relative w-full h-full rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
-              {feature.icon}
+          <div className="flex items-center gap-4 mb-4 flex-shrink-0">
+            <div className="w-16 h-16 relative flex-shrink-0">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-lg opacity-50"></div>
+              <div className="relative w-full h-full rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
+                {feature.icon}
+              </div>
             </div>
+            <h3 className="text-2xl font-light">{feature.title}</h3>
           </div>
           
-          <h3 className="text-2xl font-light mb-4 flex-shrink-0">{feature.title}</h3>
           <p className="text-gray-600 leading-relaxed mb-6 flex-grow">{feature.description}</p>
           
           <div className="space-y-2 flex-shrink-0">
@@ -92,7 +94,6 @@ const AIIntegration = () => {
       highlights: [
         "Ask questions about document content",
         "Receive contextual responses",
-        "Regulatory-aware answers"
       ]
     },
     {
@@ -102,7 +103,6 @@ const AIIntegration = () => {
       highlights: [
         "Automatic field population",
         "Smart document processing",
-        "Accuracy verification"
       ]
     },
     {
@@ -122,7 +122,6 @@ const AIIntegration = () => {
       highlights: [
         "Automatic documentation",
         "Email chain processing",
-        "One-click reports"
       ]
     }
   ];
@@ -317,16 +316,19 @@ const AIIntegration = () => {
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05 }}
-                  className="bg-gradient-to-br from-blue-600 to-cyan-400 p-[1px] rounded-2xl h-full"
+                  className="bg-white backdrop-blur-xl p-8 rounded-3xl shadow-sm border border-gray-100 h-full relative"
                 >
-                  <div className="bg-white p-6 rounded-2xl h-full">
-                    <div className="relative w-14 h-14 flex-shrink-0 mb-4">
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg"></div>
-                      <div className="relative flex items-center justify-center w-full h-full bg-white rounded-xl border border-white/50">
-                        <benefit.icon className="w-6 h-6 text-blue-600" strokeWidth={1.5} />
+                  <div className="absolute inset-0 bg-white rounded-3xl"></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-14 h-14 relative flex-shrink-0">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-lg opacity-50"></div>
+                        <div className="relative w-full h-full rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
+                          <benefit.icon className="w-8 h-8 text-white" strokeWidth={1.5} />
+                        </div>
                       </div>
+                      <h3 className="text-2xl font-light text-gray-900">{benefit.title}</h3>
                     </div>
-                    <h3 className="text-2xl font-light text-blue-600 mb-2">{benefit.title}</h3>
                     <p className="text-gray-600">{benefit.description}</p>
                   </div>
                 </motion.div>
@@ -341,7 +343,7 @@ const AIIntegration = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <div className="inline-block p-1 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full mb-16">
+            <div className="inline-block p-1 rounded-full mb-16">
               <div className="bg-white px-12 py-16 rounded-full relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
                 <h2 className="text-4xl font-light mb-6">Ready to Gain Your Competitive Advantage?</h2>

@@ -79,12 +79,7 @@ const HeroSection = () => {
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com" />
       </Helmet>
-      <div className="relative min-h-screen  overflow-hidden py-16 px-4 sm:px-6 lg:px-8 flex items-center -mt-5" id="hero">
-        {/* Animated background elements */}
-        {/* <AnimatedCircle delay={0} className="top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" />
-        <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
-        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" /> */}
-
+      <div className="relative overflow-hidden py-16 px-4 sm:px-6 lg:px-8 flex items-center -mt-5" id="hero">
         <div className="max-w-7xl mx-auto relative">
           <motion.div
             variants={containerVariants}
@@ -102,8 +97,13 @@ const HeroSection = () => {
                 className="text-5xl sm:text-7xl lg:text-7xl font-extralight mb-6 leading-tight"
               >
                 <span className="bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
-                  Scale Your
+                  Scale
                 </span>
+                
+                <span className="ml-3">
+                  Your
+                </span>
+
                 <br />
                 Advisory Practice
               </motion.h1>
@@ -142,7 +142,7 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Mobile Features */}
-          <motion.div 
+          {/* <motion.div 
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -152,7 +152,7 @@ const HeroSection = () => {
               variants={itemVariants}
               className="text-2xl font-light text-center mb-6"
             >
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
+              <span className="text-gray-700 bg-clip-text text-transparent">
                 Key Features
               </span>
             </motion.h2>
@@ -166,7 +166,7 @@ const HeroSection = () => {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </>

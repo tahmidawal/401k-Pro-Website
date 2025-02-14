@@ -50,7 +50,7 @@ const WorkflowIntegration = () => {
   ];
 
   return (
-    <div className="py-24 bg-gradient-to-b from-white to-gray-50">
+    <div className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         {/* Mobile Design */}
         <div className="block md:hidden">

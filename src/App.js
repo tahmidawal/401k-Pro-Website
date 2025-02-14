@@ -57,9 +57,10 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
+        {/* <div className="bg-gradient-to-b from-gray-50 via-white to-blue-50/30"> */}
         <div className="">
           <Header />
-          <main className="pt-16 bg-gradient-to-b from-gray-50 via-white to-blue-50/30"> {/* Add padding-top here */}
+          <main className="pt-16"> {/* Keeping only the padding-top */}
             <ScrollToSection />
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -76,7 +77,6 @@ function App() {
             </Routes>
             <CompanyFooter />
           </main>
-          
         </div>
       </Router>
     </HelmetProvider>

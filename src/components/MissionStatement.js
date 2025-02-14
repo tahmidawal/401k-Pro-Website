@@ -44,12 +44,12 @@ const MissionStatement = () => {
       </Helmet>
 
       <div className="relative overflow-hidden font-['Roboto',sans-serif] font-light">
-        {/* Background animations */}
+        {/* Background animations - adjust sizes for mobile */}
         <FloatingElement>
-          <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute top-0 left-0 w-[300px] sm:w-[800px] h-[300px] sm:h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
         </FloatingElement>
         <FloatingElement delay={2}>
-          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-[200px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
         </FloatingElement>
 
         <div className="max-w-7xl mx-auto px-4 relative">
@@ -58,7 +58,7 @@ const MissionStatement = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-center mb-32"
+            className="text-center mb-16 sm:mb-32"
           >
             <motion.div
               animate={{
@@ -76,9 +76,9 @@ const MissionStatement = () => {
               </div>
             </motion.div>
 
-            <h1 className="text-6xl font-extralight mb-8">
+            <h1 className="text-4xl sm:text-6xl font-extralight mb-8 px-2">
               Let's
-              <span className="relative mx-4">
+              <span className="relative mx-2 sm:mx-4">
                 <span className="relative z-10 text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text">
                   Fix
                 </span>
@@ -91,9 +91,9 @@ const MissionStatement = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="space-y-6 max-w-3xl mx-auto"
+              className="space-y-6 max-w-3xl mx-auto px-4 sm:px-0"
             >
-              <div className="relative p-8">
+              <div className="relative p-4 sm:p-8">
                 <FloatingElement>
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-3xl"></div>
                 </FloatingElement>

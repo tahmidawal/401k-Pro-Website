@@ -54,7 +54,7 @@ const WhatDrivesUs = () => {
         <link rel="canonical" href="https://your-domain.com/what-drives-us" />
       </Helmet>
 
-      <div className="relative min-h-screen overflow-hidden py-24">
+      <div className="relative overflow-hidden py-24">
         <div className="max-w-7xl mx-auto px-4 relative">
           {/* Mobile Design */}
           <div className="block md:hidden">

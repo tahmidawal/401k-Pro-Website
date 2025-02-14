@@ -65,7 +65,7 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
       className="relative group h-full"
     >
       <div className={`relative h-full backdrop-blur-xl bg-white/80 p-8 rounded-2xl border ${
-        isPopular ? 'border-blue-500/50' : 'border-white/20'
+        isPopular ? 'border-blue-500/50' : 'border-gray-300'
       } shadow-lg overflow-hidden flex flex-col`}>
         {isPopular && (
           <div className="absolute top-4 right-4">
@@ -134,7 +134,7 @@ const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month
       className="relative w-full"
     >
       <div className={`relative backdrop-blur-xl bg-white/80 p-6 rounded-xl border ${
-        isPopular ? 'border-blue-500/50' : 'border-white/20'
+        isPopular ? 'border-blue-500/50' : 'border-gray-300'
       } shadow-lg`}>
         {isPopular && (
           <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -223,7 +223,7 @@ const FeaturesList = () => {
             className="relative group"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-500"></div>
-            <div className="relative backdrop-blur-xl bg-white/80 p-4 rounded-xl border border-white/20 shadow-lg overflow-hidden flex items-center gap-4">
+            <div className="relative backdrop-blur-xl bg-white/80 p-4 rounded-xl border border-gray-300 shadow-lg overflow-hidden flex items-center gap-4">
               <div className="relative flex-shrink-0">
                 <div className="relative w-10 h-10 flex items-center justify-center bg-white rounded-full p-[2px]">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full" />
@@ -366,7 +366,7 @@ const PricingComponent = () => {
                   transition={{ delay: index * 0.1 }}
                   className="relative"
                 >
-                  <div className="relative backdrop-blur-xl bg-white/80 p-3 rounded-lg border border-white/20 shadow-sm flex items-center gap-3">
+                  <div className="relative backdrop-blur-xl bg-white/80 p-3 rounded-lg border border-gray-300 shadow-sm flex items-center gap-3">
                     <div className="w-8 h-8 flex-shrink-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full flex items-center justify-center">
                       <Check className="w-4 h-4 text-white" />
                     </div>

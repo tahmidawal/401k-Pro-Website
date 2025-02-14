@@ -69,25 +69,86 @@ const SocialLink = ({ href, icon: Icon, label }) => (
   </motion.a>
 );
 
-const ContactInfo = ({ icon: Icon, text }) => (
-  <motion.div 
-    whileHover={{ x: 4 }}
-    className="flex items-center space-x-3 text-gray-600 hover:text-gray-900 transition-all duration-200 cursor-pointer group"
-  >
-    <div className="bg-blue-50 p-2.5 rounded-full transition-colors duration-200 group-hover:bg-blue-100">
-      <Icon size={16} className="text-blue-600" />
-    </div>
-    <span className="text-sm">{text}</span>
-  </motion.div>
+const SimpleContactInfo = ({ icon: Icon, text, href }) => (
+  <a href={href} className="flex items-center text-gray-600 hover:text-blue-600 justify-center md:justify-start space-x-3">
+    <Icon className="w-5 h-5 text-blue-600" />
+    <span>{text}</span>
+  </a>
 );
 
 const Footer = () => {
   return (
-    <footer className="relative border-t">
+    <footer className="relative border-t border-gray-500">
       <div className="absolute inset-0 pointer-events-none" />
       
-      {/* Main footer content */}
-      <div className="relative pt-20 pb-12 font-['Inter',sans-serif]">
+      {/* Mobile footer */}
+      <div className="block md:hidden">
+        <div className="rounded-t-3xl mt-8">
+          <div className="container mx-auto px-6 py-12">
+            {/* Logo and Company Info */}
+            <div className="text-center mb-12">
+              <motion.img 
+                whileHover={{ scale: 1.02 }}
+                src={Logo} 
+                alt="PlanSync Logo" 
+                className="h-8 mx-auto mb-4"
+              />
+              <p className="text-sm text-gray-500">© 2024 AccessibleAI, LLC</p>
+              <div className="flex justify-center space-x-6 mt-4">
+                <a href="/terms" className="text-sm text-gray-600 hover:text-blue-600">Terms</a>
+                <a href="/privacy" className="text-sm text-gray-600 hover:text-blue-600">Privacy</a>
+              </div>
+            </div>
+
+            {/* Careers */}
+            <div className="text-center mb-12">
+              <h3 className="text-lg font-light mb-4">Careers</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a href="/careers" className="text-gray-600 hover:text-blue-600">
+                    We're hiring! See open roles
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Product */}
+            <div className="text-center mb-12">
+              <h3 className="text-lg font-light mb-4">Product</h3>
+              <ul className="space-y-3">
+                <li><a href="/security" className="text-gray-600 hover:text-blue-600">Security</a></li>
+                <li><a href="/#demo-video" className="text-gray-600 hover:text-blue-600">Demo Video</a></li>
+                <li><a href="/#pricing" className="text-gray-600 hover:text-blue-600">Try for Free</a></li>
+              </ul>
+            </div>
+
+            {/* Connect */}
+            <div className="text-center">
+              <h3 className="text-2xl font-light mb-8">Connect</h3>
+              <div className="flex justify-center space-x-8 mb-12">
+                <SocialLink href="#" icon={IconBrandTwitter} label="Twitter" />
+                <SocialLink href="https://www.linkedin.com/company/accessible-ai/?viewAsMember=true" icon={Linkedin} label="LinkedIn" />
+                <SocialLink href="#" icon={IconBrandInstagram} label="Instagram" />
+              </div>
+              <div className="space-y-6 text-left">
+                <SimpleContactInfo 
+                  icon={Phone} 
+                  text="+1 (919) 200-9943" 
+                  href="tel:+19192009943" 
+                />
+                <SimpleContactInfo 
+                  icon={Mail} 
+                  text="info@PlanSync.ai" 
+                  href="mailto:info@PlanSync.ai" 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop footer - keep existing desktop layout */}
+      <div className="hidden md:block pt-20 pb-12 font-['Inter',sans-serif]">
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -140,9 +201,17 @@ const Footer = () => {
                 <SocialLink href="https://www.linkedin.com/company/accessible-ai/?viewAsMember=true" icon={Linkedin} label="LinkedIn" />
                 <SocialLink href="#" icon={IconBrandInstagram} label="Instagram" />
               </div>
-              <div className="space-y-3">
-                <ContactInfo icon={Phone} text="+1 (919) 200-9943" />
-                <ContactInfo icon={Mail} text="info@PlanSync.ai" />
+              <div className="space-y-3 text-left">
+                <SimpleContactInfo 
+                  icon={Phone} 
+                  text="+1 (919) 200-9943" 
+                  href="tel:+19192009943" 
+                />
+                <SimpleContactInfo 
+                  icon={Mail} 
+                  text="info@PlanSync.ai" 
+                  href="mailto:info@PlanSync.ai" 
+                />
               </div>
             </motion.div>
           </div>

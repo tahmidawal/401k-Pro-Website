@@ -182,9 +182,7 @@ const CareersPage = () => {
         style={{ y: backgroundY }}
         className="absolute inset-0 pointer-events-none"
       >
-        {/* <AnimatedCircle delay={0} className="top-0 left-0 w-[800px] h-[800px] bg-blue-200/30" />
-        <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
-        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" /> */}
+        
       </motion.div>
 
       <main className="relative max-w-7xl mx-auto px-4 pb-24">

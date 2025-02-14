@@ -85,7 +85,7 @@ const Testimonials = () => {
         <link rel="canonical" href="https://your-domain.com/testimonials" />
       </Helmet>
 
-      <div className="relative min-h-screen overflow-hidden py-24">
+      <div className="relative overflow-hidden py-24">
         {/* Animated background elements */}
         <motion.div 
           style={{ y: backgroundY }}

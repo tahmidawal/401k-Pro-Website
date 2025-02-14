@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FileText, Bot, Share} from 'lucide-react';
 import GradientButtonWithArrow from '../buttons/GradientButtonWithArrow';
@@ -71,27 +71,60 @@ const STEPS = [
 ];
 
 const DOCUMENT_TYPES = [
-  'Adoption Agreement',
-  'Benefit Statements',
-  'Compliance Testing Results',
-  'Contribution Reports',
-  'Distribution Forms',
-  'Fiduciary Audit Checklist',
-  'Form 5500',
-  'Hardship Withdrawal Requests',
-  'Investment Policy Statement (IPS)',
-  'Plan Amendments',
-  'Plan Document',
-  'Plan Enrollment Kit',
-  'Plan Health Report',
-  'Plan Highlights',
-  'Quarterly/Annual Performance Reports',
-  'Participant Fee Disclosure',
-  'Service Agreements',
-  'Summary Annual Report (SAR)',
-  'Summary Plan Description (SPD)',
-  'Trust Agreement',
-  'All Others'
+              'Adoption Agreement',
+              'Annual Plan Review',
+              'Benefit Statements',
+              'Board Resolutions Related to the Plan',
+              'Census Data Reports',
+              'Compliance Testing Results',
+              'Contribution Reports',
+              'Corrective Action Documentation',
+              'Custodial Agreement',
+              'DOL/IRS Correspondence',
+              'Distribution Forms',
+              'Eligible Employee Notification',
+              'ERISA Fidelity Bond Documentation',
+              'Expense Reimbursement Records',
+              'Fee Benchmarking Reports',
+              'Fiduciary Audit Checklist',
+              'Fiduciary Responsibility Documentation',
+              'Form 1099-R (Distributions)',
+              'Form 5500',
+              'Hardship Withdrawal Requests',
+              'Investment Change Notices',
+              'Investment Monitoring Reports',
+              'Investment Performance Reports',
+              'Investment Policy Statement (IPS)',
+              'IRS Determination Letter',
+              'Loan Request Forms',
+              'Participant Complaints & Resolutions',
+              'Participant Education Materials',
+              'Participant Fee Disclosure',
+              'Participant Loan Records',
+              'Participant Notices (e.g., Safe Harbor, QDIA)',
+              'Participant Termination Notices',
+              'Plan Amendments',
+              'Plan Audit Reports',
+              'Plan Compliance Checklists',
+              'Plan Design Documentation',
+              'Plan Document',
+              'Plan Enrollment Kit',
+              'Plan Health Report',
+              'Plan Highlights',
+              'Plan Restatement Documents',
+              'Plan Sponsor Meeting Minutes',
+              'Quarterly/Annual Performance Reports',
+              'Recordkeeper & TPA Correspondence',
+              'Regulatory Filing Confirmations',
+              'Rollover Acknowledgment Forms',
+              'Safe Harbor Notices',
+              'Service Agreements',
+              'Summary Annual Report (SAR)',
+              'Summary of Material Modifications (SMM)',
+              'Summary Plan Description (SPD)',
+              'Testing & Coverage Results',
+              'Trust Agreement',
+              'Vendor Fee Disclosures'
 ];
 
 // Animation Variants
@@ -225,20 +258,20 @@ const Header = () => (
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, margin: "-100px" }}
-    className="text-center mb-20"
+    className="text-center mb-12 sm:mb-20"
   >
-    <motion.h1 variants={SLIDE_UP_VARIANT} className="text-6xl font-extralight mb-6">
+    <motion.h1 variants={SLIDE_UP_VARIANT} className="text-4xl sm:text-6xl font-extralight mb-4 sm:mb-6">
       <span className="text-transparent bg-clip-text bg-gray-600">Plan</span>{' '}
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">Documents</span>
     </motion.h1>
-    <motion.p variants={SLIDE_UP_VARIANT} className="text-xl text-gray-600 max-w-2xl mx-auto">
+    <motion.p variants={SLIDE_UP_VARIANT} className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
       Transform your document management with AI-powered insights and seamless organization
     </motion.p>
   </motion.div>
 );
 
 const Features = () => (
-  <div className="space-y-16">
+  <div className="space-y-8 sm:space-y-16">
     {FEATURES.map((feature, index) => (
       <motion.div
         key={index}
@@ -247,7 +280,7 @@ const Features = () => (
         viewport={{ once: true, margin: "-100px" }}
         transition={{ 
           duration: 0.8,
-          delay: index * 0.3, // This creates the staggered effect
+          delay: index * 0.3,
           ease: [0.04, 0.62, 0.23, 0.98] 
         }}
       >
@@ -263,82 +296,86 @@ const HowItWorks = () => (
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, margin: "-100px" }}
-    className="mt-24"
+    className="mt-16 sm:mt-24"
   >
-    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-3xl font-light text-center mb-16">
+    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-2xl sm:text-3xl font-light text-center mb-8 sm:mb-16">
       How It Works
     </motion.h2>
-    <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
       {STEPS.map(({ step, title, description }) => (
         <motion.div
           key={step}
           variants={SLIDE_UP_VARIANT}
-          className="text-center"
+          className="text-center p-4 sm:p-6"
         >
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-4 sm:mb-6">
             <StepIndicator number={step} />
           </div>
-          <h3 className="text-xl font-light mb-2">{title}</h3>
-          <p className="text-gray-600">{description}</p>
+          <h3 className="text-lg sm:text-xl font-light mb-2">{title}</h3>
+          <p className="text-sm sm:text-base text-gray-600">{description}</p>
         </motion.div>
       ))}
     </motion.div>
   </motion.div>
 );
 
-const DocumentTypes = () => (
-  <motion.div
-    variants={STAGGER_ANIMATION_VARIANTS}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, margin: "-100px" }}
-    className="mt-24"
-  >
-    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-3xl font-light text-center mb-8">
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-        Comprehensive
-      </span>{' '}
-      Document Support
-    </motion.h2>
-    <motion.p variants={SLIDE_UP_VARIANT} className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-      Our platform supports all critical 401(k) plan documents, making it easy to organize and manage your entire document ecosystem
-    </motion.p>
-    <motion.div variants={SLIDE_UP_VARIANT} className="relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-3xl blur-2xl transform rotate-3"></div>
-      <div className="p-[2px] rounded-3xl backdrop-blur-xl">
-        <div className="bg-white/80 p-8 rounded-3xl h-full backdrop-blur-xl relative overflow-hidden border border-gray-200 shadow-xl">
-          <FloatingElement delay={0.5}>
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
-          </FloatingElement>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {DOCUMENT_TYPES.map((docType, index) => (
-              <motion.div
+const DocumentTypes = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const initialDisplayCount = 12; // Show first 12 items by default
+
+  return (
+    <motion.div
+      variants={STAGGER_ANIMATION_VARIANTS}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      className="mt-16 sm:mt-24"
+    >
+      <motion.h2 variants={SLIDE_UP_VARIANT} className="text-2xl sm:text-3xl font-light text-center mb-4 sm:mb-8">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+          Comprehensive
+        </span>{' '}
+        Document Support
+      </motion.h2>
+      <motion.p variants={SLIDE_UP_VARIANT} className="text-base sm:text-xl text-gray-600 text-center mb-8 sm:mb-12 max-w-3xl mx-auto px-4">
+        Our platform supports all critical 401(k) plan documents, making it easy to organize and manage your entire document ecosystem
+      </motion.p>
+      <motion.div variants={SLIDE_UP_VARIANT} className="relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-xl sm:rounded-3xl blur-2xl transform rotate-3"></div>
+        <div className="relative bg-white/80 backdrop-blur-xl p-4 sm:p-8 rounded-xl sm:rounded-3xl border border-white/20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
+            {DOCUMENT_TYPES.slice(0, isExpanded ? undefined : initialDisplayCount).map((type, index) => (
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                whileHover={{ scale: 1.02, y: -2 }}
-                className="group relative"
+                className="flex items-center space-x-2 text-sm sm:text-base text-gray-600"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                <div className="relative p-4 rounded-xl flex items-center space-x-3 group-hover:bg-white/50 transition-colors duration-300">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                    <div className="w-2.5 h-2.5 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full relative z-10"></div>
-                  </div>
-                  <span className="text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
-                    {docType}
-                  </span>
-                </div>
-              </motion.div>
+                <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-blue-600 to-cyan-400"></div>
+                <span>{type}</span>
+              </div>
             ))}
           </div>
+          <div className="mt-6 text-center">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors"
+            >
+              <span>{isExpanded ? 'Show Less' : 'Show More'}</span>
+              <motion.svg
+                animate={{ rotate: isExpanded ? 180 : 0 }}
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </motion.svg>
+            </button>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
-  </motion.div>
-);
+  );
+};
 
 const UseCases = () => (
   <motion.div
@@ -346,12 +383,12 @@ const UseCases = () => (
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, margin: "-100px" }}
-    className="mt-24"
+    className="mt-16 sm:mt-24"
   >
-    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-3xl font-light text-center mb-12">
+    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-2xl sm:text-3xl font-light text-center mb-8 sm:mb-12">
       Use Cases
     </motion.h2>
-    <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
       {USE_CASES.map((useCase, index) => (
         <motion.div key={index} variants={SLIDE_UP_VARIANT}>
           <UseCaseCard {...useCase} />
@@ -367,19 +404,19 @@ const CTASection = () => (
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, margin: "-100px" }}
-    className="text-center mt-24"
+    className="text-center mt-16 sm:mt-24"
   >
-    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-3xl font-light mb-6">
+    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-2xl sm:text-3xl font-light mb-4 sm:mb-6">
       Ready to Transform Your Document Management?
     </motion.h2>
-    <motion.p variants={SLIDE_UP_VARIANT} className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+    <motion.p variants={SLIDE_UP_VARIANT} className="text-base sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
       Join forward-thinking advisors who are leveraging AI to streamline their document workflows
     </motion.p>
     <motion.div variants={SLIDE_UP_VARIANT}>
       <GradientButtonWithArrow 
         buttonText="Get Started" 
         link="/book-a-demo"
-        showArrow={false}
+        showArrow={true}
       />
     </motion.div>
   </motion.div>
@@ -466,16 +503,16 @@ const PlanDocuments = () => {
         </script>
       </Helmet>
 
-      <div className="relative min-h-screen overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-        >
-          {/* Background animations commented out for now */}
-        </motion.div>
+      <div className="relative min-h-screen overflow-hidden font-['Roboto',sans-serif] font-light">
+        {/* Background animations */}
+        <FloatingElement>
+          <div className="absolute top-0 left-0 w-[300px] sm:w-[800px] h-[300px] sm:h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+        </FloatingElement>
+        <FloatingElement delay={2}>
+          <div className="absolute bottom-0 right-0 w-[200px] sm:w-[600px] h-[200px] sm:h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+        </FloatingElement>
 
-        <div className="relative max-w-7xl mx-auto px-4 py-24">
+        <div className="relative max-w-7xl mx-auto px-4 py-12 sm:py-24">
           <Header />
           <Features />
           <HowItWorks />

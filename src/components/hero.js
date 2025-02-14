@@ -79,7 +79,7 @@ const HeroSection = () => {
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com" />
       </Helmet>
-      <div className="relative overflow-hidden py-16 px-4 sm:px-6 lg:px-8 flex items-center -mt-5" id="hero">
+      <div className="relative min-h-screen  overflow-hidden py-16 px-4 sm:px-6 lg:px-8 flex items-center -mt-5" id="hero">
         <div className="max-w-7xl mx-auto relative">
           <motion.div
             variants={containerVariants}
@@ -142,7 +142,7 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Mobile Features */}
-          {/* <motion.div 
+          <motion.div 
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -152,7 +152,7 @@ const HeroSection = () => {
               variants={itemVariants}
               className="text-2xl font-light text-center mb-6"
             >
-              <span className="text-gray-700 bg-clip-text text-transparent">
+              <span className="text-bg-clip-text text-transparent">
                 Key Features
               </span>
             </motion.h2>
@@ -166,7 +166,7 @@ const HeroSection = () => {
                 </motion.div>
               ))}
             </div>
-          </motion.div> */}
+          </motion.div>
         </div>
       </div>
     </>

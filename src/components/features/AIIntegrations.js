@@ -41,39 +41,35 @@ const FeatureCard = ({ feature, index }) => {
     offset: ["start end", "end start"]
   });
 
-  // const scale = useTransform(scrollYProgress, [0, 0.5], [0.95, 1]);
-  // const opacity = useTransform(scrollYProgress, [0, 0.3], [0.5, 1]);
-
   return (
     <motion.div
       ref={ref}
-      // style={{ scale }}
       className="relative h-full"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-3xl opacity-10 -z-10 transform rotate-3"></div>
       <div className="h-full">
-        <div className="bg-white p-8 rounded-3xl h-full backdrop-blur-xl relative overflow-hidden flex flex-col border border-gray-300">
+        <div className="bg-white p-4 sm:p-8 rounded-xl sm:rounded-3xl h-full backdrop-blur-xl relative overflow-hidden flex flex-col border border-gray-300">
           <FloatingElement delay={index * 0.5}>
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
+            <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
           </FloatingElement>
           
-          <div className="flex items-center gap-4 mb-4 flex-shrink-0">
-            <div className="w-16 h-16 relative flex-shrink-0">
+          <div className="flex items-center gap-3 sm:gap-4 mb-4 flex-shrink-0">
+            <div className="w-10 h-10 sm:w-16 sm:h-16 relative flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-lg opacity-50"></div>
-              <div className="relative w-full h-full rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
-                {feature.icon}
+              <div className="relative w-full h-full rounded-lg sm:rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
+                {React.cloneElement(feature.icon, { className: "w-5 h-5 sm:w-8 sm:h-8 text-white" })}
               </div>
             </div>
-            <h3 className="text-2xl font-light">{feature.title}</h3>
+            <h3 className="text-lg sm:text-2xl font-light">{feature.title}</h3>
           </div>
           
-          <p className="text-gray-600 leading-relaxed mb-6 flex-grow">{feature.description}</p>
+          <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6 flex-grow">{feature.description}</p>
           
           <div className="space-y-2 flex-shrink-0">
             {feature.highlights.map((highlight, idx) => (
               <div key={idx} className="flex items-center space-x-2 text-gray-600">
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                <span>{highlight}</span>
+                <span className="text-xs sm:text-sm">{highlight}</span>
               </div>
             ))}
           </div>
@@ -251,43 +247,31 @@ const AIIntegration = () => {
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
         </FloatingElement>
 
-        <div className="max-w-7xl mx-auto px-4 relative">
+        <div className="max-w-7xl mx-auto px-4 py-12 sm:py-24 relative">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-center mb-32"
+            className="text-center mb-16 sm:mb-32"
           >
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], rotate: [0, 360, 360] }}
-              transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-              className="inline-block mb-8"
-            >
-              <div className="relative w-24 h-24">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-full blur-xl"></div>
-                <div className="relative flex items-center justify-center h-full">
-                  <Bot size={48} className="text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text" />
-                </div>
-              </div>
-            </motion.div>
-
-            <h1 className="text-6xl font-extralight mb-8">
+            
+            <h1 className="text-4xl sm:text-6xl font-extralight mb-4 sm:mb-8">
               AI
-              <span className="relative mx-4">
+              <span className="relative mx-2 sm:mx-4">
                 <span className="relative z-10 text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text">
                   Integrations
                 </span>
-                <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 -z-10 transform skew-x-12"></div>
+                <div className="absolute inset-x-0 bottom-0 h-3 sm:h-4 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 -z-10 transform skew-x-12"></div>
               </span>
             </h1>
-            <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Harness the power of AI to streamline your workflow and enhance productivity
             </p>
           </motion.div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32 auto-rows-fr">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 mb-16 sm:mb-32 auto-rows-fr">
             {features.map((feature, index) => (
               <FeatureCard key={index} feature={feature} index={index} />
             ))}
@@ -299,37 +283,37 @@ const AIIntegration = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-32"
+            className="mb-16 sm:mb-32"
           >
-            <h2 className="text-4xl font-light text-center mb-4">
+            <h2 className="text-3xl sm:text-4xl font-light text-center mb-3 sm:mb-4">
               Why AI Matters for
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 ml-2">
                 401k Advisors
               </span>
             </h2>
-            <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-16">
+            <p className="text-base sm:text-xl text-gray-600 text-center max-w-3xl mx-auto mb-8 sm:mb-16 px-4">
               Transform your practice with AI-powered tools designed specifically for retirement plan advisors
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05 }}
-                  className="bg-white backdrop-blur-xl p-8 rounded-3xl shadow-sm border border-gray-100 h-full relative"
+                  className="bg-white backdrop-blur-xl p-4 sm:p-8 rounded-xl sm:rounded-3xl shadow-sm border border-gray-100 h-full relative"
                 >
-                  <div className="absolute inset-0 bg-white rounded-3xl"></div>
+                  <div className="absolute inset-0 bg-white rounded-xl sm:rounded-3xl"></div>
                   <div className="relative z-10">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-14 h-14 relative flex-shrink-0">
+                    <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                      <div className="w-10 h-10 sm:w-14 sm:h-14 relative flex-shrink-0">
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-lg opacity-50"></div>
-                        <div className="relative w-full h-full rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
-                          <benefit.icon className="w-8 h-8 text-white" strokeWidth={1.5} />
+                        <div className="relative w-full h-full rounded-lg sm:rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
+                          <benefit.icon className="w-5 h-5 sm:w-8 sm:h-8 text-white" strokeWidth={1.5} />
                         </div>
                       </div>
-                      <h3 className="text-2xl font-light text-gray-900">{benefit.title}</h3>
+                      <h3 className="text-lg sm:text-2xl font-light text-gray-900">{benefit.title}</h3>
                     </div>
-                    <p className="text-gray-600">{benefit.description}</p>
+                    <p className="text-sm sm:text-base text-gray-600">{benefit.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -341,13 +325,13 @@ const AIIntegration = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             initial={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.8 }}
-            className="text-center"
+            className="text-center px-4 sm:px-0"
           >
-            <div className="inline-block p-1 rounded-full mb-16">
-              <div className="bg-white px-12 py-16 rounded-full relative overflow-hidden">
+            <div className="inline-block p-1 rounded-full mb-8 sm:mb-16">
+              <div className="bg-white px-6 sm:px-12 py-8 sm:py-16 rounded-full relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
-                <h2 className="text-4xl font-light mb-6">Ready to Gain Your Competitive Advantage?</h2>
-                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                <h2 className="text-2xl sm:text-4xl font-light mb-4 sm:mb-6">Ready to Gain Your Competitive Advantage?</h2>
+                <p className="text-base sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
                   Join forward-thinking advisors leveraging AI to transform their practice
                 </p>
                 <GradientButtonWithArrow 

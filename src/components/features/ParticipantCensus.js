@@ -18,10 +18,10 @@ import GradientButtonWithArrow from '../buttons/GradientButtonWithArrow';
  * Stunning 3D-style gradient icon with hover effect
  */
 const GradientIcon = ({ icon: Icon }) => (
-  <div className="relative w-16 h-16 flex-shrink-0 flex items-center justify-center">
-    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg"></div>
-    <div className="absolute inset-0 bg-white/80 rounded-xl border border-white/20 shadow-lg"></div>
-    <Icon className="relative z-10 w-8 h-8 text-blue-600" strokeWidth={1.5} />
+  <div className="relative w-10 h-10 sm:w-16 sm:h-16 flex-shrink-0 flex items-center justify-center">
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-lg sm:rounded-xl blur-lg"></div>
+    <div className="absolute inset-0 bg-white/80 rounded-lg sm:rounded-xl border border-white/20 shadow-lg"></div>
+    <Icon className="relative z-10 w-5 h-5 sm:w-8 sm:h-8 text-blue-600" strokeWidth={1.5} />
   </div>
 );
 
@@ -37,16 +37,16 @@ const FeatureCard = ({ icon, title, description, index }) => (
     whileHover={{ scale: 1.02, translateY: -10 }}
     className="group relative h-full"
   >
-    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div>
-    <div className="relative h-full backdrop-blur-xl bg-white/80 p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden flex flex-col">
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
-      <div className="flex items-center gap-4">
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-xl sm:rounded-2xl blur-2xl transform group-hover:scale-110 transition-transform duration-500"></div>
+    <div className="relative h-full backdrop-blur-xl bg-white/80 p-4 sm:p-8 rounded-xl sm:rounded-2xl border border-white/20 shadow-lg overflow-hidden flex flex-col">
+      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
         <GradientIcon icon={icon} />
-        <h3 className="text-2xl font-light bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text text-transparent">
+        <h3 className="text-lg sm:text-2xl font-light bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text text-transparent">
           {title}
         </h3>
       </div>
-      <p className="text-gray-600 leading-relaxed flex-grow mt-4">{description}</p>
+      <p className="text-sm sm:text-base text-gray-600 leading-relaxed flex-grow mt-3 sm:mt-4">{description}</p>
     </div>
   </motion.div>
 );
@@ -151,30 +151,28 @@ const StepCard = ({ step, index, isExpanded, onToggle }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="relative group"
+      className="relative group px-2 sm:px-4"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-xl blur-lg transform group-hover:scale-105 transition-all duration-300"></div>
       <div className="relative bg-white/80 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-        {/* Header Section */}
         <div
-          className="flex items-center gap-6 p-6 cursor-pointer"
+          className="flex items-center gap-3 sm:gap-6 p-4 sm:p-6 cursor-pointer"
           onClick={() => onToggle(index)}
         >
-          <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-xl flex items-center justify-center text-white font-light text-xl">
+          <div className="flex-shrink-0 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-lg sm:rounded-xl flex items-center justify-center text-white font-light text-sm sm:text-xl">
             {index + 1}
           </div>
           <div className="flex-grow">
-            <p className="text-gray-700 text-lg font-medium">{step.title}</p>
+            <p className="text-sm sm:text-lg text-gray-700 font-medium">{step.title}</p>
           </div>
           <motion.div
             className="flex-shrink-0 text-blue-600"
             animate={{ rotate: isExpanded ? 90 : 0 }}
           >
-            <ArrowRight className="w-6 h-6" />
+            <ArrowRight className="w-4 h-4 sm:w-6 sm:h-6" />
           </motion.div>
         </div>
 
-        {/* Expandable Content */}
         <motion.div
           initial={false}
           animate={{
@@ -184,11 +182,11 @@ const StepCard = ({ step, index, isExpanded, onToggle }) => {
           transition={{ duration: 0.3 }}
           className="overflow-hidden"
         >
-          <div className="p-6 pt-0 border-t border-gray-100">
-            <p className="text-gray-600 mb-4 leading-relaxed">{step.description}</p>
-            <div className="grid grid-cols-2 gap-3 mt-4">
+          <div className="p-4 sm:p-6 pt-0 border-t border-gray-100">
+            <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">{step.description}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
               {step.benefits.map((benefit, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm text-gray-700">
+                <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-gray-700">
                   <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-blue-600 to-cyan-400"></div>
                   {benefit}
                 </div>
@@ -200,8 +198,6 @@ const StepCard = ({ step, index, isExpanded, onToggle }) => {
     </motion.div>
   );
 };
-
-
 
 /**
  * ParticipantCensus (Main Component)
@@ -277,7 +273,7 @@ const ParticipantCensus = () => {
       {/* React Helmet for 10/10 SEO */}
       <Helmet>
         {/* Primary Title Tag */}
-        <title>Participant Census Hub | Automate Surveys & Grow Your Practice</title>
+        <title>Participant Census | Automate Surveys & Grow Your Practice</title>
 
         {/* Primary Meta Description */}
         <meta
@@ -297,7 +293,7 @@ const ParticipantCensus = () => {
         <link rel="canonical" href="https://example.com/participant-census" />
 
         {/* Open Graph / Social Media Tags */}
-        <meta property="og:title" content="Participant Census Hub | Automate Surveys & Grow Your Practice" />
+        <meta property="og:title" content="Participant Census | Automate Surveys & Grow Your Practice" />
         <meta
           property="og:description"
           content="Easily manage your 401(k) participant census with our automated tools. Real-time updates, lead scoring, and risk tolerance reports for optimized practice growth."
@@ -308,7 +304,7 @@ const ParticipantCensus = () => {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Participant Census Hub | Automate Surveys & Grow Your Practice" />
+        <meta name="twitter:title" content="Participant Census | Automate Surveys & Grow Your Practice" />
         <meta
           name="twitter:description"
           content="Streamline participant census management with real-time data collection, advanced reporting, and AI-driven lead scoring."
@@ -326,47 +322,30 @@ const ParticipantCensus = () => {
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2" />
         </motion.div>
 
-        <div className="max-w-7xl mx-auto px-4 relative">
+        <div className="max-w-7xl mx-auto px-4 py-12 sm:py-24 relative">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-center mb-32"
+            className="text-center mb-12 sm:mb-32"
           >
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], rotate: [0, 360, 360] }}
-              transition={{ duration: 3, repeat: Infinity, repeatType: 'reverse' }}
-              className="inline-block mb-8"
-            >
-              <div className="relative w-24 h-24">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 rounded-full blur-xl"></div>
-                <div className="relative flex items-center justify-center h-full">
-                  <Users
-                    size={48}
-                    className="text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-            <h1 id="participant-census-title" className="text-6xl font-extralight mb-8">
+            <h1 id="participant-census-title" className="text-4xl sm:text-6xl font-extralight mb-4 sm:mb-8">
               Participant
-              <span className="relative mx-4">
+              <span className="relative mx-2 sm:mx-4">
                 <span className="relative z-10 text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text animate-gradient">
                   Census
                 </span>
-                <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 -z-10 transform skew-x-12"></div>
+                <div className="absolute inset-x-0 bottom-0 h-3 sm:h-4 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 -z-10 transform skew-x-12"></div>
               </span>
-              Hub
             </h1>
-            <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Transform your participant data into actionable insights with our next-generation census management system
             </p>
           </motion.div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 mb-12 sm:mb-32">
             {features.map((feature, index) => (
               <FeatureCard key={index} {...feature} index={index} />
             ))}
@@ -377,14 +356,14 @@ const ParticipantCensus = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="relative mb-32"
+            className="relative mb-16 sm:mb-32"
           >
-            <h2 className="text-4xl font-light text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-light text-center mb-8 sm:mb-12">
               <span className="bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text text-transparent">
                 How It Works
               </span>
             </h2>
-            <div className="grid gap-4 max-w-4xl mx-auto">
+            <div className="grid gap-3 sm:gap-4 max-w-4xl mx-auto">
               {stepsData.map((step, index) => (
                 <StepCard
                   key={index}
@@ -402,13 +381,12 @@ const ParticipantCensus = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             initial={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.8 }}
-            className="text-center"
+            className="text-center px-4 sm:px-0"
           >
-            <div className="inline-block p-1 rounded-full mb-24">
-              <div className="bg-white px-12 py-16 rounded-full relative overflow-hidden">
-                <div className="absolute inset-0 over:opacity-100 transition-opacity duration-500"></div>
-                <h2 className="text-4xl font-light mb-6">Ready to Grow Your Practice?</h2>
-                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <div className="inline-block p-1 rounded-full mb-12 sm:mb-24">
+              <div className="bg-white px-6 sm:px-12 py-8 sm:py-16 rounded-full relative overflow-hidden">
+                <h2 className="text-2xl sm:text-4xl font-light mb-4 sm:mb-6">Ready to Grow Your Practice?</h2>
+                <p className="text-base sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
                   Join forward-thinking advisors leveraging next-generation technology
                 </p>
                 <GradientButtonWithArrow buttonText="Get Started" link="/book-a-demo" showArrow={true} />

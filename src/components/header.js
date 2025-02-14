@@ -20,7 +20,7 @@ const ScrollToSection = () => {
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobileFeatureDropdownOpen, setIsMobileFeatureDropdownOpen] = useState(false);
+  const [isMobileFeatureDropdownOpen, setIsMobileFeatureDropdownOpen] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -69,7 +69,7 @@ const Header = () => {
       setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth', offset: 100 }), 100);
     }
     setIsMobileMenuOpen(false);
-    setIsMobileFeatureDropdownOpen(false);
+    setIsMobileFeatureDropdownOpen(true);
   };
 
   return (
@@ -115,10 +115,11 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu - Modified structure */}
           {isMobileMenuOpen && (
-            <div className="lg:hidden fixed inset-0 top-[57px] sm:top-[65px] bg-white/95 backdrop-blur-xl z-50 overflow-y-auto">
-              <div className="container mx-auto px-4 py-6 space-y-6">
+            <div className="lg:hidden fixed inset-0 top-[57px] sm:top-[65px] bg-white/95 backdrop-blur-xl z-50 overflow-y-auto flex flex-col">
+              {/* Main content area */}
+              <div className="flex-1 container mx-auto px-4 py-6 space-y-6">
                 {/* Mobile Nav Links */}
                 <div className="space-y-4">
                   <button 
@@ -131,7 +132,7 @@ const Header = () => {
                     <span className="text-gray-700 font-light text-lg">Why PlanSync</span>
                   </button>
                   
-                  {/* Features Dropdown */}
+                  {/* Features section - always visible by default */}
                   <div className="space-y-3">
                     <button
                       onClick={toggleMobileFeatureDropdown}
@@ -157,7 +158,7 @@ const Header = () => {
                   </div>
 
                   <button 
-                    onClick={() => handleNavigation('/pricing')} 
+                    onClick={() => handleNavigation('/#pricing')} 
                     className="w-full flex items-center space-x-3 px-4 py-3.5 rounded-2xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
                   >
                     <div className="w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-400/10">
@@ -166,11 +167,11 @@ const Header = () => {
                     <span className="text-gray-700 font-light text-lg">Pricing</span>
                   </button>
                 </div>
+              </div>
 
-                {/* Mobile Action Buttons */}
-                <div className="pt-4 px-4">
-                  <ActionButtons isMobile={true} handleNavigation={handleNavigation} />
-                </div>
+              {/* Action buttons container - Now fixed at bottom */}
+              <div className="sticky bottom-0 bg-white/95 backdrop-blur-xl border-t border-gray-100 p-4 space-y-3">
+                <ActionButtons isMobile={true} handleNavigation={handleNavigation} />
               </div>
             </div>
           )}

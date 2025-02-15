@@ -1,9 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
-  Check,
-  ChevronDown,
   Lock,
   Shield,
   Server,
@@ -12,6 +10,24 @@ import {
   Code,
   Trash
 } from 'lucide-react';
+
+// Floating animation for background elements
+const FloatingElement = ({ children, delay = 0 }) => (
+  <motion.div
+    animate={{
+      y: [0, -10, 0],
+      rotate: [-1, 1, -1],
+    }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+      repeatType: "reverse",
+      delay,
+    }}
+  >
+    {children}
+  </motion.div>
+);
 
 // Animation variants
 const containerVariants = {
@@ -42,88 +58,37 @@ const itemVariants = {
   }
 };
 
-
-
 // Modern security category card
-const SecurityCategory = ({ title, features, icon: Icon, index }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.98, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0.8, 1]);
-
-  return (
-    <motion.div
-      ref={ref}
-      style={{ scale, opacity }}
-      variants={itemVariants}
-      className="group relative"
-    >
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-3xl blur-xl transform group-hover:scale-105 transition-transform duration-500"></div>
-      <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl border border-white/20 shadow-lg overflow-hidden">
-        <button
-          className="flex justify-between items-center w-full text-left p-8 group"
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
-          <div className="flex items-center space-x-6">
-            <div className="relative w-14 h-14 flex-shrink-0">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
-              <div className="relative flex items-center justify-center w-full h-full bg-white rounded-xl border border-white/50">
-                <Icon className="w-6 h-6 text-blue-600" strokeWidth={1.5} />
-              </div>
-            </div>
-            <h3 className="text-xl font-light text-gray-800">
-              {title}
-            </h3>
+const SecurityCategory = ({ title, icon: Icon, features, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: index * 0.2 }}
+    className="group relative"
+  >
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-xl sm:rounded-3xl blur-xl transform group-hover:scale-105 transition-transform duration-500"></div>
+    <div className="relative bg-white/80 backdrop-blur-sm p-4 sm:p-8 rounded-xl sm:rounded-3xl border border-white/20 shadow-lg">
+      <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+        <div className="w-10 h-10 sm:w-14 sm:h-14 relative flex-shrink-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-lg sm:rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
+          <div className="relative flex items-center justify-center w-full h-full bg-white rounded-lg sm:rounded-xl border border-white/50">
+            <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-blue-600" strokeWidth={1.5} />
           </div>
-          <motion.div
-            animate={{ rotate: isExpanded ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="text-gray-400 group-hover:text-blue-500 transition-colors duration-300"
-          >
-            <ChevronDown size={24} />
-          </motion.div>
-        </button>
-
-        <AnimatePresence>
-          {isExpanded && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="px-8 pb-8"
-            >
-              <div className="space-y-4">
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-start group"
-                  >
-                    <div className="relative w-6 h-6 flex-shrink-0 mr-4 mt-0.5">
-                      <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
-                      <div className="relative flex items-center justify-center w-full h-full bg-white rounded-full border border-white/50">
-                        <Check className="w-4 h-4 text-green-500" />
-                      </div>
-                    </div>
-                    <span className="text-gray-600 font-light">{feature}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        </div>
+        <h3 className="text-lg sm:text-2xl font-light">{title}</h3>
       </div>
-    </motion.div>
-  );
-};
+      <div className="space-y-2">
+        {features.map((feature, idx) => (
+          <div key={idx} className="flex items-center space-x-2 text-gray-600">
+            <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-blue-600 to-cyan-400"></div>
+            <span className="text-xs sm:text-sm">{feature}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </motion.div>
+);
 
 const Security = () => {
   const securityCategories = [
@@ -225,7 +190,7 @@ const Security = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-white overflow-hidden font-['Roboto',sans-serif] font-light">
+    <div className="relative min-h-screen overflow-hidden font-['Roboto',sans-serif] font-light">
       {/* SEO Helmet */}
       <Helmet>
         <title>Enterprise-Grade Security | PlanSync</title>
@@ -274,42 +239,36 @@ const Security = () => {
       </Helmet>
 
       {/* Background animations */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-      >
-        {/* If you want your AnimatedCircle components, uncomment them: */}
-        {/* <AnimatedCircle delay={0} className="top-0 left-0 w-[500px] h-[500px] bg-blue-200/30" />
-        <AnimatedCircle delay={2} className="bottom-0 right-0 w-[600px] h-[600px] bg-cyan-200/30" />
-        <AnimatedCircle delay={4} className="top-1/2 left-1/2 w-[800px] h-[800px] bg-purple-200/20" /> */}
-      </motion.div>
+      <FloatingElement>
+        <div className="absolute top-0 left-0 w-[300px] sm:w-[800px] h-[300px] sm:h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+      </FloatingElement>
+      <FloatingElement delay={2}>
+        <div className="absolute bottom-0 right-0 w-[200px] sm:w-[600px] h-[200px] sm:h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+      </FloatingElement>
 
-      <div className="relative max-w-7xl mx-auto px-4 py-24">
+      <div className="relative max-w-7xl mx-auto px-4 py-12 sm:py-24">
         {/* Hero Section */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
           <motion.h1
             variants={itemVariants}
-            className="text-6xl font-extralight mb-6"
+            className="text-4xl sm:text-6xl font-extralight mb-4 sm:mb-6"
           >
-            
-           
             <span className="text-gray-800">
               Enterprise Grade
             </span>
             <span> </span>
-            <span className="text-transparent bg-clip-text inset-0 bg-gradient-to-bl from-blue-600 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-bl from-blue-600 to-cyan-400">
               Security
             </span>
           </motion.h1>
           <motion.p
             variants={itemVariants}
-            className="text-xl text-gray-600 max-w-2xl mx-auto mb-12"
+            className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-12 px-4"
           >
             Your data's safety is our top priority
           </motion.p>
@@ -321,7 +280,7 @@ const Security = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto space-y-6"
+          className="max-w-4xl mx-auto space-y-4 sm:space-y-6"
         >
           {securityCategories.map((category, index) => (
             <SecurityCategory
@@ -338,20 +297,20 @@ const Security = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto mt-24"
+          className="max-w-4xl mx-auto mt-16 sm:mt-24"
         >
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-3xl blur-xl"></div>
-            <div className="relative bg-white/80 backdrop-blur-sm p-12 rounded-3xl border border-white/20 shadow-lg">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-xl sm:rounded-3xl blur-xl"></div>
+            <div className="relative bg-white/80 backdrop-blur-sm p-6 sm:p-12 rounded-xl sm:rounded-3xl border border-white/20 shadow-lg">
               <motion.h2
                 variants={itemVariants}
-                className="text-3xl font-light text-center mb-6"
+                className="text-2xl sm:text-3xl font-light text-center mb-4 sm:mb-6"
               >
                 Our Commitment to You
               </motion.h2>
               <motion.p
                 variants={itemVariants}
-                className="text-gray-600 text-center font-light max-w-3xl mx-auto"
+                className="text-sm sm:text-base text-gray-600 text-center font-light max-w-3xl mx-auto"
               >
                 We are committed to maintaining the highest standards of security to protect our organization and the privacy of its clients. Our security controls are designed and implemented to ensure the confidentiality, integrity, and availability of your data.
               </motion.p>

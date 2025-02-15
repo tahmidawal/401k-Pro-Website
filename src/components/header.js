@@ -271,7 +271,7 @@ const FeatureDropdown = ({ handleNavigation, isMobile = false }) => (
       <DropdownItem 
         to="/360-degree-client-view" 
         text="360° Plan View" 
-        description="Complete overview of your client's retirement plan"
+        description="Complete view of your plan management data and documentation"
         icon={RefreshCcwDot}
         handleNavigation={handleNavigation}
         isMobile={isMobile}

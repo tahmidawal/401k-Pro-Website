@@ -112,7 +112,6 @@ const Benefits = () => {
   return (
     <>
       <Helmet>
-        <title>PlanSync - Benefits of Our 401(k) Management Software</title>
         <meta
           name="description"
           content="Learn how PlanSync simplifies plan management, improves compliance, and helps advisors grow their business. See the benefits of centralized tools and automated reporting."

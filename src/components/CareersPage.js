@@ -62,7 +62,7 @@ const jobListings = [
   {
     title: "AI Engineer",
     icon: Brain,
-    salary: "$100,000 - $130,000",
+    salary: "$150,000 - $200,000",
     features: [
       "Build and optimize large language models",
       "Work on real-world projects",

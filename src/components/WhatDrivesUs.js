@@ -36,7 +36,6 @@ const WhatDrivesUs = () => {
   return (
     <>
       <Helmet>
-        <title>PlanSync AI | What Drives Us</title>
         <meta
           name="description"
           content="Discover the mission and values that drive PlanSync. Learn how we empower financial advisors with AI-driven tools to thrive in the modern landscape."

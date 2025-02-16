@@ -37,7 +37,6 @@ const DemoVideoSection = () => {
   return (
     <>
       <Helmet>
-        <title>PlanSync - See Our Platform in Action</title>
         <meta
           name="description"
           content="Watch how PlanSync simplifies 401(k) plan management for advisors. Learn about AI-powered reporting, compliance automation, and participant tools."

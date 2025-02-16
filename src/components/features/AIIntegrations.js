@@ -200,7 +200,6 @@ const AIIntegration = () => {
     <>
       {/* SEO Helmet */}
       <Helmet>
-        <title>AI Integration for 401k Advisors | PlanSync</title>
         <meta
           name="description"
           content="Harness the power of AI to streamline your workflow and enhance productivity. Perfect for 401k advisors seeking to automate data entry, professional rewriting, email integration, and more."

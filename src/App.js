@@ -19,6 +19,7 @@ import ParticipantCensus from './components/features/ParticipantCensus';
 import AIIntegrations from './components/features/AIIntegrations';
 import { HelmetProvider } from 'react-helmet-async';
 import ContactCard from './components/ContactCard';
+import FrequentlyAskedQuestions from './components/FrequentlyAskedQuestions';
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -74,6 +75,7 @@ function App() {
               />} />
               <Route path="/plan-documents" element={<PlanDocuments />} />
               <Route path="/participant-census" element={<ParticipantCensus />} />
+              <Route path="/frequently-asked-questions" element={<FrequentlyAskedQuestions />} />
             </Routes>
             <CompanyFooter />
           </main>

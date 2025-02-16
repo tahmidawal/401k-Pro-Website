@@ -71,7 +71,6 @@ const HeroSection = () => {
   return (
     <>
       <Helmet>
-        <title>PlanSync - Streamline Your 401k Plan Administration</title>
         <meta name="description" content="Simplify your 401k plan administration with automated reporting, AI-powered insights, and comprehensive plan management tools. Start optimizing your retirement plans today." />
         <meta name="keywords" content="401k administration, retirement plans, plan management, automated reporting, AI insights" />
         <meta property="og:title" content="PlanSync - Streamline Your 401k Plan Administration" />

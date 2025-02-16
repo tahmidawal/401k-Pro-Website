@@ -173,6 +173,17 @@ const Footer = () => {
               </div>
             </motion.div>
 
+             {/* Product */}
+            <FooterSection
+              title="Product"
+              items={[
+                { text: 'Security', link: '/security' },
+                { text: 'F.A.Q.', link: '/frequently-asked-questions' },
+                { text: 'Demo Video', link: '/#demo-video' },
+                { text: 'Try for Free', link: '/#pricing' }
+              ]}
+            />
+
             {/* Careers */}
             <FooterSection
               title="Careers"
@@ -181,15 +192,7 @@ const Footer = () => {
               ]}
             />
 
-            {/* Product */}
-            <FooterSection
-              title="Product"
-              items={[
-                { text: 'Security', link: '/security' },
-                { text: 'Demo Video', link: '/#demo-video' },
-                { text: 'Try for Free', link: '/#pricing' }
-              ]}
-            />
+           
 
             {/* Connect */}
             <motion.div variants={itemVariants} className="space-y-6">

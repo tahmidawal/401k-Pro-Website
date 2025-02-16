@@ -95,7 +95,6 @@ const FragmentedEcosystemCombined = () => {
   return (
     <>
       <Helmet>
-        <title>PlanSync - Complete Ecosystem for 401(k) Plan Management</title>
         <meta
           name="description"
           content="PlanSync integrates fiduciary management, compliance, and investment monitoring tools to streamline the 401(k) ecosystem for advisors."

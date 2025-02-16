@@ -276,7 +276,6 @@ const PricingComponent = () => {
   return (
     <>
       <Helmet>
-        <title>PlanSync - Pricing Plans</title>
         <meta
           name="description"
           content="Explore simple and transparent pricing for PlanSync. All features included in every plan with scalable options to match your advisory needs."

@@ -447,7 +447,7 @@ const CTASection = () => (
     <motion.div variants={SLIDE_UP_VARIANT}>
       <GradientButtonWithArrow 
         buttonText="Get Started" 
-        link="/book-a-demo"
+        link="/contact-plansync"
         showArrow={true}
       />
     </motion.div>

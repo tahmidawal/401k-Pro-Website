@@ -335,7 +335,7 @@ const AIIntegration = () => {
                 </p>
                 <GradientButtonWithArrow 
                   buttonText="Get Started" 
-                  link="/book-a-demo"
+                  link="/contact-plansync"
                   showArrow={true}
                 />
               </div>

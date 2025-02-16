@@ -104,7 +104,7 @@ const MissionStatement = () => {
                 transition={{ delay: 1, duration: 0.8 }}
               >
                 <a
-                  href="/book-a-demo"
+                  href="/contact-plansync"
                   className="group inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-sky-400 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base hover:shadow-lg transition-shadow duration-300"
                 >
                   <span>See How</span>

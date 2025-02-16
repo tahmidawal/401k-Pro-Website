@@ -390,7 +390,7 @@ const ParticipantCensus = () => {
                 <p className="text-base sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
                   Join forward-thinking advisors leveraging next-generation technology
                 </p>
-                <GradientButtonWithArrow buttonText="Get Started" link="/book-a-demo" showArrow={true} />
+                <GradientButtonWithArrow buttonText="Get Started" link="/contact-plansync" showArrow={true} />
               </div>
             </div>
           </motion.div>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, BarChart2, Users, ShieldCheck, FileText } from 'lucide-react';
 import logo from '../img/PlanSyncAI-No-Bg.png';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 
 // Animation variants
 const containerVariants = {
@@ -54,6 +55,9 @@ const FeatureCard = ({ icon: Icon, text }) => (
 );
 
 const HeroSection = () => {
+  const [email, setEmail] = React.useState('');
+  const navigate = useNavigate();
+
   const features = [
     { icon: BarChart2, text: "Data Consolidation" },
     { icon: Users, text: "Client Management" },
@@ -68,6 +72,14 @@ const HeroSection = () => {
     }
   };
 
+  const handleGetStarted = (e) => {
+    e.preventDefault();
+    if (email) {
+      // Navigate to book-a-demo with email as query parameter
+      navigate(`/contact-plansync?email=${encodeURIComponent(email)}`);
+    }
+  };
+
   return (
     <>
       <Helmet>
@@ -78,13 +90,14 @@ const HeroSection = () => {
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com" />
       </Helmet>
-      <div className="relative min-h-screen  overflow-hidden py-16 px-4 sm:px-6 lg:px-8 flex items-center -mt-5" id="hero">
+      <div className="relative min-h-screen overflow-hidden py-8 px-4 sm:px-6 lg:px-8 flex items-center -mt-5" id="hero">
         <div className="max-w-7xl mx-auto relative">
+          {/* Desktop View */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="flex flex-col lg:flex-row items-center justify-between gap-12"
+            className="hidden lg:flex flex-col lg:flex-row items-center justify-between gap-12"
           >
             {/* Text Content */}
             <motion.div 
@@ -140,31 +153,87 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Mobile Features */}
+          {/* New Mobile View */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="mt-12 lg:hidden space-y-4"
+            className="lg:hidden flex flex-col items-center text-center"
           >
-            <motion.h2 
+            <motion.h1 
               variants={itemVariants}
-              className="text-2xl font-light text-center mb-6"
+              className="text-3xl font-extralight mb-4 leading-tight"
             >
-              <span className="text-bg-clip-text text-transparent">
-                Key Features
+              <span className="bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">
+                AI-Powered
               </span>
-            </motion.h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                >
-                  <FeatureCard {...feature} />
-                </motion.div>
-              ))}
-            </div>
+              <br />
+              <span className="text-gray-900">
+                401k plan management tools for advisors
+              </span>
+            </motion.h1>
+
+            <motion.p 
+              variants={itemVariants}
+              className="text-gray-600 text-base mb-6 max-w-sm"
+            >
+              PlanSync AI is built by AI experts and backed by retirement planning experts to help you manage your plans more efficiently.
+            </motion.p>
+
+            {/* Email Input Form */}
+            <motion.form 
+              variants={itemVariants}
+              className="w-full max-w-md space-y-4 mb-8"
+              onSubmit={handleGetStarted}
+            >
+              <div className="relative">
+                <input
+                  type="email"
+                  placeholder="Enter your work email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 rounded-full border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20 outline-none transition-all duration-200"
+                  required
+                />
+              </div>
+              <button 
+                type="submit"
+                className="w-full bg-gradient-to-r from-blue-500 to-sky-400 text-white font-light py-3 px-6 rounded-full hover:opacity-90 transition-opacity duration-200"
+              >
+                Get started
+              </button>
+            </motion.form>
+
+            {/* Feature Cards Grid */}
+            <motion.div 
+              variants={itemVariants}
+              className="w-full max-w-md grid grid-cols-1 gap-3 mt-8"
+            >
+              <div className="bg-white p-5 rounded-[24px] border border-gray-100 shadow-sm flex items-center justify-between">
+                <p className="text-gray-700 text-base font-normal">Data Consolidation</p>
+                <div className="text-[#0066FF]">
+                  <BarChart2 className="w-7 h-7" />
+                </div>
+              </div>
+              <div className="bg-white p-5 rounded-[24px] border border-gray-100 shadow-sm flex items-center justify-between">
+                <p className="text-gray-700 text-base font-normal">Client Management</p>
+                <div className="text-[#0066FF]">
+                  <Users className="w-7 h-7" />
+                </div>
+              </div>
+              <div className="bg-white p-5 rounded-[24px] border border-gray-100 shadow-sm flex items-center justify-between">
+                <p className="text-gray-700 text-base font-normal">Compliance Tools</p>
+                <div className="text-[#0066FF]">
+                  <ShieldCheck className="w-7 h-7" />
+                </div>
+              </div>
+              <div className="bg-white p-5 rounded-[24px] border border-gray-100 shadow-sm flex items-center justify-between">
+                <p className="text-gray-700 text-base font-normal">Automated Reporting</p>
+                <div className="text-[#0066FF]">
+                  <FileText className="w-7 h-7" />
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { motion } from 'framer-motion';
 import { Send, User, Mail, Phone, Check, Clock, ArrowRight } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -39,6 +40,31 @@ const ContactInfo = ({ icon: Icon, label, value }) => (
 
 const ContactCard = () => {
   const [state, handleSubmit] = useForm("xanwkqdj");
+  const [searchParams] = useSearchParams();
+  const [formData, setFormData] = React.useState({
+    email: '',
+    name: '',
+    message: ''
+  });
+
+  // Get email from URL parameters on component mount
+  useEffect(() => {
+    const emailFromURL = searchParams.get('email');
+    if (emailFromURL) {
+      setFormData(prev => ({
+        ...prev,
+        email: emailFromURL
+      }));
+    }
+  }, [searchParams]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   if (state.succeeded) {
     return (
@@ -111,6 +137,8 @@ const ContactCard = () => {
                     name="name"
                     placeholder="John Doe"
                     required
+                    value={formData.name}
+                    onChange={handleInputChange}
                   />
                   
                   <FormInput
@@ -120,6 +148,8 @@ const ContactCard = () => {
                     name="email"
                     placeholder="john@example.com"
                     required
+                    value={formData.email}
+                    onChange={handleInputChange}
                     error={state.errors?.email}
                   />
                 </div>
@@ -134,6 +164,8 @@ const ContactCard = () => {
                     name="message"
                     placeholder="How can we help you?"
                     required
+                    value={formData.message}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3.5 bg-white rounded-xl border border-gray-200 font-light
                     hover:border-gray-300 focus:ring-2 focus:ring-blue-600/20 outline-none 
                     transition-all duration-300 min-h-[150px] resize-none shadow-sm"

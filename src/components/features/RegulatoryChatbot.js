@@ -144,7 +144,7 @@ const RegulatoryChatbot = () => {
             </p>
             <GradientButtonWithArrow 
               buttonText="Get Started" 
-              link="/book-a-demo"
+              link="/contact-plansync"
               showArrow={false}
             />
           </div>

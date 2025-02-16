@@ -113,7 +113,7 @@ const DemoVideoSection = () => {
                   <div className="mt-6 flex justify-center">
                     <GradientButtonWithArrow
                       buttonText="Book a Demo"
-                      link="/book-a-demo"
+                      link="/contact-plansync"
                       showArrow={true}
                     />
                   </div>
@@ -167,7 +167,7 @@ const DemoVideoSection = () => {
                   <motion.div variants={itemVariants}>
                     <GradientButtonWithArrow
                       buttonText="Book a Demo"
-                      link="/book-a-demo"
+                      link="/contact-plansync"
                       showArrow={true}
                     />
                   </motion.div>

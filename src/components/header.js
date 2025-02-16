@@ -348,7 +348,7 @@ const DropdownItem = ({ to, text, description, icon: Icon, handleNavigation, isM
 const ActionButtons = ({ isMobile, handleNavigation }) => (
   <div className={`flex ${isMobile ? 'flex-col space-y-3' : 'flex-row space-x-3 sm:space-x-4'} w-full`}>
     <button
-      onClick={() => handleNavigation('/book-a-demo')}
+      onClick={() => handleNavigation('/contact-plansync')}
       className="relative group"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>

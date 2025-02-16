@@ -155,7 +155,7 @@ const ThreeSixtyDegreePlanView = () => {
       {
         icon: FileText,
         title: "Fiduciary Requirements Checklist",
-        description: "Ensure compliance with a structured checklist of all fiduciary obligations.",
+        description: "Promote Compliance with a structured checklist of all fiduciary obligations.",
         details: [
           "Built-in compliance calendar to stay ahead of deadlines",
           "Assign requirements to the appropriate stakeholders",
@@ -230,14 +230,14 @@ const ThreeSixtyDegreePlanView = () => {
 
   const showcases = [
     {
-      title: "PlanSync Master Spreadsheet",
-      description: "Our Master Spreadsheet allows you to keep all of your fiduciary plan management information in one place. Everything you need is now at your fingertips.",
+      title: "Data Consolidation",
+      description: "Consolidates all of your fiduciary plan management information in one place. Everything you need is now at your fingertips.",
       media: MasterSpreadsheetMainImage,
       isVideo: false
     },
     {
-      title: "Everything You Need, Nothing You Don't",
-      description: "Our Master Spreadsheet allows you to keep all of the most important information for your 401(k) plan management in one place.",
+      title: "Client Management",
+      description: "Manage all of your client information in one place. Everything you need is now at your fingertips.",
       media: ThreeSixyPlanViewImage,
       isVideo: false,
       reversed: true
@@ -318,7 +318,7 @@ const ThreeSixtyDegreePlanView = () => {
           Start managing your 401(k) plans more efficiently with PlanSync.
         </motion.p>
         <motion.div variants={itemVariants}>
-          <GradientButtonWithArrow buttonText="Get Started" link="/book-a-demo" showArrow={true} />
+          <GradientButtonWithArrow buttonText="Get Started" link="/contact-plansync" showArrow={true} />
         </motion.div>
       </motion.div>
     </div>

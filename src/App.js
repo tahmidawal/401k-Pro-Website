@@ -71,7 +71,7 @@ function App() {
               <Route path="/automated-reporting" element={<AutomatedReporting />} />
               <Route path="/ai-integrations" element={<AIIntegrations />} />
               <Route path="/security" element={<Security />} />
-              <Route path="/book-a-demo" element={<ContactCard 
+              <Route path="/contact-plansync" element={<ContactCard 
               />} />
               <Route path="/plan-documents" element={<PlanDocuments />} />
               <Route path="/participant-census" element={<ParticipantCensus />} />

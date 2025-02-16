@@ -51,7 +51,7 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/book-a-demo');
+    navigate('/contact-plansync');
     setTimeout(() => window.scrollTo(0, 0), 100);
   };
 
@@ -122,7 +122,7 @@ const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/book-a-demo');
+    navigate('/contact-plansync');
     setTimeout(() => window.scrollTo(0, 0), 100);
   };
 

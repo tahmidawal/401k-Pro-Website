@@ -293,7 +293,7 @@ const PricingComponent = () => {
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com/pricing" />
       </Helmet>
-      <div id="pricing" className="relative min-h-screen overflow-hidden mb-20">
+      <div id="pricing" className="relative min-h-screen overflow-hidden">
         <motion.div 
           style={{ y: backgroundY }}
           className="absolute inset-0 pointer-events-none"

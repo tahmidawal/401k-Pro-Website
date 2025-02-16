@@ -4,7 +4,7 @@ import { Database, Calendar, FileText, Settings, RefreshCcw, Users, DollarSign, 
 import GradientButtonWithArrow from '../buttons/GradientButtonWithArrow';
 import MasterSpreadsheetMainImage from './MasterSpreadsheetMain.webp';
 import ThreeSixyPlanViewImage from './ThreeSixtyPlanView.webp';
-import AIPDFDataExtraction from './AI-PDF-Data-Extraction.mp4';
+import AIPDFDataExtraction from './AIPDFDataExtraction.mp4';
 import DashboardImage from './Dashboard.webp';
 import PlanDesignAndElectionsQuery from './PlanDesignAndElectionsQuery.mp4';
 

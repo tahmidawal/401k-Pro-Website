@@ -9,7 +9,8 @@ import {
   ChartBar,
   Zap,
   Database,
-  ArrowRight
+  ArrowRight,
+  TrendingUp,
 } from 'lucide-react';
 import GradientButtonWithArrow from '../buttons/GradientButtonWithArrow';
 
@@ -42,7 +43,7 @@ const FeatureCard = ({ icon, title, description, index }) => (
       <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
         <GradientIcon icon={icon} />
-        <h3 className="text-lg sm:text-2xl font-light bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text text-transparent">
+        <h3 className="text-lg sm:text-2xl font-light text-gray-800">
           {title}
         </h3>
       </div>
@@ -206,42 +207,42 @@ const StepCard = ({ step, index, isExpanded, onToggle }) => {
 const ParticipantCensus = () => {
   // Original feature data
   const features = [
-    {
-      title: 'Integrated With Your Plan Data',
-      description:
-        'Automatically sync all participant responses with your centralized plan data, creating a single, unified hub for participant data across all plans and companies.',
-      icon: Database
-    },
-    {
-      title: 'Automated Survey Distribution',
-      description:
-        'Distribute surveys in bulk using our Typeform integration, ensuring seamless delivery to participants, companies, and advisors with just a few clicks.',
-      icon: ClipboardList
-    },
-    {
-      title: 'Real-Time Processing',
-      description:
-        "Collect and process responses automatically in real-time, eliminating the need for manual follow-ups and data entry. Sit back and relax, we've got this.",
-      icon: Zap
-    },
-    {
-      title: 'Instant Participant Risk Tolerance and Lead Score Reports',
-      description:
-        'PlanSync automatically creates comprehensive risk tolerance and lead score reports for every participant. With PlanSync, you receive detailed documentation for each individual, ensuring you have all the insights you need at your fingertips without lifting a finger.',
-      icon: FileCheck
-    },
-    {
-      title: 'Risk Mismatch Detection',
-      description:
-        'Each participant reports their perceived risk tolerance, while an automatic risk tolerance score is generated based on their survey responses. This enables you to easily identify discrepancies between perceived risk tolerance and actual financial behavior, facilitating more informed investment discussions.',
-      icon: Target
-    },
-    {
-      title: 'Participant Discovery for Individual Wealth Advisory Practices',
-      description:
-        'Highlight participants with the greatest potential for individual wealth advisory practice using advanced metrics and scoring, giving you the opportunity to grow your practice.',
-      icon: ChartBar
-    }
+  {
+    title: 'Seamless Plan Integration',
+    description:
+      'All participant responses automatically sync with your plan data, ensuring a single, centralized hub for managing participant insights across all plans and companies—no manual data transfers required.',
+    icon: Database
+  },
+  {
+    title: 'Automated, Effortless Survey Distribution',
+    description:
+      'Send bulk participant surveys in just a few clicks using our Typeform integration. Whether reaching individual participants, companies, or advisors, automated distribution ensures timely responses without the hassle.',
+    icon: ClipboardList
+  },
+  {
+    title: 'Instant Data Processing & Insights',
+    description:
+      "Responses are collected and analyzed in real-time, eliminating manual follow-ups and data entry. Gain immediate access to actionable participant insights without lifting a finger.",
+    icon: Zap
+  },
+  {
+    title: 'Comprehensive Risk Tolerance Reports',
+    description:
+      'PlanSync automatically generates detailed risk tolerance and lead score reports for each participant. Access individualized insights instantly, giving you everything you need to enhance participant engagement and financial planning.',
+    icon: FileCheck
+  },
+  {
+    title: 'Identify Risk Mismatches Instantly',
+    description:
+      'Compare each participant’s self-reported risk tolerance with their AI-generated risk score to uncover discrepancies between perception and actual financial behavior—helping you guide more informed investment decisions.',
+    icon: Target
+  },
+  {
+    title: 'Unlock New Wealth Advisory Opportunities',
+    description:
+      'Automatically identify participants with the highest potential for individual wealth advisory services. Leverage advanced scoring and analytics to expand your practice with high-value prospects effortlessly.',
+    icon: TrendingUp
+  }
   ];
 
   const { scrollYProgress } = useScroll();

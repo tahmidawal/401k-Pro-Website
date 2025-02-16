@@ -2,50 +2,56 @@ import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FileText, Bot, Share} from 'lucide-react';
 import GradientButtonWithArrow from '../buttons/GradientButtonWithArrow';
+import PlanDocumentsAI from './PlanDocumentsAINew1.mp4';
+import CentralizedDocuments from './PlanDocumentsHub2.mp4';
+import SendDocuments from './SendDocuments.mp4';
 import { Helmet } from 'react-helmet-async';
 
 // Constants
 const FEATURES = [
   {
-    title: "AI-Powered Document Assistant",
-    description:
-      "Ask questions about your documents in real-time and receive instant, contextual responses that reference relevant DOL and ERISA regulations. Our AI understands complex regulatory language and can help clarify specific clauses, requirements, and implications for your plan management.",
-    icon: Bot
+    "title": "AI-Powered Document Assistant",
+    "description":
+      "Upload any PDF, ask questions, and get instant answers with direct page references. Our AI scans your documents, finds relevant information, and takes you straight to the exact page where the answer is located—saving you time searching from plan information.",
+    "icon": Bot,
+    "video": PlanDocumentsAI
   },
   {
-    title: "Centralized Document Management",
-    description:
-      "Access adoption agreements, SPDs, Form 5500s, and compliance checklists instantly in one secure location. Our advanced search and filtering tools make document retrieval effortless. Never waste time searching through email threads or shared drives again - everything is organized and accessible in seconds.",
-    icon: FileText
+    "title": "Centralized Document Management",
+    "description":
+      "Securely store and instantly access any 401(k)-related document, including adoption agreements, SPDs, Form 5500s, compliance checklists, and more. Our advanced search and filtering tools make document retrieval effortless, so you never have to dig through email threads or shared drives again—everything is organized and accessible in seconds.",
+    "icon": FileText,
+    "video": CentralizedDocuments
   },
   {
-    title: "Seamless Integration & Sharing",
-    description:
+    "title": "Seamless Integration & Sharing",
+    "description":
       "Upload files in multiple formats and share them securely with stakeholders. Our built-in email features maintain data protection while enabling efficient collaboration. Set custom access permissions, track document versions, and maintain a complete audit trail of all document activities.",
-    icon: Share
+    "icon": Share,
+    "video": SendDocuments
   }
 ];
 
 const USE_CASES = [
   {
-    title: "Compliance Reviews",
+    title: "Centralized Compliance & Document Access",
     description:
-      "Upload critical documents and use AI to quickly confirm compliance requirements without reading full documents. Our system automatically flags potential issues and provides regulatory context to help you maintain compliance with confidence. Perfect for quarterly and annual reviews."
+      "Stop wasting time searching through emails, file folders, and outdated systems. Store all critical plan documents—SPDs, amendments, service agreements, and compliance records—in one structured, easy-to-access location. Our AI instantly retrieves key details and flags compliance risks, making quarterly and annual reviews effortless."
   },
   {
-    title: "Audit Preparation",
+    title: "Effortless Audit Readiness",
     description:
-      "Organize SPDs, plan amendments, and service agreements in one location for seamless audit workflows. Generate comprehensive audit trails and documentation packages in minutes instead of hours. Our system helps you maintain perfect documentation that will satisfy even the most thorough auditor."
+      "Eliminate last-minute scrambling before an audit. Maintain a complete, well-organized archive of plan documents that can be instantly retrieved and compiled into audit-ready reports. With full version tracking and automated compliance checks, you’ll always be prepared for regulatory reviews without stress."
   },
   {
-    title: "Document Sharing",
+    title: "Seamless Document Sharing & Collaboration",
     description:
-      "Email plan amendments, benefit statements, or compliance updates directly to clients without leaving the app. Set up automated distribution schedules and track recipient engagement. Maintain security and confidentiality while ensuring all stakeholders have the information they need."
+      "Securely share plan amendments, benefit statements, and compliance updates with clients, recordkeepers, and TPAs—all from a single platform. Set custom access permissions, automate recurring distributions, and track engagement, ensuring the right stakeholders always have the latest information without endless email chains."
   },
   {
-    title: "Participant Inquiries",
+    title: "Instant Answers to Participant & Client Inquiries",
     description:
-      "Quickly reference plan details and leverage AI to clarify specific clauses during participant meetings. Get instant, accurate answers to complex questions about benefits, eligibility, and procedures. Our AI assistant helps you provide confident, consistent responses that keep participants informed and satisfied."
+      "Never dig through PDFs again during client or participant meetings. Simply search for plan details or ask our AI assistant complex questions about benefits, eligibility, and compliance requirements. Get instant, reliable answers so you can provide clear, confident guidance without delay."
   }
 ];
 
@@ -66,7 +72,7 @@ const STEPS = [
     step: 3,
     title: "Share & Collaborate",
     description:
-      "Securely share documents and insights with your team and stakeholders. Set custom access permissions, track document versions, and maintain complete audit trails of all activities."
+      "Securely share documents and insights with your team and stakeholders. Set custom access permissions, track document versions, and maintain a detailed audit trail to promote transparency, compliance, and collaboration across all plan stakeholders."
   }
 ];
 
@@ -200,30 +206,56 @@ const FloatingElement = ({ children, delay = 0 }) => (
   </motion.div>
 );
 
-const FeatureSection = ({ title, description, icon: Icon, isReversed }) => {
+const MediaSection = ({ media, title, isVideo }) => (
+  <div className="relative group px-2 sm:px-4">
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-xl sm:rounded-2xl blur-lg transform group-hover:scale-105 transition-transform duration-500"></div>
+    <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg transform group-hover:scale-[1.02] transition-all duration-500">
+      {isVideo ? (
+        <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-xl sm:rounded-2xl">
+          <source src={media} type="video/mp4" />
+        </video>
+      ) : (
+        <img src={media} alt={title} className="w-full h-full object-cover rounded-xl sm:rounded-2xl" />
+      )}
+    </div>
+  </div>
+);
+
+const FeatureSection = ({ title, description, icon: Icon, video, isReversed }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.95, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0.8, 1]);
+
   return (
-    <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 relative`}>
-      <div className="w-full md:w-1/2 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-3xl blur-2xl"></div>
-        <div className="">
-          <div className="bg-white/80 p-8 border border-gray-300 rounded-3xl h-full relative overflow-hidden">
-            <FloatingElement delay={0.5}>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl"></div>
-            </FloatingElement>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 relative flex-shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-lg opacity-50"></div>
-                <div className="relative w-full h-full rounded-xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
-                  <Icon size={24} className="text-white" />
-                </div>
-              </div>
-              <h3 className="text-2xl font-light">{title}</h3>
-            </div>
-            <p className="text-gray-600 leading-relaxed">{description}</p>
-          </div>
+    <motion.div ref={ref} style={{ scale, opacity }} className="relative group px-2 sm:px-4 md:px-6">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-xl sm:rounded-3xl blur-xl transform group-hover:scale-105 transition-transform duration-500"></div>
+      <div className="relative bg-white/80 backdrop-blur-sm p-4 sm:p-8 md:p-12 rounded-xl sm:rounded-3xl border border-white/20 shadow-lg overflow-hidden">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-8 md:gap-12 items-center">
+          {!isReversed ? (
+            <>
+              <motion.div className="space-y-4 sm:space-y-8">
+                <h3 className="text-2xl sm:text-3xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">{title}</h3>
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">{description}</p>
+              </motion.div>
+              {video && <MediaSection media={video} title={title} isVideo={true} />}
+            </>
+          ) : (
+            <>
+              {video && <MediaSection media={video} title={title} isVideo={true} />}
+              <motion.div className="space-y-4 sm:space-y-8">
+                <h3 className="text-2xl sm:text-3xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">{title}</h3>
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">{description}</p>
+              </motion.div>
+            </>
+          )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

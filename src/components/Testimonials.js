@@ -45,12 +45,12 @@ const testimonials = [
     position: "401k Associate, Narwhal Capital"
   },
   {
-    quote: "Every day I coach retirement plan specialist advisors on improving their practice management. They are looking for a solution to help them scale and grow their plan business. Top advisors are managing their sales pipeline and client service activity with an excel spreadsheet – even if they have access to Salesforce or other tools! The business is complex and they are asking me how others are solving this industry-wide problem. 401k Pro is what advisors are asking for.",
+    quote: "Every day I coach retirement plan specialist advisors on improving their practice management. They are looking for a solution to help them scale and grow their plan business. Top advisors are managing their sales pipeline and client service activity with an excel spreadsheet – even if they have access to Salesforce or other tools! The business is complex and they are asking me how others are solving this industry-wide problem. PlanSync AI is what advisors are asking for.",
     author: "Robin Green",
     position: "President, WinMore Plans"
   },
   {
-    quote: "401k Pro houses all my 401k plan data in one place, gives me a template to follow for plan compliance requirements and takes the due diligence report writing down to almost nothing. This tool is the best solution I have seen !",
+    quote: "PlanSync AI houses all my 401k plan data in one place, gives me a template to follow for plan compliance requirements and takes the due diligence report writing down to almost nothing. This tool is the best solution I have seen !",
     author: "David Wright",
     position: "Founder, Capital Insurance & Financial Services"
   },

@@ -37,9 +37,7 @@ const ScrollToSection = () => {
 };
 
 const HomePage = () => (
-  <div className=" relative overflow-hidden">
-    
-
+  <div className="relative overflow-hidden">
     {/* Content */}
     <div className="relative z-10">
       <HeroSection />
@@ -47,8 +45,10 @@ const HomePage = () => (
       <Benefits />
       <Pricing />
       {/* <MissionStatement /> */}
-      <FragmentedEcosystemCombined />
-      <WhatDrivesUs />
+      <div className="hidden md:block">
+        <FragmentedEcosystemCombined />
+        <WhatDrivesUs />
+      </div>
       <Testimonials />
     </div>
   </div>

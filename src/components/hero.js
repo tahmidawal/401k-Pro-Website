@@ -55,7 +55,7 @@ const FeatureCard = ({ icon: Icon, text }) => (
 
 const HeroSection = () => {
   const features = [
-    { icon: BarChart2, text: "360° Plan View" },
+    { icon: BarChart2, text: "Data Consolidation" },
     { icon: Users, text: "Client Management" },
     { icon: ShieldCheck, text: "Compliance Tools" },
     { icon: FileText, text: "Automated Reporting" },
@@ -96,7 +96,7 @@ const HeroSection = () => {
                 variants={itemVariants}
                 className="text-5xl sm:text-7xl lg:text-7xl font-extralight mb-6 leading-tight"
               >
-                <span className="bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">
                   Scale
                 </span>
                 
@@ -120,8 +120,8 @@ const HeroSection = () => {
                 onClick={scrollToBenefits}
                 className="relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative bg-gradient-to-r from-blue-600 to-cyan-400 text-white font-light py-3 px-6 rounded-full inline-flex items-center gap-2">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative bg-gradient-to-r from-blue-500 to-sky-400 text-white font-light py-3 px-6 rounded-full inline-flex items-center gap-2">
                   <span>How We Can Help</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </div>

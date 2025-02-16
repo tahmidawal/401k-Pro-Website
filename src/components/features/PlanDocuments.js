@@ -239,7 +239,7 @@ const FeatureSection = ({ title, description, icon: Icon, video, isReversed }) =
           {!isReversed ? (
             <>
               <motion.div className="space-y-4 sm:space-y-8">
-                <h3 className="text-2xl sm:text-3xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">{title}</h3>
+                <h3 className="text-2xl sm:text-3xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">{title}</h3>
                 <p className="text-base sm:text-lg text-gray-600 leading-relaxed">{description}</p>
               </motion.div>
               {video && <MediaSection media={video} title={title} isVideo={true} />}
@@ -248,7 +248,7 @@ const FeatureSection = ({ title, description, icon: Icon, video, isReversed }) =
             <>
               {video && <MediaSection media={video} title={title} isVideo={true} />}
               <motion.div className="space-y-4 sm:space-y-8">
-                <h3 className="text-2xl sm:text-3xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">{title}</h3>
+                <h3 className="text-2xl sm:text-3xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">{title}</h3>
                 <p className="text-base sm:text-lg text-gray-600 leading-relaxed">{description}</p>
               </motion.div>
             </>
@@ -264,7 +264,7 @@ const UseCaseCard = ({ title, description }) => (
     whileHover={{ scale: 1.02, y: -5 }}
     className="group relative"
   >
-    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-2xl blur-lg opacity-20 group-hover:opacity-30"></div>
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-2xl blur-lg opacity-20 group-hover:opacity-30"></div>
     <div className="rounded-2xl relative bg-white/80 p-6">
       <FloatingElement>
         <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-xl"></div>
@@ -277,7 +277,7 @@ const UseCaseCard = ({ title, description }) => (
 
 const StepIndicator = ({ number }) => (
   <div className="relative">
-    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center text-white text-xl">
+    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-sky-400 flex items-center justify-center text-white text-xl">
       {number}
     </div>
   </div>
@@ -294,7 +294,7 @@ const Header = () => (
   >
     <motion.h1 variants={SLIDE_UP_VARIANT} className="text-4xl sm:text-6xl font-extralight mb-4 sm:mb-6">
       <span className="text-transparent bg-clip-text bg-gray-600">Plan</span>{' '}
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">Documents</span>
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">Documents</span>
     </motion.h1>
     <motion.p variants={SLIDE_UP_VARIANT} className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
       Transform your document management with AI-powered insights and seamless organization
@@ -364,7 +364,7 @@ const DocumentTypes = () => {
       className="mt-16 sm:mt-24"
     >
       <motion.h2 variants={SLIDE_UP_VARIANT} className="text-2xl sm:text-3xl font-light text-center mb-4 sm:mb-8">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">
           Comprehensive
         </span>{' '}
         Document Support

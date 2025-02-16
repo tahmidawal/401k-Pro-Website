@@ -103,7 +103,7 @@ const DemoVideoSection = () => {
                         <div className="absolute inset-0 flex items-center justify-center">
                           <motion.div
                             whileHover={{ scale: 1.1 }}
-                            className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center cursor-pointer"
+                            className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-sky-400 flex items-center justify-center cursor-pointer"
                           >
                             <Play className="w-5 h-5 text-white fill-current" />
                           </motion.div>
@@ -141,7 +141,7 @@ const DemoVideoSection = () => {
                         <div className="absolute inset-0 flex items-center justify-center">
                           <motion.div
                             whileHover={{ scale: 1.1 }}
-                            className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center cursor-pointer"
+                            className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-sky-400 flex items-center justify-center cursor-pointer"
                           >
                             <Play className="w-6 h-6 text-white fill-current" />
                           </motion.div>

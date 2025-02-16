@@ -74,7 +74,6 @@ const Testimonials = () => {
   return (
     <>
       <Helmet>
-        <title>What People Say About PlanSync</title>
         <meta
           name="description"
           content="Read testimonials from advisors who trust PlanSync for managing retirement plans. See how our platform transforms plan management and saves time."
@@ -116,10 +115,7 @@ const Testimonials = () => {
                 variants={itemVariants}
                 className="text-4xl font-extralight mb-4"
               >
-                What People{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-                  Say
-                </span>
+                Don't Just Take Our Word For It{" "}
               </motion.h1>
             </motion.div>
 
@@ -145,7 +141,7 @@ const Testimonials = () => {
                         <button
                           key={index}
                           className={`w-6 h-1.5 rounded transition-colors duration-300 ${
-                            index === currentQuote ? 'bg-gradient-to-r from-blue-600 to-cyan-400' : 'bg-gray-200'
+                            index === currentQuote ? 'bg-gradient-to-r from-blue-500 to-sky-400' : 'bg-gray-200'
                           }`}
                           onClick={() => setCurrentQuote(index)}
                           aria-label={`View testimonial ${index + 1}`}
@@ -194,9 +190,8 @@ const Testimonials = () => {
                 variants={itemVariants}
                 className="text-6xl font-extralight mb-6"
               >
-                What People{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
-                  Say
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">
+                  Testimonials
                 </span>
               </motion.h1>
             </motion.div>
@@ -223,7 +218,7 @@ const Testimonials = () => {
                         <button
                           key={index}
                           className={`w-8 h-2 rounded transition-colors duration-300 ${
-                            index === currentQuote ? 'bg-gradient-to-r from-blue-600 to-cyan-400' : 'bg-gray-200'
+                            index === currentQuote ? 'bg-gradient-to-r from-blue-500 to-sky-400' : 'bg-gray-200'
                           }`}
                           onClick={() => setCurrentQuote(index)}
                           aria-label={`View testimonial ${index + 1}`}

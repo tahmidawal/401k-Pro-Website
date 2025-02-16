@@ -94,7 +94,7 @@ const FeatureCard = ({ icon: Icon, title, description }) => {
                 <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-blue-600" strokeWidth={1.5} />
               </div>
             </div>
-            <h3 className="text-lg sm:text-xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent flex-shrink-0">
+            <h3 className="text-lg sm:text-xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent flex-shrink-0">
               {title}
             </h3>
           </div>
@@ -115,7 +115,7 @@ const StepCard = ({ number, text }) => (
       <div className="flex-shrink-0 mr-4 sm:mr-6">
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-full blur-lg"></div>
-          <div className="relative w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full flex items-center justify-center text-white text-sm sm:text-base font-light">
+          <div className="relative w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full flex items-center justify-center text-white text-sm sm:text-base font-light">
             {number}
           </div>
         </div>
@@ -330,7 +330,7 @@ const AutomatReprting = () => {
               <span className="text-transparent bg-clip-text bg-gray-600"> </span>
               <motion.span
                 variants={textVariants}
-                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400"
               >
                 Reporting
               </motion.span>
@@ -370,7 +370,7 @@ const AutomatReprting = () => {
               variants={textVariants}
               className="text-3xl sm:text-4xl font-extralight text-center mb-8 sm:mb-12"
             >
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">
                 How It Works
               </span>
             </motion.h2>

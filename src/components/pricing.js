@@ -69,7 +69,7 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
       } shadow-lg overflow-hidden flex flex-col`}>
         {isPopular && (
           <div className="absolute top-4 right-4">
-            <div className="relative px-3 py-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full">
+            <div className="relative px-3 py-1 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full">
               <span className="text-white text-sm font-light">Most Popular</span>
             </div>
           </div>
@@ -107,8 +107,8 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
           onClick={handleButtonClick}
           className="relative group w-full"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div className="relative bg-gradient-to-r from-blue-600 to-cyan-400 text-white font-light py-3 px-6 rounded-full flex items-center justify-center gap-2">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="relative bg-gradient-to-r from-blue-500 to-sky-400 text-white font-light py-3 px-6 rounded-full flex items-center justify-center gap-2">
             <span>Book a Demo</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </div>
@@ -138,7 +138,7 @@ const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month
       } shadow-lg`}>
         {isPopular && (
           <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-            <div className="px-4 py-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full">
+            <div className="px-4 py-1 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full">
               <span className="text-white text-sm font-light">Most Popular</span>
             </div>
           </div>
@@ -174,8 +174,8 @@ const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month
           onClick={handleButtonClick}
           className="relative w-full"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-sm opacity-75"></div>
-          <div className="relative bg-gradient-to-r from-blue-600 to-cyan-400 text-white font-light py-2.5 px-4 rounded-full flex items-center justify-center gap-2">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full blur-sm opacity-75"></div>
+          <div className="relative bg-gradient-to-r from-blue-500 to-sky-400 text-white font-light py-2.5 px-4 rounded-full flex items-center justify-center gap-2">
             <span>Book a Demo</span>
             <ArrowRight className="w-4 h-4" />
           </div>
@@ -226,7 +226,7 @@ const FeaturesList = () => {
             <div className="relative backdrop-blur-xl bg-white/80 p-4 rounded-xl border border-gray-300 shadow-lg overflow-hidden flex items-center gap-4">
               <div className="relative flex-shrink-0">
                 <div className="relative w-10 h-10 flex items-center justify-center bg-white rounded-full p-[2px]">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full" />
                   <div className="absolute inset-[2px] bg-white rounded-full" />
                   <Check className="relative w-5 h-5 [&>path]:fill-transparent [&>path]:stroke-[url(#check-gradient)]" />
                   <svg className="absolute" width="0" height="0">
@@ -314,7 +314,7 @@ const PricingComponent = () => {
               className="text-4xl md:text-6xl font-extralight mb-4 md:mb-6"
             >
               Simple{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">
                 Pricing
               </span>
             </motion.h1>
@@ -367,7 +367,7 @@ const PricingComponent = () => {
                   className="relative"
                 >
                   <div className="relative backdrop-blur-xl bg-white/80 p-3 rounded-lg border border-gray-300 shadow-sm flex items-center gap-3">
-                    <div className="w-8 h-8 flex-shrink-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 flex-shrink-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full flex items-center justify-center">
                       <Check className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700 text-sm font-light">

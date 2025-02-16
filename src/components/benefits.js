@@ -55,7 +55,7 @@ const BenefitCard = ({ Icon, title, description }) => {
               </div>
             </div>
             
-            <h3 className="text-xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
+            <h3 className="text-xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">
               {title}
             </h3>
           </div>
@@ -139,7 +139,7 @@ const Benefits = () => {
           >
             <motion.div variants={itemVariants} className="text-center mb-16">
               <h1 className="text-4xl md:text-6xl font-extralight mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">
                   Benefits
                 </span>{" "}
                 of PlanSync

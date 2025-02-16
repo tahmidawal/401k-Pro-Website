@@ -36,7 +36,7 @@ const WhatDrivesUs = () => {
   return (
     <>
       <Helmet>
-        <title>What Drives Us - PlanSync</title>
+        <title>PlanSync AI | What Drives Us</title>
         <meta
           name="description"
           content="Discover the mission and values that drive PlanSync. Learn how we empower financial advisors with AI-driven tools to thrive in the modern landscape."
@@ -70,7 +70,7 @@ const WhatDrivesUs = () => {
                 className="text-4xl font-extralight mb-4"
               >
                 What{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">
                   Drives Us
                 </span>
               </motion.h1>
@@ -113,7 +113,7 @@ const WhatDrivesUs = () => {
 
                     <motion.p
                       variants={itemVariants}
-                      className="text-xl font-light text-center mt-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400"
+                      className="text-xl font-light text-center mt-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400"
                     >
                       Together, we strive to empower your firm to flourish in this new era of AI.
                     </motion.p>
@@ -137,7 +137,7 @@ const WhatDrivesUs = () => {
                 className="text-6xl font-extralight mb-6"
               >
                 What{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">
                   Drives Us
                 </span>
               </motion.h1>
@@ -180,7 +180,7 @@ const WhatDrivesUs = () => {
 
                     <motion.p
                       variants={itemVariants}
-                      className="text-2xl font-light text-center mt-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400"
+                      className="text-2xl font-light text-center mt-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400"
                     >
                       Together, we strive to empower your firm to flourish in this new era of AI.
                     </motion.p>

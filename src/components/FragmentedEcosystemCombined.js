@@ -121,7 +121,7 @@ const FragmentedEcosystemCombined = () => {
               <h1 className="text-4xl font-extralight mb-4">
                 Your Complete
                 <span> </span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-300">
                   Ecosystem
                 </span>
               </h1>
@@ -138,7 +138,7 @@ const FragmentedEcosystemCombined = () => {
               <h1 className="text-6xl font-extralight mb-6">
                 Your Complete
                 <span> </span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-300">
                   Ecosystem
                 </span>
               </h1>
@@ -187,7 +187,7 @@ const FragmentedEcosystemCombined = () => {
               <h2 className="text-3xl md:text-5xl font-extralight mb-6">
                 Seamless Integration With
                 <br className="block md:hidden" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 block md:inline"> Your Workflow</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-300 block md:inline"> Your Workflow</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 No Need to Change Your Process

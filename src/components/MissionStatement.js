@@ -90,7 +90,7 @@ const MissionStatement = () => {
                     And yet, 401(k) plan management is broken.
                   </p>
                   <p className="text-xl sm:text-2xl font-light">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">
                       So, we're fixing it.
                     </span>
                   </p>
@@ -105,7 +105,7 @@ const MissionStatement = () => {
               >
                 <a
                   href="/book-a-demo"
-                  className="group inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-400 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base hover:shadow-lg transition-shadow duration-300"
+                  className="group inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-sky-400 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base hover:shadow-lg transition-shadow duration-300"
                 >
                   <span>See How</span>
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />

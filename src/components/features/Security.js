@@ -262,7 +262,7 @@ const Security = () => {
               Enterprise Grade
             </span>
             <span> </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-bl from-blue-600 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">
               Security
             </span>
           </motion.h1>

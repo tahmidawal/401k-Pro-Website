@@ -44,11 +44,20 @@ const ContactCard = () => {
     return (
       <motion.div {...fadeIn} className="flex items-center justify-center min-h-screen bg-gray-50/50 p-4">
         <div className="bg-white rounded-2xl p-12 max-w-md w-full shadow-xl">
-          <div className="w-20 h-20 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-2xl flex items-center justify-center mx-auto mb-8">
-            <Check className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent" />
+          <div className="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-8">
+            <Check className="w-10 h-10 stroke-blue-500" />
           </div>
           <h2 className="text-3xl font-light text-center mb-3">Message Sent!</h2>
-          <p className="text-gray-600 text-center font-light">We'll get back to you within 24 hours.</p>
+          <p className="text-gray-600 text-center font-light mb-8">We'll get back to you within 24 hours.</p>
+          <button
+            onClick={() => window.location.href = '/'}
+            className="group w-full bg-gradient-to-r from-blue-500 to-sky-400 text-white px-6 py-3.5 rounded-xl
+            hover:opacity-90 transition-all duration-300 flex items-center 
+            justify-center gap-2 shadow-lg shadow-blue-600/25"
+          >
+            <span className="font-light">Return Home</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+          </button>
         </div>
       </motion.div>
     );
@@ -63,7 +72,7 @@ const ContactCard = () => {
             <div className="md:col-span-2 p-8 lg:p-12 bg-white border-r border-gray-200">
               <div className="sticky top-8 space-y-8">
                 <div className="space-y-4">
-                  <h2 className="text-3xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">
+                  <h2 className="text-3xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">
                     Let's start a conversation
                   </h2>
                   <p className="text-gray-600 font-light">
@@ -135,7 +144,7 @@ const ContactCard = () => {
                 <button
                   type="submit"
                   disabled={state.submitting}
-                  className="group w-full bg-gradient-to-r from-blue-600 to-cyan-400 text-white px-6 py-3.5 rounded-xl
+                  className="group w-full bg-gradient-to-r from-blue-500 to-sky-400 text-white px-6 py-3.5 rounded-xl
                   hover:opacity-90 transition-all duration-300 flex items-center 
                   justify-center gap-2 disabled:opacity-50 shadow-lg shadow-blue-600/25"
                 >

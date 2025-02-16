@@ -59,7 +59,7 @@ const FeatureShowcase = ({ media, title, description, isVideo, index }) => {
           {!isMediaRight ? (
             <>
               <motion.div className="space-y-4 sm:space-y-8">
-                <h3 className="text-2xl sm:text-3xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">{title}</h3>
+                <h3 className="text-2xl sm:text-3xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">{title}</h3>
                 <p className="text-base sm:text-lg text-gray-600 leading-relaxed">{description}</p>
               </motion.div>
               <MediaSection media={media} title={title} isVideo={isVideo} />
@@ -68,7 +68,7 @@ const FeatureShowcase = ({ media, title, description, isVideo, index }) => {
             <>
               <MediaSection media={media} title={title} isVideo={isVideo} />
               <motion.div className="space-y-4 sm:space-y-8">
-                <h3 className="text-2xl sm:text-3xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">{title}</h3>
+                <h3 className="text-2xl sm:text-3xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">{title}</h3>
                 <p className="text-base sm:text-lg text-gray-600 leading-relaxed">{description}</p>
               </motion.div>
             </>
@@ -95,7 +95,7 @@ const PlanViewDetail = ({ icon: Icon, title, description, details, index }) => {
               </div>
             </div>
             <div className="flex-grow min-h-[80px] sm:min-h-[90px]">
-              <h3 className="text-lg sm:text-xl font-light bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent mb-2 sm:mb-4">{title}</h3>
+              <h3 className="text-lg sm:text-xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent mb-2 sm:mb-4">{title}</h3>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{description}</p>
             </div>
           </div>
@@ -273,7 +273,7 @@ const ThreeSixtyDegreePlanView = () => {
         className="text-center mb-16 sm:mb-32 pt-10 sm:pt-20 px-4"
       >
         <motion.h1 variants={itemVariants} className="text-4xl sm:text-6xl font-extralight mb-4 sm:mb-6">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">360°</span> Plan View
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">360°</span> Plan View
         </motion.h1>
         <motion.p variants={itemVariants} className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
           Streamline your 401(k) plan management with a comprehensive solution that brings everything into focus.
@@ -312,7 +312,7 @@ const ThreeSixtyDegreePlanView = () => {
         className="text-center mt-16 sm:mt-32 mb-10 sm:mb-20 px-4"
       >
         <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl font-extralight mb-4 sm:mb-6">
-          Ready to get a <span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400'>360° view</span> of your plans?
+          Ready to get a <span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400'>360° view</span> of your plans?
         </motion.h2>
         <motion.p variants={itemVariants} className="text-base sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
           Start managing your 401(k) plans more efficiently with PlanSync.

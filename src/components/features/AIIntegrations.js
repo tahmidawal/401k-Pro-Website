@@ -46,7 +46,7 @@ const FeatureCard = ({ feature, index }) => {
       ref={ref}
       className="relative h-full"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-3xl opacity-10 -z-10 transform rotate-3"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 blur-3xl opacity-10 -z-10 transform rotate-3"></div>
       <div className="h-full">
         <div className="bg-white p-4 sm:p-8 rounded-xl sm:rounded-3xl h-full backdrop-blur-xl relative overflow-hidden flex flex-col border border-gray-300">
           <FloatingElement delay={index * 0.5}>
@@ -55,8 +55,8 @@ const FeatureCard = ({ feature, index }) => {
           
           <div className="flex items-center gap-3 sm:gap-4 mb-4 flex-shrink-0">
             <div className="w-10 h-10 sm:w-16 sm:h-16 relative flex-shrink-0">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-lg opacity-50"></div>
-              <div className="relative w-full h-full rounded-lg sm:rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 blur-lg opacity-50"></div>
+              <div className="relative w-full h-full rounded-lg sm:rounded-2xl bg-gradient-to-r from-blue-500 to-sky-400 flex items-center justify-center">
                 {React.cloneElement(feature.icon, { className: "w-5 h-5 sm:w-8 sm:h-8 text-white" })}
               </div>
             </div>
@@ -253,7 +253,7 @@ const AIIntegration = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-center mb-16 sm:mb-32"
+            className="text-center mb-8 sm:mb-16"
           >
             
             <h1 className="text-4xl sm:text-6xl font-extralight mb-4 sm:mb-8 relative z-10 text-transparent bg-gradient-to-br from-blue-600 to-cyan-400 bg-clip-text">
@@ -287,7 +287,7 @@ const AIIntegration = () => {
           >
             <h2 className="text-3xl sm:text-4xl font-light text-center mb-3 sm:mb-4">
               Why AI Matters for
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 ml-2">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400 ml-2">
                 401k Advisors
               </span>
             </h2>
@@ -306,8 +306,8 @@ const AIIntegration = () => {
                   <div className="relative z-10">
                     <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                       <div className="w-10 h-10 sm:w-14 sm:h-14 relative flex-shrink-0">
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 blur-lg opacity-50"></div>
-                        <div className="relative w-full h-full rounded-lg sm:rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 blur-lg opacity-50"></div>
+                        <div className="relative w-full h-full rounded-lg sm:rounded-2xl bg-gradient-to-r from-blue-500 to-sky-400 flex items-center justify-center">
                           <benefit.icon className="w-5 h-5 sm:w-8 sm:h-8 text-white" strokeWidth={1.5} />
                         </div>
                       </div>
@@ -329,7 +329,7 @@ const AIIntegration = () => {
           >
             <div className="inline-block p-1 rounded-full mb-8 sm:mb-16">
               <div className="bg-white px-6 sm:px-12 py-8 sm:py-16 rounded-full relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0"></div>
                 <h2 className="text-2xl sm:text-4xl font-light mb-4 sm:mb-6">Ready to Gain Your Competitive Advantage?</h2>
                 <p className="text-base sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
                   Join forward-thinking advisors leveraging AI to transform their practice

@@ -151,7 +151,7 @@ const Header = () => {
                     </button>
                     
                     {isMobileFeatureDropdownOpen && (
-                      <div className="bg-gradient-to-br from-blue-50/50 to-cyan-50/50 rounded-2xl p-3 space-y-2">
+                      <div className="bg-gradient-to-br from-blue-50/50 to-cyan-50/50 rounded-2xl p-3 space-y-2 border border-blue-600/20">
                         <FeatureDropdown handleNavigation={handleNavigation} isMobile={true} />
                       </div>
                     )}
@@ -262,7 +262,7 @@ const FeatureDropdown = ({ handleNavigation, isMobile = false }) => (
   <div className={`${
     isMobile 
       ? 'space-y-2' 
-      : 'py-2 bg-white/80 backdrop-blur-xl rounded-2xl border border-white/20 shadow-xl overflow-hidden'
+      : 'py-2 bg-white/80 backdrop-blur-xl rounded-2xl border border-blue-600/20 shadow-xl overflow-hidden'
   }`}>
     {!isMobile && (
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-2xl blur-lg"></div>
@@ -351,8 +351,8 @@ const ActionButtons = ({ isMobile, handleNavigation }) => (
       onClick={() => handleNavigation('/book-a-demo')}
       className="relative group"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <div className="relative bg-gradient-to-r from-blue-600 to-cyan-400 text-white font-light px-4 sm:px-6 py-2.5 rounded-full inline-flex items-center justify-center w-full">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="relative bg-gradient-to-r from-blue-500 to-sky-400 text-white font-light px-4 sm:px-6 py-2.5 rounded-full inline-flex items-center justify-center w-full">
         <span>Book Demo</span>
         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
       </div>
@@ -362,7 +362,7 @@ const ActionButtons = ({ isMobile, handleNavigation }) => (
       onClick={() => window.location.href = 'https://app.PlanSync.ai'}
       className="relative group"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
       <div className="relative bg-white text-gray-600 font-light px-4 sm:px-6 py-2.5 rounded-full inline-flex items-center justify-center w-full border border-gray-200 group-hover:border-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600/5 group-hover:to-cyan-400/5">
         <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-cyan-400">Log In</span>
         <ArrowRight className="w-4 h-4 ml-2 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300" />

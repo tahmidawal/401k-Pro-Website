@@ -57,7 +57,7 @@ const ContactPage = () => {
                 ></textarea>
                 <button
                 type="submit"
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-gradient-to-r from-blue-600 to-cyan-400"
+                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-gradient-to-r from-blue-500 to-sky-400"
                 >
                 Send Message
                 </button>

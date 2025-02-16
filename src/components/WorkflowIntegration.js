@@ -57,7 +57,7 @@ const WorkflowIntegration = () => {
           <motion.div className="text-center mb-12">
             <h2 className="text-3xl font-extralight mb-4">
               Seamless Integration With
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400"> Your Workflow</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400"> Your Workflow</span>
             </h2>
             <p className="text-base text-gray-600 px-4">
               No Need to Change Your Process—PlanSync Works With It
@@ -75,7 +75,7 @@ const WorkflowIntegration = () => {
           <motion.div className="text-center mb-16">
             <h2 className="text-5xl font-extralight mb-6">
               Seamless Integration With
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400"> Your Workflow</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400"> Your Workflow</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               No Need to Change Your Process—PlanSync Works With It

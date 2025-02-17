@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/401k-Pro-Website/static/css/main.5a373134.css",
+    "main.js": "/401k-Pro-Website/static/js/main.af72cc40.js",
+    "static/js/453.7ddbf8fc.chunk.js": "/401k-Pro-Website/static/js/453.7ddbf8fc.chunk.js",
+    "static/media/PlanDocumentsAINew1.mp4": "/401k-Pro-Website/static/media/PlanDocumentsAINew1.348f3406b629b8c88a84.mp4",
+    "static/media/AIPDFDataExtraction.mp4": "/401k-Pro-Website/static/media/AIPDFDataExtraction.a8e20a08a01a004bd204.mp4",
+    "static/media/ThreeSixtyPlanView.webp": "/401k-Pro-Website/static/media/ThreeSixtyPlanView.b3e045c1a9f6fd32972f.webp",
+    "static/media/PlanDesignAndElectionsQuery.mp4": "/401k-Pro-Website/static/media/PlanDesignAndElectionsQuery.1ab5a98773c3cc1a815f.mp4",
+    "static/media/PlanDocumentsHub2.mp4": "/401k-Pro-Website/static/media/PlanDocumentsHub2.1bbf49d45a9629d49131.mp4",
+    "static/media/SendDocuments.mp4": "/401k-Pro-Website/static/media/SendDocuments.7190df4f0e511d2b7ae0.mp4",
+    "static/media/Dashboard.webp": "/401k-Pro-Website/static/media/Dashboard.c610252538bd639b9f54.webp",
+    "static/media/MasterSpreadsheetMain.webp": "/401k-Pro-Website/static/media/MasterSpreadsheetMain.0656ecd1bf5d21835861.webp",
+    "static/media/PlanSyncAI-No-Bg.png": "/401k-Pro-Website/static/media/PlanSyncAI-No-Bg.69ef084e717f9a3ba1c1.png",
+    "static/media/PlanSync-No-Bg.png": "/401k-Pro-Website/static/media/PlanSync-No-Bg.899e76b29a68319b0654.png",
+    "index.html": "/401k-Pro-Website/index.html",
+    "main.5a373134.css.map": "/401k-Pro-Website/static/css/main.5a373134.css.map",
+    "main.af72cc40.js.map": "/401k-Pro-Website/static/js/main.af72cc40.js.map",
+    "453.7ddbf8fc.chunk.js.map": "/401k-Pro-Website/static/js/453.7ddbf8fc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5a373134.css",
+    "static/js/main.af72cc40.js"
+  ]
+}

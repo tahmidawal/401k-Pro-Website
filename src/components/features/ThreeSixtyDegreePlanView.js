@@ -6,7 +6,7 @@ import MasterSpreadsheetMainImage from './MasterSpreadsheetMain.webp';
 import ThreeSixyPlanViewImage from './ThreeSixtyPlanView.webp';
 import AIPDFDataExtraction from './AIPDFDataExtraction.mp4';
 import DashboardImage from './Dashboard.webp';
-import PlanDesignAndElectionsQuery from './PlanDesignAndElectionsQuery.mp4';
+import ThreeSixtySearch from './360-Search.mp4';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -232,21 +232,21 @@ const ThreeSixtyDegreePlanView = () => {
     {
       title: "Data Consolidation",
       description: "Consolidates all of your fiduciary plan management information in one place. Everything you need is now at your fingertips.",
-      media: MasterSpreadsheetMainImage,
+      media: ThreeSixyPlanViewImage,
       isVideo: false
     },
     {
-      title: "Client Management",
-      description: "Manage all of your client information in one place. Everything you need is now at your fingertips.",
-      media: ThreeSixyPlanViewImage,
-      isVideo: false,
-      reversed: true
-    },
-    {
       title: "AI Powered Data Entry",
-      description: "Hate entering data by hand? Trust us, we do too. That's why we've built an AI powered data entry system that can read and understand your PDFs, and automatically enter the data into your Master Spreadsheet for you.",
+      description: "Hate entering data by hand? Trust us, we do too. That's why we've built AI tools to do it all for you. You should never have to enter data by hand again. Learn more about our AI tools here",
       media: AIPDFDataExtraction,
       isVideo: true
+    },
+    {
+      title: "Stay Organized and Find Your Information Instantly",
+      description: "PlanSync allows you to easily organize all of your plan information in one place, and find it instantly using our global search.",
+      media: ThreeSixtySearch,
+      isVideo: true,
+      reversed: true
     },
     {
       title: "Comprehensive Dashboard",
@@ -254,14 +254,8 @@ const ThreeSixtyDegreePlanView = () => {
       media: DashboardImage,
       isVideo: false,
       reversed: true
-    },
-    {
-      title: "Stay Organized and Find Your Information Instantly",
-      description: "PlanSync allows you to easily organize all of your plan information in one place, and find it instantly using our global search.",
-      media: PlanDesignAndElectionsQuery,
-      isVideo: true,
-      reversed: true
     }
+    
   ];
 
   return (

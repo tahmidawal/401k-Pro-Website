@@ -71,31 +71,6 @@ const jobListings = [
     isPopular: true
   },
   {
-    title: "Machine Learning Intern",
-    icon: Brain,
-    salary: "Competitive",
-    features: [
-      "Train and optimize AI models",
-      "Work on real-world projects",
-      "Learn from industry experts",
-      "Potential for full-time offer",
-      "Networking opportunities"
-    ],
-    isPopular: true
-  },
-  {
-    title: "Data Analyst",
-    icon: ChartBar,
-    salary: "$80,000 - $110,000",
-    features: [
-      "Analyze and interpret complex data sets",
-      "Provide actionable insights to drive business decisions",
-      "Collaborate with cross-functional teams",
-      "Opportunity for career advancement"
-    ],
-    isPopular: true
-  },
-  {
     title: "Product Manager",
     icon: Sparkles,
     salary: "$100,000 - $130,000",
@@ -116,6 +91,19 @@ const jobListings = [
       "Conduct user research and testing",
       "Collaborate with developers to implement designs",
       "Stay updated with design trends and best practices"
+    ],
+    isPopular: true
+  },
+  {
+    title: "Machine Learning Intern",
+    icon: Brain,
+    salary: "Competitive",
+    features: [
+      "Train and optimize AI models",
+      "Work on real-world projects",
+      "Learn from industry experts",
+      "Potential for full-time offer",
+      "Networking opportunities"
     ],
     isPopular: true
   }
@@ -226,7 +214,7 @@ const CareersPage = () => {
             variants={itemVariants}
             className="text-xl text-gray-600 max-w-2xl mx-auto"
           >
-            Help us shape the future of 401k plan management
+            Help us bring AI to advisors everywhere
           </motion.p>
         </motion.div>
 

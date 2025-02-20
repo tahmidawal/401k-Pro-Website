@@ -191,7 +191,7 @@ const AutomatReprting = () => {
     },
     {
       name: 'Annual Report Example',
-      url: 'https://drive.google.com/file/d/1VyzpZ-q7BrNKzbtbhdtKQ8WXR-Paxc5a/view?usp=sharing'
+      url: 'https://drive.google.com/file/d/11VNRDPde5lrkgKQw8dRahOE00dvpHisf/view?usp=sharing'
     }
   ];
 
@@ -364,29 +364,43 @@ const AutomatReprting = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-16 sm:mb-24"
+            className="py-16 md:py-24"
           >
             <motion.h2
-              variants={textVariants}
-              className="text-3xl sm:text-4xl font-extralight text-center mb-8 sm:mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-6xl font-extralight text-center mb-16"
             >
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">
-                How It Works
-              </span>
+              How It Works
             </motion.h2>
-            <div className="space-y-3 sm:space-y-4">
-              {[
-                'Track your plan touchpoints and requirements over the course of the year',
-                "Select the type of report you'd like to generate",
-                'Click one button and generate your report',
-                'Download and make any necessary edits',
-                'Send to your clients',
-                "That's it!"
-              ].map((step, index) => (
-                <motion.div key={index} variants={itemVariants}>
-                  <StepCard number={index + 1} text={step} />
-                </motion.div>
-              ))}
+
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                {['AI tracks your touchpoints, requirements, and plan data', "You select the type of report you'd like to generate", 'Click one button and generate your report', 'Download and make any necessary edits'].map((step, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.3,
+                      delay: index * 0.1
+                    }}
+                    className="relative group"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-2xl blur-xl transform group-hover:scale-105 transition-transform duration-500"></div>
+                    <div className="relative h-full bg-white/95 backdrop-blur-sm p-8 rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.06)] transition-shadow duration-300 flex items-center gap-6">
+                      <div className="w-12 h-12 flex-shrink-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full flex items-center justify-center text-white text-xl font-light">
+                        {index + 1}
+                      </div>
+                      <p className="text-gray-700 text-lg font-light">
+                        {step}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
 

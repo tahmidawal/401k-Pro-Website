@@ -180,7 +180,7 @@ const FragmentedEcosystemCombined = () => {
         </div>
 
         {/* Add WorkflowIntegration section */}
-        <div className="py-24 bg-white">
+        <div className="py-24">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-extralight mb-6">

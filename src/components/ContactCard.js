@@ -99,7 +99,7 @@ const ContactCard = () => {
               <div className="sticky top-8 space-y-8">
                 <div className="space-y-4">
                   <h2 className="text-3xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">
-                    Let's start a conversation
+                    We're here to help
                   </h2>
                   <p className="text-gray-600 font-light">
                     We're here to help transform your 401(k) management experience.

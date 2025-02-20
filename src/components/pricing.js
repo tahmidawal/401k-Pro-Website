@@ -47,7 +47,7 @@ const features = [
 
 const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/month" }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
@@ -59,33 +59,70 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.8, delay }}
+      animate={isInView ? { 
+        opacity: 1, 
+        y: 0,
+        transition: {
+          duration: 0.5,
+          delay: delay * 0.5,
+          ease: [0.04, 0.62, 0.23, 0.98]
+        }
+      } : { opacity: 0, y: 50 }}
       whileHover={{ translateY: -10 }}
       className="relative group h-full"
     >
-      <div className={`relative h-full backdrop-blur-xl bg-white/80 p-8 rounded-2xl border ${
-        isPopular ? 'border-blue-500/50' : 'border-gray-300'
-      } shadow-lg overflow-hidden flex flex-col`}>
+      <div className="relative h-full backdrop-blur-xl bg-white/80 p-8 rounded-2xl border border-gray-100 shadow-lg overflow-hidden flex flex-col">
         {isPopular && (
-          <div className="absolute top-4 right-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isInView ? { 
+              opacity: 1, 
+              scale: 1,
+              transition: {
+                delay: delay + 0.3,
+                duration: 0.5,
+                ease: "easeOut"
+              }
+            } : { opacity: 0, scale: 0.8 }}
+            className="absolute top-4 right-4"
+          >
             <div className="relative px-3 py-1 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full">
               <span className="text-white text-sm font-light">Most Popular</span>
             </div>
-          </div>
+          </motion.div>
         )}
 
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
-
-        <div className="mb-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { 
+            opacity: 1, 
+            y: 0,
+            transition: {
+              delay: delay + 0.2,
+              duration: 0.5
+            }
+          } : { opacity: 0, y: 20 }}
+          className="mb-8"
+        >
           <h2 className="text-2xl font-light mb-4">{planRange}</h2>
           <div className="flex items-baseline">
             <span className="text-4xl font-light">${price}</span>
             <span className="text-gray-500 ml-2">{priceSubtext}</span>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="space-y-4 mb-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { 
+            opacity: 1, 
+            y: 0,
+            transition: {
+              delay: delay + 0.4,
+              duration: 0.5
+            }
+          } : { opacity: 0, y: 20 }}
+          className="space-y-4 mb-8"
+        >
           <div className="p-3 bg-blue-50 rounded-xl">
             <p className="text-blue-600 text-sm font-medium text-center">
               All Features Included
@@ -101,24 +138,46 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
               30-Day Money Back Guarantee
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <button 
+        <motion.button 
           onClick={handleButtonClick}
-          className="relative group w-full"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { 
+            opacity: 1, 
+            y: 0,
+            transition: {
+              delay: delay + 0.6,
+              duration: 0.5
+            }
+          } : { opacity: 0, y: 20 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="relative group w-full mt-auto"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
           <div className="relative bg-gradient-to-r from-blue-500 to-sky-400 text-white font-light py-3 px-6 rounded-full flex items-center justify-center gap-2">
             <span>Book a Demo</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+            <motion.div
+              animate={{ x: [0, 4, 0] }}
+              transition={{ 
+                duration: 1.5, 
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </motion.div>
           </div>
-        </button>
+        </motion.button>
       </div>
     </motion.div>
   );
 };
 
 const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month" }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
@@ -128,9 +187,16 @@ const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month
 
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={isInView ? { 
+        opacity: 1, 
+        y: 0,
+        transition: {
+          duration: 0.6,
+          ease: [0.04, 0.62, 0.23, 0.98]
+        }
+      } : { opacity: 0, y: 20 }}
       className="relative w-full"
     >
       <div className={`relative backdrop-blur-xl bg-white/80 p-6 rounded-xl border ${
@@ -186,19 +252,49 @@ const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month
 };
 
 const FeaturesList = () => {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 20,
+      scale: 0.95
+    },
+    visible: { 
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        ease: [0.04, 0.62, 0.23, 0.98]
+      }
+    }
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      ref={containerRef}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
       className="max-w-5xl mx-auto mt-20 px-4"
       id="features-section"
     >
       <motion.div 
+        variants={itemVariants}
         className="text-center mb-10"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
       >
         <h2 className="text-4xl font-extralight mb-4">
           Every Plan Includes
@@ -212,20 +308,21 @@ const FeaturesList = () => {
         {features.map((feature, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: index * 0.1,
-              ease: "easeOut"
+            variants={itemVariants}
+            whileHover={{ 
+              scale: 1.02,
+              transition: { duration: 0.2 }
             }}
-            whileHover={{ scale: 1.02 }}
             className="relative group"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-500"></div>
             <div className="relative backdrop-blur-xl bg-white/80 p-4 rounded-xl border border-gray-300 shadow-lg overflow-hidden flex items-center gap-4">
               <div className="relative flex-shrink-0">
-                <div className="relative w-10 h-10 flex items-center justify-center bg-white rounded-full p-[2px]">
+                <motion.div 
+                  className="relative w-10 h-10 flex items-center justify-center bg-white rounded-full p-[2px]"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full" />
                   <div className="absolute inset-[2px] bg-white rounded-full" />
                   <Check className="relative w-5 h-5 [&>path]:fill-transparent [&>path]:stroke-[url(#check-gradient)]" />
@@ -237,7 +334,7 @@ const FeaturesList = () => {
                       </linearGradient>
                     </defs>
                   </svg>
-                </div>
+                </motion.div>
               </div>
               <span className="text-gray-700 text-base font-light group-hover:text-blue-600 transition-colors duration-300">
                 {feature}
@@ -253,6 +350,8 @@ const FeaturesList = () => {
 const PricingComponent = () => {
   const { scrollYProgress } = useScroll();
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const headerRef = useRef(null);
+  const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
 
   const pricingTiers = [
     {
@@ -297,19 +396,57 @@ const PricingComponent = () => {
           style={{ y: backgroundY }}
           className="absolute inset-0 pointer-events-none"
         >
-          <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+          <motion.div 
+            animate={{
+              opacity: [0.5, 1, 0.5],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
+          />
+          <motion.div 
+            animate={{
+              opacity: [0.5, 1, 0.5],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "linear",
+              delay: 1
+            }}
+            className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"
+          />
         </motion.div>
 
         <div className="max-w-7xl mx-auto px-4 relative py-12 md:py-24">
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+            ref={headerRef}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isHeaderInView ? {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.4,
+                ease: [0.04, 0.62, 0.23, 0.98]
+              }
+            } : { opacity: 0, y: 30 }}
             className="text-center mb-12 md:mb-20"
           >
             <motion.h1 
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  duration: 0.4,
+                  ease: [0.04, 0.62, 0.23, 0.98]
+                }
+              }}
               className="text-4xl md:text-6xl font-extralight mb-4 md:mb-6"
             >
               Simple{" "}
@@ -318,7 +455,16 @@ const PricingComponent = () => {
               </span>
             </motion.h1>
             <motion.p
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  duration: 0.4,
+                  delay: 0.1,
+                  ease: [0.04, 0.62, 0.23, 0.98]
+                }
+              }}
               className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4"
             >
               Transparent pricing based on the number of plans. All features included in every plan.
@@ -355,24 +501,24 @@ const PricingComponent = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 gap-3 px-4">
+            <div className="space-y-4 px-6">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="relative"
+                  className="flex items-center gap-3"
                 >
-                  <div className="relative backdrop-blur-xl bg-white/80 p-3 rounded-lg border border-gray-300 shadow-sm flex items-center gap-3">
-                    <div className="w-8 h-8 flex-shrink-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full flex items-center justify-center">
-                      <Check className="w-4 h-4 text-white" />
+                  <div className="flex-shrink-0">
+                    <div className="w-5 h-5 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full flex items-center justify-center">
+                      <Check className="w-3 h-3 text-white" />
                     </div>
-                    <span className="text-gray-700 text-sm font-light">
-                      {feature}
-                    </span>
                   </div>
+                  <span className="text-gray-700 text-base">
+                    {feature}
+                  </span>
                 </motion.div>
               ))}
             </div>

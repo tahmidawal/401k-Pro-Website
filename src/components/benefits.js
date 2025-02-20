@@ -44,41 +44,44 @@ const BenefitCard = ({ Icon, title, description }) => {
       className="group relative h-full"
     >
       {/* Desktop Card - Hidden on Mobile */}
-      <div className="hidden md:block">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-lg transform group-hover:scale-105 transition-transform duration-500"></div>
-        <div className="relative h-full bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
+      <div className="hidden md:block h-full">
+        {/* Enhanced gradient background effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-2xl blur-xl transform group-hover:scale-105 transition-transform duration-500"></div>
+        <div className="relative h-full bg-white/95 backdrop-blur-sm p-8 rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.06)] transition-shadow duration-300 overflow-hidden flex flex-col">
+          {/* Refined accent gradient */}
+          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-full blur-3xl transform translate-x-20 -translate-y-20 opacity-60"></div>
           
-          <div className="relative">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-10 h-10 relative flex-shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
-                <div className="relative flex items-center justify-center w-full h-full bg-white rounded-xl border border-white/50">
-                  <Icon className="w-5 h-5 text-blue-600" strokeWidth={1.5} />
+          <div className="relative flex flex-col h-full">
+            <div className="flex items-center gap-4 mb-5">
+              <div className="w-12 h-12 relative flex-shrink-0">
+                {/* Enhanced icon container */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-400/10 rounded-xl blur-md transform group-hover:scale-110 transition-transform duration-300"></div>
+                <div className="relative flex items-center justify-center w-full h-full bg-white rounded-xl border border-gray-100 shadow-sm">
+                  <Icon className="w-6 h-6 text-blue-600" strokeWidth={1.5} />
                 </div>
               </div>
               
-              <h3 className="text-xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">
+              <h3 className="text-xl font-medium bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
                 {title}
               </h3>
             </div>
             
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed text-[15px]">
               {description}
             </p>
           </div>
         </div>
       </div>
 
-      {/* New Mobile Card */}
-      <div className="md:hidden bg-white p-5 rounded-[24px] border border-gray-100 shadow-sm">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="text-gray-900 text-lg font-normal">{title}</h3>
-          <div className="text-[#0066FF]">
-            <Icon className="w-6 h-6" strokeWidth={1.5} />
+      {/* Enhanced Mobile Card */}
+      <div className="md:hidden bg-white p-6 rounded-[24px] border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] h-full flex flex-col">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-gray-800 text-lg font-medium">{title}</h3>
+          <div className="w-10 h-10 flex items-center justify-center bg-blue-50/50 rounded-xl">
+            <Icon className="w-5 h-5 text-blue-600" strokeWidth={1.5} />
           </div>
         </div>
-        <p className="text-gray-600 text-sm leading-relaxed">
+        <p className="text-gray-600 text-[15px] leading-relaxed flex-grow">
           {description}
         </p>
       </div>

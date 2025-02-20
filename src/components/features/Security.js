@@ -151,8 +151,6 @@ const Security = () => {
       features: [
         "Containerize application into docker",
         "Never let sensitive info be displayed on the error page",
-        "AWS Secrets manager or parameter store for .env files",
-        "AWS Secrets manager or parameter store for .env files backup",
         "Rotate credentials every 3 days"
       ]
     },

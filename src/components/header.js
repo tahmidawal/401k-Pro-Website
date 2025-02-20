@@ -119,7 +119,7 @@ const Header = () => {
           {isMobileMenuOpen && (
             <div className="lg:hidden fixed inset-0 top-[57px] sm:top-[65px] bg-white/95 backdrop-blur-xl z-50 overflow-y-auto flex flex-col">
               {/* Main content area */}
-              <div className="flex-1 container mx-auto px-4 py-6 space-y-6">
+              <div className="flex-1 container px-4 py-6 space-y-6">
                 {/* Mobile Nav Links */}
                 <div className="space-y-4">
                   <button 

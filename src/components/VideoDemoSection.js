@@ -68,7 +68,7 @@ const DemoVideoSection = () => {
             <div className="text-center max-w-3xl mx-auto px-6 pb-12">
               <motion.h2
                 variants={itemVariants}
-                className="text-4xl sm:text-5xl font-light mb-6 leading-tight text-gray-900"
+                className="text-3xl md:text-6xl font-extralight mb-4 md:mb-6 leading-tight text-gray-900"
               >
                 See PlanSync in <span className="bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">Action</span>
               </motion.h2>

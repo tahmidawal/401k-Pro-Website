@@ -99,10 +99,10 @@ const DemoVideoSection = () => {
                         allowFullScreen
                         title="PlanSync Demo Video"
                       ></iframe>
-                      <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                         <motion.div
                           whileHover={{ scale: 1.1 }}
-                          className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-r from-blue-500 to-sky-400 flex items-center justify-center cursor-pointer shadow-lg"
+                          className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-r from-blue-500 to-sky-400 flex items-center justify-center cursor-pointer shadow-lg pointer-events-auto"
                         >
                           <Play className="w-6 h-6 sm:w-8 sm:h-8 text-white fill-current" />
                         </motion.div>

@@ -126,9 +126,9 @@ const Footer = () => {
             <div className="text-center">
               <h3 className="text-2xl font-light mb-8">Connect</h3>
               <div className="flex justify-center space-x-8 mb-12">
-                <SocialLink href="#" icon={IconBrandTwitter} label="Twitter" />
-                <SocialLink href="https://www.linkedin.com/company/accessible-ai/?viewAsMember=true" icon={Linkedin} label="LinkedIn" />
-                <SocialLink href="#" icon={IconBrandInstagram} label="Instagram" />
+                {/* <SocialLink href="#" icon={IconBrandTwitter} label="Twitter" /> */}
+                <SocialLink href="https://www.linkedin.com/company/106241644/admin/dashboard/" icon={Linkedin} label="LinkedIn" />
+                {/* <SocialLink href="#" icon={IconBrandInstagram} label="Instagram" /> */}
               </div>
               <div className="space-y-6 text-left">
                 <SimpleContactInfo 
@@ -200,9 +200,9 @@ const Footer = () => {
                 Connect
               </h3>
               <div className="flex space-x-3">
-                <SocialLink href="#" icon={IconBrandTwitter} label="Twitter" />
-                <SocialLink href="https://www.linkedin.com/company/accessible-ai/?viewAsMember=true" icon={Linkedin} label="LinkedIn" />
-                <SocialLink href="#" icon={IconBrandInstagram} label="Instagram" />
+                {/* <SocialLink href="#" icon={IconBrandTwitter} label="Twitter" /> */}
+                <SocialLink href="https://www.linkedin.com/company/plansync-ai/about/?viewAsMember=true" icon={Linkedin} label="LinkedIn" />
+                {/* <SocialLink href="#" icon={IconBrandInstagram} label="Instagram" /> */}
               </div>
               <div className="space-y-3 text-left">
                 <SimpleContactInfo 

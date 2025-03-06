@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { Mail, FileUp, MousePointer, Layers } from 'lucide-react';
+import { Mail, Upload, MousePointer, Layers, Orbit } from 'lucide-react';
 
 const EcosystemCard = ({ badge, title, description, delay = 0 }) => {
   return (
@@ -76,7 +76,7 @@ const FragmentedEcosystemCombined = () => {
       description: "PlanSync integrates with the systems you already use—no need to change your workflow. We handle the tedious, time-consuming tasks so you can focus on what matters most: advising your clients."
     },
     {
-      icon: MousePointer,
+      icon: Orbit,
       title: "Advisors Stay at the Center",
       description: "PlanSync enhances your workflow while never replacing your expertise. You drive the decision-making, client relationships, and plan management. We help with the boring stuff."
     },
@@ -86,7 +86,7 @@ const FragmentedEcosystemCombined = () => {
       description: "Simply forward emails to your PlanSync email address, and our system automatically categorizes and stores data for compliance and reporting."
     },
     {
-      icon: FileUp,
+      icon: Upload,
       title: "Upload PDFs, Extract Data Instantly",
       description: "Upload plan documents and let our AI-powered data extraction automatically pull key details for you—no more manual copy-pasting."
     },  

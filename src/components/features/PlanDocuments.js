@@ -507,7 +507,7 @@ const HowItWorks = () => (
     className="mt-16 sm:mt-24"
   >
     <motion.h2 variants={SLIDE_UP_VARIANT} className="text-2xl sm:text-3xl font-light text-center mb-8 sm:mb-16">
-      How It Works
+      How It <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">Works</span>
     </motion.h2>
     <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
       {STEPS.map(({ step, title, description }) => (
@@ -593,8 +593,8 @@ const UseCases = () => (
     viewport={{ once: true, margin: "-100px" }}
     className="mt-16 sm:mt-24"
   >
-    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-2xl sm:text-3xl font-light text-center mb-8 sm:mb-12">
-      Use Cases
+    <motion.h2 variants={SLIDE_UP_VARIANT} className="text-3xl sm:text-3xl font-light text-center mb-8 sm:mb-12">
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-400">Use</span> Cases
     </motion.h2>
     <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
       {USE_CASES.map((useCase, index) => (

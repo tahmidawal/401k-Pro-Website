@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Database, Calendar, FileText, Settings, RefreshCcw, Users, DollarSign, Target, ChevronDown, TrendingUp } from 'lucide-react';
+import { Database, Calendar, FileText, Settings, RefreshCcw, Users, DollarSign, Target, ChevronDown, TrendingUp, X } from 'lucide-react';
 import GradientButtonWithArrow from '../buttons/GradientButtonWithArrow';
 import MasterSpreadsheetMainImage from './MasterSpreadsheetMain.webp';
 import ThreeSixyPlanViewImage from './ThreeSixtyPlanView.webp';
@@ -24,20 +24,179 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8 } },
 };
 
-const MediaSection = ({ media, title, isVideo }) => (
-  <div className="relative group px-2 sm:px-4">
-    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-xl sm:rounded-2xl blur-lg transform group-hover:scale-105 transition-transform duration-500"></div>
-    <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg transform group-hover:scale-[1.02] transition-all duration-500">
-      {isVideo ? (
-        <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-xl sm:rounded-2xl">
-          <source src={media} type="video/mp4" />
-        </video>
-      ) : (
-        <img src={media} alt={title} className="w-full h-full object-cover rounded-xl sm:rounded-2xl" />
+const VideoModal = ({ video, title, isOpen, onClose }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          onClick={onClose}
+        >
+          <motion.div 
+            className="absolute inset-0 bg-black/70"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          />
+          <motion.div 
+            className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-xl overflow-hidden shadow-2xl"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ 
+              type: "spring", 
+              damping: 25, 
+              stiffness: 300,
+              duration: 0.3 
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="absolute top-2 right-2 z-10">
+              <motion.button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClose();
+                }}
+                className="bg-white/80 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors duration-200"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <X className="w-6 h-6 text-gray-800" />
+              </motion.button>
+            </div>
+            <div className="p-2">
+              <video 
+                autoPlay 
+                loop 
+                controls 
+                className="w-full h-full object-contain rounded-lg"
+              >
+                <source src={video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <motion.div 
+              className="p-4 bg-white"
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <h3 className="text-xl font-medium text-gray-800">{title}</h3>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       )}
+    </AnimatePresence>
+  );
+};
+
+const MediaSection = ({ media, title, isVideo, onExpandVideo }) => {
+  const videoRef = useRef(null);
+  
+  const handleClick = () => {
+    if (videoRef.current && onExpandVideo) {
+      // Create a ripple effect animation
+      const ripple = document.createElement('div');
+      ripple.className = 'absolute inset-0 bg-white/30 rounded-xl sm:rounded-2xl';
+      ripple.style.animation = 'ripple 0.6s ease-out forwards';
+      videoRef.current.parentNode.appendChild(ripple);
+      
+      // Remove the ripple element after animation completes
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+      
+      // Call the expand function
+      onExpandVideo();
+    }
+  };
+  
+  return (
+    <div className="relative group px-2 sm:px-4">
+      <style jsx>{`
+        @keyframes ripple {
+          0% {
+            opacity: 1;
+            transform: scale(0.8);
+          }
+          100% {
+            opacity: 0;
+            transform: scale(1.05);
+          }
+        }
+      `}</style>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-xl sm:rounded-2xl blur-lg transform group-hover:scale-105 transition-transform duration-500"></div>
+      <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg transform group-hover:scale-[1.02] transition-all duration-500">
+        {isVideo ? (
+          <>
+            <div className="relative">
+              <video 
+                ref={videoRef}
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className="w-full h-full object-cover rounded-xl sm:rounded-2xl cursor-pointer" 
+                onClick={handleClick}
+              >
+                <source src={media} type="video/mp4" />
+              </video>
+            </div>
+            {onExpandVideo && (
+              <motion.div 
+                className="absolute inset-0 flex items-center justify-center bg-black/20 cursor-pointer"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.2 }}
+                onClick={handleClick}
+              >
+                <motion.div 
+                  className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-gray-800 flex items-center gap-2"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={{ 
+                    type: "spring", 
+                    damping: 15, 
+                    stiffness: 300,
+                    delay: 0.1 
+                  }}
+                >
+                  <span>Click to expand</span>
+                  <motion.svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                    whileHover={{ rotate: 45 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <polyline points="9 21 3 21 3 15"></polyline>
+                    <line x1="21" y1="3" x2="14" y2="10"></line>
+                    <line x1="3" y1="21" x2="10" y2="14"></line>
+                  </motion.svg>
+                </motion.div>
+              </motion.div>
+            )}
+          </>
+        ) : (
+          <img src={media} alt={title} className="w-full h-full object-cover rounded-xl sm:rounded-2xl" />
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const FeatureShowcase = ({ media, title, description, isVideo, index }) => {
   const ref = useRef(null);
@@ -50,6 +209,16 @@ const FeatureShowcase = ({ media, title, description, isVideo, index }) => {
   const opacity = useTransform(scrollYProgress, [0, 0.3], [0.8, 1]);
 
   const isMediaRight = index % 2 === 1;
+  
+  const [isVideoExpanded, setIsVideoExpanded] = useState(false);
+
+  const handleExpandVideo = () => {
+    setIsVideoExpanded(true);
+  };
+
+  const handleCloseVideo = () => {
+    setIsVideoExpanded(false);
+  };
 
   return (
     <motion.div ref={ref} style={{ scale, opacity }} className="relative group px-2 sm:px-4 md:px-6">
@@ -62,11 +231,21 @@ const FeatureShowcase = ({ media, title, description, isVideo, index }) => {
                 <h3 className="text-2xl sm:text-3xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">{title}</h3>
                 <p className="text-base sm:text-lg text-gray-600 leading-relaxed">{description}</p>
               </motion.div>
-              <MediaSection media={media} title={title} isVideo={isVideo} />
+              <MediaSection 
+                media={media} 
+                title={title} 
+                isVideo={isVideo} 
+                onExpandVideo={isVideo ? handleExpandVideo : undefined} 
+              />
             </>
           ) : (
             <>
-              <MediaSection media={media} title={title} isVideo={isVideo} />
+              <MediaSection 
+                media={media} 
+                title={title} 
+                isVideo={isVideo} 
+                onExpandVideo={isVideo ? handleExpandVideo : undefined} 
+              />
               <motion.div className="space-y-4 sm:space-y-8">
                 <h3 className="text-2xl sm:text-3xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">{title}</h3>
                 <p className="text-base sm:text-lg text-gray-600 leading-relaxed">{description}</p>
@@ -75,6 +254,16 @@ const FeatureShowcase = ({ media, title, description, isVideo, index }) => {
           )}
         </div>
       </div>
+      
+      {/* Video Modal */}
+      {isVideo && (
+        <VideoModal 
+          video={media} 
+          title={title} 
+          isOpen={isVideoExpanded} 
+          onClose={handleCloseVideo} 
+        />
+      )}
     </motion.div>
   );
 };

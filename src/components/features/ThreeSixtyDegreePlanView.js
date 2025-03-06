@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Database, Calendar, FileText, Settings, RefreshCcw, Users, DollarSign, Target, ChevronDown, TrendingUp, X } from 'lucide-react';
 import GradientButtonWithArrow from '../buttons/GradientButtonWithArrow';
-import MasterSpreadsheetMainImage from './MasterSpreadsheetMain.webp';
 import ThreeSixyPlanViewImage from './ThreeSixtyPlanView.webp';
 import AIPDFDataExtraction from './AIPDFDataExtraction.mp4';
 import DashboardImage from './Dashboard.webp';

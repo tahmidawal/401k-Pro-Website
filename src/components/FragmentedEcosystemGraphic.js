@@ -1,4 +1,3 @@
-import { Frame } from 'lucide-react';
 import React from 'react';
 import { motion } from 'framer-motion';
 

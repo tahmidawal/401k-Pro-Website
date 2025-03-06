@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { motion } from 'framer-motion';
-import { Send, User, Mail, Phone, Check, Clock, ArrowRight, HelpCircle, ChevronDown } from 'lucide-react';
+import { User, Mail, Phone, Check, Clock, ArrowRight, HelpCircle, ChevronDown } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 
 const fadeIn = {

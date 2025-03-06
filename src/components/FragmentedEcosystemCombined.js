@@ -1,7 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { Mail, Upload, MousePointer, Layers, Orbit } from 'lucide-react';
+import { Mail, Upload, Layers, Orbit } from 'lucide-react';
 
 const EcosystemCard = ({ badge, title, description, delay = 0 }) => {
   return (

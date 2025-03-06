@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Check, Briefcase, Users, Code, Brain, Sparkles, ChartBar } from 'lucide-react'; // Added ChartBar import
+import { Check, Briefcase, Users, Code, Brain, Sparkles } from 'lucide-react'; // Added ChartBar import
 import GradientButtonWithArrow from './buttons/GradientButtonWithArrow';
 
 // Animation variants

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Mail, Phone, ChevronRight, ChevronDown } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../img/PlanSync-No-Bg.png';
-import { IconBrandInstagram, IconBrandTwitter } from '@tabler/icons-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -53,39 +52,24 @@ const FooterSection = ({ title, items, handleHashLink, navigateAndScrollTop }) =
               {item.text}
             </a>
           ) : item.link.startsWith('#') ? (
-            <a 
+            <button 
               onClick={() => handleHashLink(item.link)}
               className="text-gray-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-sky-400 hover:bg-clip-text hover:text-transparent transition-all duration-200 cursor-pointer"
             >
               {item.text}
-            </a>
+            </button>
           ) : (
-            <a 
+            <button 
               onClick={() => navigateAndScrollTop(item.link)}
               className="text-gray-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-sky-400 hover:bg-clip-text hover:text-transparent transition-all duration-200 cursor-pointer"
             >
               {item.text}
-            </a>
+            </button>
           )}
         </motion.li>
       ))}
     </ul>
   </motion.div>
-);
-
-const SocialLink = ({ href, icon: Icon, label }) => (
-  <motion.a
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    href={href}
-    className="relative group"
-    aria-label={label}
-  >
-    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full transition-transform duration-200 group-hover:scale-110" />
-    <div className="relative flex items-center justify-center w-10 h-10">
-      <Icon size={20} className="text-white transition-colors duration-200" />
-    </div>
-  </motion.a>
 );
 
 const SimpleContactInfo = ({ icon: Icon, text, href }) => (
@@ -206,7 +190,7 @@ const Footer = () => {
                   <span className="text-gray-700 font-medium">info@PlanSync.ai</span>
                 </a>
                 
-                <a onClick={() => navigateAndScrollTop('/contact-plansync')} className="flex items-center bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 w-full cursor-pointer">
+                <button onClick={() => navigateAndScrollTop('/contact-plansync')} className="flex items-center bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 w-full cursor-pointer">
                   <div className="relative w-10 h-10 flex-shrink-0 mr-4">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full"></div>
                     <div className="relative flex items-center justify-center w-full h-full">
@@ -214,7 +198,7 @@ const Footer = () => {
                     </div>
                   </div>
                   <span className="text-gray-700 font-medium">Contact Us</span>
-                </a>
+                </button>
               </div>
             </div>
             
@@ -222,10 +206,10 @@ const Footer = () => {
             <div className="mb-8">
               <MobileAccordion title="Product">
                 <ul className="space-y-3">
-                  <li><a onClick={() => navigateAndScrollTop('/security')} className="text-gray-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-sky-400 hover:bg-clip-text hover:text-transparent cursor-pointer">Security</a></li>
-                  <li><a onClick={() => navigateAndScrollTop('/frequently-asked-questions')} className="text-gray-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-sky-400 hover:bg-clip-text hover:text-transparent cursor-pointer">F.A.Q.</a></li>
-                  <li><a onClick={() => handleHashLink('#demo-video')} className="text-gray-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-sky-400 hover:bg-clip-text hover:text-transparent cursor-pointer">Demo Video</a></li>
-                  <li><a onClick={() => handleHashLink('#pricing')} className="text-gray-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-sky-400 hover:bg-clip-text hover:text-transparent cursor-pointer">Try for Free</a></li>
+                  <li><button onClick={() => navigateAndScrollTop('/security')} className="text-gray-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-sky-400 hover:bg-clip-text hover:text-transparent cursor-pointer">Security</button></li>
+                  <li><button onClick={() => navigateAndScrollTop('/frequently-asked-questions')} className="text-gray-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-sky-400 hover:bg-clip-text hover:text-transparent cursor-pointer">F.A.Q.</button></li>
+                  <li><button onClick={() => handleHashLink('#demo-video')} className="text-gray-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-sky-400 hover:bg-clip-text hover:text-transparent cursor-pointer">Demo Video</button></li>
+                  <li><button onClick={() => handleHashLink('#pricing')} className="text-gray-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-sky-400 hover:bg-clip-text hover:text-transparent cursor-pointer">Try for Free</button></li>
                 </ul>
               </MobileAccordion>
               

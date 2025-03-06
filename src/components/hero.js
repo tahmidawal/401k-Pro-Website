@@ -90,7 +90,7 @@ const HeroSection = () => {
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://your-domain.com" />
       </Helmet>
-      <div className="relative min-h-screen overflow-hidden py-8 px-4 sm:px-6 lg:px-8 flex items-center -mt-5" id="hero">
+      <div className="relative min-h-screen overflow-hidden px-4 sm:px-6 lg:px-8 flex items-center lg:-mt-5 mt-4 sm:mt-6" id="hero">
         <div className="max-w-7xl mx-auto relative">
           {/* Desktop View */}
           <motion.div
@@ -158,11 +158,11 @@ const HeroSection = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:hidden flex flex-col items-center text-center"
+            className="lg:hidden flex flex-col items-center text-center pt-4 sm:pt-6"
           >
             <motion.h1 
               variants={itemVariants}
-              className="text-3xl font-extralight mb-4 leading-tight"
+              className="text-3xl font-extralight mb-4 leading-tight mt-3 sm:mt-4"
             >
               <span className="bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">
                 AI-Powered

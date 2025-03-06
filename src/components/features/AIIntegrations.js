@@ -246,7 +246,7 @@ const AIIntegration = () => {
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-400/10 to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
         </FloatingElement>
 
-        <div className="max-w-7xl mx-auto px-4 py-12 sm:py-24 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:pt-20 pt-10 relative">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -282,7 +282,7 @@ const AIIntegration = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-16 sm:mb-32"
+            className="mb-16"
           >
             <h2 className="text-3xl sm:text-4xl font-light text-center mb-3 sm:mb-4">
               Why AI Matters for
@@ -326,7 +326,7 @@ const AIIntegration = () => {
             transition={{ duration: 0.8 }}
             className="text-center px-4 sm:px-0"
           >
-            <div className="inline-block p-1 rounded-full mb-8 sm:mb-16">
+            <div className="inline-block p-1 rounded-full">
               <div className="bg-white px-6 sm:px-12 py-8 sm:py-16 rounded-full relative overflow-hidden">
                 <div className="absolute inset-0"></div>
                 <h2 className="text-2xl sm:text-4xl font-light mb-4 sm:mb-6">Ready to Gain Your Competitive Advantage?</h2>

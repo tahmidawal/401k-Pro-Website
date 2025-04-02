@@ -35,11 +35,6 @@ const itemVariants = {
 // Testimonials data
 const testimonials = [
   {
-    quote: "PlanSync has completely transformed the way we manage 401k plans.",
-    author: "Chad Trevithick",
-    position: "CFP, Southeast Financial Group"
-  },
-  {
     quote: "I can't believe how much time we've saved since switching to PlanSync.",
     author: "Andrew Wilson",
     position: "401k Associate, Narwhal Capital"

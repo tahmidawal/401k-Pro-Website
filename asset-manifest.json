@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/401k-Pro-Website/static/css/main.5a373134.css",
-    "main.js": "/401k-Pro-Website/static/js/main.af72cc40.js",
+    "main.js": "/401k-Pro-Website/static/js/main.720bf9f7.js",
     "static/js/453.7ddbf8fc.chunk.js": "/401k-Pro-Website/static/js/453.7ddbf8fc.chunk.js",
     "static/media/PlanDocumentsAINew1.mp4": "/401k-Pro-Website/static/media/PlanDocumentsAINew1.348f3406b629b8c88a84.mp4",
     "static/media/AIPDFDataExtraction.mp4": "/401k-Pro-Website/static/media/AIPDFDataExtraction.a8e20a08a01a004bd204.mp4",
@@ -15,11 +15,11 @@
     "static/media/PlanSync-No-Bg.png": "/401k-Pro-Website/static/media/PlanSync-No-Bg.899e76b29a68319b0654.png",
     "index.html": "/401k-Pro-Website/index.html",
     "main.5a373134.css.map": "/401k-Pro-Website/static/css/main.5a373134.css.map",
-    "main.af72cc40.js.map": "/401k-Pro-Website/static/js/main.af72cc40.js.map",
+    "main.720bf9f7.js.map": "/401k-Pro-Website/static/js/main.720bf9f7.js.map",
     "453.7ddbf8fc.chunk.js.map": "/401k-Pro-Website/static/js/453.7ddbf8fc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5a373134.css",
-    "static/js/main.af72cc40.js"
+    "static/js/main.720bf9f7.js"
   ]
 }

@@ -45,7 +45,7 @@ const features = [
   "24/7/365 Support"
 ];
 
-const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/month" }) => {
+const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/month", originalPrice }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const navigate = useNavigate();
@@ -79,10 +79,16 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
 
         <div className="mb-8">
           <h2 className="text-2xl font-light mb-4">{planRange}</h2>
-          <div className="flex items-baseline">
+          <div className="flex items-baseline" style={{ gap: '0.25rem' }}>
+            {originalPrice && (
+              <span className="text-2xl font-light text-gray-400 line-through mr-2">${originalPrice}</span>
+            )}
             <span className="text-4xl font-light">${price}</span>
             <span className="text-gray-500 ml-2">{priceSubtext}</span>
           </div>
+          {originalPrice && (
+            <p className="text-sm text-green-600 mt-3">Early Acceess Offer</p>
+          )}
         </div>
 
         <div className="space-y-4 mb-8">
@@ -118,7 +124,7 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
   );
 };
 
-const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month" }) => {
+const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month", originalPrice }) => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
@@ -147,9 +153,15 @@ const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month
         <div className="text-center mb-6">
           <h2 className="text-xl font-light mb-3">{planRange}</h2>
           <div className="flex items-baseline justify-center">
+            {originalPrice && (
+              <span className="text-xl font-light text-gray-400 line-through mr-2">${originalPrice}</span>
+            )}
             <span className="text-3xl font-light">${price}</span>
             <span className="text-gray-500 ml-2">{priceSubtext}</span>
           </div>
+          {originalPrice && (
+            <p className="text-xs text-green-600 mt-1">Limited time offer</p>
+          )}
         </div>
 
         <div className="space-y-3 mb-6">
@@ -201,7 +213,7 @@ const FeaturesList = () => {
         transition={{ duration: 0.8 }}
       >
         <h2 className="text-4xl font-extralight mb-4">
-          Every Plan Includes
+          Every Subscription Includes
         </h2>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
           Everything you need to streamline 401(k) plan management.
@@ -258,16 +270,19 @@ const PricingComponent = () => {
     {
       planRange: "1-15 Plans Managed",
       price: 300,
+      originalPrice: 400,
       isPopular: false
     },
     {
       planRange: "16-50 Plans Managed",
-      price: 500,
-      isPopular: true
+      price: 475,
+      originalPrice: 600,
+      isPopular: false
     },
     {
       planRange: "51+ Plans Managed",
-      price: '10',
+      price: '9.5',
+      originalPrice: 12,
       isPopular: false,
       priceSubtext: "per plan/month"
     }
@@ -319,9 +334,9 @@ const PricingComponent = () => {
             </motion.h1>
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4"
+              className="text-lg md:text-xl text-gray-600 max-w-5xl mx-auto px-4"
             >
-              Transparent pricing based on the number of plans. All features are always included.
+              Transparent pricing based on how many retirement plans you manage. All features are always included.
             </motion.p>
           </motion.div>
 
@@ -348,7 +363,7 @@ const PricingComponent = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl font-extralight mb-3">
-                Every Plan Includes
+                Every Subscription Includes
               </h2>
               <p className="text-gray-600 text-base px-4">
                 Everything you need to streamline 401(k) plan management.

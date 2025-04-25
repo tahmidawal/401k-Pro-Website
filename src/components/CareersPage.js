@@ -64,7 +64,7 @@ const jobListings = [
     isPopular: true
   },
   {
-    title: "Advisor Board Member",
+    title: "Advisory Board",
     icon: Users,
     salary: "TBD",
     features: [

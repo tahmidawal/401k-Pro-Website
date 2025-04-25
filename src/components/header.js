@@ -359,7 +359,7 @@ const ActionButtons = ({ isMobile, handleNavigation }) => (
     </button>
     
     <button
-      onClick={() => window.location.href = 'https://app.PlanSync AI'}
+      onClick={() => window.location.href = 'https://app.plansync.ai'}
       className="relative group"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>

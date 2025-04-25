@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import GradientButtonWithArrow from './buttons/GradientButtonWithArrow';
@@ -48,22 +48,11 @@ const DemoVideoSection = () => {
     },
     {
       id: 'feature-overview',
-      title: 'Feature Overview',
+      title: 'Live Demo',
       src: 'https://www.youtube.com/embed/qJ9SYE9Yne0?enablejsapi=1',
       description: 'Explore the key features that make PlanSync the leading platform for 401(k) plan management.'
     }
   ];
-
-  // Auto-advance carousel every 15 seconds (only when video is not playing)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isVideoPlaying) {
-        setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
-      }
-    }, 15000);
-    
-    return () => clearInterval(interval);
-  }, [isVideoPlaying, videos.length]);
 
   const nextVideo = () => {
     setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);

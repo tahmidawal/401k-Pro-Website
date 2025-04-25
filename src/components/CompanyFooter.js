@@ -168,8 +168,22 @@ const Footer = () => {
               />
               <p className="text-sm text-gray-500">© 2024 AccessibleAI, LLC</p>
               <div className="flex space-x-6">
-                <a href="/terms" className="text-sm text-gray-600 hover:text-blue-600 transition-all duration-200">Terms</a>
-                <a href="/privacy" className="text-sm text-gray-600 hover:text-blue-600 transition-all duration-200">Privacy</a>
+                <a
+                  href="https://drive.google.com/file/d/1AACdaA-dwVBOkH6GQ4msDcML35fe7PSB/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-600 hover:text-blue-600 transition-all duration-200"
+                >
+                  Terms
+                </a>
+                <a
+                  href="https://drive.google.com/file/d/1T1YtQA8wW7MCw-RT-7wdJhWtjPqr885R/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-600 hover:text-blue-600 transition-all duration-200"
+                >
+                  Privacy Policy
+                </a>
               </div>
             </motion.div>
 

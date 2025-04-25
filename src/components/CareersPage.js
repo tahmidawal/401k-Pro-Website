@@ -35,89 +35,43 @@ const itemVariants = {
 
 const jobListings = [
   {
-    title: "Sales Associate",
+    title: "Sales Development Representative",
     icon: Briefcase,
-    salary: "$70,000 - $100,000",
+    salary: "$70,000 - $100,000+ OTE",
     features: [
-      "Learn about effective implementation of AI in business",
-      "Deliver unparalleled customer experiences",
-      "Collaborate with innovative team",
-      "Opportunity for rapid growth",
+      "Drive sales of PlanSync's 401(k) management platform to financial advisors",
+      "Develop relationships with potential clients and industry partners",
+      "Demonstrate our platform's value through presentations and demos",
+      "Collaborate with marketing and product teams to refine sales strategy",
+      "Uncapped commission structure",
+      "Flexible work hours and location",
+      "Opportunity to grow into a sales leadership role"
     ],
     isPopular: true
   },
   {
-    title: "Full Stack Developer",
-    icon: Code,
-    salary: "$90,000 - $120,000",
+    title: "Head Of Sales",
+    icon: Briefcase,
+    salary: "$150,000+ OTE",
     features: [
-      "Create intuitive robot interfaces",
-      "Shape human-robot interactions",
-      "Work with latest technologies",
-      "Flexible work environment",
-      "Professional development opportunities"
+      "Build and scale a high-performing sales team",
+      "Develop and execute strategic sales plans to drive revenue growth",
+      "Establish key performance metrics and accountability systems",
+      "Cultivate relationships with enterprise clients and industry partners",
+      "Uncapped commission structure",
+      "Flexible work hours and location",
     ],
     isPopular: true
   },
   {
-    title: "AI Engineer",
-    icon: Brain,
-    salary: "$150,000 - $200,000",
-    features: [
-      "Build and optimize large language models",
-      "Work on real-world projects",
-      "Learn from industry experts",
-    ],
-    isPopular: true
-  },
-  {
-    title: "Machine Learning Intern",
-    icon: Brain,
-    salary: "Competitive",
-    features: [
-      "Train and optimize AI models",
-      "Work on real-world projects",
-      "Learn from industry experts",
-      "Potential for full-time offer",
-      "Networking opportunities"
-    ],
-    isPopular: true
-  },
-  {
-    title: "Data Analyst",
-    icon: ChartBar,
-    salary: "$80,000 - $110,000",
-    features: [
-      "Analyze and interpret complex data sets",
-      "Provide actionable insights to drive business decisions",
-      "Collaborate with cross-functional teams",
-      "Opportunity for career advancement"
-    ],
-    isPopular: true
-  },
-  {
-    title: "Product Manager",
-    icon: Sparkles,
-    salary: "$100,000 - $130,000",
-    features: [
-      "Lead product development from concept to launch",
-      "Work closely with engineering and design teams",
-      "Define product vision and strategy",
-      "Drive user engagement and satisfaction"
-    ],
-    isPopular: true
-  },
-  {
-    title: "UX/UI Designer",
+    title: "Advisor Board Member",
     icon: Users,
-    salary: "$75,000 - $105,000",
+    salary: "TBD",
     features: [
-      "Design user-friendly interfaces and experiences",
-      "Conduct user research and testing",
-      "Collaborate with developers to implement designs",
-      "Stay updated with design trends and best practices"
+      "Provide feedback and insights to the product team",
+      "Help shape the future of PlanSync's 401(k) management platform",
+      "Develop strategies to grow the company and shape the future of PlanSync AI",
     ],
-    isPopular: true
   }
 ];
 

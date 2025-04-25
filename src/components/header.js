@@ -166,6 +166,16 @@ const Header = () => {
                     </div>
                     <span className="text-gray-700 font-light text-lg">Pricing</span>
                   </button>
+
+                  <button 
+                    onClick={() => handleNavigation('/careers')} 
+                    className="w-full flex items-center space-x-3 px-4 py-3.5 rounded-2xl hover:bg-gradient-to-br hover:from-blue-600/5 hover:to-cyan-400/5 transition-all duration-300"
+                  >
+                    <div className="w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-600/10 to-cyan-400/10">
+                      <ArrowRight className="w-4 h-4 text-blue-600" />
+                    </div>
+                    <span className="text-gray-700 font-light text-lg">Careers</span>
+                  </button>
                 </div>
               </div>
 
@@ -252,6 +262,16 @@ const DesktopNavLinks = ({ handleNavigation }) => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-cyan-400/0 group-hover:from-blue-600/5 group-hover:to-cyan-400/5 rounded-xl transition-all duration-300"></div>
         <span className="relative font-light text-gray-600 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0A5A9C] group-hover:to-[#39A5F3] transition duration-200">
           Pricing
+        </span>
+      </button>
+
+      <button 
+        onClick={() => handleNavigation('/careers')} 
+        className="relative group px-4 py-2 rounded-xl"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-cyan-400/0 group-hover:from-blue-600/5 group-hover:to-cyan-400/5 rounded-xl transition-all duration-300"></div>
+        <span className="relative font-light text-gray-600 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#0A5A9C] group-hover:to-[#39A5F3] transition duration-200">
+          Careers
         </span>
       </button>
     </>

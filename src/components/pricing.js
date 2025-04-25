@@ -256,17 +256,17 @@ const PricingComponent = () => {
 
   const pricingTiers = [
     {
-      planRange: "1-15 Plans",
+      planRange: "1-15 Plans Managed",
       price: 300,
       isPopular: false
     },
     {
-      planRange: "16-50 Plans",
+      planRange: "16-50 Plans Managed",
       price: 500,
       isPopular: true
     },
     {
-      planRange: "51+ Plans",
+      planRange: "51+ Plans Managed",
       price: '10',
       isPopular: false,
       priceSubtext: "per plan/month"
@@ -319,9 +319,9 @@ const PricingComponent = () => {
             </motion.h1>
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4"
+              className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4"
             >
-              Transparent pricing based on the number of plans. All features included in every plan.
+              Transparent pricing based on the number of plans. All features are always included.
             </motion.p>
           </motion.div>
 

@@ -187,11 +187,11 @@ const AutomatReprting = () => {
   const exampleReports = [
     {
       name: 'Quarterly Report Example',
-      url: 'https://drive.google.com/file/d/1-4d6iQnDrF3L-uG-AwhNSFm2rOdPtkOX/view?usp=sharing'
+      url: 'https://drive.google.com/file/d/1Wg1DVjvJU5mi36D5HAz7fv3FQ23usoV5/view?usp=sharing'
     },
     {
       name: 'Annual Report Example',
-      url: 'https://drive.google.com/file/d/1VyzpZ-q7BrNKzbtbhdtKQ8WXR-Paxc5a/view?usp=sharing'
+      url: 'https://drive.google.com/file/d/1Ru9u4oZS2V7kSmIjTsxjFt_BNdI7yAP5/view?usp=sharing'
     }
   ];
 

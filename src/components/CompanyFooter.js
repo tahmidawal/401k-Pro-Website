@@ -117,7 +117,7 @@ const Footer = () => {
               <h3 className="text-lg font-light mb-4">Product</h3>
               <ul className="space-y-3">
                 <li><a href="/security" className="text-gray-600 hover:text-blue-600">Security</a></li>
-                <li><a href="/#demo-video" className="text-gray-600 hover:text-blue-600">Demo Video</a></li>
+                <li><a href="#demo-video" className="text-gray-600 hover:text-blue-600">Demo Video</a></li>
                 <li><a href="/#pricing" className="text-gray-600 hover:text-blue-600">Try for Free</a></li>
               </ul>
             </div>
@@ -179,7 +179,7 @@ const Footer = () => {
               items={[
                 { text: 'Security', link: '/security' },
                 { text: 'F.A.Q.', link: '/frequently-asked-questions' },
-                { text: 'Demo Video', link: '/#demo-video' },
+                { text: 'Demo Video', link: '#demo-video' },
                 { text: 'Try for Free', link: '/#pricing' }
               ]}
             />

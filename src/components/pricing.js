@@ -281,7 +281,7 @@ const PricingComponent = () => {
     },
     {
       planRange: "51+ Plans Managed",
-      price: '9.5',
+      price: '9.50',
       originalPrice: 12,
       isPopular: false,
       priceSubtext: "per plan/month"

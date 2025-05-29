@@ -72,7 +72,7 @@ const FragmentedEcosystemCombined = () => {
   const workflowFeatures = [
      {
       icon: Layers,
-      title: "Keep Your Current Tools, Work Smarter",
+      title: "Keep Your Current Tools",
       description: "PlanSync integrates with the systems you already use—no need to change your workflow. We handle the tedious, time-consuming tasks so you can focus on what matters most: advising your clients."
     },
     {

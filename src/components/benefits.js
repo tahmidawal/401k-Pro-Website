@@ -44,12 +44,12 @@ const BenefitCard = ({ Icon, title, description }) => {
       className="group relative h-full"
     >
       {/* Desktop Card - Hidden on Mobile */}
-      <div className="hidden md:block">
+      <div className="hidden md:block h-full">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-2xl blur-lg transform group-hover:scale-105 transition-transform duration-500"></div>
-        <div className="relative h-full bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden">
+        <div className="relative h-full bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-lg overflow-hidden flex flex-col">
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-cyan-400/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
           
-          <div className="relative">
+          <div className="relative flex-1 flex flex-col">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-10 h-10 relative flex-shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
@@ -63,7 +63,7 @@ const BenefitCard = ({ Icon, title, description }) => {
               </h3>
             </div>
             
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed flex-1">
               {description}
             </p>
           </div>
@@ -71,14 +71,14 @@ const BenefitCard = ({ Icon, title, description }) => {
       </div>
 
       {/* New Mobile Card */}
-      <div className="md:hidden bg-white p-5 rounded-[24px] border border-gray-100 shadow-sm">
+      <div className="md:hidden bg-white p-5 rounded-[24px] border border-gray-100 shadow-sm h-full flex flex-col">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-gray-900 text-lg font-normal">{title}</h3>
           <div className="text-[#0066FF]">
             <Icon className="w-6 h-6" strokeWidth={1.5} />
           </div>
         </div>
-        <p className="text-gray-600 text-sm leading-relaxed">
+        <p className="text-gray-600 text-sm leading-relaxed flex-1">
           {description}
         </p>
       </div>
@@ -114,15 +114,15 @@ const Benefits = () => {
     },
     {
       Icon: TrendingUp,
-      title: "Grow Your Revenue",
+      title: "Win More Plans",
       description:
-        "Identify wealth management opportunities among plan participants and streamline client onboarding.",
+        "Win more business by providing a unique value proposition to potential clients that you competitors cannot.",
     },
     {
       Icon: Users,
       title: "Enhance Stakeholder Communication",
       description:
-        "Improve collaboration with TPAs, record keepers, and plan sponsors through shared reports and automated updates.",
+        "Improve collaboration with TPAs, record keepers, and plan sponsors.",
     },
   ];
 

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -38,14 +38,68 @@ const features = [
   "Centralized Plan Data",
   "Plan Documents",
   "Automated Reporting",
-  "Participant Census Automation",
+  // "Participant Census Automation",
   "Plan Management Dashboard",
   "AI-Powered Features",
   "Top-Tier Security",
+  "Free Onboard and Training",
   "24/7/365 Support"
 ];
 
-const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/month", originalPrice }) => {
+const BillingToggle = ({ isAnnual, onToggle }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="flex items-center justify-center mb-12 md:mb-16"
+    >
+      <div className="relative bg-white/80 backdrop-blur-xl border border-gray-300 rounded-full p-1 shadow-lg">
+        <div className="flex items-center">
+          <button
+            onClick={() => onToggle(false)}
+            className={`relative px-6 py-2 rounded-full text-sm font-light transition-all duration-300 ${
+              !isAnnual 
+                ? 'text-white' 
+                : 'text-gray-600 hover:text-gray-800'
+            }`}
+          >
+            {!isAnnual && (
+              <motion.div
+                layoutId="billing-toggle"
+                className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full"
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+              />
+            )}
+            <span className="relative">Monthly</span>
+          </button>
+          <button
+            onClick={() => onToggle(true)}
+            className={`relative px-6 py-2 rounded-full text-sm font-light transition-all duration-300 ${
+              isAnnual 
+                ? 'text-white' 
+                : 'text-gray-600 hover:text-gray-800'
+            }`}
+          >
+            {isAnnual && (
+              <motion.div
+                layoutId="billing-toggle"
+                className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full"
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+              />
+            )}
+            <span className="relative">Annual</span>
+            <span className="relative ml-1 text-xs bg-green-500 text-white px-2 py-0.5 rounded-full">
+              Save 17%
+            </span>
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/month", originalPrice, annualPrice, annualOriginalPrice, isAnnual, isCustomPricing }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const navigate = useNavigate();
@@ -54,6 +108,19 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
     navigate('/contact-plansync');
     setTimeout(() => window.scrollTo(0, 0), 100);
   };
+
+  const displayPrice = isAnnual ? annualPrice : price;
+  const displayOriginalPrice = isAnnual ? annualOriginalPrice : originalPrice;
+  
+  // Handle priceSubtext for annual billing
+  let displayPriceSubtext;
+  if (isCustomPricing) {
+    displayPriceSubtext = "";
+  } else if (isAnnual) {
+    displayPriceSubtext = priceSubtext.includes("/plan/") ? "/plan/year" : "/year";
+  } else {
+    displayPriceSubtext = priceSubtext;
+  }
 
   return (
     <motion.div
@@ -79,19 +146,26 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
 
         <div className="mb-8">
           <h2 className="text-2xl font-light mb-4">{planRange}</h2>
-          <div className="flex items-baseline" style={{ gap: '0.25rem' }}>
-            {originalPrice && (
-              <span className="text-2xl font-light text-gray-400 line-through mr-2">${originalPrice}</span>
+          <div className="flex items-baseline justify-start" style={{ gap: '0.25rem' }}>
+            {displayOriginalPrice && (
+              <span className="text-2xl font-light text-gray-400 line-through mr-2">
+                {isCustomPricing ? displayOriginalPrice : `$${displayOriginalPrice}`}
+              </span>
             )}
-            <span className="text-4xl font-light">${price}</span>
-            <span className="text-gray-500 ml-2">{priceSubtext}</span>
+            <span className={`font-light ${isCustomPricing ? 'text-3xl' : 'text-4xl'}`}>
+              {isCustomPricing ? displayPrice : `$${displayPrice}`}
+            </span>
+            {displayPriceSubtext && (
+              <span className="text-gray-500">{displayPriceSubtext}</span>
+            )}
           </div>
-          {originalPrice && (
-            <p className="text-sm text-green-600 mt-3">Early Acceess Offer</p>
+          <p className="text-sm text-green-600 mt-3">Early Access Offer</p>
+          {isAnnual && (
+            <p className="text-sm text-blue-600 mt-2">Save 17% vs monthly billing</p>
           )}
         </div>
 
-        <div className="space-y-4 mb-8">
+        <div className="space-y-4 mb-8 flex-grow">
           <div className="p-3 bg-blue-50 rounded-xl">
             <p className="text-blue-600 text-sm font-medium text-center">
               All Features Included
@@ -109,28 +183,43 @@ const PricingTier = ({ planRange, price, isPopular, delay, priceSubtext = "/mont
           </div>
         </div>
 
-        <button 
-          onClick={handleButtonClick}
-          className="relative group w-full"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div className="relative bg-gradient-to-r from-blue-500 to-sky-400 text-white font-light py-3 px-6 rounded-full flex items-center justify-center gap-2">
-            <span>Book a Demo</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </div>
-        </button>
+        <div className="mt-auto">
+          <button 
+            onClick={handleButtonClick}
+            className="relative group w-full"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="relative bg-gradient-to-r from-blue-500 to-sky-400 text-white font-light py-3 px-6 rounded-full flex items-center justify-center gap-2">
+              <span>Book a Demo</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+            </div>
+          </button>
+        </div>
       </div>
     </motion.div>
   );
 };
 
-const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month", originalPrice }) => {
+const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month", originalPrice, annualPrice, annualOriginalPrice, isAnnual, isCustomPricing }) => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
     navigate('/contact-plansync');
     setTimeout(() => window.scrollTo(0, 0), 100);
   };
+
+  const displayPrice = isAnnual ? annualPrice : price;
+  const displayOriginalPrice = isAnnual ? annualOriginalPrice : originalPrice;
+  
+  // Handle priceSubtext for annual billing
+  let displayPriceSubtext;
+  if (isCustomPricing) {
+    displayPriceSubtext = "";
+  } else if (isAnnual) {
+    displayPriceSubtext = priceSubtext.includes("/plan/") ? "/plan/year" : "/year";
+  } else {
+    displayPriceSubtext = priceSubtext;
+  }
 
   return (
     <motion.div
@@ -141,7 +230,7 @@ const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month
     >
       <div className={`relative backdrop-blur-xl bg-white/80 p-6 rounded-xl border ${
         isPopular ? 'border-blue-500/50' : 'border-gray-300'
-      } shadow-lg`}>
+      } shadow-lg flex flex-col min-h-[400px]`}>
         {isPopular && (
           <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
             <div className="px-4 py-1 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full">
@@ -152,19 +241,26 @@ const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month
 
         <div className="text-center mb-6">
           <h2 className="text-xl font-light mb-3">{planRange}</h2>
-          <div className="flex items-baseline justify-center">
-            {originalPrice && (
-              <span className="text-xl font-light text-gray-400 line-through mr-2">${originalPrice}</span>
+          <div className="flex items-baseline justify-center min-h-[60px]">
+            {displayOriginalPrice && (
+              <span className="text-xl font-light text-gray-400 line-through mr-2">
+                {isCustomPricing ? displayOriginalPrice : `$${displayOriginalPrice}`}
+              </span>
             )}
-            <span className="text-3xl font-light">${price}</span>
-            <span className="text-gray-500 ml-2">{priceSubtext}</span>
+            <span className={`font-light ${isCustomPricing ? 'text-2xl' : 'text-3xl'}`}>
+              {isCustomPricing ? displayPrice : `$${displayPrice}`}
+            </span>
+            {displayPriceSubtext && (
+              <span className="text-gray-500">{displayPriceSubtext}</span>
+            )}
           </div>
-          {originalPrice && (
-            <p className="text-xs text-green-600 mt-1">Limited time offer</p>
+          <p className="text-xs text-green-600 mt-1">Early Access Offer</p>
+          {isAnnual && (
+            <p className="text-xs text-blue-600 mt-1">Save 17% vs monthly billing</p>
           )}
         </div>
 
-        <div className="space-y-3 mb-6">
+        <div className="space-y-3 mb-6 flex-grow">
           <div className="p-2 bg-blue-50 rounded-lg">
             <p className="text-blue-600 text-sm font-medium text-center">
               All Features Included
@@ -182,16 +278,18 @@ const MobilePricingTier = ({ planRange, price, isPopular, priceSubtext = "/month
           </div>
         </div>
 
-        <button 
-          onClick={handleButtonClick}
-          className="relative w-full"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full blur-sm opacity-75"></div>
-          <div className="relative bg-gradient-to-r from-blue-500 to-sky-400 text-white font-light py-2.5 px-4 rounded-full flex items-center justify-center gap-2">
-            <span>Book a Demo</span>
-            <ArrowRight className="w-4 h-4" />
-          </div>
-        </button>
+        <div className="mt-auto">
+          <button 
+            onClick={handleButtonClick}
+            className="relative w-full"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-400 rounded-full blur-sm opacity-75"></div>
+            <div className="relative bg-gradient-to-r from-blue-500 to-sky-400 text-white font-light py-2.5 px-4 rounded-full flex items-center justify-center gap-2">
+              <span>Book a Demo</span>
+              <ArrowRight className="w-4 h-4" />
+            </div>
+          </button>
+        </div>
       </div>
     </motion.div>
   );
@@ -265,26 +363,33 @@ const FeaturesList = () => {
 const PricingComponent = () => {
   const { scrollYProgress } = useScroll();
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const [isAnnual, setIsAnnual] = useState(false);
 
   const pricingTiers = [
     {
       planRange: "1-15 Plans Managed",
       price: 300,
       originalPrice: 400,
+      annualPrice: 3000,
+      annualOriginalPrice: 4800,
       isPopular: false
     },
     {
       planRange: "16-50 Plans Managed",
       price: 475,
       originalPrice: 600,
+      annualPrice: 4750,
+      annualOriginalPrice: 7200,
       isPopular: false
     },
     {
       planRange: "51+ Plans Managed",
-      price: '9.50',
-      originalPrice: 12,
+      price: "Let's Talk",
+      originalPrice: "",
+      annualPrice: "Let's Talk",
+      annualOriginalPrice: "",
       isPopular: false,
-      priceSubtext: "per plan/month"
+      isCustomPricing: true
     }
   ];
 
@@ -340,17 +445,20 @@ const PricingComponent = () => {
             </motion.p>
           </motion.div>
 
+          {/* Billing Toggle */}
+          <BillingToggle isAnnual={isAnnual} onToggle={setIsAnnual} />
+
           {/* Mobile Pricing Display */}
           <div className="block md:hidden space-y-6 mb-16">
             {pricingTiers.map((tier, index) => (
-              <MobilePricingTier key={index} {...tier} />
+              <MobilePricingTier key={index} {...tier} isAnnual={isAnnual} />
             ))}
           </div>
 
           {/* Desktop Pricing Display */}
           <div className="hidden md:grid md:grid-cols-3 gap-8 mb-20">
             {pricingTiers.map((tier, index) => (
-              <PricingTier key={index} {...tier} delay={index * 0.2} />
+              <PricingTier key={index} {...tier} delay={index * 0.2} isAnnual={isAnnual} isCustomPricing={tier.isCustomPricing} />
             ))}
           </div>
 

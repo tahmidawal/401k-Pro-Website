@@ -79,154 +79,219 @@ const FeatureShowcase = ({ media, title, description, isVideo, index }) => {
   );
 };
 
-const PlanViewDetail = ({ icon: Icon, title, description, details, index }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+const FeatureCard = ({ icon: Icon, title, description, details, index }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }} className="group relative h-full">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-400/10 rounded-xl sm:rounded-2xl blur-xl transform group-hover:scale-105 transition-transform duration-500"></div>
-      <div className="relative bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/20 shadow-lg h-full">
-        <div className="p-4 sm:p-8">
-          <div className="flex items-start space-x-4 sm:space-x-6">
-            <div className="relative w-10 h-10 sm:w-14 sm:h-14 flex-shrink-0">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-400/20 rounded-lg sm:rounded-xl blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
-              <div className="relative flex items-center justify-center w-full h-full bg-white rounded-lg sm:rounded-xl border border-white/50">
-                <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-blue-600" />
+    <motion.div 
+      variants={itemVariants}
+      className="group relative h-full"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-cyan-400/10 to-blue-600/10 rounded-2xl blur-xl transform group-hover:scale-105 transition-transform duration-500"></div>
+      <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl border border-white/30 shadow-xl h-full overflow-hidden">
+        {/* Header Section */}
+        <div className="p-8 pb-6">
+          <div className="flex items-start space-x-6 mb-6">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl blur-lg opacity-30 transform group-hover:scale-110 transition-transform duration-300"></div>
+              <div className="relative flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl shadow-lg">
+                <Icon className="w-8 h-8 text-white" />
               </div>
             </div>
-            <div className="flex-grow min-h-[80px] sm:min-h-[90px]">
-              <h3 className="text-lg sm:text-xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent mb-2 sm:mb-4">{title}</h3>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{description}</p>
+            <div className="flex-grow">
+              <h3 className="text-2xl font-light bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-3 leading-tight">{title}</h3>
+              <p className="text-gray-600 leading-relaxed text-lg">{description}</p>
             </div>
           </div>
         </div>
-        <div className="border-t border-gray-100">
-          <button onClick={() => setIsExpanded(!isExpanded)} className="w-full px-4 sm:px-6 py-2 sm:py-3 flex items-center justify-between">
-            <span className="text-xs sm:text-sm text-gray-500 transition-colors duration-300">{isExpanded ? 'Show less' : 'Learn more'}</span>
-            <ChevronDown className={`text-gray-400 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} size={16} />
-          </button>
-          <AnimatePresence>
-            {isExpanded && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-                className="px-4 sm:px-6 pb-4 sm:pb-6"
+
+        {/* Key Features Section */}
+        <div className="px-8 pb-8">
+          <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">Key Features</h4>
+          <div className="space-y-3">
+            {details.slice(0, 3).map((detail, idx) => (
+              <motion.div 
+                key={idx}
+                className="flex items-start space-x-3"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 + idx * 0.05 }}
               >
-                <ul className="list-disc list-inside space-y-2 sm:space-y-3">
-                  {details.map((detail, idx) => (
-                    <li key={idx} className="text-xs sm:text-sm text-gray-600">{detail}</li>
-                  ))}
-                </ul>
+                <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700 text-sm leading-relaxed">{detail}</span>
+              </motion.div>
+            ))}
+            {details.length > 3 && (
+              <motion.div 
+                className="flex items-center space-x-2 text-blue-600 text-sm font-medium pt-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isHovered ? 1 : 0.7 }}
+              >
+                <span>+ {details.length - 3} more features</span>
               </motion.div>
             )}
-          </AnimatePresence>
+          </div>
         </div>
+
+        {/* Hover Overlay */}
+        <AnimatePresence>
+          {isHovered && details.length > 3 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-0 bg-white/95 backdrop-blur-sm rounded-2xl p-8 flex flex-col justify-center"
+            >
+              <h4 className="text-xl font-light bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-6">{title}</h4>
+              <div className="space-y-3 max-h-64 overflow-y-auto">
+                {details.map((detail, idx) => (
+                  <motion.div 
+                    key={idx}
+                    className="flex items-start space-x-3"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                  >
+                    <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm leading-relaxed">{detail}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.div>
   );
 };
 
+const FeatureSection = ({ title, features, description }) => (
+  <motion.div 
+    variants={itemVariants}
+    className="mb-20"
+  >
+    <div className="text-center mb-12">
+      <h3 className="text-3xl font-light bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-4">{title}</h3>
+      <p className="text-lg text-gray-600 max-w-3xl mx-auto">{description}</p>
+    </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {features.map((feature, index) => (
+        <FeatureCard key={index} {...feature} index={index} />
+      ))}
+    </div>
+  </motion.div>
+);
+
 const ThreeSixtyDegreePlanView = () => {
-  const features = [
-      {
-        icon: Database,
-        title: "Client Information Hub",
-        description: "Centralize all essential client details for streamlined access and management.",
-        details: [
-          "Manage all client accounts in one place",
-          "Store contact information, plan details, and key stakeholders",
-          "Easily reference record keeper and TPA information",
-        ]
-      },
-      {
-        icon: Calendar,
-        title: "Plan Touchpoints Tracking",
-        description: "Automatically document and categorize all interactions with clients and stakeholders.",
-        details: [
-          "Track all interactions across plan sponsors, participants, record keepers, and TPAs",
-          "AI-powered rewriting for professionally formatted reports",
-          "Auto-add touchpoints by forwarding emails to the PlanSync email address",
-          "Visual dashboards to track client engagement levels",
-          "Seamlessly integrates into Quarterly and Annual Plan Review Reports",
-        ]
-      },
-      {
-        icon: FileText,
-        title: "Fiduciary Requirements Checklist",
-        description: "Promote Compliance with a structured checklist of all fiduciary obligations.",
-        details: [
-          "Built-in compliance calendar to stay ahead of deadlines",
-          "Assign requirements to the appropriate stakeholders",
-          "Deadline tracking and proactive monitoring",
-          "Customizable to include firm-specific requirements",
-          "Seamlessly integrates into Quarterly and Annual Plan Review Reports",
-        ]
-      },
-      {
-        icon: Settings,
-        title: "Plan Design & Elections",
-        description: "Digitally manage and track plan design features for each client.",
-        details: [
-          "Store all plan design details in one accessible location",
-          "Quick data querying and sorting for efficient insights",
-          "AI-powered PDF extraction from adoption agreements and plan highlights",
-          "Seamlessly integrates into Annual Plan Review Reports",
-        ]
-      },
-      {
-        icon: RefreshCcw,
-        title: "Plan Performance Monitoring",
-        description: "Analyze plan performance over time with AI-powered data extraction.",
-        details: [
-          "Track performance metrics and key plan indicators",
-          "Centralized repository for plan health and performance data",
-          "Automated PDF data extraction from record keeper reports",
-          "Seamlessly integrates into Annual Plan Review Reports",
-        ]
-      },
-      {
-        icon: Users,
-        title: "Advisor Service Schedule",
-        description: "Clearly communicate your service commitments to clients.",
-        details: [
-          "Document and manage advisor service commitments",
-          "Ensure transparency with structured service tracking",
-          "Seamlessly integrates into Annual Plan Review Reports",
-        ]
-      },
-      {
-        icon: DollarSign,
-        title: "Fee Schedule Transparency",
-        description: "Maintain a clear and structured breakdown of plan fees.",
-        details: [
-          "Easily communicate advisor, record keeper, and TPA fees",
-          "Improve fee transparency for plan sponsors",
-          "Seamlessly integrates into Annual Plan Review Reports",
-        ]
-      },
-      {
-        icon: Target,
-        title: "Participant Census & Risk Analysis",
-        description: "Gain deeper insights into plan participants and their financial profiles.",
-        details: [
-          "Automated participant data entry via PlanSync's census feature",
-          "Identify individual wealth advisory opportunities",
-          "Analyze mismatches between perceived and actual risk tolerance",
-          "Generate comprehensive risk tolerance reports",
-        ]
-      },
-      {
-        icon: TrendingUp,
-        title: "Client Prospecting & Lead Management",
-        description: "Track and manage potential clients with an integrated sales pipeline.",
-        details: [
-          "Organized lead tracking system",
-          "Pipeline management to convert prospects into clients",
-        ]
-      }
-    ];
+  const coreFeatures = [
+    {
+      icon: Database,
+      title: "Client Information Hub",
+      description: "Centralize all essential client details for streamlined access and management.",
+      details: [
+        "Manage all client accounts in one place",
+        "Store contact information, plan details, and key stakeholders",
+        "Easily reference record keeper and TPA information",
+      ]
+    },
+    {
+      icon: Calendar,
+      title: "Plan Touchpoints Tracking",
+      description: "Automatically document and categorize all interactions with clients and stakeholders.",
+      details: [
+        "Track all interactions across plan sponsors, participants, record keepers, and TPAs",
+        "AI-powered rewriting for professionally formatted reports",
+        "Auto-add touchpoints by forwarding emails to the PlanSync email address",
+        "Visual dashboards to track client engagement levels",
+        "Seamlessly integrates into Quarterly and Annual Plan Review Reports",
+      ]
+    },
+    {
+      icon: FileText,
+      title: "Fiduciary Requirements Checklist",
+      description: "Promote Compliance with a structured checklist of all fiduciary obligations.",
+      details: [
+        "Built-in compliance calendar to stay ahead of deadlines",
+        "Assign requirements to the appropriate stakeholders",
+        "Deadline tracking and proactive monitoring",
+        "Customizable to include firm-specific requirements",
+        "Seamlessly integrates into Quarterly and Annual Plan Review Reports",
+      ]
+    },
+    {
+      icon: Settings,
+      title: "Plan Design & Elections",
+      description: "Digitally manage and track plan design features for each client.",
+      details: [
+        "Store all plan design details in one accessible location",
+        "Quick data querying and sorting for efficient insights",
+        "AI-powered PDF extraction from adoption agreements and plan highlights",
+        "Seamlessly integrates into Annual Plan Review Reports",
+      ]
+    }
+  ];
+
+  const advancedFeatures = [
+    {
+      icon: RefreshCcw,
+      title: "Plan Performance Monitoring",
+      description: "Analyze plan performance over time with AI-powered data extraction.",
+      details: [
+        "Track performance metrics and key plan indicators",
+        "Centralized repository for plan health and performance data",
+        "Automated PDF data extraction from record keeper reports",
+        "Seamlessly integrates into Annual Plan Review Reports",
+      ]
+    },
+    {
+      icon: Users,
+      title: "Advisor Service Schedule",
+      description: "Clearly communicate your service commitments to clients.",
+      details: [
+        "Document and manage advisor service commitments",
+        "Ensure transparency with structured service tracking",
+        "Seamlessly integrates into Annual Plan Review Reports",
+      ]
+    },
+    {
+      icon: DollarSign,
+      title: "Fee Schedule Transparency",
+      description: "Maintain a clear and structured breakdown of plan fees.",
+      details: [
+        "Easily communicate advisor, record keeper, and TPA fees",
+        "Improve fee transparency for plan sponsors",
+        "Seamlessly integrates into Annual Plan Review Reports",
+      ]
+    },
+    {
+      icon: Target,
+      title: "Participant Census & Risk Analysis",
+      description: "Gain deeper insights into plan participants and their financial profiles.",
+      details: [
+        "Automated participant data entry via PlanSync's census feature",
+        "Identify individual wealth advisory opportunities",
+        "Analyze mismatches between perceived and actual risk tolerance",
+        "Generate comprehensive risk tolerance reports",
+      ]
+    }
+  ];
+
+  const businessFeatures = [
+    {
+      icon: TrendingUp,
+      title: "Client Prospecting & Lead Management",
+      description: "Track and manage potential clients with an integrated sales pipeline.",
+      details: [
+        "Organized lead tracking system",
+        "Pipeline management to convert prospects into clients",
+      ]
+    }
+  ];
 
   const showcases = [
     {
@@ -297,11 +362,25 @@ const ThreeSixtyDegreePlanView = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 auto-rows-fr px-4 md:px-8"
+        className="px-4 md:px-8 mb-20"
       >
-        {features.map((feature, index) => (
-          <PlanViewDetail key={index} {...feature} index={index} />
-        ))}
+        <FeatureSection 
+          title="Core Plan Management"
+          description="Essential tools for comprehensive 401(k) plan administration and client relationship management."
+          features={coreFeatures}
+        />
+        
+        <FeatureSection 
+          title="Advanced Analytics & Compliance"
+          description="Sophisticated features for performance monitoring, compliance tracking, and service transparency."
+          features={advancedFeatures}
+        />
+        
+        <FeatureSection 
+          title="Business Growth"
+          description="Tools to help grow your advisory practice and manage client relationships."
+          features={businessFeatures}
+        />
       </motion.div>
 
       <motion.div

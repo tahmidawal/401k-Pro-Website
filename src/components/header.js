@@ -312,14 +312,14 @@ const FeatureDropdown = ({ handleNavigation, isMobile = false }) => (
         handleNavigation={handleNavigation} 
         isMobile={isMobile}
       />
-      <DropdownItem 
+      {/* <DropdownItem 
         to="/participant-census" 
         text="Participant Census" 
         description="Streamlined participant data management"
         icon={UsersRound}
         handleNavigation={handleNavigation} 
         isMobile={isMobile}
-      />
+      /> */}
       <DropdownItem 
         to="/ai-integrations" 
         text="AI Integrations" 

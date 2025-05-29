@@ -37,7 +37,7 @@ const jobListings = [
   {
     title: "Sales Development Representative",
     icon: Briefcase,
-    salary: "$70,000 - $100,000+ OTE",
+    salary: "$60,000 - $100,000+ OTE",
     features: [
       "Drive sales of PlanSync's 401(k) management platform to financial advisors",
       "Develop relationships with potential clients and industry partners",

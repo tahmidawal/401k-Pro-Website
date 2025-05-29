@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, Phone, ChevronRight } from 'lucide-react';
 import Logo from '../img/PlanSync-No-Bg.png';
-import { IconBrandInstagram, IconBrandTwitter } from '@tabler/icons-react';
+import { IconBrandFacebook, IconBrandLinkedin } from '@tabler/icons-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -64,7 +64,7 @@ const SocialLink = ({ href, icon: Icon, label }) => (
   >
     <div className="absolute inset-0 bg-gray-100 rounded-full transition-transform duration-200 group-hover:scale-110" />
     <div className="relative flex items-center justify-center w-10 h-10">
-      <Icon size={18} className="text-gray-700 transition-colors duration-200 group-hover:text-blue-600" />
+      <Icon size={18} className="text-blue-500 transition-colors duration-200 group-hover:text-blue-600" />
     </div>
   </motion.a>
 );
@@ -126,9 +126,16 @@ const Footer = () => {
             <div className="text-center">
               <h3 className="text-2xl font-light mb-8">Connect</h3>
               <div className="flex justify-center space-x-8 mb-12">
-                <SocialLink href="#" icon={IconBrandTwitter} label="Twitter" />
-                <SocialLink href="https://www.linkedin.com/company/accessible-ai/?viewAsMember=true" icon={Linkedin} label="LinkedIn" />
-                <SocialLink href="#" icon={IconBrandInstagram} label="Instagram" />
+                <SocialLink
+                  href="https://www.linkedin.com/company/accessible-ai/?viewAsMember=true"
+                  icon={(props) => <IconBrandLinkedin {...props} className="text-blue-600" />}
+                  label="LinkedIn"
+                />
+                <SocialLink
+                  href="#"
+                  icon={(props) => <IconBrandFacebook {...props} className="text-blue-600" />}
+                  label="Facebook"
+                />
               </div>
               <div className="space-y-6 text-left">
                 <SimpleContactInfo 
@@ -214,9 +221,8 @@ const Footer = () => {
                 Connect
               </h3>
               <div className="flex space-x-3">
-                <SocialLink href="#" icon={IconBrandTwitter} label="Twitter" />
-                <SocialLink href="https://www.linkedin.com/company/accessible-ai/?viewAsMember=true" icon={Linkedin} label="LinkedIn" />
-                <SocialLink href="#" icon={IconBrandInstagram} label="Instagram" />
+                <SocialLink href="https://www.linkedin.com/company/accessible-ai/?viewAsMember=true" icon={IconBrandLinkedin} label="LinkedIn" />
+                <SocialLink href="https://www.facebook.com/profile.php?id=61576813559876" icon={IconBrandFacebook} label="Facebook" />
               </div>
               <div className="space-y-3 text-left">
                 <SimpleContactInfo 

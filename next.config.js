@@ -1,5 +1,6 @@
 module.exports = {
   images: {
-    domains: ['your-domain.com'],
+    domains: ['plansync.ai'],
   },
+  output: 'standalone',
 }; 

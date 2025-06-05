@@ -93,74 +93,95 @@ const SecurityCategory = ({ title, icon: Icon, features, index }) => (
 const Security = () => {
   const securityCategories = [
     {
-      title: "Network Security",
-      icon: Server,
-      features: [
-        "Virtual Private Cloud to isolate the application",
-        "Web Application Firewall in AWS",
-        "Content Delivery in HTTPS",
-        "AWS S3 encryption at rest",
-        "AWS S3 backup encryption at transmission"
-      ]
-    },
-    {
-      title: "Data Protection",
+      title: "Data Encryption",
       icon: Shield,
       features: [
-        "Encryption at rest for Database",
-        "Encryption at rest for app",
-        "User parametrized queries to prevent SQL Injections",
-        "HTTPonly cookies",
-        "Encrypt Cookies",
-        "Include Limits on Cookies"
+        "End-to-End Encryption with industry-standard TLS/SSL (256-bit)",
+        "AES-256 encryption for data at rest in databases",
+        "AWS S3 encrypted buckets for document storage",
+        "Encrypted transmission across all application layers",
+        "Secure encryption key management"
       ]
     },
     {
-      title: "Access Control",
+      title: "User Authentication",
       icon: Lock,
       features: [
+        "Strong password complexity requirements",
         "Multi-Factor Authentication (MFA)",
-        "JWT tokens",
-        "Automated logout",
-        "Role based access control"
+        "Secure session management with time-limited tokens",
+        "Login monitoring for suspicious activities",
+        "Automated logout for inactive sessions"
       ]
     },
     {
-      title: "Monitoring and Testing",
-      icon: Bell,
-      features: [
-        "AWS Cloudwatch",
-        "Amazon inspector for automated vulnerability testing",
-        "Regular security assessment and pen testing",
-        "Rate limiting on all API endpoints"
-      ]
-    },
-    {
-      title: "Backup and Recovery",
+      title: "Access Controls",
       icon: Database,
       features: [
-        "Regular backups",
-        "Regular rollbacks",
-        "Disaster Recovery Process",
-        "Backup system ready to be deployed"
+        "Role-based access control (RBAC)",
+        "Fine-grained permissions for document access",
+        "Comprehensive access logging for audit trails",
+        "Just-in-time access provisioning",
+        "Regular access reviews"
       ]
     },
     {
       title: "Application Security",
       icon: Code,
       features: [
-        "Containerize application into docker",
-        "Never let sensitive info be displayed on the error page",
-        "AWS Secrets manager or parameter store for .env files",
-        "AWS Secrets manager or parameter store for .env files backup",
-        "Rotate credentials every 3 days"
+        "Security-first architecture design",
+        "Regular penetration testing and vulnerability assessments",
+        "Protected API endpoints with rate limiting",
+        "Cross-Site Scripting (XSS) protection",
+        "SQL injection prevention with parameterized queries",
+        "Cross-Site Request Forgery (CSRF) protection"
       ]
     },
     {
-      title: "Data Management",
-      icon: Trash,
+      title: "Infrastructure Security",
+      icon: Server,
       features: [
-        "Have process for secure disposal of data"
+        "AWS Security with multi-layered protection",
+        "Geographic redundancy across multiple regions",
+        "Regular security patching and updates",
+        "Network segregation and isolation",
+        "Advanced firewall configurations",
+        "Real-time intrusion detection"
+      ]
+    },
+    {
+      title: "AI & Third-Party Security",
+      icon: Bell,
+      features: [
+        "Strict AI data handling practices",
+        "Limited AI data retention",
+        "Careful selection of AI providers",
+        "Rigorous security assessment for vendors",
+        "Minimal data sharing with third parties",
+        "Secure API connections for all integrations"
+      ]
+    },
+    {
+      title: "Compliance & Standards",
+      icon: Shield,
+      features: [
+        "Alignment with GDPR and CCPA regulations",
+        "Following NIST Cybersecurity Framework",
+        "OWASP security guidelines implementation",
+        "Regular compliance reviews",
+        "Ongoing regulatory monitoring"
+      ]
+    },
+    {
+      title: "Incident Response",
+      icon: Bell,
+      features: [
+        "Dedicated security response team",
+        "Documented incident response procedures",
+        "Clear user notification process",
+        "Regular backups with encryption",
+        "Comprehensive disaster recovery planning",
+        "Resilient cloud infrastructure"
       ]
     }
   ];
@@ -168,24 +189,31 @@ const Security = () => {
   // SEO data
   const seoKeywords = [
     '401k security',
-    'AWS security for 401k platform',
-    'data protection',
-    'encrypted backups',
-    'MFA for retirement plan',
-    'pen testing 401k software',
-    'containerized application security',
+    'data encryption',
+    'multi-factor authentication',
+    'AWS security infrastructure',
+    'GDPR compliance',
+    'CCPA compliance',
+    'role-based access control',
+    'incident response',
+    'AI data security',
+    'financial data protection',
+    'NIST security framework',
+    'penetration testing',
+    'secure authentication',
+    'data privacy',
   ].join(', ');
 
   // Structured Data (JSON-LD)
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Enterprise-Grade Security | PlanSync',
+    name: 'Security and Privacy | PlanSync',
     description:
-      'Explore advanced security measures that protect your data. Features include network security, data protection, access control, backups, and application security for 401(k) plan management.',
+      'PlanSync implements comprehensive security measures including encryption, multi-factor authentication, access controls, and continuous monitoring to ensure the protection of your sensitive financial data.',
     about: {
       '@type': 'Thing',
-      name: 'Security'
+      name: 'Data Security and Privacy'
     }
   };
 
@@ -193,31 +221,31 @@ const Security = () => {
     <div className="relative min-h-screen overflow-hidden font-['Roboto',sans-serif] font-light">
       {/* SEO Helmet */}
       <Helmet>
-        <title>Enterprise-Grade Security | PlanSync</title>
+        <title>Security and Privacy | PlanSync</title>
         <meta
           name="description"
-          content="Your data's safety is our top priority. Learn about our comprehensive security measures, including network security, data protection, access control, and automated backups."
+          content="PlanSync protects your data with end-to-end encryption, role-based access control, and enterprise-grade infrastructure security. Learn about our comprehensive security measures that ensure the confidentiality and integrity of your financial information."
         />
         <meta name="keywords" content={seoKeywords} />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Enterprise-Grade Security | PlanSync" />
+        <meta property="og:title" content="Security and Privacy | PlanSync" />
         <meta
           property="og:description"
-          content="Protecting your 401k data with encryption, MFA, and robust infrastructure. Explore our security features for the utmost data protection."
+          content="Discover how PlanSync safeguards your data with advanced encryption, multi-factor authentication, and compliance with industry security standards. Your financial data security is our top priority."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://your-domain.com/security" />
-        <meta property="og:image" content="https://your-domain.com/images/security-og.jpg" />
+        <meta property="og:url" content="https://plansync.ai/security" />
+        <meta property="og:image" content="https://plansync.ai/images/security-og.jpg" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Enterprise-Grade Security | PlanSync" />
+        <meta name="twitter:title" content="Security and Privacy | PlanSync" />
         <meta
           name="twitter:description"
-          content="Robust encryption, frequent backups, and advanced monitoring to safeguard your 401k data. Learn about our security features."
+          content="PlanSync implements comprehensive security measures including encryption, access controls, and compliance with data protection regulations to keep your financial information safe."
         />
-        <meta name="twitter:image" content="https://your-domain.com/images/security-og.jpg" />
+        <meta name="twitter:image" content="https://plansync.ai/images/security-og.jpg" />
 
         {/* Additional meta tags */}
         <meta name="robots" content="index, follow" />
@@ -229,7 +257,7 @@ const Security = () => {
 
         <link
           rel="canonical"
-          href="https://your-domain.com/security"
+          href="https://plansync.ai/security"
         />
 
         {/* Structured Data */}
@@ -268,9 +296,11 @@ const Security = () => {
           </motion.h1>
           <motion.p
             variants={itemVariants}
-            className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-12 px-4"
+            className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8 sm:mb-12 px-4"
           >
-            Your data's safety is our top priority
+            At PlanSync.ai, we understand that the security and privacy of your data are paramount. 
+            We've implemented comprehensive security measures to protect your information and ensure 
+            a secure experience while using our application.
           </motion.p>
         </motion.div>
 
@@ -282,6 +312,13 @@ const Security = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto space-y-4 sm:space-y-6"
         >
+          <motion.h2
+            variants={itemVariants}
+            className="text-2xl sm:text-3xl font-light text-center mb-8 sm:mb-10"
+          >
+            Comprehensive Security Features
+          </motion.h2>
+          
           {securityCategories.map((category, index) => (
             <SecurityCategory
               key={index}
@@ -289,6 +326,53 @@ const Security = () => {
               {...category}
             />
           ))}
+        </motion.div>
+
+        {/* Contact and Support Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mt-16 sm:mt-24"
+        >
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-cyan-400/5 rounded-xl sm:rounded-3xl blur-xl"></div>
+            <div className="relative bg-white/80 backdrop-blur-sm p-6 sm:p-12 rounded-xl sm:rounded-3xl border border-white/20 shadow-lg">
+              <motion.h2
+                variants={itemVariants}
+                className="text-2xl sm:text-3xl font-light text-center mb-4 sm:mb-6"
+              >
+                Contact and Support
+              </motion.h2>
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 max-w-3xl mx-auto"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-medium mb-1">Email Us</h3>
+                  <p className="text-gray-600 mb-2">For security concerns and inquiries</p>
+                  <a href="mailto:security@plansync.ai" className="text-blue-600 hover:underline">security@plansync.ai</a>
+                </div>
+                
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-medium mb-1">Support Portal</h3>
+                  <p className="text-gray-600 mb-2">Access our security resources</p>
+                  <a href="https://support.plansync.ai/security" className="text-blue-600 hover:underline">support.plansync.ai/security</a>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Commitment Section */}
@@ -310,9 +394,17 @@ const Security = () => {
               </motion.h2>
               <motion.p
                 variants={itemVariants}
+                className="text-sm sm:text-base text-gray-600 text-center font-light max-w-3xl mx-auto mb-4"
+              >
+                We are committed to maintaining the highest standards of security to protect your sensitive information.
+                Our security measures are continuously evaluated and enhanced to address evolving threats in the digital landscape.
+              </motion.p>
+              <motion.p
+                variants={itemVariants}
                 className="text-sm sm:text-base text-gray-600 text-center font-light max-w-3xl mx-auto"
               >
-                We are committed to maintaining the highest standards of security to protect our organization and the privacy of its clients. Our security controls are designed and implemented to ensure the confidentiality, integrity, and availability of your data.
+                If you have any questions about our security practices or need to report a security concern, 
+                please contact our security team at <a href="mailto:security@plansync.ai" className="text-blue-600 hover:underline">security@plansync.ai</a>.
               </motion.p>
             </div>
           </div>

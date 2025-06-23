@@ -43,13 +43,13 @@ const DemoVideoSection = () => {
     {
       id: 'explainer',
       title: 'PlanSync Explainer',
-      src: 'https://www.youtube.com/embed/V9L08xXnFn8?enablejsapi=1',
+      src: 'https://youtu.be/dBquGJt31pk',
       description: 'Learn how PlanSync streamlines plan management and enhances compliance for financial advisors.'
     },
     {
       id: 'feature-overview',
       title: 'Live Demo',
-      src: 'https://www.youtube.com/embed/qJ9SYE9Yne0?enablejsapi=1',
+      src: 'https://youtu.be/S9-d6QsfbxU',
       description: 'Explore the key features that make PlanSync the leading platform for 401(k) plan management.'
     }
   ];
